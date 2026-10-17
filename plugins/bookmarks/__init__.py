@@ -32,7 +32,6 @@ import xlgui
 from xlgui.guiutil import pixbuf_from_data
 from xlgui.widgets import dialogs, menu
 
-
 LOGGER = logging.getLogger(__name__)
 
 
@@ -52,7 +51,7 @@ class Bookmark:
     ):
         """
         Creates a bookmark for current track/position if path or time are
-        None. Creates a bookmark for the given track/positon otherwise.
+        None. Creates a bookmark for the given track/position otherwise.
         """
         if not path:
             # get currently playing track
@@ -92,7 +91,7 @@ class Bookmark:
                 if image:
                     try:
                         self.__cover_pixbuf = pixbuf_from_data(image, size=(16, 16))
-                    except GLib.GError:
+                    except GLib.Error:
                         LOGGER.warning('Could not load cover')
             else:
                 self.__cover_pixbuf = None
@@ -280,7 +279,7 @@ class BookmarksManager:
         if not self.menu:
             return  # this plugin is shutting down
 
-        for (key, pos) in loaded_bookmarks:
+        for key, pos in loaded_bookmarks:
             self.__add_bookmark(key, pos, save_db=False)
 
     def __save_db(self):
@@ -325,7 +324,7 @@ class BookmarksPlugin:
 
         # add tools menu items
         providers.register(
-            'menubar-tools-menu', _sep('plugin-sep', ['track-properties'])
+            'menubar-tools-menu', _sep('plugin-sep', ['slow-scan-collection'])
         )
         item = _smi(
             'bookmarks',

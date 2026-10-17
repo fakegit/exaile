@@ -35,7 +35,6 @@ from xlgui import main
 from .client import DAAPClient
 from . import daapclientprefs
 
-
 logger = logging.getLogger(__name__)
 
 _smi = menu.simple_menu_item
@@ -69,7 +68,7 @@ except Exception:
     AUTH = True
 
 
-class DaapZeroconfInterface(GObject.GObject):
+class DaapZeroconfInterface(GObject.Object):
     __gsignals__ = {
         'connect': (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_PYOBJECT,))
     }
@@ -186,7 +185,7 @@ class DaapZeroconfInterface(GObject.GObject):
         """
         Sets up the zeroconf listener.
         """
-        GObject.GObject.__init__(self)
+        GObject.Object.__init__(self)
         self.services = {}
         self.menu = _menu
 
@@ -236,7 +235,7 @@ class DaapHistory(common.LimitedCache):
                 except (IOError, EOFError):
                     # no file
                     pass
-        except (IOError):
+        except IOError:
             # file not present
             pass
 
@@ -544,10 +543,8 @@ class DaapConnection:
                         buttons=Gtk.ButtonsType.OK,
                         message_type=Gtk.MessageType.INFO,
                         modal=True,
-                        text=_(
-                            """This server does not support multiple connections.
-You must stop playback before downloading songs."""
-                        ),
+                        text=_("""This server does not support multiple connections.
+You must stop playback before downloading songs."""),
                         transient_for=main.mainwindow().window,
                     )
                     return
@@ -603,7 +600,7 @@ class DaapLibrary(collection.Library):
         self.scanning = False
         # return True
 
-    # Needed to be overriden for who knows why (exceptions)
+    # Needed to be overridden for who knows why (exceptions)
     def _count_files(self):
         count = 0
         if self.daap_share:
@@ -720,7 +717,6 @@ class NetworkPanel(CollectionPanel):
 
 
 class DaapClientPlugin:
-
     __exaile = None
     __manager = None
 
@@ -736,7 +732,7 @@ class DaapClientPlugin:
         menu_ = menu.Menu(None)
 
         providers.register(
-            'menubar-tools-menu', _sep('plugin-sep', ['track-properties'])
+            'menubar-tools-menu', _sep('plugin-sep', ['slow-scan-collection'])
         )
 
         item = _smi('daap', ['plugin-sep'], _('Connect to DAAP...'), submenu=menu_)

@@ -25,15 +25,17 @@
 # do so. If you do not wish to do so, delete this exception statement
 # from your version.
 
+from typing import Literal
+
 from gi.repository import GLib
 from gi.repository import Gtk
 from gi.repository import Pango
 
 from xl import event, formatter, main, settings, xdg
-from xl.nls import gettext as _
+from xl.nls import gettext as _, ngettext
 import xlgui
 from xlgui import cover, guiutil
-from xlgui.widgets import playlist
+from xlgui.widgets import playlist, queue
 from xlgui.widgets.playback import PlaybackProgressBar
 
 
@@ -46,9 +48,9 @@ class TrackInfoPane(Gtk.Bin):
         Gtk.Bin.__init__(self)
         self.__player = player
 
-        builder = Gtk.Builder()
-        builder.add_from_file(xdg.get_data_path('ui', 'widgets', 'track_info.ui'))
-
+        builder = guiutil.get_builder(
+            xdg.get_data_path('ui', 'widgets', 'track_info.ui')
+        )
         info_box = builder.get_object('info_box')
         info_box.get_parent().remove(info_box)
         self.add(info_box)
@@ -235,7 +237,6 @@ class TrackInfoPane(Gtk.Bin):
     def __update_widget_state(self):
         if self.__display_progress:
             if self.__track == self.__player.current and not self.__player.is_stopped():
-
                 if self.__player.is_paused():
                     icon_name = 'media-playback-pause'
                 else:
@@ -379,6 +380,7 @@ class TrackToolTip(TrackInfoPane, ToolTip):
 
         self.set_border_width(6)
         self.info_label.set_ellipsize(Pango.EllipsizeMode.NONE)
+        self.info_label.set_selectable(False)
         self.cover.set_no_show_all(False)
         self.cover.show_all()
 
@@ -412,9 +414,13 @@ class StatusbarTextFormatter(formatter.Formatter):
         """
         Retrieves the collection count
         """
+        if not settings.get_option('gui/show_status_bar_collection_count', True):
+            return ''
         return _('%d in collection') % main.exaile().collection.get_count()
 
-    def get_playlist_count(self, selection='none'):
+    def get_playlist_count(
+        self, selection: Literal['none', 'override', 'only'] = 'none'
+    ):
         """
         Retrieves the count of tracks in either the
         full playlist or the current selection
@@ -422,43 +428,44 @@ class StatusbarTextFormatter(formatter.Formatter):
         :param selection: 'none' for playlist count only,
             'override' for selection count if tracks are selected,
             playlist count otherwise, 'only' for selection count only
-        :type selection: string
         """
+        if not settings.get_option(
+            'gui/show_status_bar_count_tracks_in_playlist', True
+        ):
+            return ""
+
         page = xlgui.main.get_selected_page()
 
-        if not isinstance(page, playlist.PlaylistPage):
-            return ''
+        if not isinstance(page, playlist.PlaylistPageBase):
+            return ""
 
         playlist_count = len(page.playlist)
         selection_count = page.view.get_selection_count()
 
         if selection == 'none':
-            count = playlist_count
-            text = _('%d showing')
+            return ngettext("%d showing", "%d showing", playlist_count) % playlist_count
         elif selection == 'override':
             if selection_count > 1:
-                count = selection_count
-                text = _('%d selected')
+                return (
+                    ngettext("%d selected", "%d selected", selection_count)
+                    % selection_count
+                )
             else:
-                count = playlist_count
-                text = _('%d showing')
+                return (
+                    ngettext("%d showing", "%d showing", playlist_count)
+                    % playlist_count
+                )
         elif selection == 'only':
-            if selection_count > 1:
-                count = selection_count
-                text = _('%d selected')
-            else:
-                count = 0
-        else:
-            raise ValueError(
-                'Invalid argument "%s" passed to parameter '
-                '"selection" for "playlist_count", possible arguments are '
-                '"none", "override" and "only"' % selection
+            return (
+                ngettext("%d selected", "%d selected", selection_count)
+                % selection_count
             )
 
-        if count == 0:
-            return ''
-
-        return text % count
+        raise ValueError(
+            'Invalid argument "%s" passed to parameter '
+            '"selection" for "playlist_count", possible arguments are '
+            '"none", "override" and "only"' % selection
+        )
 
     def get_playlist_duration(self, format='short', selection='none'):
         """
@@ -475,9 +482,12 @@ class StatusbarTextFormatter(formatter.Formatter):
             playlist count otherwise, 'only' for selection count only
         :type selection: string
         """
+        if not settings.get_option('gui/show_status_bar_time_in_playlist', True):
+            return ''
+
         page = xlgui.main.get_selected_page()
 
-        if not isinstance(page, playlist.PlaylistPage):
+        if not isinstance(page, playlist.PlaylistPageBase):
             return ''
 
         playlist_duration = sum(t.get_tag_raw('__length') or 0 for t in page.playlist)
@@ -506,9 +516,6 @@ class StatusbarTextFormatter(formatter.Formatter):
                 '"none", "override" and "only"' % selection
             )
 
-        if duration == 0:
-            return ''
-
         return formatter.LengthTagFormatter.format_value(duration, format)
 
 
@@ -522,14 +529,8 @@ class Statusbar:
         Initialises the status bar
         """
         self.status_bar = status_bar
-        self.formatter = StatusbarTextFormatter(
-            settings.get_option(
-                'gui/statusbar_info_format',
-                '${playlist_count:selection=override, suffix= }'
-                '${playlist_duration:selection=override, format=long, prefix=(, suffix=)\\, }'
-                '$collection_count',
-            )
-        )
+
+        self.formatter = StatusbarTextFormatter(self._get_substitutions())
 
         self.info_label = Gtk.Label()
 
@@ -539,6 +540,56 @@ class Statusbar:
 
         self.context_id = self.status_bar.get_context_id('status')
         self.message_ids = []
+
+        event.add_callback(self._on_option_set, "gui_option_set")
+
+    def _get_substitutions(self) -> str:
+        sub = settings.get_option('gui/statusbar_info_format', '')
+
+        if sub:
+            return sub
+
+        show_playlist_count = settings.get_option(
+            'gui/show_status_bar_count_tracks_in_playlist', True
+        )
+        show_playlist_duration = settings.get_option(
+            'gui/show_status_bar_time_in_playlist', True
+        )
+        show_collection_count = settings.get_option(
+            'gui/show_status_bar_collection_count', True
+        )
+
+        if show_playlist_count:
+            sub = sub + '${playlist_count:selection=override}'
+
+        if show_playlist_count and show_playlist_duration:
+            sub = (
+                sub
+                + ' ${playlist_duration:selection=override, format=long, prefix=(, suffix=), pad=0 }'
+            )
+
+        elif not show_playlist_count and show_playlist_duration:
+            sub = sub + '${playlist_duration:selection=override, format=long, pad=0 }'
+
+        if show_collection_count and (show_playlist_count or show_playlist_duration):
+            sub = sub.rstrip() + ', '
+
+        if show_collection_count:
+            sub = sub + '$collection_count'
+
+        return sub
+
+    def _on_option_set(self, name, object, option: str):
+        if not option in [
+            'gui/show_status_bar_collection_count',
+            'gui/show_status_bar_count_tracks_in_playlist',
+            'gui/show_status_bar_time_in_playlist',
+        ]:
+            return
+
+        self.formatter = StatusbarTextFormatter(self._get_substitutions())
+
+        self.update_info()
 
     def set_status(self, status, timeout=0):
         """
@@ -567,7 +618,18 @@ class Statusbar:
         """
         Updates the info label text
         """
+        if settings.get_option('gui/show_status_bar', True):
+            self.status_bar.show()
+        else:
+            self.status_bar.hide()
+
         self.info_label.set_label(self.formatter.format())
+
+    def show(self):
+        self.status_bar.show()
+
+    def hide(self):
+        self.status_bar.hide()
 
 
 # TODO: Check if we can get a progress indicator in here somehow
@@ -578,8 +640,7 @@ class Splash:
     """
 
     def __init__(self):
-        builder = Gtk.Builder()
-        builder.add_from_file(xdg.get_data_path('ui', 'splash.ui'))
+        builder = guiutil.get_builder(xdg.get_data_path('ui', 'splash.ui'))
 
         image = builder.get_object('splash_image')
         image.set_from_file(xdg.get_data_path('images', 'splash.png'))

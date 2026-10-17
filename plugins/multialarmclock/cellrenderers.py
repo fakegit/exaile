@@ -110,9 +110,9 @@ class CellRendererDays(Gtk.CellRendererText):
             row[0] = self.days[i]
 
         # position the popup below the edited cell (and try hard to keep the popup within the toplevel window)
-        (tree_x, tree_y) = treeview.get_bin_window().get_origin()[1:]
-        (tree_w, tree_h) = treeview.get_window().get_geometry()[2:4]
-        (my_w, my_h) = self.view_window.get_window().get_geometry()[2:4]
+        tree_x, tree_y = treeview.get_bin_window().get_origin()[1:]
+        tree_w, tree_h = treeview.get_window().get_geometry()[2:4]
+        my_w, my_h = self.view_window.get_window().get_geometry()[2:4]
         x = tree_x + min(cell_area.x, tree_w - my_w + treeview.get_visible_rect().x)
         y = tree_y + min(cell_area.y, tree_h - my_h + treeview.get_visible_rect().y)
         self.view_window.move(x, y)
@@ -133,7 +133,7 @@ class CellRendererDays(Gtk.CellRendererText):
 
     def _key_pressed(self, view, event):
         '''Key pressed event handler, finish editing on Return'''
-        # event == None for day selected via doubleclick
+        # event == None for day selected via double-click
         if (
             not event
             or event.type == Gdk.EventType.KEY_PRESS

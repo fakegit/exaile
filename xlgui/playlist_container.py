@@ -325,15 +325,16 @@ class PlaylistNotebook(SmartNotebook):
         and selects it and its containing tab page
         """
         for n, page in enumerate(self):
-            if not isinstance(page, PlaylistPage):
+            if not isinstance(page, PlaylistPage) and not isinstance(page, QueuePage):
                 continue
 
             if page.playlist is not self.player.queue.current_playlist:
                 continue
 
             self.set_current_page(n)
-            page.view.scroll_to_cell(page.playlist.current_position)
-            page.view.set_cursor(page.playlist.current_position)
+            if page.playlist.current_position > -1:
+                page.view.scroll_to_cell(page.playlist.current_position)
+                page.view.set_cursor(page.playlist.current_position)
             return True
 
     def on_page_added(self, notebook, child, page_number):
@@ -353,7 +354,6 @@ class PlaylistNotebook(SmartNotebook):
 
         # closed tab history
         if not self._moving_tab:
-
             if settings.get_option('gui/save_closed_tabs', True) and isinstance(
                 child, PlaylistPage
             ):
@@ -430,11 +430,11 @@ class PlaylistNotebook(SmartNotebook):
             except IndexError:
                 return None
         elif playlist is not None:
-            for (pl, item) in self.tab_history:
+            for pl, item in self.tab_history:
                 if pl == playlist:
                     return (pl, item)
         elif item_name is not None:
-            for (pl, item) in self.tab_history:
+            for pl, item in self.tab_history:
                 if item.name == item_name:
                     return (pl, item)
 
@@ -521,6 +521,8 @@ class PlaylistContainer(Gtk.Box):
         )
 
         self.notebooks[1].set_add_tab_on_empty(False)
+        self._last_focused_notebook = self.notebooks[0]
+        self._page_focus_handlers = {}
 
         # add notebooks to self
         self.pack_start(self.notebooks[0], True, True, 0)
@@ -546,9 +548,9 @@ class PlaylistContainer(Gtk.Box):
             _('_Move to Other View'),
             None,
             lambda w, n, p, c: self._move_tab(p.tab),
-            condition_fn=lambda n, p, c: True
-            if p.tab.notebook in self.notebooks
-            else False,
+            condition_fn=lambda n, p, c: (
+                True if p.tab.notebook in self.notebooks else False
+            ),
         )
         providers.register('playlist-tab-context-menu', item)
         providers.register('queue-tab-context', item)
@@ -556,11 +558,54 @@ class PlaylistContainer(Gtk.Box):
         # connect events
         for notebook in self.notebooks:
             notebook.connect('page-reordered', self.on_page_reordered)
-            notebook.connect_after(
-                'page-removed', lambda *a: self._update_notebook_display()
+            notebook.connect('focus-in-event', self._on_notebook_focus_in, notebook)
+            notebook.connect('switch-page', self._on_notebook_switch_page)
+            notebook.connect('page-added', self._on_notebook_page_added)
+            notebook.connect_after('page-removed', self._on_notebook_page_removed)
+            for page in notebook:
+                self._watch_page_focus(notebook, page)
+
+        self._update_notebook_display()
+
+    def _remember_notebook(self, notebook):
+        self._last_focused_notebook = notebook
+
+    def _on_notebook_focus_in(self, widget, event, notebook):
+        self._remember_notebook(notebook)
+        return False
+
+    def _on_notebook_switch_page(self, notebook, page, page_num):
+        self._remember_notebook(notebook)
+
+    def _on_notebook_page_added(self, notebook, page, page_num):
+        self._watch_page_focus(notebook, page)
+
+    def _on_notebook_page_removed(self, notebook, page, page_num):
+        self._unwatch_page_focus(page)
+
+        if notebook is self._last_focused_notebook and notebook.get_n_pages() == 0:
+            self._last_focused_notebook = next(
+                (item for item in self.notebooks if item.get_n_pages() > 0),
+                self.notebooks[0],
             )
 
         self._update_notebook_display()
+
+    def _watch_page_focus(self, notebook, page):
+        view = getattr(page, 'view', None)
+        if view is not None and page not in self._page_focus_handlers:
+            handler_id = view.connect(
+                'focus-in-event',
+                self._on_notebook_focus_in,
+                notebook,
+            )
+            self._page_focus_handlers[page] = (view, handler_id)
+
+    def _unwatch_page_focus(self, page):
+        handler = self._page_focus_handlers.pop(page, None)
+        if handler is not None:
+            view, handler_id = handler
+            view.disconnect(handler_id)
 
     def _move_tab(self, tab):
         if tab.notebook is self.notebooks[0]:
@@ -624,9 +669,10 @@ class PlaylistContainer(Gtk.Box):
         """
         if self.paned.get_parent() is not None:
             focus = self.paned.get_focus_child()
-            if focus is not None:
+            if focus in self.notebooks:
+                self._remember_notebook(focus)
                 return focus
-        return self.notebooks[0]
+        return self._last_focused_notebook
 
     def get_current_tab(self):
         """

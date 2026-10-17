@@ -1,4 +1,5 @@
 # Copyright (C) 2008-2010 Adam Olsen
+# Copyright (C) 2025 Johannes Sasongko <johannes sasongko org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,31 +26,28 @@
 # from your version.
 
 
-import wave
-import sunau
-import os
+import wave, logging
+
+logger = logging.getLogger(__name__)
 
 from xl.metadata._base import BaseFormat, NotReadable
-
-type_map = {"au": sunau, "wav": wave}
 
 
 class WavFormat(BaseFormat):
     writable = False
 
     def load(self):
-        ext = os.path.splitext(self.loc)[1][1:].lower()
-        opener = type_map[ext]
-
         try:
             fp = open(self.loc, 'rb')
         except IOError:
             raise NotReadable
 
         try:
-            with fp:
-                f = opener.open(fp)
-                length = f.getnframes() // f.getframerate()
-            self.mutagen = {'__bitrate': -1, '__length': length}
-        except (IOError, KeyError):
-            self.mutagen = {'__bitrate': -1, '__length': -1}
+            with wave.open(fp) as f:
+                nchannels, sampwidth, framerate, nframes = f.getparams()[:4]
+        except Exception as e:
+            logger.info("Error reading: %s. Error: %s.", self.loc, e)
+        else:
+            bitrate = framerate * nchannels * sampwidth * 8
+            length = nframes / framerate
+            self.mutagen = {'__bitrate': bitrate, '__length': length}

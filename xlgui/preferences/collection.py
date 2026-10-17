@@ -14,9 +14,11 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-from xl import xdg
+from xl import xdg, main, metadata, settings
 from xl.nls import gettext as _
 from xlgui.preferences import widgets
+from xlgui import progress
+from xl.common import SimpleProgressThread
 
 name = _('Collection')
 icon = 'folder-music'
@@ -74,6 +76,161 @@ class CollectionStripArtistPreference(widgets.ListPreference):
 class FileBasedCompilationsPreference(widgets.CheckPreference):
     default = True
     name = 'collection/file_based_compilations'
+
+
+class WriteRatingToAudioFileMetadataPreference(widgets.CheckPreference):
+    default = False
+    name = 'collection/write_rating_to_audio_file_metadata'
+
+
+class WriteRatingToAudioFileMetadataPOPMemail(widgets.Preference, widgets.Conditional):
+    default = ""
+    name = 'collection/write_rating_to_audio_file_metadata_popm_mail'
+    condition_preference_name = 'collection/write_rating_to_audio_file_metadata'
+
+    def __init__(self, preferences, widget):
+        widgets.Preference.__init__(self, preferences, widget)
+        widgets.Conditional.__init__(self)
+
+    def on_check_condition(self):
+        return self.condition_widget.get_active() is True
+
+
+class WriteRatingToAudioFileMetadataSyncNow(widgets.Button, widgets.Conditional):
+    default = ""
+    name = "collection/write_rating_to_audio_file_metadata_sync_now"
+    condition_preference_name = 'collection/write_rating_to_audio_file_metadata'
+
+    def __init__(self, preferences, widget):
+        widgets.Button.__init__(self, preferences, widget)
+        widgets.Conditional.__init__(self)
+        self.progress = None
+        self.scan_thread = None
+        self.monitor = None
+
+    def on_check_condition(self):
+        return self.condition_widget.get_active() is True
+
+    def on_clicked(self, button):
+        if self.progress:
+            return
+
+        curr_page = self.preferences.last_page
+        box = self.preferences.builders[curr_page].get_object(
+            'collection/write_rating_to_audio_file_metadata_progress'
+        )
+        self.progress = progress.ProgressManager(box)
+
+        self.scan_thread = SimpleProgressThread(
+            self.track_scan,
+        )
+        self.scan_thread.connect('done', self.on_done)
+        self.monitor = self.progress.add_monitor(
+            self.scan_thread,
+            _("Migrating ratings to audio file metadata"),
+            'document-open',
+        )
+
+        box.show()
+
+    def track_scan(self):
+        exaile = main.exaile()
+        collection = exaile.collection
+        total = len(collection.tracks)
+        i = 0
+
+        for track in collection.tracks:
+            trax = collection.tracks[track]
+            format_data = metadata.get_format(track)
+
+            if '__rating' in format_data.tag_mapping:
+                rating = trax.get_rating()
+                if rating > 0:
+                    trax.set_rating(rating)
+
+            i += 1
+            yield i, total
+
+    def on_done(self, a):
+        self.progress.remove_monitor(self.monitor)
+        self.progress = None
+
+
+class UseLegacyMetadataMappingPreference(widgets.CheckPreference):
+    default = False
+    name = 'collection/use_legacy_metadata_mapping'
+
+
+class UseLegacyMetadataMappingSyncNow(widgets.Button, widgets.Conditional):
+    default = ""
+    name = "collection/use_legacy_metadata_mapping_sync_now"
+    condition_preference_name = 'collection/use_legacy_metadata_mapping'
+
+    def __init__(self, preferences, widget):
+        widgets.Button.__init__(self, preferences, widget)
+        widgets.Conditional.__init__(self)
+        self.progress = None
+        self.scan_thread = None
+        self.monitor = None
+
+    def on_check_condition(self):
+        return self.condition_widget.get_active() is True
+
+    def on_clicked(self, button):
+        if self.progress:
+            return
+
+        curr_page = self.preferences.last_page
+        box = self.preferences.builders[curr_page].get_object(
+            'collection/use_legacy_metadata_mapping_progress'
+        )
+        self.progress = progress.ProgressManager(box)
+
+        self.scan_thread = SimpleProgressThread(
+            self.track_scan,
+        )
+        self.scan_thread.connect('done', self.on_done)
+        self.monitor = self.progress.add_monitor(
+            self.scan_thread,
+            _("Migrating metadata"),
+            'document-open',
+        )
+
+        box.show()
+
+    def track_scan(self):
+        from xl.metadata import flac, ogg
+
+        exaile = main.exaile()
+        collection = exaile.collection
+        total = len(collection.tracks)
+        i = 0
+
+        for track in collection.tracks:
+            trax = collection.tracks[track]
+            format_data = metadata.get_format(track)
+
+            if not isinstance(format_data, flac.FlacFormat) and not isinstance(
+                format_data, ogg.OggFormat
+            ):
+                continue
+
+            settings.set_option('collection/use_legacy_metadata_mapping', True)
+            bpm = trax.get_tag_disk('tempo')
+            comment = trax.get_tag_disk('description')
+
+            settings.set_option('collection/use_legacy_metadata_mapping', False)
+            trax.set_tag_disk('bpm', bpm)
+            trax.set_tag_disk('comment', comment)
+
+            i += 1
+            yield i, total
+
+    def on_done(self, a):
+        self.progress.remove_monitor(self.monitor)
+        self.progress = None
+        settings.set_option('collection/use_legacy_metadata_mapping', False)
+        self.condition_widget.set_active(False)
 
 
 # vim:ts=4 et sw=4

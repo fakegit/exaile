@@ -1,7 +1,7 @@
-import collections
 import os
 import shutil
 import tempfile
+from typing import NamedTuple, Tuple
 
 from gi.repository import Gio
 
@@ -14,7 +14,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 
-@pytest.yield_fixture(autouse=True)
+@pytest.fixture(autouse=True)
 def exaile_test_cleanup():
     """
     Teardown/setup of various Exaile globals
@@ -32,13 +32,17 @@ def exaile_test_cleanup():
 #
 
 
-TrackData = collections.namedtuple(
-    'TrackData',
-    ['ext', 'filename', 'uri', 'size', 'writeable', 'has_cover', 'has_tags'],
-)
+class TrackData(NamedTuple):
+    ext: str
+    filename: str
+    uri: str
+    size: int
+    writeable: bool
+    has_cover: bool
+    has_tags: bool
 
 
-def _fname(ext):
+def _fname(ext: str) -> Tuple[str, str, str]:
     local_path = os.path.abspath(
         os.path.join(
             os.path.dirname(__file__),
@@ -88,7 +92,7 @@ def writeable_track(request):
     return request.param
 
 
-@pytest.yield_fixture()
+@pytest.fixture()
 def test_track_fp(test_track):
     with tempfile.NamedTemporaryFile(suffix='.' + test_track.ext) as tfp:
         with open(test_track.filename, 'rb') as fp:
@@ -99,16 +103,28 @@ def test_track_fp(test_track):
         yield tfp
 
 
-@pytest.yield_fixture()
+@pytest.fixture()
 def writeable_track_name(writeable_track):
     '''Fixture that returns names of temporary copies of writeable tracks'''
-    with tempfile.NamedTemporaryFile(suffix='.' + writeable_track.ext) as tfp:
+
+    # On Windows, we have to close the file before it can be reopened
+    is_windows = os.name == 'nt'
+
+    with tempfile.NamedTemporaryFile(
+        suffix='.' + writeable_track.ext, delete=not is_windows
+    ) as tfp:
         with open(writeable_track.filename, 'rb') as fp:
             shutil.copyfileobj(fp, tfp)
-
         tfp.flush()
 
-        yield tfp.name
+        if not is_windows:
+            yield tfp.name
+
+    if is_windows:
+        try:
+            yield tfp.name
+        finally:
+            os.remove(tfp.name)
 
 
 @pytest.fixture

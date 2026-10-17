@@ -7,49 +7,49 @@ msgid ""
 msgstr ""
 "Project-Id-Version: exaile\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-10 20:00+1000\n"
-"PO-Revision-Date: 2018-08-05 10:43+0000\n"
-"Last-Translator: Pratyush <pratyushvenk14@gmail.com>\n"
-"Language-Team: Tamil <https://hosted.weblate.org/projects/exaile/master/ta/"
-">\n"
+"POT-Creation-Date: 2026-03-21 14:03+1100\n"
+"PO-Revision-Date: 2026-08-02 06:01+0000\n"
+"Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/exaile/master/ta/>"
+"\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.1.1\n"
+"X-Generator: Weblate 2026.8.dev0\n"
 "X-Launchpad-Export-Date: 2014-08-12 06:29+0000\n"
 
 #: ../xl/covers.py:523 ../data/ui/trackproperties_dialog.ui:183
 msgid "Tags"
-msgstr ""
+msgstr "குறிச்சொற்கள்"
 
 #: ../xl/covers.py:566
 msgid "Local file"
-msgstr ""
+msgstr "உள்ளக கோப்பு"
 
-#: ../xl/formatter.py:603
+#: ../xl/formatter.py:606
 #, python-format
 msgid "%d day, "
 msgid_plural "%d days, "
 msgstr[0] "%d நாள், "
 msgstr[1] "%d நாட்கள், "
 
-#: ../xl/formatter.py:605
+#: ../xl/formatter.py:608
 #, python-format
 msgid "%d hour, "
 msgid_plural "%d hours, "
 msgstr[0] "%d மணித்தியாலம், "
 msgstr[1] "%d மணித்தியாலங்கள், "
 
-#: ../xl/formatter.py:606
+#: ../xl/formatter.py:609
 #, python-format
 msgid "%d minute, "
 msgid_plural "%d minutes, "
 msgstr[0] "%d நிமிடம், "
 msgstr[1] "%d நிமிடங்கள், "
 
-#: ../xl/formatter.py:607
+#: ../xl/formatter.py:610
 #, python-format
 msgid "%d second"
 msgid_plural "%d seconds"
@@ -57,732 +57,741 @@ msgstr[0] "%d விநாடி"
 msgstr[1] "%d விநாடிகள்"
 
 #. TRANSLATORS: Short form of an amount of days
-#: ../xl/formatter.py:612
+#: ../xl/formatter.py:615
 #, python-format
 msgid "%dd, "
-msgstr ""
+msgstr "%d.டி, "
 
 #. TRANSLATORS: Short form of an amount of hours
-#: ../xl/formatter.py:615
+#: ../xl/formatter.py:618
 #, python-format
 msgid "%dh, "
 msgstr "%d மணிகள், "
 
 #. TRANSLATORS: Short form of an amount of minutes
-#: ../xl/formatter.py:617
+#: ../xl/formatter.py:620
 #, python-format
 msgid "%dm, "
 msgstr "%d நிமிடங்கள், "
 
 #. TRANSLATORS: Short form of an amount of seconds
-#: ../xl/formatter.py:619
+#: ../xl/formatter.py:622
 #, python-format
 msgid "%ds"
 msgstr "%d நொடிகள்"
 
 #. TRANSLATORS: Short form of an amount of days
-#: ../xl/formatter.py:624
-#, python-format
-msgid "%dd "
-msgstr ""
-
-#. TRANSLATORS: Time duration (hours:minutes:seconds)
 #: ../xl/formatter.py:627
 #, python-format
-msgid "%d:%02d:%02d"
-msgstr ""
+msgid "%dd "
+msgstr "%dநா "
 
-#. TRANSLATORS: Time duration (minutes:seconds)
+#. TRANSLATORS: Time duration (hours:minutes:seconds)
 #: ../xl/formatter.py:630
 #, python-format
-msgid "%d:%02d"
-msgstr ""
+msgid "%d:%02d:%02d"
+msgstr "%d:%02d:%02d"
 
-#: ../xl/formatter.py:727 ../xl/main.py:619 ../xl/trax/track.py:71
+#. TRANSLATORS: Time duration (minutes:seconds)
+#: ../xl/formatter.py:633
+#, python-format
+msgid "%d:%02d"
+msgstr "%d:%02d"
+
+#: ../xl/formatter.py:730 ../xl/main.py:809 ../xl/trax/track.py:72
+#: ../plugins/icecast/__init__.py:170
 msgid "Unknown"
 msgstr "தெரியவில்லை"
 
 #. TRANSLATORS: Indicates that a track has never been played before
-#: ../xl/formatter.py:761 ../xl/formatter.py:766
+#: ../xl/formatter.py:764 ../xl/formatter.py:769
 msgid "Never"
 msgstr "ஒருபோதும் இல்லை"
 
-#: ../xl/formatter.py:772
+#: ../xl/formatter.py:775
 msgid "Today"
 msgstr "இன்று"
 
-#: ../xl/formatter.py:774
+#: ../xl/formatter.py:777
 msgid "Yesterday"
 msgstr "நேற்று"
 
-#: ../xl/lyrics.py:352
+#: ../xl/lyrics.py:351
 msgid "Local"
-msgstr ""
+msgstr "உள்ளக"
 
-#: ../xl/main.py:82
+#: ../xl/main.py:83
 msgid "Usage: exaile [OPTION...] [LOCATION...]"
-msgstr ""
+msgstr "பயன்பாடு: எக்செயில் [விருப்பம் ...] [இடம் ...]"
 
-#: ../xl/main.py:84
+#: ../xl/main.py:85
 msgid ""
 "Launch Exaile, optionally adding tracks specified by LOCATION to the active "
 "playlist. If Exaile is already running, this attempts to use the existing "
 "instance instead of creating a new one."
 msgstr ""
+"எக்செயலைத் தொடங்கவும், விருப்பமாக இருப்பிடத்தால் குறிப்பிடப்பட்ட தடங்களை செயலில் "
+"பிளேலிச்ட்டில் சேர்க்கவும். எக்செயில் ஏற்கனவே இயங்கினால், புதிய ஒன்றை உருவாக்குவதற்குப் "
+"பதிலாக இருக்கும் நிகழ்வைப் பயன்படுத்த இது முயற்சிக்கிறது."
 
-#: ../xl/main.py:95
+#: ../xl/main.py:96
 msgid "Playback Options"
-msgstr ""
+msgstr "பின்னணி விருப்பங்கள்"
 
-#: ../xl/main.py:102
+#: ../xl/main.py:103
 msgid "Play the next track"
 msgstr "அடுத்த தடத்தை இயக்கு"
 
-#: ../xl/main.py:110
+#: ../xl/main.py:111
 msgid "Play the previous track"
 msgstr "முந்தைய தடத்தை இயக்கு"
 
-#: ../xl/main.py:118 ../plugins/minimode/controls.py:351
+#: ../xl/main.py:119 ../plugins/minimode/controls.py:351
 #: ../plugins/minimode/controls.py:368
 msgid "Stop playback"
 msgstr "இயக்கத்தை நிறுத்து"
 
-#: ../xl/main.py:121
+#: ../xl/main.py:122
 msgid "Play"
 msgstr "இயக்கு"
 
-#: ../xl/main.py:129 ../plugins/developer/developer_window.ui:117
+#: ../xl/main.py:130 ../plugins/developer/developer_window.ui:117
 msgid "Pause"
 msgstr "இடை நிறுத்தம்"
 
-#: ../xl/main.py:137
+#: ../xl/main.py:138
 msgid "Pause or resume playback"
-msgstr ""
+msgstr "இடைநிறுத்தம் அல்லது பின்னிணைப்பை மீண்டும் தொடங்கவும்"
 
-#: ../xl/main.py:144 ../plugins/minimode/controls.py:376
+#: ../xl/main.py:145 ../plugins/minimode/controls.py:376
 msgid "Stop playback after current track"
-msgstr ""
+msgstr "தற்போதைய தடத்திற்குப் பிறகு பிளேபேக்கை நிறுத்துங்கள்"
 
-#: ../xl/main.py:147
+#: ../xl/main.py:148
 msgid "Collection Options"
 msgstr "தொகுப்பு விருப்பத்தேர்வுகள்"
 
 #. TRANSLATORS: Meta variable for --add and --export-playlist
-#: ../xl/main.py:152 ../xl/main.py:161
+#: ../xl/main.py:153 ../xl/main.py:162
 msgid "LOCATION"
-msgstr ""
+msgstr "இடம்"
 
-#: ../xl/main.py:153
+#: ../xl/main.py:154
 msgid "Add tracks from LOCATION to the collection"
-msgstr ""
+msgstr "இருப்பிடத்திலிருந்து சேகரிப்புக்கு தடங்களைச் சேர்க்கவும்"
 
-#: ../xl/main.py:156
+#: ../xl/main.py:157
 msgid "Playlist Options"
-msgstr ""
+msgstr "பிளேலிச்ட் விருப்பங்கள்"
 
-#: ../xl/main.py:162
+#: ../xl/main.py:163
 msgid "Export the current playlist to LOCATION"
-msgstr ""
+msgstr "தற்போதைய பிளேலிச்ட்டை இருப்பிடத்திற்கு ஏற்றுமதி செய்யுங்கள்"
 
-#: ../xl/main.py:165
+#: ../xl/main.py:166
 msgid "Track Options"
 msgstr "தட விருப்பத்தேர்வுகள்"
 
-#: ../xl/main.py:172
+#: ../xl/main.py:173
 msgid "Query player"
 msgstr "கேள்வி இயக்கி"
 
 #. TRANSLATORS: Meta variable for --format-query
-#: ../xl/main.py:178
-msgid "FORMAT"
-msgstr ""
-
 #: ../xl/main.py:179
+msgid "FORMAT"
+msgstr "வடிவம்"
+
+#: ../xl/main.py:180
 msgid "Retrieve the current playback state and track information as FORMAT"
-msgstr ""
+msgstr "தற்போதைய பின்னணி நிலையை மீட்டெடுக்கவும், தகவல்களை வடிவமாக கண்காணிக்கவும்"
 
 #. TRANSLATORS: Meta variable for --format-query-tags
-#: ../xl/main.py:185
-msgid "TAGS"
-msgstr ""
-
 #: ../xl/main.py:186
+msgid "TAGS"
+msgstr "குறிச்சொற்கள்"
+
+#: ../xl/main.py:187
 msgid "Tags to retrieve from the current track; use with --format-query"
-msgstr ""
+msgstr "தற்போதைய பாதையிலிருந்து மீட்டெடுக்க குறிச்சொற்கள்; -வடிவ-வினவலுடன் பயன்படுத்தவும்"
 
-#: ../xl/main.py:193
+#: ../xl/main.py:194
 msgid "Show a popup with data of the current track"
-msgstr ""
+msgstr "தற்போதைய பாதையின் தரவைக் கொண்ட பாப்அப்பைக் காட்டு"
 
-#: ../xl/main.py:200
+#: ../xl/main.py:201
 msgid "Print the title of current track"
-msgstr ""
+msgstr "தற்போதைய பாதையின் தலைப்பை அச்சிடுக"
 
-#: ../xl/main.py:207
+#: ../xl/main.py:208
 msgid "Print the album of current track"
 msgstr "நடப்பு தடத்தின் தொகுப்பை அச்சிடு"
 
-#: ../xl/main.py:214
+#: ../xl/main.py:215
 msgid "Print the artist of current track"
 msgstr "நடப்பு தடத்தின் கலைஞரை அச்சிடு"
 
-#: ../xl/main.py:221
+#: ../xl/main.py:222
 msgid "Print the length of current track"
 msgstr "நடப்பு தடத்தின் நீளத்தை அச்சிடு"
 
 #. TRANSLATORS: Variable for command line options with arguments
 #. TRANSLATORS: Meta variable for --increase-vol and--decrease-vol
-#: ../xl/main.py:228 ../xl/main.py:260 ../xl/main.py:269
+#: ../xl/main.py:229 ../xl/main.py:261 ../xl/main.py:270
 msgid "N"
 msgstr "N"
 
-#: ../xl/main.py:229
+#: ../xl/main.py:230
 msgid "Set rating for current track to N%"
-msgstr ""
+msgstr "தற்போதைய தடத்திற்கான மதிப்பீட்டை n% ஆக அமைக்கவும்"
 
-#: ../xl/main.py:236
+#: ../xl/main.py:237
 msgid "Get rating for current track"
 msgstr "நடப்பு தடத்தின் தரவரிசையை பெறு"
 
-#: ../xl/main.py:243
+#: ../xl/main.py:244
 msgid "Print the current playback position as time"
-msgstr ""
+msgstr "தற்போதைய பின்னணி நிலையை நேரமாக அச்சிடுக"
 
-#: ../xl/main.py:250
+#: ../xl/main.py:251
 msgid "Print the current playback progress as percentage"
-msgstr ""
+msgstr "தற்போதைய பின்னணி முன்னேற்றத்தை சதவீதமாக அச்சிடுங்கள்"
 
-#: ../xl/main.py:253
+#: ../xl/main.py:254
 msgid "Volume Options"
 msgstr "ஒலி விருப்பத்தேர்வுகள்"
 
-#: ../xl/main.py:261
-#, fuzzy
-#| msgid "Increases the volume by N%"
+#: ../xl/main.py:262
 msgid "Increase the volume by N%"
-msgstr "N% இனால் ஒலியளவைக் கூட்டு"
+msgstr "அளவை n% அதிகரிக்கவும்"
 
-#: ../xl/main.py:270
-#, fuzzy
-#| msgid "Decreases the volume by N%"
+#: ../xl/main.py:271
 msgid "Decrease the volume by N%"
-msgstr "N% இனால் ஒலியளவைக் குறை"
+msgstr "அளவை n% குறைக்கவும்"
 
-#: ../xl/main.py:278
+#: ../xl/main.py:279
 msgid "Mute or unmute the volume"
-msgstr ""
+msgstr "முடக்கு அல்லது அளவை அசைக்கவும்"
 
-#: ../xl/main.py:285
+#: ../xl/main.py:286
 msgid "Print the current volume percentage"
 msgstr "நடப்பு ஒலிஅளவு சதவீதத்தை அச்சிடு"
 
-#: ../xl/main.py:288
+#: ../xl/main.py:289
 msgid "Other Options"
 msgstr "மற்ற விருப்பத்தேர்வுகள்"
 
-#: ../xl/main.py:294
+#: ../xl/main.py:295
 msgid "Start new instance"
-msgstr ""
+msgstr "புதிய நிகழ்வைத் தொடங்கவும்"
 
-#: ../xl/main.py:297
+#: ../xl/main.py:298
 msgid "Show this help message and exit"
 msgstr "இந்த உதவி செய்தியை காட்டிவிட்டு வெளியேறு"
 
-#: ../xl/main.py:303
+#: ../xl/main.py:304
 msgid "Show program's version number and exit."
-msgstr "நிரலின் பதிப்பு எண்ணை காட்டிவிட்டு வெளியேறு"
+msgstr "நிரலின் பதிப்பு எண்ணைக் காட்டிவிட்டு வெளியேறு."
 
-#: ../xl/main.py:310
+#: ../xl/main.py:311
 msgid "Start minimized (to tray, if possible)"
-msgstr ""
+msgstr "குறைக்கத் தொடங்கு (தட்டில், முடிந்தால்)"
 
-#: ../xl/main.py:317
+#: ../xl/main.py:318
 msgid "Toggle visibility of the GUI (if possible)"
-msgstr ""
+msgstr "GUI இன் தெரிவுநிலையை மாற்றவும் (முடிந்தால்)"
 
-#: ../xl/main.py:325
+#: ../xl/main.py:326
 msgid "Start in safe mode - sometimes useful when you're running into problems"
 msgstr ""
+"பாதுகாப்பான பயன்முறையில் தொடங்குங்கள் - நீங்கள் சிக்கல்களில் இயங்கும்போது சில நேரங்களில் "
+"பயனுள்ளதாக இருக்கும்"
 
-#: ../xl/main.py:334
+#: ../xl/main.py:335
 msgid "Force import of old data from version 0.2.x (overwrites current data)"
 msgstr ""
+"பதிப்பு 0.2.x இலிருந்து பழைய தரவை இறக்குமதி செய்யுங்கள் (தற்போதைய தரவை மேலெழுதும்)"
 
-#: ../xl/main.py:342
+#: ../xl/main.py:343
 msgid "Do not import old data from version 0.2.x"
-msgstr ""
+msgstr "பதிப்பு 0.2.x இலிருந்து பழைய தரவை இறக்குமதி செய்ய வேண்டாம்"
 
-#: ../xl/main.py:349
+#: ../xl/main.py:350
 msgid "Make control options like --play start Exaile if it is not running"
 msgstr ""
+"கட்டுப்பாட்டு விருப்பங்களை உருவாக்கவும் -தொடக்க எக்செயல் இயங்கவில்லை என்றால் அதை உருவாக்கவும்"
 
-#: ../xl/main.py:352
+#: ../xl/main.py:356
+msgid "Locale to use for Exaile"
+msgstr "எக்செயிலுக்கு பயன்படுத்த இடம்"
+
+#: ../xl/main.py:359
 msgid "Development/Debug Options"
-msgstr ""
+msgstr "வளர்ச்சி/பிழைத்திருத்த விருப்பங்கள்"
 
-#: ../xl/main.py:356 ../xl/main.py:362
+#: ../xl/main.py:363 ../xl/main.py:369
 msgid "DIRECTORY"
 msgstr "அடைவு"
 
-#: ../xl/main.py:357
+#: ../xl/main.py:364
 msgid "Set data directory"
-msgstr ""
+msgstr "தரவு கோப்பகத்தை அமைக்கவும்"
 
-#: ../xl/main.py:363
+#: ../xl/main.py:370
 msgid "Set data and config directory"
-msgstr ""
+msgstr "தரவு மற்றும் கட்டமைப்பு கோப்பகத்தை அமைக்கவும்"
 
-#: ../xl/main.py:368
+#: ../xl/main.py:375
 msgid "MODULE"
-msgstr ""
+msgstr "தொகுதி"
 
-#: ../xl/main.py:369
+#: ../xl/main.py:376
 msgid "Limit log output to MODULE"
-msgstr ""
+msgstr "பதிவு வெளியீட்டை தொகுதிக்கு மட்டுப்படுத்தவும்"
 
-#: ../xl/main.py:374
+#: ../xl/main.py:381
 msgid "LEVEL"
 msgstr "மட்டம்"
 
-#: ../xl/main.py:375
+#: ../xl/main.py:382
 msgid "Limit log output to LEVEL"
-msgstr ""
+msgstr "பதிவு வெளியீட்டை நிலைக்கு மட்டுப்படுத்தவும்"
 
-#: ../xl/main.py:383
+#: ../xl/main.py:390
 msgid "Show debugging output"
 msgstr "பிழைத்திருத்த வெளியீட்டை காட்டு"
 
-#: ../xl/main.py:390
-msgid "Enable debugging of xl.event. Generates lots of output"
-msgstr ""
-
 #: ../xl/main.py:397
-msgid "Enable full debugging of xl.event. Generates LOTS of output"
-msgstr ""
+msgid "Enable debugging of xl.event. Generates lots of output"
+msgstr "Xl.event இன் பிழைத்திருத்தத்தை இயக்கவும். நிறைய வெளியீட்டை உருவாக்குகிறது"
 
 #: ../xl/main.py:404
-msgid "Add thread name to logging messages."
-msgstr ""
+msgid "Enable full debugging of xl.event. Generates LOTS of output"
+msgstr "XL.EVENT இன் முழு பிழைத்திருத்தத்தை இயக்கவும். நிறைய வெளியீட்டை உருவாக்குகிறது"
 
-#: ../xl/main.py:409
+#: ../xl/main.py:411
+msgid "Add thread name to logging messages."
+msgstr "பதிவு செய்திகளுக்கு நூல் பெயரைச் சேர்க்கவும்."
+
+#: ../xl/main.py:416
 msgid "TYPE"
 msgstr "வகை"
 
-#: ../xl/main.py:410
-msgid "Limit xl.event debug to output of TYPE"
-msgstr ""
-
 #: ../xl/main.py:417
-msgid "Reduce level of output"
-msgstr ""
+msgid "Limit xl.event debug to output of TYPE"
+msgstr "எக்ச்எல்.வென்ட் பிழைத்திருத்தத்தை வகையின் வெளியீட்டிற்கு கட்டுப்படுத்துங்கள்"
 
-#: ../xl/main.py:427
-msgid "Disable D-Bus support"
-msgstr ""
+#: ../xl/main.py:424
+msgid "Reduce level of output"
+msgstr "வெளியீட்டின் அளவைக் குறைக்கவும்"
 
 #: ../xl/main.py:434
-msgid "Disable HAL support."
-msgstr ""
+msgid "Disable D-Bus support"
+msgstr "டி-பச் ஆதரவை முடக்கு"
 
-#: ../xl/main.py:796
+#: ../xl/main.py:441
+msgid "Disable HAL support."
+msgstr "HAL ஆதரவை முடக்கு."
+
+#: ../xl/main.py:830
 msgid "Entire Library"
 msgstr "முழு நூலகமும்"
 
-#: ../xl/main.py:803
+#: ../xl/main.py:837
 #, python-format
 msgid "Random %d"
-msgstr ""
+msgstr "சீரற்ற %d"
 
-#: ../xl/main.py:812
+#: ../xl/main.py:846
 #, python-format
 msgid "Rating > %d"
 msgstr "தரவரிசை > %d"
 
-#: ../xl/main.py:981
-msgid ""
-"Exaile is not yet finished loading. Perhaps you should listen for the "
-"exaile_loaded signal?"
-msgstr ""
-
-#: ../xl/metadata/tags.py:46 ../xlgui/panel/collection.py:130
-#: ../xlgui/widgets/playlist_columns.py:322 ../plugins/cd/cdprefs.py:113
+#: ../xl/metadata/tags.py:45 ../xlgui/panel/collection.py:130
+#: ../xlgui/widgets/playlist_columns.py:321 ../plugins/cd/cdprefs.py:116
 #: ../plugins/minimode/minimode_preferences.py:109
-#: ../plugins/jamendo/ui/jamendo_panel.ui:90
 msgid "Album"
 msgstr "தொகுப்பு"
 
-#: ../xl/metadata/tags.py:47
+#: ../xl/metadata/tags.py:46
 msgid "Arranger"
-msgstr ""
+msgstr "ஏற்பாட்டாளர்"
 
-#: ../xl/metadata/tags.py:48 ../xlgui/panel/collection.py:124
-#: ../xlgui/widgets/playlist_columns.py:292 ../plugins/cd/cdprefs.py:111
+#: ../xl/metadata/tags.py:47 ../xlgui/panel/collection.py:124
+#: ../xlgui/widgets/playlist_columns.py:291 ../plugins/cd/cdprefs.py:114
 #: ../plugins/minimode/minimode_preferences.py:107
-#: ../plugins/jamendo/ui/jamendo_panel.ui:86
 msgid "Artist"
 msgstr "கலைஞர்"
 
-#: ../xl/metadata/tags.py:49 ../xlgui/widgets/playlist_columns.py:302
-#, fuzzy
-#| msgid "Artist"
+#: ../xl/metadata/tags.py:48 ../xlgui/widgets/playlist_columns.py:301
 msgid "Album artist"
-msgstr "கலைஞர்"
+msgstr "ஆல்பம் கலைஞர்"
 
-#: ../xl/metadata/tags.py:50
+#: ../xl/metadata/tags.py:49
 msgid "Author"
 msgstr "இயற்றியவர்"
 
-#: ../xl/metadata/tags.py:51 ../xlgui/widgets/playlist_columns.py:468
-#: ../plugins/cd/cdprefs.py:124 ../plugins/minimode/minimode_preferences.py:120
+#: ../xl/metadata/tags.py:50 ../xlgui/widgets/playlist_columns.py:467
+#: ../plugins/cd/cdprefs.py:127 ../plugins/minimode/minimode_preferences.py:120
 msgid "BPM"
-msgstr ""
+msgstr "பிபிஎம்"
 
-#: ../xl/metadata/tags.py:52
+#: ../xl/metadata/tags.py:51
 msgid "Copyright"
 msgstr "பதிப்புரிமை"
 
-#: ../xl/metadata/tags.py:53 ../xlgui/widgets/playlist_columns.py:640
+#: ../xl/metadata/tags.py:52 ../xlgui/widgets/playlist_columns.py:639
 msgid "Comment"
-msgstr ""
+msgstr "கருத்து"
 
-#: ../xl/metadata/tags.py:54 ../xlgui/widgets/playlist_columns.py:312
+#: ../xl/metadata/tags.py:53 ../xlgui/widgets/playlist_columns.py:311
 #: ../data/ui/trackproperties_dialog_cover_row.ui:64
-#: ../plugins/cd/cdprefs.py:112 ../plugins/minimode/minimode_preferences.py:108
+#: ../plugins/cd/cdprefs.py:115 ../plugins/minimode/minimode_preferences.py:108
 msgid "Composer"
 msgstr "உருவாக்கி"
 
-#: ../xl/metadata/tags.py:55 ../data/ui/trackproperties_dialog_cover_row.ui:56
+#: ../xl/metadata/tags.py:54 ../data/ui/trackproperties_dialog_cover_row.ui:56
 msgid "Conductor"
-msgstr ""
+msgstr "நடத்துனர்"
 
-#: ../xl/metadata/tags.py:56 ../xlgui/cover.py:814
+#: ../xl/metadata/tags.py:55 ../xlgui/cover.py:812
 msgid "Cover"
-msgstr ""
+msgstr "கவர்"
 
-#: ../xl/metadata/tags.py:57 ../xlgui/widgets/playlist_columns.py:400
-#: ../plugins/cd/cdprefs.py:117 ../plugins/minimode/minimode_preferences.py:113
+#: ../xl/metadata/tags.py:56 ../xlgui/widgets/playlist_columns.py:399
+#: ../plugins/cd/cdprefs.py:120 ../plugins/minimode/minimode_preferences.py:113
 msgid "Date"
 msgstr "தேதி"
 
-#: ../xl/metadata/tags.py:58 ../xlgui/widgets/playlist_columns.py:342
+#: ../xl/metadata/tags.py:57 ../xlgui/widgets/playlist_columns.py:341
 msgid "Disc"
 msgstr "தட்டு"
 
-#: ../xl/metadata/tags.py:59
+#: ../xl/metadata/tags.py:58
 msgid "Encoded by"
-msgstr ""
+msgstr "குறியாக்கம்"
 
-#: ../xl/metadata/tags.py:60 ../xlgui/widgets/playlist_columns.py:418
-#: ../plugins/cd/cdprefs.py:118 ../plugins/minimode/minimode_preferences.py:114
+#: ../xl/metadata/tags.py:59 ../xlgui/widgets/playlist_columns.py:417
+#: ../plugins/cd/cdprefs.py:121 ../plugins/minimode/minimode_preferences.py:114
 msgid "Genre"
 msgstr "பாணி"
 
-#: ../xl/metadata/tags.py:61 ../xlgui/widgets/playlist_columns.py:654
+#: ../xl/metadata/tags.py:60 ../xlgui/widgets/playlist_columns.py:653
 msgid "Grouping"
-msgstr ""
+msgstr "தொகுத்தல்"
 
-#: ../xl/metadata/tags.py:62
+#: ../xl/metadata/tags.py:61
 msgid "ISRC"
-msgstr ""
+msgstr "Isr c"
 
-#: ../xl/metadata/tags.py:63 ../xlgui/widgets/playlist_columns.py:479
+#: ../xl/metadata/tags.py:62 ../xlgui/widgets/playlist_columns.py:478
 msgid "Language"
-msgstr ""
+msgstr "மொழி"
 
-#: ../xl/metadata/tags.py:64 ../xlgui/panel/lyrics.py:44
-#: ../plugins/lyricsmania/PLUGININFO:5 ../plugins/lyricwiki/PLUGININFO:5
+#: ../xl/metadata/tags.py:63 ../xlgui/panel/lyrics.py:43
+#: ../plugins/lyricsmania/PLUGININFO:5
 msgid "Lyrics"
 msgstr "பாடல்வரிகள்"
 
-#: ../xl/metadata/tags.py:65
+#: ../xl/metadata/tags.py:64
 msgid "Lyricist"
-msgstr ""
+msgstr "பாடலாசிரியர்"
 
-#: ../xl/metadata/tags.py:66
+#: ../xl/metadata/tags.py:65
 msgid "Organization"
 msgstr "நிறுவனம்"
 
-#: ../xl/metadata/tags.py:67
+#: ../xl/metadata/tags.py:66
 msgid "Original album"
-msgstr ""
+msgstr "அசல் ஆல்பம்"
+
+#: ../xl/metadata/tags.py:67
+msgid "Original artist"
+msgstr "அசல் கலைஞர்"
 
 #: ../xl/metadata/tags.py:68
-msgid "Original artist"
-msgstr ""
-
-#: ../xl/metadata/tags.py:69
 msgid "Original date"
-msgstr ""
+msgstr "அசல் தேதி"
 
-#: ../xl/metadata/tags.py:71
+#: ../xl/metadata/tags.py:70
 msgid "Performer"
-msgstr ""
+msgstr "நடிகர்"
 
-#: ../xl/metadata/tags.py:72 ../xlgui/panel/flatplaylist.py:101
-#: ../xlgui/widgets/playlist_columns.py:282
+#: ../xl/metadata/tags.py:71 ../xlgui/panel/flatplaylist.py:101
+#: ../xlgui/widgets/playlist_columns.py:281
 #: ../data/ui/preferences/widgets/selection_list_preference.ui:51
-#: ../plugins/cd/cdprefs.py:110 ../plugins/minimode/minimode_preferences.py:106
+#: ../plugins/cd/cdprefs.py:113 ../plugins/minimode/minimode_preferences.py:106
 #: ../plugins/grouptagger/gt_import.ui:69
 msgid "Title"
 msgstr "தலைப்பு"
 
-#: ../xl/metadata/tags.py:73 ../plugins/grouptagger/gt_mass.ui:162
-#: ../plugins/jamendo/ui/jamendo_panel.ui:98
+#: ../xl/metadata/tags.py:72 ../plugins/grouptagger/gt_mass.ui:162
 msgid "Track"
 msgstr "தடம்"
 
-#: ../xl/metadata/tags.py:74
+#: ../xl/metadata/tags.py:73
 msgid "Version"
 msgstr "பதிப்பு"
 
-#: ../xl/metadata/tags.py:75 ../xlgui/widgets/playlist_columns.py:698
+#: ../xl/metadata/tags.py:74 ../xlgui/widgets/playlist_columns.py:697
 msgid "Website"
 msgstr "வலைத்தளம்"
 
-#: ../xl/metadata/tags.py:79 ../xlgui/widgets/playlist_columns.py:428
-#: ../plugins/cd/cdprefs.py:119 ../plugins/icecast/__init__.py:398
+#: ../xl/metadata/tags.py:78 ../xlgui/widgets/playlist_columns.py:427
+#: ../plugins/cd/cdprefs.py:122 ../plugins/icecast/__init__.py:379
 #: ../plugins/minimode/minimode_preferences.py:115
 msgid "Bitrate"
 msgstr "பிட்வேகம்"
 
-#: ../xl/metadata/tags.py:81 ../xlgui/widgets/playlist_columns.py:498
+#: ../xl/metadata/tags.py:80 ../xlgui/widgets/playlist_columns.py:497
 msgid "Date added"
 msgstr "இணைத்த திகதி"
 
-#: ../xl/metadata/tags.py:82 ../xlgui/widgets/playlist_columns.py:489
-#: ../plugins/cd/cdprefs.py:123 ../plugins/minimode/minimode_preferences.py:119
+#: ../xl/metadata/tags.py:81 ../xlgui/widgets/playlist_columns.py:488
+#: ../plugins/cd/cdprefs.py:126 ../plugins/minimode/minimode_preferences.py:119
 msgid "Last played"
 msgstr "கடைசியாக இயக்கப்பட்டது"
 
-#: ../xl/metadata/tags.py:83 ../xlgui/widgets/playlist_columns.py:332
-#: ../plugins/cd/cdprefs.py:114 ../plugins/minimode/minimode_preferences.py:110
+#: ../xl/metadata/tags.py:82 ../xlgui/widgets/playlist_columns.py:331
+#: ../plugins/cd/cdprefs.py:117 ../plugins/minimode/minimode_preferences.py:110
 msgid "Length"
 msgstr "நீளம்"
 
-#: ../xl/metadata/tags.py:84 ../xlgui/widgets/playlist_columns.py:438
-#: ../data/ui/collection_manager.ui:119 ../plugins/cd/cdprefs.py:120
+#: ../xl/metadata/tags.py:83 ../xlgui/widgets/playlist_columns.py:437
+#: ../data/ui/collection_manager.ui:119 ../plugins/cd/cdprefs.py:123
 #: ../plugins/minimode/minimode_preferences.py:116
 msgid "Location"
 msgstr "இடம்"
 
-#: ../xl/metadata/tags.py:85
+#: ../xl/metadata/tags.py:84
 msgid "Modified"
 msgstr "மாற்றப்பட்டது"
 
-#: ../xl/metadata/tags.py:86
-#, fuzzy
+#: ../xl/metadata/tags.py:85
 msgid "Play time"
-msgstr "இயக்கு"
+msgstr "விளையாடும் நேரம்"
 
-#: ../xl/metadata/tags.py:87
+#: ../xl/metadata/tags.py:86
 msgid "Times played"
 msgstr "இயக்கப்பட்ட தடவைகள்"
 
-#: ../xl/metadata/tags.py:89
+#: ../xl/metadata/tags.py:88
 msgid "Start offset"
-msgstr ""
+msgstr "ஆஃப்செட் தொடங்கவும்"
 
-#: ../xl/metadata/tags.py:90
+#: ../xl/metadata/tags.py:89
 msgid "Stop offset"
-msgstr ""
+msgstr "ஆஃப்செட் நிறுத்துங்கள்"
 
-#: ../xl/player/gst/engine.py:708
+#: ../xl/player/gst/engine.py:716
 msgid ": Possible audio device error, is it plugged in?"
-msgstr ""
+msgstr ": சாத்தியமான ஆடியோ சாதன பிழை, இது செருகப்பட்டதா?"
 
-#: ../xl/player/gst/missing_plugin.py:89
+#: ../xl/player/gst/missing_plugin.py:88
 #, python-format
 msgid ""
 "A GStreamer 1.x plugin for %s is missing. Without this software installed, "
 "Exaile will not be able to play the current file. Please install the "
 "required software on your computer. See %s for details."
 msgstr ""
+"%s க்கான சிச்ட்ரீமர் 1.x சொருகி இல்லை. இந்த மென்பொருள் நிறுவப்படாமல், எக்செயில் தற்போதைய "
+"கோப்பை இயக்க முடியாது. தேவையான மென்பொருளை உங்கள் கணினியில் நிறுவவும். விவரங்களுக்கு "
+"%s ஐப் பார்க்கவும்."
 
-#: ../xl/player/gst/sink.py:48 ../xl/player/gst/sink.py:144
+#: ../xl/player/gst/sink.py:49 ../xl/player/gst/sink.py:165
 msgid "Automatic"
 msgstr "தானியங்கி"
 
-#: ../xl/player/gst/sink.py:76
+#: ../xl/player/gst/sink.py:77
 msgid "Custom"
 msgstr "தனிப்பயன்"
 
-#: ../xl/player/gst/sink.py:184
+#: ../xl/player/gst/sink.py:204
 #, python-format
 msgid "Could not create audiosink (device: %s, type: %s)"
-msgstr ""
+msgstr "ஆடியோசிங்கை உருவாக்க முடியவில்லை (சாதனம்: %s, வகை: %s)"
 
-#: ../xl/player/gst/sink.py:191
+#: ../xl/player/gst/sink.py:210
 msgid "No custom pipeline specified!"
-msgstr ""
+msgstr "தனிப்பயன் குழாய் எதுவும் குறிப்பிடப்படவில்லை!"
 
-#: ../xl/player/gst/sink.py:196
+#: ../xl/player/gst/sink.py:215
 #, python-format
 msgid "Error creating custom audiosink '%s'"
-msgstr ""
+msgstr "தனிப்பயன் ஆடியோசிங்க் '%s' ஐ உருவாக்குவது பிழை"
 
-#: ../xl/player/gst/sink.py:202
+#: ../xl/player/gst/sink.py:221
 #, python-format
 msgid "Invalid sink type '%s' specified"
-msgstr ""
+msgstr "தவறான மடு வகை '%s' குறிப்பிடப்பட்டுள்ளது"
 
-#: ../xl/player/gst/sink.py:206
+#: ../xl/player/gst/sink.py:225
 #, python-format
 msgid "Could not create sink type '%s'"
-msgstr ""
+msgstr "மடு வகை '%s' ஐ உருவாக்க முடியவில்லை"
 
-#: ../xl/playlist.py:154 ../xl/playlist.py:176
+#: ../xl/playlist.py:151 ../xl/playlist.py:173
 msgid "Invalid playlist type."
-msgstr ""
+msgstr "தவறான பிளேலிச்ட் வகை."
 
-#: ../xl/playlist.py:185 ../xlgui/widgets/playlist.py:406
+#: ../xl/playlist.py:182 ../xlgui/widgets/playlist.py:406
 #: ../xlgui/widgets/smart_playlist_editor.py:254
 #: ../plugins/grouptagger/gt_mass.ui:126
 msgid "Playlist"
-msgstr ""
+msgstr "பிளேலிச்ட்"
 
-#: ../xl/playlist.py:339
+#: ../xl/playlist.py:355
 msgid "M3U Playlist"
-msgstr ""
+msgstr "M3U பிளேலிச்ட்"
 
-#: ../xl/playlist.py:454
+#: ../xl/playlist.py:470
 msgid "PLS Playlist"
-msgstr ""
+msgstr "Pls பிளேலிச்ட்"
 
-#: ../xl/playlist.py:545 ../xl/playlist.py:560
+#: ../xl/playlist.py:560 ../xl/playlist.py:575
 #, python-format
 msgid "Invalid format for %s."
-msgstr ""
+msgstr "%s க்கு தவறான வடிவம்."
 
-#: ../xl/playlist.py:555
+#: ../xl/playlist.py:570
 #, python-format
 msgid "Unsupported version %(version)s for %(type)s"
-msgstr ""
+msgstr "ஆதரிக்கப்படாத பதிப்பு %(version)s %(type)s"
 
-#: ../xl/playlist.py:615
+#: ../xl/playlist.py:630
 msgid "ASX Playlist"
-msgstr ""
+msgstr "ASX பிளேலிச்ட்"
 
-#: ../xl/playlist.py:794
+#: ../xl/playlist.py:809
 msgid "XSPF Playlist"
-msgstr ""
+msgstr "எக்ச்எச்பிஎஃப் பிளேலிச்ட்"
 
-#: ../xl/playlist.py:913
+#: ../xl/playlist.py:928
 msgid "Shuffle _Off"
-msgstr ""
+msgstr "கலக்கு _ஆஃப்"
 
-#: ../xl/playlist.py:914
+#: ../xl/playlist.py:929
 msgid "Shuffle _Tracks"
-msgstr ""
+msgstr "கலக்கு _ டிராக்ச்"
 
-#: ../xl/playlist.py:915
+#: ../xl/playlist.py:930
 msgid "Shuffle _Albums"
-msgstr ""
+msgstr "கலக்கு _ ஆல்பம்"
 
-#: ../xl/playlist.py:916
+#: ../xl/playlist.py:931
 msgid "_Random"
-msgstr ""
+msgstr "_ ராண்டம்"
 
-#: ../xl/playlist.py:921
+#: ../xl/playlist.py:936
 msgid "Repeat _Off"
-msgstr ""
+msgstr "மீண்டும் _ஆஃப்"
 
-#: ../xl/playlist.py:921
+#: ../xl/playlist.py:936
 msgid "Repeat _All"
-msgstr ""
+msgstr "அனைத்தையும் மீண்டும் செய்"
 
-#: ../xl/playlist.py:921
+#: ../xl/playlist.py:936
 msgid "Repeat O_ne"
-msgstr ""
+msgstr "ஒன்று மீண்டும் செய்"
 
-#: ../xl/playlist.py:925
+#: ../xl/playlist.py:940
 msgid "Dynamic _Off"
-msgstr ""
+msgstr "மாறும் _ஆஃப்"
 
-#: ../xl/playlist.py:925
+#: ../xl/playlist.py:940
 msgid "Dynamic by Similar _Artists"
-msgstr ""
+msgstr "ஒத்த கலைஞர்களால் மாறும்"
 
-#: ../xl/plugins.py:87
+#: ../xl/plugins.py:85
 msgid "Plugin is already loaded or has a conflicting name."
-msgstr ""
+msgstr "சொருகி ஏற்கனவே ஏற்றப்பட்டுள்ளது அல்லது முரண்பட்ட பெயரைக் கொண்டுள்ளது."
 
-#: ../xl/plugins.py:102
+#: ../xl/plugins.py:100
 msgid "Plugin archive is not in the correct format."
-msgstr ""
+msgstr "சொருகி காப்பகம் சரியான வடிவத்தில் இல்லை."
 
-#: ../xl/plugins.py:109
+#: ../xl/plugins.py:108
 #, python-format
 msgid "A plugin with the name \"%s\" is already installed."
-msgstr ""
+msgstr "\"%s\" என்ற பெயருடன் ஒரு சொருகி ஏற்கனவே நிறுவப்பட்டுள்ளது."
 
 #: ../xl/plugins.py:114
 msgid "Plugin archive contains an unsafe path."
-msgstr ""
+msgstr "சொருகி காப்பகத்தில் பாதுகாப்பற்ற பாதை உள்ளது."
 
 #: ../xl/settings.py:97
 msgid "Settings version is newer than current."
-msgstr ""
+msgstr "அமைப்புகள் பதிப்பு மின்னோட்டத்தை விட புதியது."
 
 #: ../xl/transcoder.py:58
 msgid ""
 "Vorbis is an open source, lossy audio codec with high quality output at a "
 "lower file size than MP3."
 msgstr ""
+"வோர்பிச் என்பது ஒரு திறந்த மூலமாகும், எம்பி 3 ஐ விட குறைந்த கோப்பு அளவில் உயர் தரமான "
+"வெளியீட்டைக் கொண்ட இழப்பு ஆடியோ கோடெக்."
 
 #: ../xl/transcoder.py:68
 msgid ""
 "Free Lossless Audio Codec (FLAC) is an open source codec that compresses but "
 "does not degrade audio quality."
 msgstr ""
+"இலவச இழப்பற்ற ஆடியோ கோடெக் (FLAC) என்பது ஒரு திறந்த மூல கோடெக் ஆகும், இது "
+"சுருக்குகிறது, ஆனால் ஆடியோ தரத்தை குறைக்காது."
 
 #: ../xl/transcoder.py:80
 msgid ""
 "Apple's proprietary lossy audio format that achieves better sound quality "
 "than MP3 at lower bitrates."
 msgstr ""
+"குறைந்த பிட்ரேட்டுகளில் எம்பி 3 ஐ விட சிறந்த ஒலி தரத்தை அடையும் ஆப்பிளின் தனியுரிம "
+"இழப்பு ஆடியோ வடிவம்."
 
 #: ../xl/transcoder.py:91
 msgid ""
 "A proprietary and older, but also popular, lossy audio format. VBR gives "
 "higher quality than CBR, but may be incompatible with some players."
 msgstr ""
+"ஒரு தனியுரிம மற்றும் பழைய, ஆனால் பிரபலமான, நச்டமான ஆடியோ வடிவம். வி.பி.ஆர் சிபிஆரை "
+"விட உயர்ந்த தரத்தை அளிக்கிறது, ஆனால் சில வீரர்களுடன் பொருந்தாது."
 
 #: ../xl/transcoder.py:102
 msgid ""
 "A proprietary and older, but also popular, lossy audio format. CBR gives "
 "less quality than VBR, but is compatible with any player."
 msgstr ""
+"ஒரு தனியுரிம மற்றும் பழைய, ஆனால் பிரபலமான, நச்டமான ஆடியோ வடிவம். சிபிஆர் வி.பி.ஆரை "
+"விட குறைந்த தரத்தை அளிக்கிறது, ஆனால் எந்த வீரருடனும் இணக்கமானது."
 
 #: ../xl/transcoder.py:113
 msgid "A very fast Free lossless audio format with good compression."
-msgstr ""
+msgstr "நல்ல சுருக்கத்துடன் மிக வேகமாக இலவச இழப்பற்ற ஆடியோ வடிவம்."
 
-#: ../xl/trax/track.py:70
+#: ../xl/trax/track.py:71
 msgid "Various Artists"
 msgstr "பலவிதக் கலைஞர்கள்"
 
 #. TRANSLATORS: String multiple tag values will be joined by
-#: ../xl/trax/track.py:73
+#: ../xl/trax/track.py:74
 msgid " / "
 msgstr " / "
 
 #. TRANSLATORS: Bitrate (k here is short for kbps).
-#: ../xl/trax/track.py:721 ../xl/trax/track.py:787
+#: ../xl/trax/track.py:758 ../xl/trax/track.py:824
 #, python-format
 msgid "%dk"
-msgstr ""
+msgstr "%d.கே."
 
-#: ../xl/trax/trackdb.py:184
+#: ../xl/trax/trackdb.py:181
 msgid "You did not specify a location to load the db from"
-msgstr ""
+msgstr "டி.பியை ஏற்றுவதற்கான இடத்தை நீங்கள் குறிப்பிடவில்லை"
 
-#: ../xl/trax/trackdb.py:253
+#: ../xl/trax/trackdb.py:249
 msgid "You did not specify a location to save the db"
-msgstr ""
+msgstr "டி.பியைச் சேமிக்க ஒரு இடத்தை நீங்கள் குறிப்பிடவில்லை"
 
-#: ../xl/xldbus.py:131 ../xl/xldbus.py:523 ../xlgui/panel/lyrics.py:149
+#: ../xl/xldbus.py:131 ../xl/xldbus.py:523 ../xlgui/panel/lyrics.py:148
 msgid "Not playing."
-msgstr ""
+msgstr "விளையாடுவதில்லை."
 
 #: ../xl/xldbus.py:526
 #, python-format
@@ -790,556 +799,542 @@ msgid ""
 "status: %(status)s, title: %(title)s, artist: %(artist)s, album: %(album)s, "
 "length: %(length)s, position: %(progress)s%% [%(position)s]"
 msgstr ""
+"நிலை: %(status)s, தலைப்பு: %(title)s, கலைஞர்: %(artist)s, ஆல்பம்: %(album)s, "
+"நீளம்: %(length)s, நிலை: %(progress)s %% %(position)s]"
 
-#: ../xlgui/__init__.py:318
+#: ../xlgui/__init__.py:316
 msgid "Scanning collection..."
-msgstr ""
+msgstr "ச்கேனிங் சேகரிப்பு ..."
 
-#: ../xlgui/__init__.py:397
+#: ../xlgui/__init__.py:398
 #, python-format
 msgid "Scanning %s..."
-msgstr ""
+msgstr "ச்கேனிங் %s ..."
 
 #: ../xlgui/collection.py:116
 msgid "Add a Directory"
-msgstr ""
+msgstr "ஒரு கோப்பகத்தைச் சேர்க்கவும்"
 
 #: ../xlgui/collection.py:150
 msgid "Directory not added."
-msgstr ""
+msgstr "அடைவு சேர்க்கப்படவில்லை."
 
 #: ../xlgui/collection.py:152
 msgid ""
 "The directory is already in your collection or is a subdirectory of another "
 "directory in your collection."
 msgstr ""
+"அடைவு ஏற்கனவே உங்கள் சேகரிப்பில் உள்ளது அல்லது உங்கள் சேகரிப்பில் உள்ள மற்றொரு கோப்பகத்தின் "
+"துணை அடைவாகும்."
 
 #: ../xlgui/cover.py:97
 #, python-brace-format
 msgid "{outstanding} covers left to fetch"
-msgstr ""
+msgstr "{outstanding} கவர்கள் பெற இடமளிக்கின்றன"
 
 #: ../xlgui/cover.py:98
 msgid "All covers fetched"
-msgstr ""
+msgstr "அனைத்து அட்டைகளும் பெறப்பட்டவை"
 
 #: ../xlgui/cover.py:123
 msgid "Collecting albums and covers..."
-msgstr ""
+msgstr "ஆல்பங்கள் மற்றும் அட்டைகளை சேகரித்தல் ..."
 
 #: ../xlgui/cover.py:501
 msgid "Show Cover"
-msgstr ""
+msgstr "கவர் காட்டு"
 
 #: ../xlgui/cover.py:502
 msgid "Fetch Cover"
-msgstr ""
+msgstr "கவர் கிடைக்கும்"
 
 #: ../xlgui/cover.py:503
 msgid "Remove Cover"
-msgstr ""
+msgstr "அட்டையை அகற்று"
 
-#: ../xlgui/cover.py:812
+#: ../xlgui/cover.py:810
 #, python-format
 msgid "Cover for %s"
-msgstr ""
+msgstr "%s க்கு கவர்"
 
-#: ../xlgui/cover.py:880
+#: ../xlgui/cover.py:878
 #, python-brace-format
 msgid "{width}x{height} pixels ({zoom}%)"
-msgstr ""
+msgstr "{width} ஃச் {height} படப்புள்ளிகள் ({zoom}%)"
 
-#: ../xlgui/cover.py:931
+#: ../xlgui/cover.py:929
 msgid "Save File"
-msgstr ""
+msgstr "கோப்பை சேமி"
 
-#: ../xlgui/cover.py:1029
+#: ../xlgui/cover.py:1027
 #, python-format
 msgid "Cover options for %(artist)s - %(album)s"
-msgstr ""
+msgstr "%(artist)s - %(album)s இதற்கான அட்டை விருப்பங்கள்"
+
+#: ../xlgui/cover.py:1131
+msgid "No covers found."
+msgstr "கவர்கள் எதுவும் கிடைக்கவில்லை."
 
 #: ../xlgui/cover.py:1133
-msgid "No covers found."
-msgstr ""
-
-#: ../xlgui/cover.py:1135
 msgid ""
 "None of the enabled sources has a cover for this track, try enabling more "
 "sources."
 msgstr ""
+"இயக்கப்பட்ட ஆதாரங்களில் எதுவும் இந்த பாதையில் ஒரு கவர் இல்லை, மேலும் ஆதாரங்களை இயக்க "
+"முயற்சிக்கவும்."
 
 #. TRANSLATORS: do not translate 'width' and 'height'
-#: ../xlgui/cover.py:1178 ../xlgui/properties.py:1105
+#: ../xlgui/cover.py:1176 ../xlgui/properties.py:1106
 #, python-brace-format
 msgid "{width}x{height} pixels"
-msgstr ""
+msgstr "{width} ஃச் {height} படப்புள்ளிகள்"
 
-#: ../xlgui/main.py:95
+#: ../xlgui/main.py:94
 msgid "$title (by $artist)"
-msgstr ""
+msgstr "$ தலைப்பு ($ கலைஞரால்)"
 
-#: ../xlgui/main.py:149
+#: ../xlgui/main.py:148
 msgid "Save currently selected playlist"
-msgstr ""
+msgstr "தற்போது தேர்ந்தெடுக்கப்பட்ட பிளேலிச்ட்டைச் சேமிக்கவும்"
 
-#: ../xlgui/main.py:154
+#: ../xlgui/main.py:153
 msgid "Save currently selected playlist under a custom name"
-msgstr ""
+msgstr "தற்போது தேர்ந்தெடுக்கப்பட்ட பிளேலிச்ட்டை தனிப்பயன் பெயரில் சேமிக்கவும்"
 
-#: ../xlgui/main.py:159
+#: ../xlgui/main.py:158
 msgid "Focus filter in currently focused panel"
-msgstr ""
+msgstr "தற்போது கவனம் செலுத்திய குழுவில் கவனம் செலுத்துங்கள்"
 
-#: ../xlgui/main.py:164
+#: ../xlgui/main.py:163
 msgid "Focus playlist search"
-msgstr ""
+msgstr "பிளேலிச்ட் தேடலில் கவனம் செலுத்துங்கள்"
 
-#: ../xlgui/main.py:169
+#: ../xlgui/main.py:168
 msgid "Clear queue"
-msgstr ""
+msgstr "தெளிவான வரிசை"
 
-#: ../xlgui/main.py:174 ../plugins/minimode/controls.py:270
+#: ../xlgui/main.py:173 ../plugins/minimode/controls.py:270
 msgid "Start, pause or resume the playback"
-msgstr ""
+msgstr "பிளேபேக்கைத் தொடங்கவும், இடைநிறுத்தவும் அல்லது மீண்டும் தொடங்கவும்"
 
-#: ../xlgui/main.py:179
+#: ../xlgui/main.py:178
 msgid "Seek to the right"
-msgstr ""
+msgstr "வலதுபுறம் தேடுங்கள்"
 
-#: ../xlgui/main.py:184
+#: ../xlgui/main.py:183
 msgid "Seek to the left"
-msgstr ""
+msgstr "இடதுபுறம் தேடுங்கள்"
 
-#: ../xlgui/main.py:189 ../xlgui/main.py:194
-#, fuzzy
-#| msgid "Increases the volume by N%"
+#: ../xlgui/main.py:188 ../xlgui/main.py:193
 msgid "Increase the volume"
-msgstr "N% இனால் ஒலியளவைக் கூட்டு"
+msgstr "அளவை அதிகரிக்கவும்"
 
-#: ../xlgui/main.py:199
-#, fuzzy
-#| msgid "Decreases the volume by N%"
+#: ../xlgui/main.py:198
 msgid "Decrease the volume"
-msgstr "N% இனால் ஒலியளவைக் குறை"
+msgstr "அளவைக் குறைக்கவும்"
+
+#: ../xlgui/main.py:201
+msgid "Switch to previous tab"
+msgstr "முந்தைய தாவலுக்கு மாறவும்"
 
 #: ../xlgui/main.py:202
-#, fuzzy
-#| msgid "Play the previous track"
-msgid "Switch to previous tab"
-msgstr "முந்தைய தடத்தை இயக்கு"
-
-#: ../xlgui/main.py:203
 msgid "Switch to next tab"
-msgstr ""
+msgstr "அடுத்த தாவலுக்கு மாறவும்"
 
-#: ../xlgui/main.py:206
+#: ../xlgui/main.py:205
 msgid "Focus the playlist container"
-msgstr ""
+msgstr "பிளேலிச்ட் கொள்கலனில் கவனம் செலுத்துங்கள்"
 
-#: ../xlgui/main.py:213
+#: ../xlgui/main.py:212
 msgid "Focus the files panel"
-msgstr ""
+msgstr "கோப்புகள் குழுவில் கவனம் செலுத்துங்கள்"
 
-#: ../xlgui/main.py:220
+#: ../xlgui/main.py:219
 msgid "Focus the radio panel"
-msgstr ""
+msgstr "ரேடியோ பேனலில் கவனம் செலுத்துங்கள்"
 
-#: ../xlgui/main.py:225
+#: ../xlgui/main.py:224
 msgid "Focus the playlists panel"
-msgstr ""
+msgstr "பிளேலிச்ட்கள் குழுவில் கவனம் செலுத்துங்கள்"
+
+#: ../xlgui/main.py:227
+msgid "Focus the first tab"
+msgstr "முதல் தாவலில் கவனம் செலுத்துங்கள்"
 
 #: ../xlgui/main.py:228
-msgid "Focus the first tab"
-msgstr ""
+msgid "Focus the second tab"
+msgstr "இரண்டாவது தாவலில் கவனம் செலுத்துங்கள்"
 
 #: ../xlgui/main.py:229
-msgid "Focus the second tab"
-msgstr ""
+msgid "Focus the third tab"
+msgstr "மூன்றாவது தாவலில் கவனம் செலுத்துங்கள்"
 
 #: ../xlgui/main.py:230
-msgid "Focus the third tab"
-msgstr ""
+msgid "Focus the fourth tab"
+msgstr "நான்காவது தாவலில் கவனம் செலுத்துங்கள்"
 
 #: ../xlgui/main.py:231
-msgid "Focus the fourth tab"
-msgstr ""
+msgid "Focus the fifth tab"
+msgstr "ஐந்தாவது தாவலில் கவனம் செலுத்துங்கள்"
 
 #: ../xlgui/main.py:232
-msgid "Focus the fifth tab"
-msgstr ""
+msgid "Focus the sixth tab"
+msgstr "ஆறாவது தாவலில் கவனம் செலுத்துங்கள்"
 
 #: ../xlgui/main.py:233
-msgid "Focus the sixth tab"
-msgstr ""
+msgid "Focus the seventh tab"
+msgstr "ஏழாவது தாவலில் கவனம் செலுத்துங்கள்"
 
 #: ../xlgui/main.py:234
-msgid "Focus the seventh tab"
-msgstr ""
+msgid "Focus the eighth tab"
+msgstr "எட்டாவது தாவலில் கவனம் செலுத்துங்கள்"
 
 #: ../xlgui/main.py:235
-msgid "Focus the eighth tab"
-msgstr ""
+msgid "Focus the ninth tab"
+msgstr "ஒன்பதாவது தாவலில் கவனம் செலுத்துங்கள்"
 
 #: ../xlgui/main.py:236
-msgid "Focus the ninth tab"
-msgstr ""
-
-#: ../xlgui/main.py:237
 msgid "Focus the tenth tab"
-msgstr ""
+msgstr "பத்தாவது தாவலில் கவனம் செலுத்துங்கள்"
 
-#: ../xlgui/main.py:592
+#: ../xlgui/main.py:596
 msgid "Toggle: Stop after Selected Track"
-msgstr ""
+msgstr "தடுமாறி: தேர்ந்தெடுக்கப்பட்ட தடத்திற்குப் பிறகு நிறுத்துங்கள்"
 
-#: ../xlgui/main.py:705 ../plugins/previewdevice/__init__.py:355
+#: ../xlgui/main.py:705 ../plugins/previewdevice/__init__.py:348
 msgid "Playback error encountered!"
-msgstr ""
+msgstr "பிளேபேக் பிழை ஏற்பட்டது!"
 
 #: ../xlgui/main.py:712
 #, python-format
 msgid "Buffering: %d%%..."
-msgstr ""
+msgstr "இடையக:%d %% ..."
 
-#: ../xlgui/main.py:753 ../plugins/previewdevice/__init__.py:364
+#: ../xlgui/main.py:753 ../plugins/previewdevice/__init__.py:357
 msgid "Continue Playback"
-msgstr ""
+msgstr "பிளேபேக்கைத் தொடரவும்"
 
-#: ../xlgui/main.py:756 ../xlgui/main.py:929
-#: ../plugins/previewdevice/__init__.py:367
+#: ../xlgui/main.py:756 ../xlgui/main.py:922
+#: ../plugins/previewdevice/__init__.py:360
 msgid "Pause Playback"
-msgstr ""
+msgstr "இடைநிறுத்தப்பட்ட பின்னணி"
 
 #: ../xlgui/main.py:885 ../xlgui/menu.py:145
 msgid "Playlist export failed!"
-msgstr ""
+msgstr "பிளேலிச்ட் ஏற்றுமதி தோல்வியடைந்தது!"
 
-#: ../xlgui/main.py:938 ../data/ui/main.ui:174
-#: ../plugins/previewdevice/__init__.py:349
+#: ../xlgui/main.py:931 ../data/ui/main.ui:174
+#: ../plugins/previewdevice/__init__.py:342
 msgid "Start Playback"
-msgstr ""
+msgstr "பிளேபேக்கைத் தொடங்குங்கள்"
 
-#: ../xlgui/menu.py:62 ../xlgui/panel/menus.py:211
+#: ../xlgui/menu.py:62 ../xlgui/panel/menus.py:209
 #: ../xlgui/widgets/playlist.py:213
 msgid "_New Playlist"
-msgstr ""
+msgstr "_ நியூ பிளேலிச்ட்"
 
 #: ../xlgui/menu.py:75
 msgid "_Open"
-msgstr ""
+msgstr "திற"
 
 #: ../xlgui/menu.py:92
 msgid "Open _URL"
-msgstr ""
+msgstr "_Url ஐத் திற"
 
 #: ../xlgui/menu.py:114
-#, fuzzy
-#| msgid "Open Directory"
 msgid "Open _Directories"
-msgstr "அடைவை திற"
+msgstr "_ டைரக்டரிகளைத் திறக்கவும்"
 
-#: ../xlgui/menu.py:126 ../xlgui/panel/menus.py:227
-#, fuzzy
-#| msgid "Rename Playlist"
+#: ../xlgui/menu.py:126 ../xlgui/panel/menus.py:225
 msgid "_Import Playlist"
-msgstr "இசைப்பட்டியலை மறுபெயரிடு"
+msgstr "_ முக்கிய பிளேலிச்ட்"
 
 #: ../xlgui/menu.py:156
 msgid "E_xport Current Playlist"
-msgstr ""
+msgstr "E_xport தற்போதைய பிளேலிச்ட்"
 
 #: ../xlgui/menu.py:166 ../xlgui/widgets/playlist.py:278
-#, fuzzy
-#| msgid "Close tab"
 msgid "Close _Tab"
-msgstr "தத்தலை மூடு"
+msgstr "தவலை_மூடு"
 
 #: ../xlgui/menu.py:183
 msgid "_Restart"
-msgstr ""
+msgstr "_ ரெச்டார்ட்"
 
 #: ../xlgui/menu.py:193 ../xlgui/tray.py:115
 msgid "_Quit Exaile"
-msgstr ""
+msgstr "_Quit exaile"
 
 #: ../xlgui/menu.py:219
 msgid "_Collection"
-msgstr ""
+msgstr "_ சேகரிப்பு"
 
 #: ../xlgui/menu.py:225
 msgid "_Queue"
-msgstr ""
+msgstr "_Queeue"
 
 #: ../xlgui/menu.py:237
 msgid "C_overs"
-msgstr ""
+msgstr "அட்டைகள்"
 
 #: ../xlgui/menu.py:253
-#, fuzzy
-#| msgid "Preferences"
 msgid "_Preferences"
-msgstr "விருப்பங்கள்"
+msgstr "_ முனைகள்"
 
 #: ../xlgui/menu.py:278
 msgid "_Show Playing Track"
-msgstr ""
+msgstr "_ சோ விளையாடும் பாதையில்"
 
 #: ../xlgui/menu.py:302
 msgid "_Playlist Utilities Bar"
-msgstr ""
+msgstr "பிளேலிச்ட் பயன்பாட்டு பட்டி"
 
 #: ../xlgui/menu.py:312
 msgid "C_olumns"
-msgstr ""
+msgstr "நெடுவரிசைகள்"
 
 #: ../xlgui/menu.py:323
-#, fuzzy
 msgid "_Clear playlist"
-msgstr "இசைப்பட்டியலை மறுபெயரிடு"
+msgstr "_ கிளையர் பிளேலிச்ட்"
 
 #: ../xlgui/menu.py:352
 msgid "_Device Manager"
-msgstr ""
+msgstr "சாதன மேலாளர்"
 
 #: ../xlgui/menu.py:362
-#, fuzzy
-#| msgid "Collection"
 msgid "_Rescan Collection"
-msgstr "சேகரிப்பு"
+msgstr "_ ரெச்கான் சேகரிப்பு"
 
 #: ../xlgui/menu.py:372 ../data/ui/collection_manager.ui:226
 msgid "Rescan Collection (_slow)"
-msgstr ""
+msgstr "மீட்டமை சேகரிப்பு (_ச்லோ)"
 
 #: ../xlgui/menu.py:405
 msgid "User's Guide (website)"
-msgstr ""
+msgstr "பயனரின் வழிகாட்டி (வலைத்தளம்)"
 
 #: ../xlgui/menu.py:408 ../data/ui/shortcuts_dialog.ui:21
 msgid "Shortcuts"
-msgstr ""
+msgstr "குறுக்குவழிகள்"
 
 #: ../xlgui/menu.py:415
 msgid "Report an issue (GitHub)"
-msgstr ""
+msgstr "ஒரு சிக்கலைப் புகாரளிக்கவும் (கிதுப்)"
 
 #: ../xlgui/menu.py:421
 msgid "Open error logs"
-msgstr ""
+msgstr "பிழை பதிவுகளைத் திறக்கவும்"
 
 #: ../xlgui/menu.py:425
 msgid "_About"
-msgstr ""
+msgstr "பற்றி"
 
 #: ../xlgui/panel/collection.py:127
-#, fuzzy
-#| msgid "Artist"
 msgid "Album Artist"
-msgstr "கலைஞர்"
+msgstr "ஆல்பம் கலைஞர்"
 
 #: ../xlgui/panel/collection.py:133
 msgid "Genre - Artist"
-msgstr ""
+msgstr "வகை - கலைஞர்"
 
 #: ../xlgui/panel/collection.py:136
 msgid "Genre - Album Artist"
-msgstr ""
+msgstr "வகை - ஆல்பம் கலைஞர்"
 
 #: ../xlgui/panel/collection.py:139
 msgid "Genre - Album"
-msgstr ""
+msgstr "வகை - ஆல்பம்"
 
 #: ../xlgui/panel/collection.py:142
 msgid "Date - Artist"
-msgstr ""
+msgstr "தேதி - கலைஞர்"
 
 #: ../xlgui/panel/collection.py:145
 msgid "Date - Album Artist"
-msgstr ""
+msgstr "தேதி - ஆல்பம் கலைஞர்"
 
 #: ../xlgui/panel/collection.py:148
 msgid "Date - Album"
-msgstr ""
+msgstr "தேதி - ஆல்பம்"
 
 #: ../xlgui/panel/collection.py:151
 msgid "Artist - (Date - Album)"
-msgstr ""
+msgstr "கலைஞர் - (தேதி - ஆல்பம்)"
 
 #: ../xlgui/panel/collection.py:155
 msgid "Album Artist - (Date - Album)"
-msgstr ""
+msgstr "ஆல்பம் கலைஞர் - (தேதி - ஆல்பம்)"
 
-#: ../xlgui/panel/collection.py:183 ../xlgui/preferences/collection.py:21
+#: ../xlgui/panel/collection.py:183 ../xlgui/preferences/collection.py:23
 msgid "Collection"
 msgstr "சேகரிப்பு"
 
-#: ../xlgui/panel/collection.py:286
+#: ../xlgui/panel/collection.py:290
 msgid "Rescan Collection"
-msgstr ""
+msgstr "ரெச்கான் சேகரிப்பு"
 
-#: ../xlgui/panel/device.py:151
+#: ../xlgui/panel/device.py:150
 #, python-format
 msgid "Transferring to %s..."
-msgstr ""
+msgstr "%s க்கு மாற்றுவது ..."
 
-#: ../xlgui/panel/files.py:82
+#: ../xlgui/panel/files.py:81
 msgid "Files"
 msgstr "கோப்புகள்"
 
-#: ../xlgui/panel/files.py:122 ../xlgui/widgets/playlist_columns.py:448
-#: ../plugins/cd/cdprefs.py:121 ../plugins/minimode/minimode_preferences.py:117
+#: ../xlgui/panel/files.py:121 ../xlgui/widgets/playlist_columns.py:447
+#: ../plugins/cd/cdprefs.py:124 ../plugins/minimode/minimode_preferences.py:117
 msgid "Filename"
 msgstr "கோப்பின் பெயர்"
 
 #. TRANSLATORS: File size column in the file browser
-#: ../xlgui/panel/files.py:146
+#: ../xlgui/panel/files.py:145
 msgid "Size"
 msgstr "அளவு"
 
 #. TRANSLATORS: File size (1 kB = 1000 bytes)
-#: ../xlgui/panel/files.py:459
+#: ../xlgui/panel/files.py:458
 #, python-format
 msgid "%s kB"
-msgstr ""
+msgstr "%s கிபை"
 
 #. TRANSLATORS: Title of the track number column
-#: ../xlgui/panel/flatplaylist.py:93 ../xlgui/widgets/playlist_columns.py:271
+#: ../xlgui/panel/flatplaylist.py:93 ../xlgui/widgets/playlist_columns.py:270
 msgid "#"
 msgstr "#"
 
-#: ../xlgui/panel/lyrics.py:185
+#: ../xlgui/panel/lyrics.py:184
 msgid "No lyrics found."
-msgstr ""
+msgstr "பாடல் வரிகள் இல்லை."
 
-#: ../xlgui/panel/lyrics.py:198
+#: ../xlgui/panel/lyrics.py:197
 msgid "Source: "
-msgstr ""
+msgstr "ஆதாரம்: "
 
-#: ../xlgui/panel/lyrics.py:226
+#: ../xlgui/panel/lyrics.py:225
 msgid "Any source"
-msgstr ""
+msgstr "எந்த மூலமும்"
 
-#: ../xlgui/panel/menus.py:219
-#, fuzzy
-#| msgid "Rename Playlist"
+#: ../xlgui/panel/menus.py:217
 msgid "New _Smart Playlist"
-msgstr "இசைப்பட்டியலை மறுபெயரிடு"
+msgstr "புதிய _ அறிவுள்ள பிளேலிச்ட்"
 
-#: ../xlgui/panel/menus.py:325
+#: ../xlgui/panel/menus.py:321
 msgid "_New Station"
-msgstr ""
+msgstr "_ புதிய நிலையம்"
 
-#: ../xlgui/panel/playlists.py:136
+#: ../xlgui/panel/playlists.py:134
 #, python-format
 msgid "Delete the playlist \"%s\"?"
-msgstr ""
+msgstr "பிளேலிச்ட்டை \"%s\" நீக்கவா?"
+
+#: ../xlgui/panel/playlists.py:151
+msgid "Enter the new name you want for your playlist"
+msgstr "உங்கள் பிளேலிச்ட்டுக்கு நீங்கள் விரும்பும் புதிய பெயரை உள்ளிடவும்"
 
 #: ../xlgui/panel/playlists.py:152
-msgid "Enter the new name you want for your playlist"
-msgstr ""
-
-#: ../xlgui/panel/playlists.py:153
 msgid "Rename Playlist"
 msgstr "இசைப்பட்டியலை மறுபெயரிடு"
 
-#: ../xlgui/panel/playlists.py:169 ../xlgui/widgets/dialogs.py:1766
-#: ../xlgui/widgets/smart_playlist_editor.py:395
+#: ../xlgui/panel/playlists.py:168 ../xlgui/widgets/dialogs.py:1781
+#: ../xlgui/widgets/smart_playlist_editor.py:393
 msgid "The playlist name you entered is already in use."
-msgstr ""
+msgstr "நீங்கள் உள்ளிட்ட பிளேலிச்ட் பெயர் ஏற்கனவே பயன்பாட்டில் உள்ளது."
 
-#: ../xlgui/panel/playlists.py:215
+#: ../xlgui/panel/playlists.py:214
 #, python-format
 msgid "Error loading smart playlist: %s"
-msgstr ""
+msgstr "அறிவுள்ள பிளேலிச்ட்டை ஏற்றுவதில் பிழை: %s"
 
 #. TRANSLATORS: Playlist title suggestion with more
 #. than two values
-#: ../xlgui/panel/playlists.py:276 ../xlgui/panel/playlists.py:292
-#: ../xlgui/panel/playlists.py:308
+#: ../xlgui/panel/playlists.py:275 ../xlgui/panel/playlists.py:291
+#: ../xlgui/panel/playlists.py:307
 #, python-format
 msgid "%(first)s, %(second)s and others"
-msgstr ""
+msgstr "%(first)s, %(second)s மற்றும் பிற"
 
 #. TRANSLATORS: Playlist title suggestion with two values
-#: ../xlgui/panel/playlists.py:282 ../xlgui/panel/playlists.py:298
-#: ../xlgui/panel/playlists.py:314
+#: ../xlgui/panel/playlists.py:281 ../xlgui/panel/playlists.py:297
+#: ../xlgui/panel/playlists.py:313
 #, python-format
 msgid "%(first)s and %(second)s"
-msgstr ""
+msgstr "%(first)s மற்றும் %(second)s"
 
-#: ../xlgui/panel/playlists.py:390 ../xlgui/preferences/playlists.py:31
+#: ../xlgui/panel/playlists.py:389 ../xlgui/preferences/playlists.py:31
 msgid "Playlists"
 msgstr "பாடல் பட்டியல்கள்"
 
-#: ../xlgui/panel/playlists.py:534
+#: ../xlgui/panel/playlists.py:536
 msgid "Smart Playlists"
-msgstr ""
+msgstr "அறிவுள்ள பிளேலிச்ட்கள்"
 
-#: ../xlgui/panel/playlists.py:537
+#: ../xlgui/panel/playlists.py:539
 msgid "Custom Playlists"
-msgstr ""
+msgstr "தனிப்பயன் பிளேலிச்ட்கள்"
 
 #: ../xlgui/panel/radio.py:73
 msgid "Radio"
 msgstr "வானொலி"
 
-#: ../xlgui/panel/radio.py:147 ../xlgui/panel/radio.py:476
-#: ../xlgui/panel/radio.py:554
+#: ../xlgui/panel/radio.py:149 ../xlgui/panel/radio.py:478
+#: ../xlgui/panel/radio.py:556
 msgid "Loading streams..."
-msgstr ""
+msgstr "ச்ட்ரீம்களை ஏற்றுகிறது ..."
 
-#: ../xlgui/panel/radio.py:195
+#: ../xlgui/panel/radio.py:197
 msgid "Add Radio Station"
-msgstr ""
+msgstr "வானொலி நிலையத்தைச் சேர்க்கவும்"
 
-#: ../xlgui/panel/radio.py:197 ../data/ui/widgets/filter_dialog.ui:58
+#: ../xlgui/panel/radio.py:199 ../data/ui/widgets/filter_dialog.ui:58
+#: ../plugins/customcollectionorders/cco_prefs.py:118
 msgid "Name:"
 msgstr "பெயர்:"
 
-#: ../xlgui/panel/radio.py:198 ../plugins/audioscrobbler/asprefs_pane.ui:118
+#: ../xlgui/panel/radio.py:200 ../plugins/audioscrobbler/asprefs_pane.ui:118
 msgid "URL:"
-msgstr ""
-
-#: ../xlgui/panel/radio.py:274
-msgid "Saved Stations"
-msgstr ""
+msgstr "URL:"
 
 #: ../xlgui/panel/radio.py:276
-msgid "Radio Streams"
-msgstr ""
+msgid "Saved Stations"
+msgstr "சேமித்த நிலையங்கள்"
 
-#: ../xlgui/panel/radio.py:306 ../plugins/wikipedia/data/wikipanel.ui:75
+#: ../xlgui/panel/radio.py:278
+msgid "Radio Streams"
+msgstr "ரேடியோ நீரோடைகள்"
+
+#: ../xlgui/panel/radio.py:308 ../plugins/wikipedia/data/wikipanel.ui:75
 #: ../plugins/wikipedia/data/wikipanel.ui:76
 msgid "Refresh"
 msgstr "புதுப்பி"
 
-#: ../xlgui/panel/radio.py:417
+#: ../xlgui/panel/radio.py:419
 msgid "Enter the name you want for your new playlist"
-msgstr ""
+msgstr "உங்கள் புதிய பிளேலிச்ட்டுக்கு நீங்கள் விரும்பும் பெயரை உள்ளிடவும்"
 
-#: ../xlgui/panel/radio.py:417 ../xlgui/playlist_container.py:70
+#: ../xlgui/panel/radio.py:419 ../xlgui/playlist_container.py:70
 msgid "New Playlist"
-msgstr ""
+msgstr "புதிய பிளேலிச்ட்"
 
-#: ../xlgui/panels.py:99
+#: ../xlgui/panels.py:97
 msgid "P_anels"
-msgstr ""
+msgstr "பலகைகள்"
 
 #: ../xlgui/playlist_container.py:71
 msgid "Drop here to create a new playlist"
-msgstr ""
+msgstr "புதிய பிளேலிச்ட்டை உருவாக்க இங்கே கைவிடவும்"
 
 #: ../xlgui/playlist_container.py:131
 msgid "_Clear Tab History"
-msgstr ""
+msgstr "_ கிளையர் தாவல் வரலாறு"
 
 #: ../xlgui/playlist_container.py:143
 msgid "Recently Closed _Tabs"
-msgstr ""
+msgstr "அண்மைக் காலத்தில் மூடப்பட்ட தாவல்கள் (_T)"
 
 #: ../xlgui/playlist_container.py:163
 msgid "Restore closed tab"
-msgstr ""
+msgstr "மூடிய தாவலை மீட்டமைக்கவும்"
 
 #: ../xlgui/playlist_container.py:202
 #, python-format
@@ -1350,594 +1345,605 @@ msgstr "இசைப்பட்டியல் %d"
 #, python-brace-format
 msgid "{playlist_name} ({track_count} tracks, closed {minutes} min ago)"
 msgstr ""
+"{playlist_name} ({track_count} தடங்கள், மூடப்பட்ட {minutes} மணித்துளி முன்பு)"
 
 #: ../xlgui/playlist_container.py:394
 #, python-brace-format
 msgid "{playlist_name} ({track_count} tracks, closed {seconds} sec ago)"
 msgstr ""
+"{playlist_name} ({track_count} தடங்கள், மூடப்பட்ட {seconds} விநாடிகளுக்கு முன்பு)"
 
 #: ../xlgui/playlist_container.py:546
 msgid "_Move to Other View"
-msgstr ""
+msgstr "_ மற்ற பார்வைக்கு இணைந்திருங்கள்"
 
-#: ../xlgui/preferences/__init__.py:115 ../xlgui/preferences/plugin.py:40
+#: ../xlgui/preferences/__init__.py:113 ../xlgui/preferences/plugin.py:40
 msgid "Plugins"
 msgstr "சொருகுகள்"
 
 #: ../xlgui/preferences/appearance.py:34 ../plugins/osd/osd_preferences.ui:216
 msgid "Appearance"
-msgstr ""
+msgstr "தோற்றம்"
 
 #: ../xlgui/preferences/appearance.py:118
 msgid "Tray icons are not supported on your platform"
-msgstr ""
+msgstr "உங்கள் மேடையில் தட்டு சின்னங்கள் ஆதரிக்கப்படவில்லை"
 
 #. TRANSLATORS: Grammatical articles that are ignored while sorting the
 #. collection panel. For example, in French locales this could be
 #. the space-separated list "l' la le les".
 #. If this practice is not common in your locale, simply
 #. translate this to string with single space.
-#: ../xlgui/preferences/collection.py:36
+#: ../xlgui/preferences/collection.py:38
 msgid "the"
-msgstr ""
+msgstr "தி"
 
-#: ../xlgui/preferences/collection.py:60
+#: ../xlgui/preferences/collection.py:62
 msgid "Reset to _Defaults"
-msgstr ""
+msgstr "_Defaults க்கு மீட்டமைக்கவும்"
+
+#: ../xlgui/preferences/collection.py:130
+msgid "Migrating ratings to audio file metadata"
+msgstr "மதிப்பீடுகளை ஆடியோ கோப்பு மெட்டாடேட்டாவுக்கு மாற்றுகிறது"
+
+#: ../xlgui/preferences/collection.py:195
+msgid "Migrating metadata"
+msgstr "மேனிலை தரவு இடம்பெயர்கிறது"
 
 #: ../xlgui/preferences/cover.py:31 ../plugins/amazoncovers/PLUGININFO:5
 #: ../plugins/lastfmcovers/PLUGININFO:5
 #: ../plugins/musicbrainzcovers/PLUGININFO:5
 msgid "Covers"
-msgstr ""
+msgstr "மறையம்"
 
 #: ../xlgui/preferences/lyrics.py:20
 msgid "Lyrics Viewer"
-msgstr ""
+msgstr "பாடல் பார்வையாளர்"
 
 #: ../xlgui/preferences/playback.py:35
 msgid "Playback"
-msgstr ""
+msgstr "பின்னணி"
 
-#: ../xlgui/preferences/plugin.py:107 ../plugins/grouptagger/gt_common.py:60
+#: ../xlgui/preferences/plugin.py:119 ../plugins/grouptagger/gt_common.py:58
 #: ../plugins/grouptagger/gt_widgets.py:60
 msgid "Uncategorized"
-msgstr ""
+msgstr "வகைப்படுத்தப்படாதது"
 
-#: ../xlgui/preferences/plugin.py:179
+#: ../xlgui/preferences/plugin.py:200
 msgid "Could not load plugin info!"
-msgstr ""
+msgstr "சொருகி தகவலை ஏற்ற முடியவில்லை!"
 
-#: ../xlgui/preferences/plugin.py:180
+#: ../xlgui/preferences/plugin.py:201
 #, python-format
 msgid "Failed plugin: %s"
 msgid_plural "Failed plugins: %s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "தோல்வியுற்ற சொருகி: %s"
+msgstr[1] "தோல்வியுற்ற செருகுநிரல்கள்: %s"
 
-#: ../xlgui/preferences/plugin.py:212 ../xlgui/preferences/plugin.py:313
+#: ../xlgui/preferences/plugin.py:239
+msgid "Do you really want to remove this plugin?"
+msgstr "இந்த சொருகி நீக்க விரும்புகிறீர்களா?"
+
+#: ../xlgui/preferences/plugin.py:249
+msgid "Could not remove plugin!"
+msgstr "சொருகி அகற்ற முடியவில்லை!"
+
+#: ../xlgui/preferences/plugin.py:265 ../xlgui/preferences/plugin.py:388
 msgid "Could not disable plugin!"
-msgstr ""
+msgstr "சொருகி முடக்க முடியவில்லை!"
 
-#: ../xlgui/preferences/plugin.py:222 ../xlgui/preferences/plugin.py:307
+#: ../xlgui/preferences/plugin.py:275 ../xlgui/preferences/plugin.py:382
 msgid "Could not enable plugin!"
-msgstr ""
+msgstr "சொருகி இயக்க முடியவில்லை!"
 
-#: ../xlgui/preferences/plugin.py:231
+#: ../xlgui/preferences/plugin.py:284
 msgid "Choose a Plugin"
-msgstr ""
+msgstr "சொருகி தேர்வு செய்யவும்"
 
-#: ../xlgui/preferences/plugin.py:242
+#: ../xlgui/preferences/plugin.py:295
 msgid "Plugin Archives"
-msgstr ""
+msgstr "சொருகி காப்பகங்கள்"
 
-#: ../xlgui/preferences/plugin.py:249 ../xlgui/widgets/dialogs.py:721
-#: ../xlgui/widgets/dialogs.py:898
+#: ../xlgui/preferences/plugin.py:302 ../xlgui/widgets/dialogs.py:737
+#: ../xlgui/widgets/dialogs.py:913
 msgid "All Files"
 msgstr "அனைத்து கோப்புகள்"
 
-#: ../xlgui/preferences/plugin.py:260
+#: ../xlgui/preferences/plugin.py:321
+msgid "Plugin already exists!"
+msgstr "சொருகி ஏற்கனவே உள்ளது!"
+
+#: ../xlgui/preferences/plugin.py:322
+msgid "Do you want to override it?"
+msgstr "நீங்கள் அதை மேலெழுத விரும்புகிறீர்களா?"
+
+#: ../xlgui/preferences/plugin.py:330
 msgid "Plugin file installation failed!"
-msgstr ""
+msgstr "சொருகி கோப்பு நிறுவல் தோல்வியடைந்தது!"
 
 #: ../xlgui/preferences/widgets.py:74
 msgid "Restart Exaile?"
-msgstr ""
+msgstr "எக்சைல் ஐ மறுதொடக்கம் செய்யவா?"
 
 #: ../xlgui/preferences/widgets.py:77
 msgid "A restart is required for this change to take effect."
-msgstr ""
+msgstr "இந்த மாற்றம் நடைமுறைக்கு வர மறுதொடக்கம் தேவை."
 
 #: ../xlgui/preferences/widgets.py:80
 msgid "Restart"
-msgstr ""
+msgstr "மறுதொடக்கம்"
 
-#: ../xlgui/preferences/widgets.py:731
+#: ../xlgui/preferences/widgets.py:743
 msgid "Action"
-msgstr ""
+msgstr "செயல்"
 
-#: ../xlgui/preferences/widgets.py:739 ../data/ui/shortcuts_dialog.ui:78
+#: ../xlgui/preferences/widgets.py:751 ../data/ui/shortcuts_dialog.ui:79
 msgid "Shortcut"
-msgstr ""
+msgstr "குறுக்குவழி"
 
-#: ../xlgui/properties.py:253
+#: ../xlgui/properties.py:258
 msgid "Writing of tags failed"
-msgstr ""
+msgstr "குறிச்சொற்களை எழுதுவது தோல்வியடைந்தது"
 
-#: ../xlgui/properties.py:255
+#: ../xlgui/properties.py:260
 #, python-brace-format
 msgid ""
 "Tags could not be written to the following files:\n"
 "{files}"
 msgstr ""
+"குறிச்சொற்களை பின்வரும் கோப்புகளுக்கு எழுத முடியவில்லை:\n"
+" {files}"
 
-#: ../xlgui/properties.py:275
+#: ../xlgui/properties.py:280
 #, python-format
 msgid "Editing track %(current)d of %(total)d"
-msgstr ""
+msgstr "ட்ராக் %(current)d %(total)d"
 
-#: ../xlgui/properties.py:398
+#: ../xlgui/properties.py:400
 msgid "Are you sure you want to apply the changes to all tracks?"
-msgstr ""
+msgstr "எல்லா தடங்களுக்கும் மாற்றங்களைப் பயன்படுத்த விரும்புகிறீர்களா?"
 
-#: ../xlgui/properties.py:440
+#: ../xlgui/properties.py:443
 msgid "Apply changes before closing?"
-msgstr ""
+msgstr "மூடுவதற்கு முன் மாற்றங்களைப் பயன்படுத்தவா?"
 
-#: ../xlgui/properties.py:441
+#: ../xlgui/properties.py:444
 msgid "Your changes will be lost if you do not apply them now."
-msgstr ""
+msgstr "நீங்கள் இப்போது அவற்றைப் பயன்படுத்தாவிட்டால் உங்கள் மாற்றங்கள் இழக்கப்படும்."
 
 #. TRANSLATORS: Label for a tag on the Track Properties dialog
-#: ../xlgui/properties.py:624
+#: ../xlgui/properties.py:626
 #, python-format
 msgid "%s:"
-msgstr ""
+msgstr "%s:"
 
 #. TRANSLATORS: Remove tag value
-#: ../xlgui/properties.py:631 ../plugins/developer/developer_window.ui:131
+#: ../xlgui/properties.py:633 ../plugins/developer/developer_window.ui:131
 msgid "Clear"
-msgstr ""
+msgstr "தெளிவான"
 
 #. TRANSLATORS: This is the 'of' between numbers in fields like
 #. tracknumber, discnumber, etc. in the tagger.
-#: ../xlgui/properties.py:853
+#: ../xlgui/properties.py:855
 msgid "of:"
-msgstr ""
+msgstr "இல்:"
 
-#: ../xlgui/properties.py:960
+#: ../xlgui/properties.py:961
 msgid "JPEG image"
-msgstr ""
+msgstr "JPEG படம்"
 
-#: ../xlgui/properties.py:965
+#: ../xlgui/properties.py:966
 msgid "PNG image"
-msgstr ""
+msgstr "பி.என்.சி படம்"
 
-#: ../xlgui/properties.py:967
+#: ../xlgui/properties.py:968
 msgid "Image"
-msgstr ""
+msgstr "படம்"
 
-#: ../xlgui/properties.py:973
+#: ../xlgui/properties.py:974
 msgid "Linked image"
-msgstr ""
+msgstr "இணைக்கப்பட்ட படம்"
 
 #. TRANSLATORS: do not translate 'format', 'width', and 'height'
-#: ../xlgui/properties.py:1108
+#: ../xlgui/properties.py:1109
 #, python-brace-format
 msgid "{format} ({width}x{height} pixels)"
-msgstr ""
+msgstr "{format} ({width} ஃச் {height} பிக்சல்கள்)"
 
-#: ../xlgui/properties.py:1122
+#: ../xlgui/properties.py:1123
 msgid "Select image to set as cover"
-msgstr ""
+msgstr "அட்டையாக அமைக்க படத்தைத் தேர்ந்தெடுக்கவும்"
 
-#: ../xlgui/properties.py:1135
+#: ../xlgui/properties.py:1136
 msgid "Supported image formats"
-msgstr ""
+msgstr "ஆதரிக்கப்பட்ட பட வடிவங்கள்"
 
-#: ../xlgui/properties.py:1218
+#: ../xlgui/properties.py:1219
 msgid "Open Directory"
 msgstr "அடைவை திற"
 
-#: ../xlgui/properties.py:1268
+#: ../xlgui/properties.py:1269
 msgid "Apply current value to all tracks"
-msgstr ""
+msgstr "எல்லா தடங்களுக்கும் தற்போதைய மதிப்பைப் பயன்படுத்துங்கள்"
 
-#: ../xlgui/properties.py:1288 ../xlgui/widgets/dialogs.py:1543
+#: ../xlgui/properties.py:1288 ../xlgui/widgets/dialogs.py:1564
 #, python-format
 msgid "Saved %(count)s of %(total)s."
-msgstr ""
+msgstr "%(count)s சேமிக்கப்பட்ட %(total)s."
 
-#: ../xlgui/tray.py:203
+#: ../xlgui/tray.py:203 ../data/exaile.desktop.in:6
 msgid "Exaile Music Player"
-msgstr ""
+msgstr "எக்சைல் மியூசிக் பிளேயர்"
 
-#: ../xlgui/widgets/dialogs.py:355
+#: ../xlgui/widgets/dialogs.py:371
 msgid "Enter the URL to open"
-msgstr ""
+msgstr "திறக்க முகவரி ஐ உள்ளிடவும்"
 
-#: ../xlgui/widgets/dialogs.py:355
+#: ../xlgui/widgets/dialogs.py:371
 msgid "Open URL"
-msgstr ""
+msgstr "திறந்த முகவரி"
 
-#: ../xlgui/widgets/dialogs.py:642
+#: ../xlgui/widgets/dialogs.py:658
 msgid "Select File Type (by Extension)"
-msgstr ""
+msgstr "கோப்பு வகையைத் தேர்ந்தெடுக்கவும் (நீட்டிப்பு மூலம்)"
 
-#: ../xlgui/widgets/dialogs.py:700
+#: ../xlgui/widgets/dialogs.py:716
 msgid "Choose Media to Open"
-msgstr ""
+msgstr "திறக்க ஊடகத்தைத் தேர்வுசெய்க"
 
-#: ../xlgui/widgets/dialogs.py:715
+#: ../xlgui/widgets/dialogs.py:731
 msgid "Supported Files"
-msgstr ""
+msgstr "ஆதரிக்கப்பட்ட கோப்புகள்"
 
-#: ../xlgui/widgets/dialogs.py:717
+#: ../xlgui/widgets/dialogs.py:733
 msgid "Music Files"
-msgstr ""
+msgstr "இசை கோப்புகள்"
 
-#: ../xlgui/widgets/dialogs.py:719 ../xlgui/widgets/dialogs.py:896
+#: ../xlgui/widgets/dialogs.py:735 ../xlgui/widgets/dialogs.py:911
 msgid "Playlist Files"
-msgstr ""
+msgstr "பிளேலிச்ட் கோப்புகள்"
 
-#: ../xlgui/widgets/dialogs.py:801
+#: ../xlgui/widgets/dialogs.py:819
 msgid "Choose Directory to Open"
-msgstr ""
+msgstr "திறக்க கோப்பகத்தைத் தேர்வுசெய்க"
 
-#: ../xlgui/widgets/dialogs.py:881
+#: ../xlgui/widgets/dialogs.py:896
 msgid "Import Playlist"
-msgstr ""
+msgstr "பிளேலிச்ட்டை இறக்குமதி செய்யுங்கள்"
 
-#: ../xlgui/widgets/dialogs.py:996
+#: ../xlgui/widgets/dialogs.py:1011
 msgid "Export Current Playlist"
-msgstr ""
+msgstr "தற்போதைய பிளேலிச்ட்டை ஏற்றுமதி செய்யுங்கள்"
 
-#: ../xlgui/widgets/dialogs.py:1009
+#: ../xlgui/widgets/dialogs.py:1029
 msgid "Use relative paths to tracks"
-msgstr ""
-
-#: ../xlgui/widgets/dialogs.py:1066
-#, python-format
-msgid "Playlist saved as <b>%s</b>."
-msgstr ""
-
-#: ../xlgui/widgets/dialogs.py:1083
-#, python-format
-msgid "Close %s"
-msgstr ""
-
-#: ../xlgui/widgets/dialogs.py:1084
-#, python-format
-msgid "<b>Save changes to %s before closing?</b>"
-msgstr ""
-
-#: ../xlgui/widgets/dialogs.py:1086
-msgid "Your changes will be lost if you don't save them"
-msgstr ""
+msgstr "தடங்களுக்கு தொடர்புடைய பாதைகளைப் பயன்படுத்தவும்"
 
 #: ../xlgui/widgets/dialogs.py:1090
+#, python-format
+msgid "Playlist saved as <b>%s</b>."
+msgstr "இயக்குபட்டியல் <b>%s</b> என சேமிக்கப்பட்டது."
+
+#: ../xlgui/widgets/dialogs.py:1105
+#, python-format
+msgid "Close %s"
+msgstr "நெருக்கமான %s"
+
+#: ../xlgui/widgets/dialogs.py:1106
+#, python-format
+msgid "<b>Save changes to %s before closing?</b>"
+msgstr "<b>மூடுவதற்கு முன் %s மாற்றங்களைச் சேமிக்கவா?</b>"
+
+#: ../xlgui/widgets/dialogs.py:1108
+msgid "Your changes will be lost if you don't save them"
+msgstr "நீங்கள் சேமிக்கவில்லை என்றால் உங்கள் மாற்றங்கள் இழக்கப்படும்"
+
+#: ../xlgui/widgets/dialogs.py:1112
 msgid "Close Without Saving"
-msgstr ""
+msgstr "சேமிக்காமல் மூடு"
 
-#: ../xlgui/widgets/dialogs.py:1483
+#: ../xlgui/widgets/dialogs.py:1504
 msgid "Yes to all"
-msgstr ""
+msgstr "அனைவருக்கும் ஆம்"
 
-#: ../xlgui/widgets/dialogs.py:1491
+#: ../xlgui/widgets/dialogs.py:1512
 msgid "No to all"
-msgstr ""
+msgstr "அனைவருக்கும் இல்லை"
 
-#: ../xlgui/widgets/dialogs.py:1663 ../xlgui/widgets/dialogs.py:1681
+#: ../xlgui/widgets/dialogs.py:1681 ../xlgui/widgets/dialogs.py:1698
 #, python-format
 msgid "Error occurred while copying %s: %s"
-msgstr ""
+msgstr "%s: %s ஐ நகலெடுக்கும் போது பிழை ஏற்பட்டது"
 
-#: ../xlgui/widgets/dialogs.py:1692
+#: ../xlgui/widgets/dialogs.py:1708
 #, python-format
 msgid "File exists, overwrite %s ?"
-msgstr ""
+msgstr "கோப்பு உள்ளது, %s ஐ மேலெழுதவா?"
 
-#: ../xlgui/widgets/dialogs.py:1749
+#: ../xlgui/widgets/dialogs.py:1764
 msgid "Playlist name:"
-msgstr ""
+msgstr "பிளேலிச்ட் பெயர்:"
 
-#: ../xlgui/widgets/dialogs.py:1750
+#: ../xlgui/widgets/dialogs.py:1765
 msgid "Add new playlist..."
-msgstr ""
+msgstr "புதிய பிளேலிச்ட்டைச் சேர்க்கவும் ..."
 
-#: ../xlgui/widgets/dialogs.py:1763
-#: ../xlgui/widgets/smart_playlist_editor.py:387
+#: ../xlgui/widgets/dialogs.py:1778
+#: ../xlgui/widgets/smart_playlist_editor.py:385
 msgid "You did not enter a name for your playlist"
-msgstr ""
+msgstr "உங்கள் பிளேலிச்ட்டுக்கு ஒரு பெயரை உள்ளிடவில்லை"
 
-#: ../xlgui/widgets/dialogs.py:1772
+#: ../xlgui/widgets/dialogs.py:1787
 msgid "Save As"
-msgstr ""
+msgstr "என சேமி"
 
-#: ../xlgui/widgets/dialogs.py:1841
+#: ../xlgui/widgets/dialogs.py:1856
 #, python-format
 msgid "Exporting %s"
-msgstr ""
+msgstr "ஏற்றுமதி %s"
 
-#: ../xlgui/widgets/dialogs.py:1846
+#: ../xlgui/widgets/dialogs.py:1861
 msgid "Choose directory to export files to"
-msgstr ""
+msgstr "கோப்புகளை ஏற்றுமதி செய்ய கோப்பகத்தைத் தேர்வுசெய்க"
 
-#: ../xlgui/widgets/info.py:60
+#: ../xlgui/widgets/info.py:62
 msgid ""
 "<span size=\"x-large\" weight=\"bold\">$title</span>\n"
 "by $artist\n"
 "from $album"
 msgstr ""
+"<span size=\"x-large\" weight=\"bold\">$title</span>\n"
+" வழங்கியவர் $artist\n"
+"$album இலிருந்து"
 
-#: ../xlgui/widgets/info.py:67 ../xlgui/widgets/playback.py:110
+#: ../xlgui/widgets/info.py:69 ../xlgui/widgets/playback.py:110
 msgid "Not Playing"
 msgstr "இசைக்கவில்லை"
 
-#: ../xlgui/widgets/info.py:415
+#: ../xlgui/widgets/info.py:418
 #, python-format
 msgid "%d in collection"
-msgstr ""
+msgstr "சேகரிப்பில் %d"
 
-#: ../xlgui/widgets/info.py:437 ../xlgui/widgets/info.py:444
+#: ../xlgui/widgets/info.py:445 ../xlgui/widgets/info.py:454
 #, python-format
 msgid "%d showing"
-msgstr ""
+msgid_plural "%d showing"
+msgstr[0] "%d காட்டுகிறது"
+msgstr[1] "%d காட்டுகிறது"
 
-#: ../xlgui/widgets/info.py:441 ../xlgui/widgets/info.py:448
+#: ../xlgui/widgets/info.py:449 ../xlgui/widgets/info.py:459
 #, python-format
 msgid "%d selected"
-msgstr ""
+msgid_plural "%d selected"
+msgstr[0] "%d தேர்ந்தெடுக்கப்பட்டது"
+msgstr[1] "%d தேர்ந்தெடுக்கப்பட்டன"
 
 #: ../xlgui/widgets/menuitems.py:117
 msgid "En_queue"
-msgstr ""
+msgstr "வரிசையில்சேர்"
 
 #: ../xlgui/widgets/menuitems.py:153
 msgid "_Replace Current"
-msgstr ""
+msgstr "_ மின்னோட்டத்தை மாற்றவும்"
 
 #: ../xlgui/widgets/menuitems.py:164
 msgid "_Append to Current"
-msgstr ""
+msgstr "_ மின்னோட்டத்திற்கு ஏற்றுக்கொள்ளுங்கள்"
 
 #: ../xlgui/widgets/menuitems.py:182 ../xlgui/widgets/playlist.py:418
-#, fuzzy
-#| msgid "Track Options"
 msgid "_Track Properties"
-msgstr "தட விருப்பத்தேர்வுகள்"
+msgstr "_ டிராக் பண்புகள்"
 
 #: ../xlgui/widgets/menuitems.py:201
-#, fuzzy
-#| msgid "Open Directory"
 msgid "_Open Directory"
-msgstr "அடைவை திற"
+msgstr "_ திறந்த அடைவு"
 
-#: ../xlgui/widgets/menuitems.py:239
+#: ../xlgui/widgets/menuitems.py:238
 msgid ""
 "The files cannot be moved to the Trash. Delete them permanently from the "
 "disk?"
-msgstr ""
+msgstr "கோப்புகளை குப்பைக்கு நகர்த்த முடியாது. வட்டில் இருந்து அவற்றை நிரந்தரமாக நீக்கவா?"
 
-#: ../xlgui/widgets/menuitems.py:269
+#: ../xlgui/widgets/menuitems.py:268
 msgid "_Move to Trash"
-msgstr ""
+msgstr "குப்பைக்கு நகர்த்தவும்"
 
-#: ../xlgui/widgets/menuitems.py:288 ../xlgui/widgets/playlist.py:247
-#, fuzzy
-#| msgid "Rename"
+#: ../xlgui/widgets/menuitems.py:287 ../xlgui/widgets/playlist.py:247
 msgid "_Rename"
-msgstr "மறுபெயரிடு"
+msgstr "_ரினேம்"
 
-#: ../xlgui/widgets/menuitems.py:301 ../data/ui/main.ui:32
+#: ../xlgui/widgets/menuitems.py:300 ../data/ui/main.ui:32
 msgid "_Edit"
 msgstr "_திருத்து"
 
-#: ../xlgui/widgets/menuitems.py:314
-#, fuzzy
-#| msgid "Playlists"
+#: ../xlgui/widgets/menuitems.py:313
 msgid "E_xport Playlist"
-msgstr "பாடல் பட்டியல்கள்"
+msgstr "E_xport பிளேலிச்ட்"
 
-#: ../xlgui/widgets/menuitems.py:324
+#: ../xlgui/widgets/menuitems.py:323
 msgid "Export _Files"
-msgstr ""
+msgstr "ஏற்றுமதி _ கோப்புகள்"
 
-#: ../xlgui/widgets/menuitems.py:334
-#, fuzzy
-#| msgid "Rename Playlist"
+#: ../xlgui/widgets/menuitems.py:333
 msgid "_Delete Playlist"
-msgstr "இசைப்பட்டியலை மறுபெயரிடு"
+msgstr "_ பிளேலிச்ட்டை அனுப்புங்கள்"
 
-#: ../xlgui/widgets/notebook.py:246
+#: ../xlgui/widgets/notebook.py:252
 msgid "Close Tab"
-msgstr ""
+msgstr "தாவலை மூடு"
 
-#: ../xlgui/widgets/playback.py:834
+#: ../xlgui/widgets/playback.py:828
 #, python-format
 msgid "Seeking: %s"
-msgstr ""
+msgstr "தேடுவது: %s"
 
-#: ../xlgui/widgets/playback.py:1184
+#: ../xlgui/widgets/playback.py:1178
 msgid "Move"
-msgstr ""
+msgstr "நகர்த்தவும்"
 
-#: ../xlgui/widgets/playback.py:1329
+#: ../xlgui/widgets/playback.py:1323
 msgid "New Marker"
-msgstr ""
+msgstr "புதிய மார்க்கர்"
 
-#: ../xlgui/widgets/playback.py:1388
+#: ../xlgui/widgets/playback.py:1382
 msgid "_Jump to"
-msgstr ""
+msgstr "_ சம்ப்"
 
-#: ../xlgui/widgets/playback.py:1396
-#, fuzzy
-#| msgid "Remove"
+#: ../xlgui/widgets/playback.py:1390
 msgid "_Remove Marker"
-msgstr "நீக்கு"
+msgstr "_ ரெமோவ் மார்க்கர்"
 
-#: ../xlgui/widgets/playback.py:1439
+#: ../xlgui/widgets/playback.py:1433
 msgid "Muted"
-msgstr ""
+msgstr "முடக்கிய"
 
 #. TRANSLATORS: Volume percentage
-#: ../xlgui/widgets/playback.py:1445
+#: ../xlgui/widgets/playback.py:1439
 #, python-format
 msgid "%d%%"
-msgstr ""
+msgstr "%d %%"
 
-#: ../xlgui/widgets/playback.py:1450
+#: ../xlgui/widgets/playback.py:1444
 msgid "Full Volume"
-msgstr ""
+msgstr "முழு அளவு"
 
-#: ../xlgui/widgets/playback.py:1569
-#, fuzzy
-#| msgid "Pause"
+#: ../xlgui/widgets/playback.py:1563
 msgid "_Pause"
-msgstr "இடை நிறுத்தம்"
+msgstr "இடைநிறுத்தம்"
 
-#: ../xlgui/widgets/playback.py:1572
+#: ../xlgui/widgets/playback.py:1566
 msgid "P_lay"
-msgstr ""
+msgstr "பி_லே"
 
-#: ../xlgui/widgets/playback.py:1584
-#, fuzzy
-#| msgid "Next Track"
+#: ../xlgui/widgets/playback.py:1578
 msgid "_Next Track"
-msgstr "அடுத்த தடம்"
+msgstr "_ நெக்ச்ட் டிராக்"
 
-#: ../xlgui/widgets/playback.py:1594
-#, fuzzy
-#| msgid "Previous Track"
+#: ../xlgui/widgets/playback.py:1588
 msgid "_Previous Track"
-msgstr "முந்தைய தடம்"
+msgstr "_ முன்னுரிமை பாடல்"
 
-#: ../xlgui/widgets/playback.py:1604
+#: ../xlgui/widgets/playback.py:1598 ../data/ui/covermanager.ui:132
+#: ../data/ui/widgets/progress.ui:16
 msgid "_Stop"
-msgstr ""
+msgstr "_ச்டாப்"
 
 #: ../xlgui/widgets/playlist.py:118
 msgid "S_huffle"
-msgstr ""
+msgstr "குலுக்கு"
 
 #: ../xlgui/widgets/playlist.py:123
-#, fuzzy
-#| msgid "Repeat"
 msgid "R_epeat"
-msgstr "திரும்பச் செய்"
+msgstr "மறுநிகழ்வு"
 
 #: ../xlgui/widgets/playlist.py:128
 msgid "_Dynamic"
-msgstr ""
+msgstr "_ மாறும்"
 
 #: ../xlgui/widgets/playlist.py:146
 msgid "Remove _Current Track From Playlist"
-msgstr ""
+msgstr "பிளேலிச்ட்டிலிருந்து _current பாதையை அகற்று"
 
 #: ../xlgui/widgets/playlist.py:179
-#, fuzzy
-#| msgid "Rename Playlist"
 msgid "R_andomize Playlist"
-msgstr "இசைப்பட்டியலை மறுபெயரிடு"
+msgstr "R_andomize பிளேலிச்ட்டை"
 
 #: ../xlgui/widgets/playlist.py:182
 msgid "R_andomize Selection"
-msgstr ""
+msgstr "R_andomize தேர்வு"
 
-#: ../xlgui/widgets/playlist.py:224
+#: ../xlgui/widgets/playlist.py:224 ../data/ui/trackproperties_dialog.ui:298
 msgid "_Save"
-msgstr ""
+msgstr "_சேவ்"
 
 #: ../xlgui/widgets/playlist.py:237 ../data/ui/coverwindow.ui:26
 msgid "Save _As"
-msgstr ""
+msgstr "_As ஐ சேமிக்கவும்"
 
 #: ../xlgui/widgets/playlist.py:257
 msgid "_Clear"
-msgstr ""
+msgstr "_ கிளையர்"
 
 #: ../xlgui/widgets/playlist.py:325
 msgid "_Stop Playback After This Track"
-msgstr ""
+msgstr "_ இந்த பாதைக்குப் பிறகு பிளேபேக்"
 
 #: ../xlgui/widgets/playlist.py:332
 msgid "_Continue Playback After This Track"
-msgstr ""
+msgstr "_ இந்த பாதைக்குப் பிறகு பிளேபேக்"
 
 #: ../xlgui/widgets/playlist.py:386
-#, fuzzy
-#| msgid "Rename Playlist"
 msgid "_Remove from Playlist"
-msgstr "இசைப்பட்டியலை மறுபெயரிடு"
+msgstr "_ பிளேலிச்ட்டில் இருந்து அகற்றவும்"
 
-#: ../xlgui/widgets/playlist.py:739
+#: ../xlgui/widgets/playlist.py:758
 msgid "Requires plugins providing dynamic playlists"
-msgstr ""
+msgstr "மாறும் பிளேலிச்ட்களை வழங்கும் செருகுநிரல்கள் தேவை"
 
-#: ../xlgui/widgets/playlist.py:743 ../data/ui/playlist.ui:99
+#: ../xlgui/widgets/playlist.py:762 ../data/ui/playlist.ui:99
 msgid "Dynamically add similar tracks to the playlist"
-msgstr ""
+msgstr "பிளேலிச்ட்டில் ஒத்த தடங்களை மாறும்"
 
-#: ../xlgui/widgets/playlist.py:799
+#: ../xlgui/widgets/playlist.py:804
 msgid "Loading"
-msgstr ""
+msgstr "ஏற்றுகிறது"
 
-#: ../xlgui/widgets/playlist_columns.py:272
+#: ../xlgui/widgets/playlist_columns.py:271
 msgid "Track Number"
 msgstr "தட எண்"
 
-#: ../xlgui/widgets/playlist_columns.py:343
+#: ../xlgui/widgets/playlist_columns.py:342
 msgid "Disc Number"
-msgstr ""
+msgstr "வட்டு எண்"
 
-#: ../xlgui/widgets/playlist_columns.py:353
-#: ../xlgui/widgets/smart_playlist_editor.py:253 ../plugins/cd/cdprefs.py:116
+#: ../xlgui/widgets/playlist_columns.py:352
+#: ../xlgui/widgets/smart_playlist_editor.py:253 ../plugins/cd/cdprefs.py:119
 #: ../plugins/minimode/controls.py:555
 #: ../plugins/minimode/minimode_preferences.py:112
-#: ../plugins/jamendo/ui/jamendo_panel.ui:44
 msgid "Rating"
 msgstr "தரவரிசை"
 
-#: ../xlgui/widgets/playlist_columns.py:409
+#: ../xlgui/widgets/playlist_columns.py:408
 msgid "Year"
 msgstr "வருடம்"
 
-#: ../xlgui/widgets/playlist_columns.py:458
+#: ../xlgui/widgets/playlist_columns.py:457
 msgid "Playcount"
-msgstr ""
+msgstr "PlayCount"
 
-#: ../xlgui/widgets/playlist_columns.py:507
+#: ../xlgui/widgets/playlist_columns.py:506
 msgid "Schedule"
-msgstr ""
+msgstr "அட்டவணை"
 
-#: ../xlgui/widgets/playlist_columns.py:676
+#: ../xlgui/widgets/playlist_columns.py:675
 msgid "Start Offset"
-msgstr ""
+msgstr "ஆஃப்செட் தொடங்கவும்"
 
-#: ../xlgui/widgets/playlist_columns.py:687
+#: ../xlgui/widgets/playlist_columns.py:686
 msgid "Stop Offset"
-msgstr ""
+msgstr "ஆஃப்செட் நிறுத்துங்கள்"
 
-#: ../xlgui/widgets/playlist_columns.py:838
+#: ../xlgui/widgets/playlist_columns.py:847
 msgid "_Resizable"
-msgstr ""
+msgstr "_ ரெசிசபிள்"
 
-#: ../xlgui/widgets/playlist_columns.py:849
+#: ../xlgui/widgets/playlist_columns.py:858
 msgid "_Autosize"
-msgstr ""
+msgstr "தானிஅளவு"
+
+#: ../xlgui/widgets/queue.py:79
+msgid "Queue"
+msgstr "வரிசை"
 
 #: ../xlgui/widgets/queue.py:81
-msgid "Queue"
-msgstr ""
-
-#: ../xlgui/widgets/queue.py:83
 #, python-format
 msgid "Queue (%d)"
-msgstr ""
+msgstr "வரிசை (%d)"
 
-#: ../xlgui/widgets/rating.py:266
+#: ../xlgui/widgets/rating.py:265
 msgid "Rating:"
-msgstr ""
+msgstr "மதிப்பீடு:"
 
 #: ../xlgui/widgets/smart_playlist_editor.py:56
 #: ../xlgui/widgets/smart_playlist_editor.py:79
@@ -1982,13 +1988,13 @@ msgstr "என்பது இல்லை"
 #. to compare to __null__)
 #: ../xlgui/widgets/smart_playlist_editor.py:211
 msgid "is set"
-msgstr ""
+msgstr "அமைக்கப்பட்டுள்ளது"
 
 #. TRANSLATORS: True if the specified tag is not present (uses the NullField
 #. to compare to __null__)
 #: ../xlgui/widgets/smart_playlist_editor.py:214
 msgid "is not set"
-msgstr ""
+msgstr "அமைக்கப்படவில்லை"
 
 #. TRANSLATORS: True if haystack contains needle
 #: ../xlgui/widgets/smart_playlist_editor.py:216
@@ -2002,27 +2008,23 @@ msgstr "உள்ளடக்காத"
 
 #. TRANSLATORS: True if haystack contains whole word
 #: ../xlgui/widgets/smart_playlist_editor.py:220
-#, fuzzy
-#| msgid "contains"
 msgid "contains word"
-msgstr "உள்ளடக்கியது"
+msgstr "சொல் உள்ளது"
 
 #. TRANSLATORS: True if haystack does not contain whole word
 #: ../xlgui/widgets/smart_playlist_editor.py:222
-#, fuzzy
-#| msgid "does not contain"
 msgid "does not contain word"
-msgstr "உள்ளடக்காத"
+msgstr "சொல் இல்லை"
 
 #. TRANSLATORS: True if haystack matches regular expression
 #: ../xlgui/widgets/smart_playlist_editor.py:224
 msgid "regex"
-msgstr ""
+msgstr "வழக்கவெளி"
 
 #. TRANSLATORS: True if haystack does not match regular expression
 #: ../xlgui/widgets/smart_playlist_editor.py:226
 msgid "not regex"
-msgstr ""
+msgstr "ரீசெக்ச் அல்ல"
 
 #. TRANSLATORS: Example: rating >= 5
 #: ../xlgui/widgets/smart_playlist_editor.py:228
@@ -2051,146 +2053,169 @@ msgstr "இடையே"
 
 #: ../xlgui/widgets/smart_playlist_editor.py:237
 msgid "greater than"
-msgstr ""
+msgstr "விட பெரியது"
 
 #: ../xlgui/widgets/smart_playlist_editor.py:238
 msgid "less than"
-msgstr ""
+msgstr "குறைவாக"
 
 #. TRANSLATORS: Example: track has been added in the last 2 days
 #: ../xlgui/widgets/smart_playlist_editor.py:240
 msgid "in the last"
-msgstr ""
+msgstr "கடைசியாக"
 
 #. TRANSLATORS: Example: track has not been added in the last 5 hours
 #: ../xlgui/widgets/smart_playlist_editor.py:242
 msgid "not in the last"
-msgstr ""
+msgstr "கடைசியாக இல்லை"
 
 #. TRANSLATORS: True if a track is contained in the specified playlist
 #: ../xlgui/widgets/smart_playlist_editor.py:244
-#, fuzzy
 msgid "Track is in"
-msgstr "தட விருப்பத்தேர்வுகள்"
+msgstr "டிராக் உள்ளது"
 
 #. TRANSLATORS: True if a track is not contained in the specified playlist
 #: ../xlgui/widgets/smart_playlist_editor.py:246
-#, fuzzy
 msgid "Track not in"
-msgstr "தட விருப்பத்தேர்வுகள்"
+msgstr "கண்காணிக்க வேண்டாம்"
 
-#: ../xlgui/widgets/smart_playlist_editor.py:301
+#: ../xlgui/widgets/smart_playlist_editor.py:299
 msgid "Add Smart Playlist"
-msgstr ""
+msgstr "அறிவுள்ள பிளேலிச்ட்டைச் சேர்க்கவும்"
 
-#: ../xlgui/widgets/smart_playlist_editor.py:352
+#: ../xlgui/widgets/smart_playlist_editor.py:350
 msgid "Edit Smart Playlist"
-msgstr ""
+msgstr "அறிவுள்ள பிளேலிச்ட்டைத் திருத்தவும்"
 
-#: ../xlgui/widgets/smart_playlist_editor.py:423
+#: ../xlgui/widgets/smart_playlist_editor.py:421
 msgid "Sort by:"
-msgstr ""
+msgstr "வழங்கியவர்:"
 
-#: ../xlgui/widgets/smart_playlist_editor.py:438
-#: ../plugins/jamendo/ui/jamendo_panel.ui:26
+#: ../xlgui/widgets/smart_playlist_editor.py:436
 msgid "Ascending"
-msgstr ""
+msgstr "ஏறுதல்"
 
-#: ../xlgui/widgets/smart_playlist_editor.py:439
-#: ../plugins/jamendo/ui/jamendo_panel.ui:22
+#: ../xlgui/widgets/smart_playlist_editor.py:437
 msgid "Descending"
-msgstr ""
+msgstr "இறங்கு"
 
 #: ../data/ui/about_dialog.ui:8
 msgid "About Exaile"
-msgstr ""
+msgstr "எக்செயில் பற்றி"
 
 #: ../data/ui/about_dialog.ui:13
 msgid "© 2009–2020 Various Contributors"
-msgstr ""
+msgstr "© 2009–2020 பல்வேறு பங்களிப்பாளர்கள்"
 
 #. TRANSLATORS: Add your own name here. Separate translator names with newlines.
 #: ../data/ui/about_dialog.ui:26
 msgctxt "About dialog translator credits"
 msgid "translator-credits"
-msgstr ""
+msgstr "மொழிபெயர்ப்பாளர்-வரவு"
 
 #: ../data/ui/collection_manager.ui:39
 msgid "Collection Manager"
-msgstr ""
+msgstr "சேகரிப்பு மேலாளர்"
+
+#: ../data/ui/collection_manager.ui:54
+msgid "_Cancel"
+msgstr "கைவிடு"
+
+#: ../data/ui/collection_manager.ui:71
+msgid "_Apply"
+msgstr "_Aplay"
 
 #: ../data/ui/collection_manager.ui:131
 msgid "Monitored"
-msgstr ""
+msgstr "கண்காணிக்கப்பட்டது"
 
 #: ../data/ui/collection_manager.ui:144
 msgid "Scan At Startup"
-msgstr ""
+msgstr "தொடக்கத்தில் ச்கேன்"
+
+#: ../data/ui/collection_manager.ui:174
+msgid "Add _Folder"
+msgstr "_ ஃபோல்டரைச் சேர்க்கவும்"
+
+#: ../data/ui/collection_manager.ui:191
+msgid "_Remove Folder"
+msgstr "_ கோப்புறையை அகற்றவும்"
 
 #: ../data/ui/collection_manager.ui:209
-#, fuzzy
-#| msgid "Collection"
 msgid "Rescan _Collection"
-msgstr "சேகரிப்பு"
+msgstr "_ கலெக்சன்"
 
 #: ../data/ui/coverchooser.ui:28
 msgid "Cover Finder"
-msgstr ""
+msgstr "கவர் கண்டுபிடிப்பாளர்"
 
 #: ../data/ui/coverchooser.ui:125
 msgid "The origin of this cover"
-msgstr ""
+msgstr "இந்த அட்டையின் தோற்றம்"
+
+#: ../data/ui/coverchooser.ui:159
+msgid "_Abort"
+msgstr "_போர்ட்"
 
 #: ../data/ui/coverchooser.ui:177
 msgid "_Set as Cover"
-msgstr ""
+msgstr "_ கவர் என அமைக்கவும்"
 
 #: ../data/ui/covermanager.ui:36
 msgid "Cover Manager"
-msgstr ""
+msgstr "கவர் மேலாளர்"
+
+#. Closes the preferences dialog
+#: ../data/ui/covermanager.ui:112 ../data/ui/coverwindow.ui:96
+#: ../data/ui/device_manager.ui:151
+#: ../data/ui/preferences/preferences_dialog.ui:39
+#: ../data/ui/shortcuts_dialog.ui:39 ../data/ui/trackproperties_dialog.ui:317
+msgid "_Close"
+msgstr "மூடு (_C)"
 
 #: ../data/ui/covermanager.ui:150
 msgid "_Fetch Covers"
-msgstr ""
+msgstr "_ கவர்கள்"
 
 #: ../data/ui/coverwindow.ui:40
 msgid "Zoom _In"
-msgstr ""
+msgstr "பெரிதாக்க _in"
 
 #: ../data/ui/coverwindow.ui:54
 msgid "Zoom _Out"
-msgstr ""
+msgstr "பெரிதாக்கவும்"
 
 #: ../data/ui/coverwindow.ui:68
 msgid "_Original Size"
-msgstr ""
+msgstr "_ரிசினல் அளவு"
 
 #: ../data/ui/coverwindow.ui:82
 msgid "_Best Fit"
-msgstr ""
-
-#. Closes the preferences dialog
-#: ../data/ui/coverwindow.ui:96 ../data/ui/preferences/preferences_dialog.ui:39
-#, fuzzy
-#| msgid "Close tab"
-msgid "_Close"
-msgstr "தத்தலை மூடு"
+msgstr "_ பெச்ட் பொருத்தம்"
 
 #: ../data/ui/device_manager.ui:37
 msgid "Device Manager"
-msgstr ""
+msgstr "சாதன மேலாளர்"
 
 #: ../data/ui/device_manager.ui:65
 msgid "Icon"
-msgstr ""
+msgstr "படவுரு"
 
 #: ../data/ui/device_manager.ui:77
 msgid "Device"
-msgstr ""
+msgstr "சாதனம்"
 
 #: ../data/ui/device_manager.ui:88
 msgid "Driver"
-msgstr ""
+msgstr "இயக்கி"
+
+#: ../data/ui/device_manager.ui:115
+msgid "_Connect"
+msgstr "இணை"
+
+#: ../data/ui/device_manager.ui:133
+msgid "_Disconnect"
+msgstr "துண்டி"
 
 #: ../data/ui/main.ui:24
 msgid "_File"
@@ -2218,6 +2243,9 @@ msgid ""
 "\n"
 "Right Click for Stop After Track Feature"
 msgstr ""
+"பிளேபேக்கை நிறுத்துங்கள்\n"
+"\n"
+" டிராக் அம்சத்திற்குப் பிறகு நிறுத்த வலது சொடுக்கு செய்யவும்"
 
 #: ../data/ui/main.ui:221
 msgid "Next Track"
@@ -2225,350 +2253,450 @@ msgstr "அடுத்த தடம்"
 
 #: ../data/ui/main.ui:246
 msgid "0:00 / 0:00"
-msgstr ""
+msgstr "0:00 / 0:00"
 
 #: ../data/ui/panel/collection.ui:28
 msgid "_Add Music"
-msgstr ""
+msgstr "இசை சேர்க்கவும்"
 
 #: ../data/ui/panel/collection.ui:46
 msgid "<b>Collection is empty.</b>"
-msgstr ""
+msgstr "<b>சேகரிப்பு காலியாக உள்ளது.</b>"
 
 #: ../data/ui/panel/collection.ui:96
 msgid ""
 "Refresh collection view\n"
 "(Hold Shift key to rescan the collection)"
 msgstr ""
+"சேகரிப்பு காட்சியைப் புதுப்பிக்கவும்\n"
+" (சேகரிப்பை மீட்டெடுக்க சிப்ட் விசையை வைத்திருங்கள்)"
 
 #: ../data/ui/panel/collection.ui:130 ../data/ui/panel/files.ui:170
 msgid "Clear search field"
-msgstr ""
+msgstr "தேடல் புலத்தை அழிக்கவும்"
 
 #: ../data/ui/panel/collection.ui:131 ../data/ui/panel/files.ui:171
-#: ../data/ui/playlist.ui:128 ../plugins/icecast/__init__.py:384
+#: ../data/ui/playlist.ui:128 ../plugins/icecast/__init__.py:333
 msgid "Search"
 msgstr "தேடு"
 
 #: ../data/ui/panel/files.ui:29
 msgid "Previous visited directory"
-msgstr ""
+msgstr "முந்தைய பார்வையிட்ட அடைவு"
 
 #: ../data/ui/panel/files.ui:51
 msgid "Next visited directory"
-msgstr ""
+msgstr "அடுத்து பார்வையிட்ட அடைவு"
 
 #: ../data/ui/panel/files.ui:72
 msgid "Up one directory"
-msgstr ""
+msgstr "ஒரு அடைவு வரை"
 
 #: ../data/ui/panel/files.ui:93
 msgid "Refresh directory listing"
-msgstr ""
+msgstr "அடைவு பட்டியலைப் புதுப்பிக்கவும்"
 
 #: ../data/ui/panel/files.ui:114
 msgid "Home directory"
-msgstr ""
+msgstr "வீட்டு அடைவு"
 
 #: ../data/ui/panel/flatplaylist.ui:21
 msgid "Append All Tracks to Playlist"
-msgstr ""
+msgstr "அனைத்து தடங்களையும் பிளேலிச்ட்டில் சேர்க்கவும்"
 
 #: ../data/ui/panel/flatplaylist.ui:44
 msgid "Import CD"
-msgstr ""
+msgstr "சிடி இறக்குமதி"
 
 #: ../data/ui/panel/lyrics.ui:24
 msgid "Refresh Lyrics"
-msgstr ""
+msgstr "பாடல் புதுப்பிப்பு"
 
 #: ../data/ui/panel/radio.ui:18
 msgid "_Add Station"
-msgstr ""
+msgstr "நிலையம் சேர்"
 
 #: ../data/ui/playlist.ui:53
 msgid "Shuffle playback order"
-msgstr ""
+msgstr "சஃபிள் பிளேபேக் ஆர்டர்"
 
 #: ../data/ui/playlist.ui:76
 msgid "Repeat playback"
-msgstr ""
+msgstr "பிளேபேக்கை மீண்டும் செய்யவும்"
 
 #: ../data/ui/preferences/appearance.ui:20
 msgid "Left"
-msgstr ""
+msgstr "இடது"
 
 #: ../data/ui/preferences/appearance.ui:24
 msgid "Right"
-msgstr ""
+msgstr "வலது"
 
 #: ../data/ui/preferences/appearance.ui:28
 msgid "Top"
-msgstr ""
+msgstr "மேலே"
 
 #: ../data/ui/preferences/appearance.ui:32
 msgid "Bottom"
-msgstr ""
+msgstr "கீழே"
 
-#: ../data/ui/preferences/appearance.ui:50
+#: ../data/ui/preferences/appearance.ui:52
 msgid "Show info area"
-msgstr ""
+msgstr "செய்தி பகுதியைக் காட்டு"
 
-#: ../data/ui/preferences/appearance.ui:54
+#: ../data/ui/preferences/appearance.ui:56
 msgid "The info area contains the cover art and track information"
-msgstr ""
+msgstr "செய்தி பகுதியில் கவர் கலை மற்றும் கண்காணிப்பு செய்தி உள்ளது"
 
-#: ../data/ui/preferences/appearance.ui:66
+#: ../data/ui/preferences/appearance.ui:68
 msgid "Show cover art in info area"
-msgstr ""
+msgstr "செய்தி பகுதியில் கவர் கலையைக் காட்டு"
 
-#: ../data/ui/preferences/appearance.ui:81
+#: ../data/ui/preferences/appearance.ui:83
 msgid "Always show tab bar"
-msgstr ""
+msgstr "எப்போதும் தாவல் பட்டியைக் காட்டு"
 
-#: ../data/ui/preferences/appearance.ui:99
+#: ../data/ui/preferences/appearance.ui:101
 msgid "Tab placement:"
-msgstr ""
+msgstr "தாவல் வேலை வாய்ப்பு:"
 
-#: ../data/ui/preferences/appearance.ui:139
+#: ../data/ui/preferences/appearance.ui:141
 msgid "Playlist font:"
-msgstr ""
+msgstr "பிளேலிச்ட் எழுத்துரு:"
 
-#: ../data/ui/preferences/appearance.ui:156 ../data/ui/preferences/lyrics.ui:47
+#: ../data/ui/preferences/appearance.ui:154
+msgid "_Revert"
+msgstr "_ திரும்பவும்"
+
+#: ../data/ui/preferences/appearance.ui:158 ../data/ui/preferences/lyrics.ui:47
 #: ../plugins/grouptagger/gt_prefs.ui:67
 msgid "Reset to the system font"
-msgstr ""
+msgstr "கணினி எழுத்துருவுக்கு மீட்டமைக்கவும்"
 
-#: ../data/ui/preferences/appearance.ui:194
+#: ../data/ui/preferences/appearance.ui:196
+#: ../data/ui/preferences/appearance.ui:385
 msgid "Display track counts in collection"
-msgstr ""
+msgstr "சேகரிப்பில் டிராக் எண்ணிக்கையைக் காண்பி"
 
 #. TRANSLATORS: Remark at the alpha transparency option
-#: ../data/ui/preferences/appearance.ui:208
+#: ../data/ui/preferences/appearance.ui:210
 #: ../plugins/minimode/minimode_preferences.ui:237
 msgid "Use alpha transparency:"
-msgstr ""
+msgstr "ஆல்பா வெளிப்படைத்தன்மையைப் பயன்படுத்தவும்:"
 
-#: ../data/ui/preferences/appearance.ui:212
+#: ../data/ui/preferences/appearance.ui:214
 msgid ""
 "Warning: this option can cause display errors if used with a window manager "
 "without compositing support."
 msgstr ""
+"எச்சரிக்கை: இந்த விருப்பம் சாளர மேலாளருடன் ஆதரவை உருவாக்காமல் பயன்படுத்தினால் காட்சி "
+"பிழைகளை ஏற்படுத்தும்."
 
-#: ../data/ui/preferences/appearance.ui:228
+#: ../data/ui/preferences/appearance.ui:230
 msgid "Alpha transparency"
-msgstr ""
+msgstr "ஆல்பா வெளிப்படைத்தன்மை"
 
-#: ../data/ui/preferences/appearance.ui:239
+#: ../data/ui/preferences/appearance.ui:241
 msgid "Show tray icon"
-msgstr ""
+msgstr "தட்டு ஐகானைக் காட்டு"
 
-#: ../data/ui/preferences/appearance.ui:257
+#: ../data/ui/preferences/appearance.ui:259
 msgid "Minimize to tray"
-msgstr ""
+msgstr "தட்டில் குறைக்கவும்"
 
-#: ../data/ui/preferences/appearance.ui:271
+#: ../data/ui/preferences/appearance.ui:273
 msgid "Close to tray"
-msgstr ""
+msgstr "தட்டுக்கு அருகில்"
 
 #. TRANSLATORS: Keep the current track visible in playlist
-#: ../data/ui/preferences/appearance.ui:285
+#: ../data/ui/preferences/appearance.ui:287
 msgid "Jump to current song on track change"
-msgstr ""
+msgstr "டிராக் மாற்றத்தில் தற்போதைய பாடலுக்கு செல்லவும்"
 
-#: ../data/ui/preferences/appearance.ui:301
+#: ../data/ui/preferences/appearance.ui:303
 msgid "Show splash screen on startup"
-msgstr ""
+msgstr "தொடக்கத்தில் ச்பிளாச் திரையைக் காட்டு"
 
-#: ../data/ui/preferences/appearance.ui:328
+#: ../data/ui/preferences/appearance.ui:330
 msgid ""
 "Tray icons are not supported on some platforms, most notably on Wayland. On "
-"GNOME Shell 3.26+ on Xorg, tray icons only work if you have the <a href="
-"\"https://extensions.gnome.org/extension/495/topicons/\">\"TopIcons\" "
+"GNOME Shell 3.26+ on Xorg, tray icons only work if you have the <a "
+"href=\"https://extensions.gnome.org/extension/495/topicons/\">\"TopIcons\" "
 "extension</a> (or a similar one) installed."
 msgstr ""
+"தட்டுச் சின்னங்கள் சில தளங்களில் ஆதரிக்கப்படவில்லை, குறிப்பாக வேலண்டில். Xorg இல் க்னோம் செல் "
+"3.26+ இல், தட்டுச் சின்னங்கள் உங்களிடம் <a href=\"https://extensions.gnome.org/"
+"extension/495/topicons/\">சிறந்தசின்னங்கள் நீட்டிப்புகள்</a>(அல்லது ஒத்த ஒன்று) "
+"நிறுவப்பட்டது."
 
-#: ../data/ui/preferences/appearance.ui:341
+#: ../data/ui/preferences/appearance.ui:343
 msgid "Note:"
-msgstr ""
+msgstr "குறிப்பு:"
 
-#: ../data/ui/preferences/appearance.ui:353
+#: ../data/ui/preferences/appearance.ui:355
 msgid "Prefer dark theme"
-msgstr ""
+msgstr "இருண்ட கருப்பொருளை விரும்புங்கள்"
 
 #. TRANSLATORS: "Checked" here refers to checkbox state.
-#: ../data/ui/preferences/appearance.ui:357
+#: ../data/ui/preferences/appearance.ui:359
 msgid ""
 "If not checked, will not specify a preference to GTK. May not work on some "
 "platforms."
 msgstr ""
+"சரிபார்க்கப்படாவிட்டால், சி.டி.கே -க்கு விருப்பத்தை குறிப்பிடாது. சில தளங்களில் வேலை "
+"செய்யக்கூடாது."
 
-#: ../data/ui/preferences/collection.ui:13
+#: ../data/ui/preferences/appearance.ui:370
+msgid "Show Status Bar"
+msgstr "நிலை பட்டியைக் காட்டு"
+
+#: ../data/ui/preferences/appearance.ui:374
+msgid ""
+"Show or hide the status bar. The status bar will always be shown if a plugin "
+"requests it."
+msgstr ""
+"நிலை பட்டியைக் காட்டுங்கள் அல்லது மறைக்கவும். ஒரு சொருகி கோரியால் நிலை பட்டி எப்போதும் "
+"காண்பிக்கப்படும்."
+
+#: ../data/ui/preferences/appearance.ui:399
+msgid "Show playlist track count"
+msgstr "பிளேலிச்ட் டிராக் எண்ணிக்கையைக் காட்டு"
+
+#: ../data/ui/preferences/appearance.ui:413
+msgid "Show playlist duration"
+msgstr "பிளேலிச்ட் காலத்தைக் காட்டு"
+
+#: ../data/ui/preferences/collection.ui:14
 msgid ""
 "Words to strip from the beginning of artist tags when sorting (space "
 "separated):"
 msgstr ""
+"வரிசைப்படுத்தும் போது கலைஞர் குறிச்சொற்களின் தொடக்கத்திலிருந்து அகற்ற வேண்டிய சொற்கள் (இடம் "
+"பிரிக்கப்பட்டது):"
 
-#: ../data/ui/preferences/collection.ui:42
+#: ../data/ui/preferences/collection.ui:45
 msgid "(Right click to reset to defaults)"
-msgstr ""
+msgstr "(இயல்புநிலைகளுக்கு மீட்டமைக்க வலது சொடுக்கு செய்யவும்)"
 
-#: ../data/ui/preferences/collection.ui:54
+#: ../data/ui/preferences/collection.ui:58
 msgid "Use file-based compilation detection"
+msgstr "கோப்பு அடிப்படையிலான தொகுப்பு கண்டறிதலைப் பயன்படுத்தவும்"
+
+#: ../data/ui/preferences/collection.ui:72
+msgid "Read and write ratings additionally in audio file metadata"
+msgstr "ஆடியோ கோப்பு மெட்டாடேட்டாவில் கூடுதலாக மதிப்பீடுகளைப் படித்து எழுதுங்கள்"
+
+#: ../data/ui/preferences/collection.ui:87
+msgid ""
+"Use this experimental feature to read and write ratings in audio file "
+"metadata additionally to database, if possible.\n"
+"This feature should work for MP3, MP4, FLAC and OGG. "
 msgstr ""
+"முடிந்தால், தரவுத்தளத்துடன் கூடுதலாக ஆடியோ கோப்பு மெட்டாடேட்டாவில் மதிப்பீடுகளைப் "
+"படிக்கவும் எழுதவும் இந்த சோதனை அம்சத்தைப் பயன்படுத்தவும்.\n"
+" இந்த நற்பொருத்தம் எம்பி 3, எம்பி 4, ஃப்ளாக் மற்றும் ஓக் ஆகியவற்றிற்கு வேலை செய்ய வேண்டும். "
+
+#: ../data/ui/preferences/collection.ui:105
+msgid "Use e-mail for Popularimeter (MP3 only):"
+msgstr "பிரபலமானவருக்கு மின்னஞ்சலைப் பயன்படுத்தவும் (எம்பி 3 மட்டும்):"
+
+#: ../data/ui/preferences/collection.ui:131
+msgid "Write existing ratings to track files now"
+msgstr "கோப்புகளை கண்காணிக்க ஏற்கனவே இருக்கும் மதிப்பீடுகளை எழுதுங்கள்"
+
+#: ../data/ui/preferences/collection.ui:156
+msgid "Use legacy tag mapping"
+msgstr "மரபு குறிச்சொல் மேப்பிங்கைப் பயன்படுத்தவும்"
+
+#: ../data/ui/preferences/collection.ui:171
+msgid ""
+"Use legacy tag mapping for Ogg Vorbis and FLAC files for comment and bpm "
+"tags. From Exaile 4.1.3 the mapping is equivalent to MusicBrainz.\n"
+"Your can start migration here. After migration this feature will be disabled."
+msgstr ""
+"கருத்து மற்றும் பிபிஎம் குறிச்சொற்களுக்கு OGG வோர்பிச் மற்றும் FLAC கோப்புகளுக்கு மரபு "
+"குறிச்சொல் மேப்பிங்கைப் பயன்படுத்தவும். எக்செயில் 4.1.3 இலிருந்து மேப்பிங் மியூசிக் "
+"பிரெய்ன்ச் சமம்.\n"
+" உங்கள் இடம்பெயர்வு இங்கே தொடங்கலாம். இடம்பெயர்ந்த பிறகு இந்த நற்பொருத்தம் முடக்கப்படும்."
+
+#: ../data/ui/preferences/collection.ui:186
+msgid "Migrate existing tempo and comment tags now"
+msgstr "தற்போதுள்ள டெம்போ மற்றும் கருத்து குறிச்சொற்களை இப்போது நகர்த்தவும்"
 
 #: ../data/ui/preferences/cover.ui:12
 msgid "Use covers from local files"
-msgstr ""
+msgstr "உள்ளக கோப்புகளிலிருந்து அட்டைகளைப் பயன்படுத்தவும்"
 
 #: ../data/ui/preferences/cover.ui:16
 msgid ""
 "This option will search for cover image files in \n"
 "the same folder as the music file."
 msgstr ""
+"இந்த விருப்பம் கவர் படக் கோப்புகளைத் தேடும்\n"
+" இசை கோப்பின் அதே கோப்புறை."
 
 #: ../data/ui/preferences/cover.ui:30
 msgid "Preferred file names:"
-msgstr ""
+msgstr "விருப்பமான கோப்பு பெயர்கள்:"
 
 #: ../data/ui/preferences/cover.ui:46
 msgid "A comma-separated list of file names without file extensions"
-msgstr ""
+msgstr "கோப்பு நீட்டிப்புகள் இல்லாமல் கோப்பு பெயர்களின் கமாவால் பிரிக்கப்பட்ட பட்டியல்"
 
 #: ../data/ui/preferences/cover.ui:58
 msgid "Fetch covers automatically on playback start"
-msgstr ""
+msgstr "பிளேபேக் தொடக்கத்தில் தானாகவே கவர்களைப் பெறுக"
 
 #: ../data/ui/preferences/cover.ui:76
 msgid "Cover Search Order:"
-msgstr ""
+msgstr "தேடல் வரிசையை உள்ளடக்கியது:"
 
 #: ../data/ui/preferences/cover.ui:118
 msgid "(drag to reorder)"
-msgstr ""
+msgstr "(மறுதொடக்கம் செய்ய இழுக்கவும்)"
 
 #: ../data/ui/preferences/cover.ui:130
 msgid "Use covers embedded in tags"
-msgstr ""
+msgstr "குறிச்சொற்களில் பதிக்கப்பட்ட அட்டைகளைப் பயன்படுத்தவும்"
 
 #: ../data/ui/preferences/lyrics.ui:15
 msgid "Lyrics font:"
-msgstr ""
+msgstr "பாடல் எழுத்துரு:"
 
 #: ../data/ui/preferences/playback.ui:32
 #: ../plugins/previewdevice/previewprefs.ui:27
 msgid "GStreamer"
-msgstr ""
+msgstr "சிச்ட்ரீமர்"
 
 #: ../data/ui/preferences/playback.ui:62
 #: ../plugins/previewdevice/previewprefs.ui:192
 msgid "Audio Sink:  "
-msgstr ""
+msgstr "ஆடியோ மடு:  "
 
 #: ../data/ui/preferences/playback.ui:98
 msgid "Audio Device: "
-msgstr ""
+msgstr "ஆடியோ சாதனம்: "
 
 #: ../data/ui/preferences/playback.ui:134
 #: ../plugins/previewdevice/previewprefs.ui:254
 msgid "Custom sink pipeline:"
-msgstr ""
+msgstr "தனிப்பயன் மடு குழாய்:"
 
 #: ../data/ui/preferences/playback.ui:160
-msgid "Resume playback on start"
-msgstr ""
+msgid "Show hidden devices"
+msgstr "மறைக்கப்பட்ட சாதனங்களைக் காட்டு"
 
 #: ../data/ui/preferences/playback.ui:176
+msgid "Resume playback on start"
+msgstr "தொடக்கத்தில் பிளேபேக்கை மீண்டும் தொடங்குங்கள்"
+
+#: ../data/ui/preferences/playback.ui:192
 msgid "Resume playback in paused state"
-msgstr ""
+msgstr "இடைநிறுத்தப்பட்ட நிலையில் பிளேபேக்கை மீண்டும் தொடங்குங்கள்"
 
-#: ../data/ui/preferences/playback.ui:191
+#: ../data/ui/preferences/playback.ui:207
 msgid "Adding an item to an empty queue begins playback"
-msgstr ""
+msgstr "வெற்று வரிசையில் ஒரு பொருளைச் சேர்ப்பது பின்னணியைத் தொடங்குகிறது"
 
-#: ../data/ui/preferences/playback.ui:206
+#: ../data/ui/preferences/playback.ui:222
+#: ../plugins/quickbuttons/__init__.py:56
+#: ../plugins/quickbuttons/qb_prefs.ui:42
 msgid "Remove track from queue upon playback"
-msgstr ""
+msgstr "பிளேபேக்கில் வரிசையில் இருந்து பாதையை அகற்று"
 
-#: ../data/ui/preferences/playback.ui:221
+#: ../data/ui/preferences/playback.ui:237
+msgid "Remove track from queue after playback"
+msgstr "பிளேபேக்கிற்குப் பிறகு வரிசையில் இருந்து பாதையை அகற்று"
+
+#: ../data/ui/preferences/playback.ui:252
+#: ../plugins/quickbuttons/__init__.py:47
+#: ../plugins/quickbuttons/qb_prefs.ui:27
 msgid "Disallow playing new tracks when another track is playing"
-msgstr ""
+msgstr "மற்றொரு பாடல் விளையாடும்போது புதிய தடங்களை விளையாடுவதை அனுமதிக்காதீர்கள்"
 
-#: ../data/ui/preferences/playback.ui:225
+#: ../data/ui/preferences/playback.ui:256
 msgid ""
 "If a track is currently playing, do not allow new tracks to be started, "
 "except when clicking the playback controls"
 msgstr ""
-
-#: ../data/ui/preferences/playback.ui:237
-msgid "Automatically advance to the next track"
-msgstr ""
-
-#: ../data/ui/preferences/playback.ui:254
-msgid "Delay between tracks (ms):"
-msgstr ""
+"ஒரு பாடல் தற்போது இயங்குகிறது என்றால், பிளேபேக் கட்டுப்பாடுகளைக் சொடுக்கு செய்யும் போது "
+"தவிர, புதிய தடங்களைத் தொடங்க அனுமதிக்காதீர்கள்"
 
 #: ../data/ui/preferences/playback.ui:268
+#: ../plugins/quickbuttons/__init__.py:65
+#: ../plugins/quickbuttons/qb_prefs.ui:57
+msgid "Automatically advance to the next track"
+msgstr "அடுத்த பாதையில் தானாக முன்னேறும்"
+
+#: ../data/ui/preferences/playback.ui:285
+msgid "Delay between tracks (ms):"
+msgstr "தடங்களுக்கு இடையில் நேரந்தவறுகை (எம்.எச்):"
+
+#: ../data/ui/preferences/playback.ui:299
 msgid "Only works when crossfading not enabled"
-msgstr ""
+msgstr "கிராச்ஃபேடிங் இயக்கப்படாதபோது மட்டுமே செயல்படும்"
 
-#: ../data/ui/preferences/playback.ui:300
+#: ../data/ui/preferences/playback.ui:331
 msgid "Crossfade duration (ms):"
-msgstr ""
+msgstr "கிராச்ஃபேட் காலம் (எம்.எச்):"
 
-#: ../data/ui/preferences/playback.ui:312
+#: ../data/ui/preferences/playback.ui:343
 #: ../plugins/previewdevice/previewprefs.ui:125
 msgid "Use crossfading (EXPERIMENTAL)"
-msgstr ""
+msgstr "கிராச்ஃபேடிங்கைப் பயன்படுத்தவும் (சோதனை)"
 
-#: ../data/ui/preferences/playback.ui:316
+#: ../data/ui/preferences/playback.ui:347
 msgid "Forces automatically advancing to the next track"
-msgstr ""
+msgstr "சக்திகள் தானாக அடுத்த பாதையில் முன்னேறும்"
 
-#: ../data/ui/preferences/playback.ui:346
+#: ../data/ui/preferences/playback.ui:377
 msgid "Fade duration (ms):"
-msgstr ""
+msgstr "மங்கலான காலம் (எம்.எச்):"
 
-#: ../data/ui/preferences/playback.ui:358
+#: ../data/ui/preferences/playback.ui:389
 #: ../plugins/previewdevice/previewprefs.ui:85
 msgid "Use fade transitions on user actions"
-msgstr ""
+msgstr "பயனர் செயல்களில் மங்கலான மாற்றங்களைப் பயன்படுத்தவும்"
 
-#: ../data/ui/preferences/playback.ui:376
+#: ../data/ui/preferences/playback.ui:407
 #: ../plugins/previewdevice/previewprefs.ui:57
 msgid "Playback engine: "
-msgstr ""
+msgstr "பிளேபேக் இயந்திரம்: "
 
-#: ../data/ui/preferences/playback.ui:409
+#: ../data/ui/preferences/playback.ui:440
 msgid "Enable gapless playback"
-msgstr ""
+msgstr "இடைவெளி இல்லாத பின்னணியை இயக்கவும்"
 
-#: ../data/ui/preferences/playback.ui:413
+#: ../data/ui/preferences/playback.ui:444
 msgid ""
 "Gapless playback means to play tracks without inserting silence between them."
 msgstr ""
+"இடைவெளி இல்லாத பின்னணி என்பது அவற்றுக்கு இடையே ம silence னத்தை செருகாமல் தடங்களை "
+"விளையாடுவதாகும்."
 
 #: ../data/ui/preferences/playlists.ui:12
 msgid "Open last playlists on startup"
-msgstr ""
+msgstr "தொடக்கத்தில் கடைசி பிளேலிச்ட்களைத் திறக்கவும்"
 
 #: ../data/ui/preferences/playlists.ui:25
 msgid "Prompt for saving custom playlists on close"
-msgstr ""
+msgstr "தனிப்பயன் பிளேலிச்ட்களை நெருக்கமாக சேமிக்க தூண்டுதல்"
 
 #: ../data/ui/preferences/playlists.ui:38
 msgid "Replace content on side pane double click"
-msgstr ""
+msgstr "பக்க பலகத்தில் உள்ளடக்கத்தை மாற்றவும்"
 
 #: ../data/ui/preferences/playlists.ui:42
 msgid ""
 "Instead of appending, tracks added via double click in the panes will "
 "replace the content of the current playlist."
 msgstr ""
+"சேர்ப்பதற்கு பதிலாக, பேன்களில் இரட்டை சொடுக்கு வழியாக சேர்க்கப்பட்ட தடங்கள் தற்போதைய "
+"பிளேலிச்ட்டின் உள்ளடக்கத்தை மாற்றும்."
 
 #: ../data/ui/preferences/playlists.ui:52
 msgid "Appending/replacing via menu item triggers playback"
-msgstr ""
+msgstr "பட்டியல் உருப்படி வழியாக பின்ஒட்டுவது/மாற்றுவது இசைக்கத் தூண்டுகிறது"
 
 #: ../data/ui/preferences/playlists.ui:56
 msgid ""
@@ -2576,170 +2704,169 @@ msgid ""
 "if there is track currently playing. This option was the default behavior "
 "before Exaile 0.3.3"
 msgstr ""
+"பிளேலிச்ட்டில் தடங்களைச் சேர்க்க/மாற்ற பட்டியல் உருப்படியைப் பயன்படுத்தும் போது, தற்போது "
+"விளையாடும் டிராக் இருந்தால் பிளேபேக்கைத் தொடங்கவும். இந்த விருப்பம் Exaile 0.3.3 க்கு "
+"முன் இயல்புநிலை நடத்தை"
 
 #: ../data/ui/preferences/playlists.ui:66
+#: ../plugins/quickbuttons/__init__.py:38
+#: ../plugins/quickbuttons/qb_prefs.ui:12
 msgid "Queue tracks by default instead of playing them"
-msgstr ""
+msgstr "அவற்றை விளையாடுவதற்குப் பதிலாக இயல்புநிலையாக வரிசை தடங்கள்"
 
 #: ../data/ui/preferences/playlists.ui:70
 msgid ""
 "When you double click or press enter to play a track in a playlist, queue "
 "the track instead of playing it"
 msgstr ""
+"பிளேலிச்ட்டில் ஒரு தடத்தை இயக்க நீங்கள் இருமுறை சொடுக்கு செய்யும்போது அல்லது Enter ஐ "
+"அழுத்தும்போது, பாதையை விளையாடுவதற்கு பதிலாக வரிசைப்படுத்தவும்"
 
-#: ../data/ui/preferences/plugin.ui:64
+#: ../data/ui/preferences/plugin.ui:66
 msgid "Plugin"
 msgstr "சொருகுபொருள்"
 
-#: ../data/ui/preferences/plugin.ui:76
+#: ../data/ui/preferences/plugin.ui:78
 msgid "Status"
-msgstr ""
+msgstr "நிலை"
 
-#: ../data/ui/preferences/plugin.ui:88
+#: ../data/ui/preferences/plugin.ui:90
 #: ../data/ui/preferences/widgets/selection_list_preference.ui:38
 #: ../plugins/equalizer/equalizer.ui:166
 msgid "Enabled"
-msgstr ""
+msgstr "இயக்கப்பட்டது"
 
-#: ../data/ui/preferences/plugin.ui:110
+#: ../data/ui/preferences/plugin.ui:112
 msgid "Show incompatible plugins"
-msgstr ""
+msgstr "பொருந்தாத செருகுநிரல்களைக் காட்டு"
 
-#: ../data/ui/preferences/plugin.ui:128
+#: ../data/ui/preferences/plugin.ui:130
 msgid "No Plugin Selected"
-msgstr ""
+msgstr "சொருகி எதுவும் தேர்ந்தெடுக்கப்படவில்லை"
 
-#: ../data/ui/preferences/plugin.ui:177
+#: ../data/ui/preferences/plugin.ui:179
 msgid "Add _Plugin File"
-msgstr ""
+msgstr "_Plugin கோப்பைச் சேர்க்கவும்"
 
 #: ../data/ui/preferences/preferences_dialog.ui:24
 msgid "Preferences"
 msgstr "விருப்பங்கள்"
 
-#: ../data/ui/shortcuts_dialog.ui:39
-#, fuzzy
-#| msgid "Close tab"
-msgid "Close"
-msgstr "தத்தலை மூடு"
-
-#: ../data/ui/shortcuts_dialog.ui:89
-#, fuzzy
-#| msgid "Description:"
+#: ../data/ui/shortcuts_dialog.ui:90
 msgid "Description"
-msgstr "விளக்கம்:"
+msgstr "விவரம்"
 
 #: ../data/ui/trackproperties_dialog.ui:37
 msgid "Track Properties"
-msgstr ""
+msgstr "டிராக் பண்புகள்"
 
 #: ../data/ui/trackproperties_dialog.ui:83
 msgid "A_dd tag"
-msgstr ""
+msgstr "A_dd குறிச்சொல்"
 
 #: ../data/ui/trackproperties_dialog.ui:100
 msgid "_Remove tag"
-msgstr ""
+msgstr "_ குறிச்சொல்"
 
 #: ../data/ui/trackproperties_dialog.ui:127
 msgid "ab → A_b"
-msgstr ""
+msgstr "அஆ → அ_ஆ"
 
 #: ../data/ui/trackproperties_dialog.ui:131
 msgid "Uppercase first letter of all tags"
-msgstr ""
+msgstr "எல்லா குறிச்சொற்களின் முதல் கடிதம்"
 
 #: ../data/ui/trackproperties_dialog.ui:228
 msgid "File Properties"
-msgstr ""
+msgstr "கோப்பு பண்புகள்"
 
 #: ../data/ui/trackproperties_dialog.ui:249
 msgid "_Previous"
-msgstr ""
+msgstr "முன்தைய (_P)"
 
 #: ../data/ui/trackproperties_dialog.ui:278
 msgid "_Next"
-msgstr ""
+msgstr "அடுத்தது (_N)"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:20
 msgid "Other"
-msgstr ""
+msgstr "மற்றொன்று"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:24
 msgid "32x32 pixels 'file icon' (PNG only)"
-msgstr ""
+msgstr "32x32 படப்புள்ளிகள் 'கோப்பு படவுரு' (பி.என்.சி மட்டும்)"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:28
 msgid "Other file icon"
-msgstr ""
+msgstr "பிற கோப்பு படவுரு"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:32
 msgid "Cover (front)"
-msgstr ""
+msgstr "கவர் (முன்)"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:36
 msgid "Cover (back)"
-msgstr ""
+msgstr "கவர் (பின்)"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:40
 msgid "Leaflet page"
-msgstr ""
+msgstr "துண்டுப்பிரசுரம் பக்கம்"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:44
 msgid "Media (e.g. label side of CD)"
-msgstr ""
+msgstr "மீடியா (எ.கா. சிடியின் சிட்டை பக்க)"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:48
 msgid "Lead artist/lead performer/soloist"
-msgstr ""
+msgstr "முன்னணி கலைஞர்/முன்னணி நடிகர்/தனிப்பாடல்"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:52
 msgid "Artist/performer"
-msgstr ""
+msgstr "கலைஞர்/நடிகர்"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:60
 msgid "Band/Orchestra"
-msgstr ""
+msgstr "இசைக்குழு/இசைக்கருவியாளர் குழு"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:68
 msgid "Lyricist/text writer"
-msgstr ""
+msgstr "பாடலாசிரியர்/உரை எழுத்தாளர்"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:72
 msgid "Recording Location"
-msgstr ""
+msgstr "பதிவு செய்யும் இடம்"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:76
 msgid "During recording"
-msgstr ""
+msgstr "பதிவு செய்யும் போது"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:80
 msgid "During performance"
-msgstr ""
+msgstr "செயல்திறனின் போது"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:84
 msgid "Movie/video screen capture"
-msgstr ""
+msgstr "திரைப்படம்/வீடியோ திரை பிடிப்பு"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:88
 msgid "A bright coloured fish"
-msgstr ""
+msgstr "ஒரு பிரகாசமான வண்ண மீன்"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:92
 msgid "Illustration"
-msgstr ""
+msgstr "விளக்கம்"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:96
 msgid "Band/artist logotype"
-msgstr ""
+msgstr "இசைக்குழு/கலைஞர் லோகோடைப்"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:100
 msgid "Publisher/Studio logotype"
-msgstr ""
+msgstr "வெளியீட்டாளர்/ச்டுடியோ லோகோடைப்"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:115
 msgid "Click or drag files here to change the cover image"
-msgstr ""
+msgstr "கவர் படத்தை மாற்ற இங்கே கோப்புகளை சொடுக்கு செய்யவும் அல்லது இழுக்கவும்"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:139
 msgid "Description:"
@@ -2747,15 +2874,15 @@ msgstr "விளக்கம்:"
 
 #: ../data/ui/trackproperties_dialog_cover_row.ui:154
 msgid "Type:"
-msgstr ""
+msgstr "தட்டச்சு:"
 
 #: ../data/ui/widgets/filter_dialog.ui:137
 msgid "Match any of the criteria"
-msgstr ""
+msgstr "எந்தவொரு அளவுகோலையும் பொருத்தவும்"
 
 #: ../data/ui/widgets/filter_dialog.ui:151
 msgid "Randomize results"
-msgstr ""
+msgstr "முடிவுகளை சீரற்றதாக்குங்கள்"
 
 #: ../data/ui/widgets/filter_dialog.ui:165
 msgid "Add"
@@ -2764,7 +2891,60 @@ msgstr "சேர்"
 #. This is a check box in the Add Smart Playlist dialog. If checked, a numeric text entry becomes active and it specifies a limit on the number of tracks the resulting playlist contains.
 #: ../data/ui/widgets/filter_dialog.ui:194
 msgid "Maximum number of tracks:"
+msgstr "தடங்களின் அதிகபட்ச எண்ணிக்கை:"
+
+#: ../data/ui/widgets/info_dialog.ui:20
+msgid "Don't show this message again"
+msgstr "இந்த செய்தியை மீண்டும் காட்ட வேண்டாம்"
+
+#: ../data/ui/widgets/info_dialog.ui:79
+msgid ""
+"<span font-size=\"x-large\" font-weight=\"bold\">Welcome to Exaile 4.1.3</"
+"span>\n"
+"\n"
+"In this version there are two important changes in handling tags of media "
+"files.\n"
+"\n"
+"<b>Store Track Ratings in media files</b>\n"
+"With this experimental feature it is now possible to store the star ratings "
+"in the media files itself!\n"
+"If you want to test please go to Settings > Library and activate \"Read and "
+"write ratings additionally in audio file metadata\".\n"
+"There is also a tool to migrate all allready stored ratings to the media "
+"files.\n"
+"\n"
+"<b>Updated tagging for flac and ogg files</b>\n"
+"With this version Exaile can use the tags bpm for bpm countings and comment "
+"for comments on flac and ogg media files to be compatible with MusicBrainz.\n"
+"If you want to use please go to Settings > Library and uncheck \"Use legacy "
+"tag mapping\". If you use Exaile the first time this option is allready "
+"unchecked.\n"
+"There is also a tool to migrate legacy tags to the modern one. \n"
+"\n"
 msgstr ""
+"<span font-size=\"x-large\" font-weight=\"bold\">XAILE க்கு வருக 4.1.3</span>"
+"\n"
+"\n"
+" இந்தப் பதிப்பில் மீடியா கோப்புகளின் குறிச்சொற்களைக் கையாள்வதில் இரண்டு முக்கியமான மாற்றங்கள் "
+"உள்ளன.\n"
+"\n"
+" <b>ஊடக கோப்புகளில் டிராக் மதிப்பீடுகளைச் சேமிக்கவும்</b>\n"
+" இந்தச் சோதனை அம்சத்துடன் இப்போது நட்சத்திர மதிப்பீடுகளை மீடியா கோப்புகளில் சேமிக்க "
+"முடியும்!\n"
+" நீங்கள் சோதிக்க விரும்பினால், தயவுசெய்து அமைப்புகள்> நூலகத்திற்குச் சென்று \"ஆடியோ கோப்பு "
+"மெட்டாடேட்டாவில் கூடுதலாக மதிப்பீடுகளைப் படித்து எழுதுங்கள்\".\n"
+" அனைத்து விதமான சேமிக்கப்பட்ட மதிப்பீடுகளையும் மீடியா கோப்புகளுக்கு நகர்த்துவதற்கான ஒரு "
+"கருவியும் உள்ளது.\n"
+"\n"
+" <b>FLAC மற்றும் OGG கோப்புகளுக்கான புதுப்பிக்கப்பட்ட குறிச்சொல்</b>\n"
+" இந்தப் பதிப்பின் மூலம் எக்செயல் பிபிஎம் எண்ணங்களுக்கான குறிச்சொற்களை பிபிஎம் பயன்படுத்தலாம் "
+"மற்றும் மியூசிக் பிரைன்ச் உடன் இணக்கமாக இருக்க FLAC மற்றும் OGG மீடியா கோப்புகள்பற்றிய "
+"கருத்துகளுக்குக் கருத்து தெரிவிக்கலாம்.\n"
+" நீங்கள் பயன்படுத்த விரும்பினால், தயவுசெய்து அமைப்புகள்> நூலகத்திற்குச் சென்று \"மரபுக் "
+"குறிச்சொல் மேப்பிங் பயன்படுத்தவும்\" என்பதை தேர்வு செய்யவும். நீங்கள் முதல் முறையாக "
+"எக்செயிலைப் பயன்படுத்தினால், இந்த விருப்பம் தேர்வு செய்யப்படாமல் உள்ளது.\n"
+" மரபுக் குறிச்சொற்களை நவீனத்திற்கு மாற்றுவதற்கான ஒரு கருவியும் உள்ளது. \n"
+"\n"
 
 #: ../data/ui/widgets/progress.ui:20
 msgid "Cancel"
@@ -2772,497 +2952,545 @@ msgstr "ரத்து செய்"
 
 #: ../data/ui/widgets/volume_control.ui:20
 msgid "Toggle mute"
-msgstr ""
+msgstr "ஊமியை மாற்றவும்"
 
 #: ../data/ui/widgets/volume_control.ui:51 ../plugins/minimode/controls.py:447
 msgid "Volume"
-msgstr ""
+msgstr "தொகுதி"
 
 #: ../plugins/abrepeat/__init__.py:57
 msgid "Repeat Segment"
-msgstr ""
+msgstr "மீண்டும் பிரிவு"
 
 #: ../plugins/abrepeat/__init__.py:64
 msgid "Repeat Beginning"
-msgstr ""
+msgstr "தொடக்கத்தை மீண்டும் செய்யவும்"
 
 #: ../plugins/abrepeat/__init__.py:68
 msgid "Repeat End"
-msgstr ""
+msgstr "முடிவு மீண்டும்"
 
 #: ../plugins/alarmclock/acprefs.py:21 ../plugins/alarmclock/PLUGININFO:3
 msgid "Alarm Clock"
-msgstr ""
+msgstr "அலாரம் கடிகாரம்"
 
 #: ../plugins/amazoncovers/amazonprefs.py:21
 #: ../plugins/amazoncovers/PLUGININFO:3
 msgid "Amazon Covers"
-msgstr ""
+msgstr "அமேசான் கவர்கள்"
 
 #: ../plugins/audioscrobbler/__init__.py:97
 msgid "Toggle AudioScrobbler submit"
-msgstr ""
+msgstr "ஆடியோச்கிரோப்ளர் சமர்ப்பிக்கவும்"
 
 #: ../plugins/audioscrobbler/__init__.py:145
 msgid "Enable audioscrobbling"
-msgstr ""
+msgstr "ஆடியோக்ரோபிளிங்கை இயக்கவும்"
 
 #: ../plugins/audioscrobbler/asprefs.py:29
 #: ../plugins/audioscrobbler/PLUGININFO:3
 msgid "AudioScrobbler"
-msgstr ""
+msgstr "ஆடியோச்கிராப்லர்"
 
 #: ../plugins/audioscrobbler/asprefs.py:111
 msgid "Verification successful"
-msgstr ""
+msgstr "சரிபார்ப்பு வெற்றிகரமாக"
 
 #: ../plugins/audioscrobbler/asprefs.py:115
 msgid "Verification failed"
-msgstr ""
+msgstr "சரிபார்ப்பு தோல்வியடைந்தது"
 
 #: ../plugins/audioscrobbler/asprefs.py:116
 #: ../plugins/lastfmlove/lastfmlove_preferences.py:80
 msgid "Please make sure the entered data is correct."
-msgstr ""
+msgstr "உள்ளிடப்பட்ட தரவு சரியானது என்பதை உறுதிப்படுத்தவும்."
 
-#: ../plugins/bookmarks/__init__.py:209
+#: ../plugins/bookmarks/__init__.py:208
 msgid "_Bookmark This Track"
-msgstr ""
+msgstr "_ இந்த பாதையை புத்தகமில்லை"
 
-#: ../plugins/bookmarks/__init__.py:215
+#: ../plugins/bookmarks/__init__.py:214
 msgid "_Delete Bookmark"
-msgstr ""
+msgstr "_ புத்தகக்குறியை டெலேட் செய்யுங்கள்"
 
-#: ../plugins/bookmarks/__init__.py:219
+#: ../plugins/bookmarks/__init__.py:218
 msgid "_Clear Bookmarks"
-msgstr ""
+msgstr "_ கிளையர் புக்மார்க்குகள்"
 
-#: ../plugins/bookmarks/__init__.py:333
+#: ../plugins/bookmarks/__init__.py:332
 msgid "_Bookmarks"
-msgstr ""
+msgstr "புத்தககுறி"
 
-#: ../plugins/bpm/__init__.py:66 ../plugins/bpm/__init__.py:205
+#: ../plugins/bpm/__init__.py:67 ../plugins/bpm/__init__.py:213
 msgid "Autodetect BPM"
-msgstr ""
+msgstr "தன்னியக்க பிபிஎம்"
 
-#: ../plugins/bpm/__init__.py:131
+#: ../plugins/bpm/__init__.py:137
 #, python-format
 msgid "Set BPM of %d on %s?"
-msgstr ""
+msgstr "%d இல் %s இன் பிபிஎம் அமைக்கவா?"
 
-#: ../plugins/bpm/__init__.py:183 ../plugins/bpm/bpm.ui:58
-#: ../plugins/bpm/PLUGININFO:3
+#: ../plugins/bpm/__init__.py:191 ../plugins/bpm/bpm_prefs.py:5
+#: ../plugins/bpm/bpm.ui:59 ../plugins/bpm/PLUGININFO:3
 msgid "BPM Counter"
-msgstr ""
+msgstr "பிபிஎம் கவுண்டர்"
 
-#: ../plugins/bpm/__init__.py:335 ../plugins/bpm/bpm.ui:30
+#: ../plugins/bpm/__init__.py:342 ../plugins/bpm/bpm.ui:31
 msgid "Update"
-msgstr ""
+msgstr "புதுப்பிப்பு"
 
-#: ../plugins/cd/__init__.py:152 ../plugins/cd/__init__.py:223
+#: ../plugins/cd/__init__.py:163 ../plugins/cd/__init__.py:267
 msgid "Audio Disc"
-msgstr ""
+msgstr "ஆடியோ வட்டு"
 
-#: ../plugins/cd/_cdguipanel.py:99
+#: ../plugins/cd/_cdguipanel.py:96
+msgid "Unknown disc"
+msgstr "தெரியாத வட்டு"
+
+#: ../plugins/cd/_cdguipanel.py:112
 msgid "Importing CD..."
-msgstr ""
+msgstr "குறுவட்டு இறக்குமதி ..."
 
-#: ../plugins/cd/_cdguipanel.py:178
+#: ../plugins/cd/_cdguipanel.py:186
+msgid "Finished transcoding files"
+msgstr "டிரான்ச்கோடிங் கோப்புகளை முடித்தது"
+
+#: ../plugins/cd/_cdguipanel.py:191
 msgid "Error transcoding files from CD."
-msgstr ""
+msgstr "குறுவட்டிலிருந்து பிழை டிரான்ச்கோடிங் கோப்புகள்."
 
 #: ../plugins/cd/cdprefs.py:33
 msgid "CD"
-msgstr ""
+msgstr "குறுவட்டு"
 
-#: ../plugins/cd/cdprefs.py:109 ../plugins/minimode/minimode_preferences.py:105
+#: ../plugins/cd/cdprefs.py:112 ../plugins/minimode/minimode_preferences.py:105
 msgid "Track number"
-msgstr ""
+msgstr "ட்ராக் எண்"
 
-#: ../plugins/cd/cdprefs.py:115 ../plugins/minimode/minimode_preferences.py:111
+#: ../plugins/cd/cdprefs.py:118 ../plugins/minimode/minimode_preferences.py:111
 msgid "Disc number"
-msgstr ""
+msgstr "வட்டு எண்"
 
-#: ../plugins/cd/cdprefs.py:122 ../plugins/minimode/minimode_preferences.py:118
+#: ../plugins/cd/cdprefs.py:125 ../plugins/minimode/minimode_preferences.py:118
 msgid "Play count"
-msgstr ""
+msgstr "விளையாட்டு எண்ணிக்கை"
 
-#: ../plugins/daapclient/__init__.py:265 ../plugins/history/__init__.py:187
-#: ../plugins/history/__init__.py:236
+#: ../plugins/customcollectionorders/cco_prefs.py:10
+msgid "Custom Collections"
+msgstr "தனிப்பயன் சேகரிப்புகள்"
+
+#: ../plugins/customcollectionorders/cco_prefs.py:85
+msgid "Really delete this order?"
+msgstr "உண்மையில் இந்த ஆர்டரை நீக்கவா?"
+
+#: ../plugins/customcollectionorders/cco_prefs.py:98
+msgid "Add or edit custom order"
+msgstr "தனிப்பயன் வரிசையைச் சேர்க்கவும் அல்லது திருத்தவும்"
+
+#: ../plugins/customcollectionorders/cco_prefs.py:110
+msgid ""
+"Comma separated list of tags to use as nodes in the tree view. Right now "
+"it's not possible to use more than one tag per node.\n"
+"Every tag can be used."
+msgstr ""
+"மரக் காட்சியில் முனைகளாகப் பயன்படுத்த வேண்டிய குறிச்சொற்களின் பட்டியல் கமா "
+"பிரிக்கப்பட்டுள்ளது. இப்போது ஒரு முனைக்கு ஒன்றுக்கு மேற்பட்ட குறிச்சொல்லைப் பயன்படுத்த "
+"முடியாது. \n"
+"ஒவ்வொரு குறிச்சொல்லையும் பயன்படுத்தலாம்."
+
+#: ../plugins/customcollectionorders/cco_prefs.py:114
+msgid ""
+"Comma separated list of the tags to use for displaying single tracks as "
+"leaves in the tree. Tags are joined with a hyphen.\n"
+"Every tag can be used."
+msgstr ""
+"கமா பிரிக்கப்பட்ட குறிச்சொற்களின் பட்டியல் மரத்தின் இலைகளாக ஒற்றை தடங்களைக் காண்பிக்க "
+"பயன்படுத்த வேண்டும். குறிச்சொற்கள் ஒரு ஐபனுடன் இணைக்கப்பட்டுள்ளன.\n"
+" ஒவ்வொரு குறிச்சொல்லையும் பயன்படுத்தலாம்."
+
+#: ../plugins/customcollectionorders/cco_prefs.py:118
+msgid "Name of your order"
+msgstr "உங்கள் ஆர்டரின் பெயர்"
+
+#: ../plugins/customcollectionorders/cco_prefs.py:119
+msgid "Tree Levels:"
+msgstr "மர நிலைகள்:"
+
+#: ../plugins/customcollectionorders/cco_prefs.py:120
+msgid "Display:"
+msgstr "காட்சி:"
+
+#: ../plugins/daapclient/__init__.py:264 ../plugins/history/__init__.py:199
+#: ../plugins/history/__init__.py:247
 #: ../plugins/history/history_preferences.py:34
 msgid "History"
-msgstr ""
+msgstr "வரலாறு"
 
-#: ../plugins/daapclient/__init__.py:272
+#: ../plugins/daapclient/__init__.py:271
 msgid "Manually..."
-msgstr ""
+msgstr "கைமுறையாக ..."
 
-#: ../plugins/daapclient/__init__.py:327
+#: ../plugins/daapclient/__init__.py:326
 msgid "Enter IP address and port for share"
-msgstr ""
+msgstr "பகிர்வுக்கு ஐபி முகவரி மற்றும் துறைமுகத்தை உள்ளிடவும்"
 
-#: ../plugins/daapclient/__init__.py:327
+#: ../plugins/daapclient/__init__.py:326
 msgid "Enter IP address and port."
-msgstr ""
+msgstr "ஐபி முகவரி மற்றும் துறைமுகத்தை உள்ளிடவும்."
 
-#: ../plugins/daapclient/__init__.py:549
+#: ../plugins/daapclient/__init__.py:546
 msgid ""
 "This server does not support multiple connections.\n"
 "You must stop playback before downloading songs."
 msgstr ""
+"இந்த சேவையகம் பல இணைப்புகளை ஆதரிக்காது.\n"
+" பாடல்களைப் பதிவிறக்குவதற்கு முன்பு நீங்கள் பின்னணியை நிறுத்த வேண்டும்."
 
-#: ../plugins/daapclient/__init__.py:659
+#: ../plugins/daapclient/__init__.py:656
 msgid "Refresh Server List"
-msgstr ""
+msgstr "சேவையக பட்டியலைப் புதுப்பிக்கவும்"
 
-#: ../plugins/daapclient/__init__.py:667
+#: ../plugins/daapclient/__init__.py:664
 msgid "Disconnect from Server"
-msgstr ""
+msgstr "சேவையகத்திலிருந்து துண்டிக்கவும்"
 
-#: ../plugins/daapclient/__init__.py:688
+#: ../plugins/daapclient/__init__.py:685
 msgid "Select a Location for Saving"
-msgstr ""
+msgstr "சேமிக்க ஒரு இடத்தைத் தேர்ந்தெடுக்கவும்"
 
-#: ../plugins/daapclient/__init__.py:742
+#: ../plugins/daapclient/__init__.py:738
 msgid "Connect to DAAP..."
-msgstr ""
+msgstr "DAAP உடன் இணைக்கவும் ..."
 
 #: ../plugins/daapclient/daapclientprefs.py:5
 #: ../plugins/daapclient/PLUGININFO:3
 msgid "DAAP Client"
-msgstr ""
+msgstr "DAAP வாடிக்கையாளர்"
 
 #: ../plugins/daapserver/daapserverprefs.py:5
 #: ../plugins/daapserver/PLUGININFO:3
 msgid "DAAP Server"
-msgstr ""
+msgstr "DAAP சேவையகம்"
 
 #: ../plugins/desktopcover/desktopcover_preferences.py:21
 #: ../plugins/desktopcover/PLUGININFO:3
 msgid "Desktop Cover"
-msgstr ""
+msgstr "டெச்க்டாப் கவர்"
 
-#: ../plugins/developer/__init__.py:63
+#: ../plugins/developer/__init__.py:62
 msgid "Developer Tools"
-msgstr ""
+msgstr "உருவாக்குபவர் கருவிகள்"
 
-#: ../plugins/equalizer/__init__.py:362
+#: ../plugins/equalizer/__init__.py:353
 msgid "_Equalizer"
-msgstr ""
+msgstr "_ சமநிலை"
 
-#: ../plugins/grouptagger/__init__.py:96
+#: ../plugins/grouptagger/__init__.py:95
 msgid "_Get all tags from collection"
-msgstr ""
+msgstr "சேகரிப்பிலிருந்து எல்லா குறிச்சொற்களையும் பெறுங்கள்"
 
-#: ../plugins/grouptagger/__init__.py:105
+#: ../plugins/grouptagger/__init__.py:104
 msgid "_Import tags from directory"
-msgstr ""
+msgstr "_ கோப்பகத்திலிருந்து குறிச்சொற்கள்"
 
-#: ../plugins/grouptagger/__init__.py:114
+#: ../plugins/grouptagger/__init__.py:113
 msgid "_Mass rename/delete tags"
-msgstr ""
+msgstr "குறிச்சொற்களை மறுபெயரிட/நீக்கு"
 
-#: ../plugins/grouptagger/__init__.py:123
-msgid "E_xport collecton tags to JSON"
-msgstr ""
+#: ../plugins/grouptagger/__init__.py:122
+msgid "E_xport collection tags to JSON"
+msgstr "சாதொபொகு க்கு E_xport சேகரிப்பு குறிச்சொற்கள்"
 
-#: ../plugins/grouptagger/__init__.py:130
+#: ../plugins/grouptagger/__init__.py:129
 msgid "_GroupTagger"
-msgstr ""
+msgstr "_Grouptager"
 
-#: ../plugins/grouptagger/__init__.py:142
+#: ../plugins/grouptagger/__init__.py:141
 msgid "Show tracks with all tags"
-msgstr ""
+msgstr "எல்லா குறிச்சொற்களுடனும் தடங்களைக் காட்டு"
 
-#: ../plugins/grouptagger/__init__.py:152
+#: ../plugins/grouptagger/__init__.py:151
 msgid "Show tracks with tags (custom)"
-msgstr ""
+msgstr "குறிச்சொற்களுடன் தடங்களைக் காண்பி (தனிப்பயன்)"
 
-#: ../plugins/grouptagger/__init__.py:164
-#: ../plugins/grouptagger/gt_widgets.py:946
+#: ../plugins/grouptagger/__init__.py:163
+#: ../plugins/grouptagger/gt_widgets.py:934
 msgid "Add tags to all"
-msgstr ""
+msgstr "அனைவருக்கும் குறிச்சொற்களைச் சேர்க்கவும்"
 
-#: ../plugins/grouptagger/__init__.py:175
-#: ../plugins/grouptagger/gt_widgets.py:948
-#, fuzzy
-#| msgid "Removes voice from audio"
+#: ../plugins/grouptagger/__init__.py:174
+#: ../plugins/grouptagger/gt_widgets.py:936
 msgid "Remove tags from all"
-msgstr "ஒலியில் இருந்து குரலை நீக்கு"
+msgstr "எல்லாவற்றிலிருந்தும் குறிச்சொற்களை அகற்று"
 
-#: ../plugins/grouptagger/__init__.py:184 ../plugins/grouptagger/gt_prefs.py:20
-#: ../plugins/grouptagger/gt_widgets.py:691
-#: ../plugins/playlistanalyzer/analyzer_dialog.py:106
+#: ../plugins/grouptagger/__init__.py:183 ../plugins/grouptagger/gt_prefs.py:20
+#: ../plugins/grouptagger/gt_widgets.py:684
+#: ../plugins/playlistanalyzer/analyzer_dialog.py:105
 msgid "GroupTagger"
-msgstr ""
+msgstr "Grouptager"
 
-#: ../plugins/grouptagger/__init__.py:325
-#: ../plugins/grouptagger/__init__.py:340
+#: ../plugins/grouptagger/__init__.py:323
+#: ../plugins/grouptagger/__init__.py:338
 msgid "No categorization tags found in selected tracks"
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட தடங்களில் வகைப்படுத்தல் குறிச்சொற்கள் காணப்படவில்லை"
 
 #: ../plugins/grouptagger/gt_export.py:54
 msgid "Export tags to JSON"
-msgstr ""
+msgstr "சாதொபொகு க்கு குறிச்சொற்களை ஏற்றுமதி செய்யுங்கள்"
 
 #: ../plugins/grouptagger/gt_import.py:58
 msgid "Importing tracks"
-msgstr ""
+msgstr "தடங்களை இறக்குமதி செய்தல்"
 
 #: ../plugins/grouptagger/gt_import.py:86
 msgid "Importing groups"
-msgstr ""
+msgstr "இறக்குமதி குழுக்கள்"
 
-#: ../plugins/grouptagger/gt_import.py:181
+#: ../plugins/grouptagger/gt_import.py:178
 msgid "Updating groups"
-msgstr ""
+msgstr "குழுக்களைப் புதுப்பித்தல்"
 
-#: ../plugins/grouptagger/gt_import.py:271
+#: ../plugins/grouptagger/gt_import.py:265
 msgid "Select directory to import grouping tags from"
-msgstr ""
+msgstr "குழு குறிச்சொற்களை இறக்குமதி செய்ய கோப்பகத்தைத் தேர்ந்தெடுக்கவும்"
 
-#: ../plugins/grouptagger/gt_mass.py:121
+#: ../plugins/grouptagger/gt_mass.py:117
 #, python-brace-format
 msgid "{amount} track found"
 msgid_plural "{amount} tracks found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{amount} டிராக் காணப்பட்டது"
+msgstr[1] "{amount} தடங்கள் காணப்படுகின்றன"
 
-#: ../plugins/grouptagger/gt_mass.py:135
+#: ../plugins/grouptagger/gt_mass.py:130
 #, python-brace-format
 msgid "Replace '{old_tag}' with '{new_tag}' on {amount} track?"
 msgid_plural "Replace '{old_tag}' with '{new_tag}' on {amount} tracks?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "'{old_tag}' ஐ {new_tag} 'உடன் {amount} பாதையில் மாற்றவா?"
+msgstr[1] "{old_tag} தடங்களில் '{new_tag}' ஐ '{amount}' உடன் மாற்றவா?"
 
-#: ../plugins/grouptagger/gt_mass.py:145
+#: ../plugins/grouptagger/gt_mass.py:140
 #, python-brace-format
 msgid "Delete '{tag}' from {amount} track?"
 msgid_plural "Delete '{tag}' from {amount} tracks?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{tag} தடத்திலிருந்து '{amount}' ஐ நீக்கு?"
+msgstr[1] "{tag} தடங்களிலிருந்து '{amount}' ஐ நீக்கவா?"
 
-#: ../plugins/grouptagger/gt_mass.py:172
+#: ../plugins/grouptagger/gt_mass.py:166
 msgid ""
 "You should rescan your collection before using mass tag rename to ensure "
 "that all tags are up to date. Rescan now?"
 msgstr ""
+"எல்லா குறிச்சொற்களும் புதுப்பித்த நிலையில் இருப்பதை உறுதிசெய்ய வெகுசன குறிச்சொல்லைப் "
+"பயன்படுத்துவதற்கு முன்பு உங்கள் சேகரிப்பை மீட்டெடுக்க வேண்டும். இப்போது மீட்டெடுக்கவா?"
 
-#: ../plugins/grouptagger/gt_widgets.py:72
+#: ../plugins/grouptagger/gt_widgets.py:71
 msgid "Show tracks with selected"
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட தடங்களைக் காட்டு"
 
-#: ../plugins/grouptagger/gt_widgets.py:74
+#: ../plugins/grouptagger/gt_widgets.py:73
 #, python-format
 msgid "Show tracks tagged with \"%s\""
-msgstr ""
+msgstr "\"%s\" உடன் குறிக்கப்பட்ட தடங்களைக் காட்டு"
 
-#: ../plugins/grouptagger/gt_widgets.py:76
+#: ../plugins/grouptagger/gt_widgets.py:75
 msgid "Show tracks with all selected"
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட அனைவருடனும் தடங்களைக் காட்டு"
 
-#: ../plugins/grouptagger/gt_widgets.py:155
+#: ../plugins/grouptagger/gt_widgets.py:153
 msgid "Tag"
-msgstr ""
+msgstr "குறிச்சொல்"
 
-#: ../plugins/grouptagger/gt_widgets.py:171
+#: ../plugins/grouptagger/gt_widgets.py:168
 msgid "Add new tag"
-msgstr ""
+msgstr "புதிய குறிச்சொல்லைச் சேர்க்கவும்"
 
-#: ../plugins/grouptagger/gt_widgets.py:177
+#: ../plugins/grouptagger/gt_widgets.py:174
 msgid "Delete tag"
-msgstr ""
+msgstr "குறிச்சொல்லை நீக்கு"
 
-#: ../plugins/grouptagger/gt_widgets.py:188
+#: ../plugins/grouptagger/gt_widgets.py:185
 msgid "Add new category"
-msgstr ""
+msgstr "புதிய வகையைச் சேர்க்கவும்"
 
-#: ../plugins/grouptagger/gt_widgets.py:196
+#: ../plugins/grouptagger/gt_widgets.py:193
 msgid "Remove category"
-msgstr ""
+msgstr "வகையை அகற்று"
 
-#: ../plugins/grouptagger/gt_widgets.py:211
+#: ../plugins/grouptagger/gt_widgets.py:208
 msgid "Show tracks with selected (custom)"
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட (தனிப்பயன்) தடங்களைக் காண்பி"
 
-#: ../plugins/grouptagger/gt_widgets.py:308
+#: ../plugins/grouptagger/gt_widgets.py:305
 msgid "New tag value?"
-msgstr ""
+msgstr "புதிய குறிச்சொல் மதிப்பு?"
 
-#: ../plugins/grouptagger/gt_widgets.py:308
+#: ../plugins/grouptagger/gt_widgets.py:305
 msgid "Enter new tag value"
-msgstr ""
+msgstr "புதிய குறிச்சொல் மதிப்பை உள்ளிடவும்"
 
-#: ../plugins/grouptagger/gt_widgets.py:341
+#: ../plugins/grouptagger/gt_widgets.py:338
 msgid "New Category?"
-msgstr ""
+msgstr "புதிய வகை?"
 
-#: ../plugins/grouptagger/gt_widgets.py:341
+#: ../plugins/grouptagger/gt_widgets.py:338
 msgid "Enter new category name"
-msgstr ""
+msgstr "புதிய வகை பெயரை உள்ளிடவும்"
 
-#: ../plugins/grouptagger/gt_widgets.py:559
+#: ../plugins/grouptagger/gt_widgets.py:554
 msgid "Add Tag"
-msgstr ""
+msgstr "குறிச்சொல்லைச் சேர்க்கவும்"
 
-#: ../plugins/grouptagger/gt_widgets.py:713
-#: ../plugins/grouptagger/gt_widgets.py:819
-msgid "Group"
-msgstr ""
-
-#: ../plugins/grouptagger/gt_widgets.py:749
-msgid "Get all tags from collection"
-msgstr ""
-
-#: ../plugins/grouptagger/gt_widgets.py:770
-msgid "Add selected to choices"
-msgstr ""
-
-#: ../plugins/grouptagger/gt_widgets.py:796
-msgid "Show tracks with groups"
-msgstr ""
-
-#: ../plugins/grouptagger/gt_widgets.py:808
-msgid "Must have this tag [AND]"
-msgstr ""
-
-#: ../plugins/grouptagger/gt_widgets.py:809
-msgid "May have this tag [OR]"
-msgstr ""
-
+#: ../plugins/grouptagger/gt_widgets.py:706
 #: ../plugins/grouptagger/gt_widgets.py:810
+msgid "Group"
+msgstr "குழு"
+
+#: ../plugins/grouptagger/gt_widgets.py:741
+msgid "Get all tags from collection"
+msgstr "சேகரிப்பிலிருந்து எல்லா குறிச்சொற்களையும் பெறுங்கள்"
+
+#: ../plugins/grouptagger/gt_widgets.py:762
+msgid "Add selected to choices"
+msgstr "தேர்வுகளில் தேர்ந்தெடுக்கப்பட்டதைச் சேர்க்கவும்"
+
+#: ../plugins/grouptagger/gt_widgets.py:787
+msgid "Show tracks with groups"
+msgstr "குழுக்களுடன் தடங்களைக் காட்டு"
+
+#: ../plugins/grouptagger/gt_widgets.py:799
+msgid "Must have this tag [AND]"
+msgstr "இந்த குறிச்சொல் இருக்க வேண்டும் [மற்றும்]"
+
+#: ../plugins/grouptagger/gt_widgets.py:800
+msgid "May have this tag [OR]"
+msgstr "இந்த குறிச்சொல் இருக்கலாம் [அல்லது]"
+
+#: ../plugins/grouptagger/gt_widgets.py:801
 msgid "Must not have this tag [NOT]"
-msgstr ""
+msgstr "இந்த குறிச்சொல் இருக்கக்கூடாது [இல்லை]"
+
+#: ../plugins/grouptagger/gt_widgets.py:802
+msgid "Ignored"
+msgstr "புறக்கணிக்கப்பட்டது"
 
 #: ../plugins/grouptagger/gt_widgets.py:811
-msgid "Ignored"
-msgstr ""
-
-#: ../plugins/grouptagger/gt_widgets.py:820
 msgid "Selected Tracks"
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட தடங்கள்"
 
 #: ../plugins/history/__init__.py:77
 msgid "Playback history"
-msgstr ""
+msgstr "பின்னணி வரலாறு"
 
-#: ../plugins/history/__init__.py:117
+#: ../plugins/history/__init__.py:122
 msgid "Erase stored history?"
-msgstr ""
+msgstr "சேமிக்கப்பட்ட வரலாற்றை அழிக்கவா?"
 
-#: ../plugins/history/__init__.py:218
+#: ../plugins/history/__init__.py:229
 msgid "Save History"
-msgstr ""
+msgstr "வரலாற்றைக் காப்பாற்றுங்கள்"
 
-#: ../plugins/history/__init__.py:227
+#: ../plugins/history/__init__.py:238
 msgid "_Clear History"
-msgstr ""
+msgstr "_ கிளையர் வரலாறு"
 
-#: ../plugins/icecast/__init__.py:115 ../plugins/icecast/__init__.py:183
-#: ../plugins/icecast/__init__.py:206
+#: ../plugins/icecast/__init__.py:134 ../plugins/icecast/__init__.py:230
+#: ../plugins/icecast/__init__.py:339
 msgid "Contacting Icecast server..."
-msgstr ""
+msgstr "ஐச்காச்ட் சேவையகத்தைத் தொடர்புகொள்வது ..."
 
-#: ../plugins/icecast/__init__.py:122 ../plugins/icecast/__init__.py:125
-#: ../plugins/icecast/__init__.py:218 ../plugins/icecast/__init__.py:221
+#: ../plugins/icecast/__init__.py:143 ../plugins/icecast/__init__.py:146
+#: ../plugins/icecast/__init__.py:347 ../plugins/icecast/__init__.py:350
 msgid "Error connecting to Icecast server."
-msgstr ""
+msgstr "Icecast சேவையகத்துடன் இணைப்பதில் பிழை."
 
-#: ../plugins/icecast/__init__.py:323
+#: ../plugins/icecast/__init__.py:148
+msgid "Parsing stations XML..."
+msgstr "பாகுபடுத்தும் நிலையங்கள் நீகுமொ ..."
+
+#: ../plugins/icecast/__init__.py:160
+msgid "Retrieving stations..."
+msgstr "நிலையங்களை மீட்டெடுக்கும் ..."
+
+#: ../plugins/icecast/__init__.py:273
 msgid "Enter the search keywords"
-msgstr ""
+msgstr "தேடல் முக்கிய வார்த்தைகளை உள்ளிடவும்"
 
-#: ../plugins/icecast/__init__.py:323
-#, fuzzy
+#: ../plugins/icecast/__init__.py:273
 msgid "Icecast Search"
-msgstr "தேடு"
+msgstr "Icecast தேடல்"
 
-#: ../plugins/icecast/__init__.py:347
+#: ../plugins/icecast/__init__.py:297
 msgid "No Stations Found"
-msgstr ""
+msgstr "நிலையங்கள் எதுவும் கிடைக்கவில்லை"
 
-#: ../plugins/icecast/__init__.py:350
+#: ../plugins/icecast/__init__.py:300
 msgid "Icecast Search Results"
-msgstr ""
+msgstr "Icecast தேடல் முடிவுகள்"
 
-#: ../plugins/icecast/__init__.py:392
+#: ../plugins/icecast/__init__.py:352
+msgid "Parsing genre list..."
+msgstr "பாகுபடுத்தும் வகை பட்டியல் ..."
+
+#: ../plugins/icecast/__init__.py:373
 #: ../plugins/developer/developer_window.ui:59
-#, fuzzy
 msgid "Name"
-msgstr "பெயர்:"
+msgstr "பெயர்"
 
-#: ../plugins/icecast/__init__.py:408
+#: ../plugins/icecast/__init__.py:389
 msgid "Format"
-msgstr ""
+msgstr "வடிவம்"
 
 #: ../plugins/ipconsole/__init__.py:155
 msgid "IPython Console - Exaile"
-msgstr ""
+msgstr "ஐபிதான் கன்சோல் - எக்செயல்"
 
 #: ../plugins/ipconsole/__init__.py:213
 msgid "Show _IPython Console"
-msgstr ""
+msgstr "_Ipython கன்சோலைக் காட்டு"
 
 #: ../plugins/ipconsole/ipconsoleprefs.py:23 ../plugins/ipconsole/PLUGININFO:3
 msgid "IPython Console"
-msgstr ""
+msgstr "Ipython கன்சோல்"
 
 #: ../plugins/ipconsole/ipconsoleprefs.py:40
 msgid "Opacity cannot be set on Windows due to a bug in Gtk+"
-msgstr ""
+msgstr "சி.டி.கே+ இல் பிழை காரணமாக சாளரங்களில் ஒளிபுகாநிலையை அமைக்க முடியாது"
 
-#: ../plugins/jamendo/__init__.py:86 ../plugins/jamendo/ui/jamendo_panel.ui:294
-msgid "Ready"
-msgstr ""
-
-#: ../plugins/jamendo/__init__.py:87
-msgid "Searching Jamendo catalogue..."
-msgstr ""
-
-#: ../plugins/jamendo/__init__.py:88
-msgid "Retrieving song data..."
-msgstr ""
-
-#: ../plugins/jamendo/menu.py:13
-msgid "Append to Current"
-msgstr ""
-
-#: ../plugins/keybinder/__init__.py:58
+#: ../plugins/keybinder/__init__.py:49
 msgid ""
 "Keybinder is not supported on this platform! It is only supported on X "
 "servers."
 msgstr ""
+"இந்த மேடையில் கீபிண்டர் ஆதரிக்கப்படவில்லை! இது ஃச் சேவையகங்களில் மட்டுமே ஆதரிக்கப்படுகிறது."
 
 #: ../plugins/lastfmlove/__init__.py:66
 msgid "Loved"
-msgstr ""
+msgstr "நேசித்தேன்"
 
 #: ../plugins/lastfmlove/__init__.py:67
 msgid "Last.fm Loved"
-msgstr ""
+msgstr "Last.fm நேசித்தது"
 
 #: ../plugins/lastfmlove/__init__.py:157
-#, fuzzy
-#| msgid "Previous Track"
 msgid "_Love This Track"
-msgstr "முந்தைய தடம்"
+msgstr "இந்த பாதையை நேசிக்கவும்"
 
 #: ../plugins/lastfmlove/__init__.py:178
 msgid "Unlove This Track"
-msgstr ""
+msgstr "இந்த பாதையை அன்பற்றது"
 
 #: ../plugins/lastfmlove/lastfmlove_preferences.py:31
 #: ../plugins/lastfmlove/PLUGININFO:3
 msgid "Last.fm Loved Tracks"
-msgstr ""
+msgstr "Last.fm டிராக்குகளை விரும்பியது"
 
 #: ../plugins/lastfmlove/lastfmlove_preferences.py:59
 msgid "The API key is invalid."
-msgstr ""
+msgstr "பநிஇ விசை தவறானது."
 
 #: ../plugins/lastfmlove/lastfmlove_preferences.py:93
 msgid "Could not start web browser"
-msgstr ""
+msgstr "வலை உலாவியைத் தொடங்க முடியவில்லை"
 
 #: ../plugins/lastfmlove/lastfmlove_preferences.py:95
 #, python-brace-format
@@ -3270,21 +3498,23 @@ msgid ""
 "Please copy the following URL and open it with your web browser:\n"
 "<b><a href=\"{url}\">{url}</a></b>"
 msgstr ""
+"தயவுசெய்து பின்வரும் முகவரி ஐ நகலெடுத்து உங்கள் வலை உலாவியுடன் திறக்கவும்:\n"
+" <b> <a href = \"{url}\"> {url} </a> </b>"
 
-#: ../plugins/mainmenubutton/__init__.py:60
+#: ../plugins/mainmenubutton/__init__.py:59
 msgid "This plugin needs at least one visible panel"
-msgstr ""
+msgstr "இந்த சொருகி குறைந்தது ஒரு புலப்படும் குழு தேவை"
 
-#: ../plugins/mainmenubutton/__init__.py:82
-#: ../plugins/mainmenubutton/__init__.py:88
+#: ../plugins/mainmenubutton/__init__.py:79
+#: ../plugins/mainmenubutton/__init__.py:85
 msgid "Main Menu"
-msgstr ""
+msgstr "பட்டியல் விளையாடுங்கள்"
 
 #: ../plugins/minimode/__init__.py:105 ../plugins/minimode/__init__.py:118
 #: ../plugins/minimode/minimode_preferences.py:24
 #: ../plugins/minimode/PLUGININFO:3
 msgid "Mini Mode"
-msgstr ""
+msgstr "மினி பயன்முறை"
 
 #: ../plugins/minimode/controls.py:224
 msgid "Previous"
@@ -3292,11 +3522,11 @@ msgstr "முந்தைய"
 
 #: ../plugins/minimode/controls.py:225
 msgid "Go to the previous track"
-msgstr ""
+msgstr "முந்தைய பாதைக்குச் செல்லுங்கள்"
 
 #: ../plugins/minimode/controls.py:231
 msgid "Previous track"
-msgstr ""
+msgstr "முந்தைய பாடல்"
 
 #: ../plugins/minimode/controls.py:246
 msgid "Next"
@@ -3304,329 +3534,403 @@ msgstr "அடுத்த"
 
 #: ../plugins/minimode/controls.py:247
 msgid "Go to the next track"
-msgstr ""
+msgstr "அடுத்த பாதையில் செல்லுங்கள்"
 
 #: ../plugins/minimode/controls.py:253
 msgid "Next track"
-msgstr ""
+msgstr "அடுத்த பாடல்"
 
 #: ../plugins/minimode/controls.py:269
 msgid "Play/Pause"
-msgstr ""
+msgstr "விளையாடு/இடைநிறுத்தம்"
 
 #: ../plugins/minimode/controls.py:290
 msgid "Start playback"
-msgstr ""
+msgstr "பிளேபேக்கைத் தொடங்குங்கள்"
 
 #: ../plugins/minimode/controls.py:294
 msgid "Continue playback"
-msgstr ""
+msgstr "பிளேபேக்கைத் தொடரவும்"
 
 #: ../plugins/minimode/controls.py:297
 msgid "Pause playback"
-msgstr ""
+msgstr "இடைநிறுத்தப்பட்ட பின்னணி"
 
 #: ../plugins/minimode/controls.py:337
 msgid "Stop"
-msgstr ""
+msgstr "நிறுத்து"
 
 #: ../plugins/minimode/controls.py:338
 msgid "Stop the playback"
-msgstr ""
+msgstr "பிளேபேக்கை நிறுத்துங்கள்"
 
 #: ../plugins/minimode/controls.py:374
 msgid "Continue playback after current track"
-msgstr ""
+msgstr "தற்போதைய பாதைக்குப் பிறகு பிளேபேக்கைத் தொடரவும்"
 
 #: ../plugins/minimode/controls.py:448
 msgid "Change the volume"
-msgstr ""
+msgstr "அளவை மாற்றவும்"
 
 #: ../plugins/minimode/controls.py:514
 msgid "Restore"
-msgstr ""
+msgstr "மீட்டமை"
 
 #: ../plugins/minimode/controls.py:515
 msgid "Restore the main window"
-msgstr ""
+msgstr "முதன்மையான சாளரத்தை மீட்டெடுக்கவும்"
 
 #: ../plugins/minimode/controls.py:523
 msgid "Restore main window"
-msgstr ""
+msgstr "முதன்மையான சாளரத்தை மீட்டமைக்கவும்"
 
 #: ../plugins/minimode/controls.py:556
 msgid "Select rating of the current track"
-msgstr ""
+msgstr "தற்போதைய பாதையின் மதிப்பீட்டைத் தேர்ந்தெடுக்கவும்"
 
 #: ../plugins/minimode/controls.py:574
 msgid "Track selector"
-msgstr ""
+msgstr "ட்ராக் தேர்வாளர்"
 
 #: ../plugins/minimode/controls.py:575
 msgid "Simple track list selector"
-msgstr ""
+msgstr "எளிய தட பட்டியல் தேர்வாளர்"
 
 #. TRANSLATORS: Mini mode track selector title preset
 #: ../plugins/minimode/controls.py:721 ../plugins/minimode/controls.py:969
 #: ../plugins/minimode/minimode_preferences.py:124
 #: ../plugins/minimode/minimode_preferences.py:130
 msgid "$tracknumber - $title"
-msgstr ""
+msgstr "$ டிராக்நம்பர் - $ தலைப்பு"
 
 #: ../plugins/minimode/controls.py:727
 msgid "Playlist button"
-msgstr ""
+msgstr "பிளேலிச்ட் பொத்தான்"
 
 #: ../plugins/minimode/controls.py:728
 msgid "Access the current playlist"
-msgstr ""
+msgstr "தற்போதைய பிளேலிச்ட்டை அணுகவும்"
 
 #: ../plugins/minimode/controls.py:1012
 msgid "$title ($current_time / $total_time)"
-msgstr ""
+msgstr "$ தலைப்பு ($ நடப்பு_ நேரம் / $ மொத்த_ நேரம்)"
 
-#: ../plugins/minimode/controls.py:1037
+#: ../plugins/minimode/controls.py:1035
 msgid "Progress button"
-msgstr ""
+msgstr "முன்னேற்ற பொத்தானை"
 
-#: ../plugins/minimode/controls.py:1038
+#: ../plugins/minimode/controls.py:1036
 msgid "Playback progress and access to the current playlist"
-msgstr ""
+msgstr "பிளேபேக் முன்னேற்றம் மற்றும் தற்போதைய பிளேலிச்ட்டுக்கான அணுகல்"
 
-#: ../plugins/minimode/controls.py:1112
+#: ../plugins/minimode/controls.py:1110
 msgid "Progress bar"
-msgstr ""
+msgstr "முன்னேற்றப் பட்டி"
 
-#: ../plugins/minimode/controls.py:1113
+#: ../plugins/minimode/controls.py:1111
 msgid "Playback progress and seeking"
-msgstr ""
+msgstr "பின்னணி முன்னேற்றம் மற்றும் தேடுதல்"
 
 #. TRANSLATORS: Mini mode track selector title preset
 #: ../plugins/minimode/minimode_preferences.py:126
 msgid "$title by $artist"
-msgstr ""
+msgstr "$ கலைஞரின் தலைப்பு"
 
 #. TRANSLATORS: Mini mode track selector title preset
 #: ../plugins/minimode/minimode_preferences.py:128
 msgid "$title ($__length)"
-msgstr ""
+msgstr "$ தலைப்பு ($ __ நீளம்)"
 
 #. TRANSLATORS: Time format for playback progress
 #: ../plugins/moodbar/__init__.py:99
 #, python-brace-format
 msgid "{minutes}:{seconds:02}"
-msgstr ""
+msgstr "{minutes}: {seconds:02}"
 
 #. TRANSLATORS: Format for playback progress text
 #: ../plugins/moodbar/__init__.py:204
 #, python-brace-format
 msgid "{current} / {remaining}"
-msgstr ""
+msgstr "{current} / {remaining}"
 
-#: ../plugins/moodbar/prefs.py:26 ../plugins/moodbar/PLUGININFO:3
+#: ../plugins/moodbar/prefs.py:25 ../plugins/moodbar/PLUGININFO:3
 msgid "Moodbar"
-msgstr ""
+msgstr "அதேசமயம்"
 
 #: ../plugins/multialarmclock/macprefs.py:22
 #: ../plugins/multialarmclock/PLUGININFO:3
 msgid "Multi-Alarm Clock"
-msgstr ""
+msgstr "பல அலாரம் கடிகாரம்"
+
+#: ../plugins/notify/__init__.py:46
+#, python-brace-format
+msgid "from {album} by {artist}"
+msgstr "{album} இலிருந்து {artist} மூலம்"
+
+#: ../plugins/notify/__init__.py:47
+#, python-brace-format
+msgid "by {artist}"
+msgstr "எழுதியவர் {artist}"
 
 #: ../plugins/notify/__init__.py:48
 #, python-brace-format
-msgid "from {album} by {artist}"
-msgstr ""
-
-#: ../plugins/notify/__init__.py:49
-#, python-brace-format
-msgid "by {artist}"
-msgstr ""
-
-#: ../plugins/notify/__init__.py:50
-#, python-brace-format
-msgid "by {album}"
-msgstr ""
+msgid "from {album}"
+msgstr "{album}"
 
 #: ../plugins/notify/notifyprefs.py:22 ../plugins/notify/PLUGININFO:3
 msgid "Notify"
-msgstr ""
+msgstr "அறிவிக்கவும்"
 
 #: ../plugins/osd/__init__.py:356
 msgid "No track played yet"
-msgstr ""
+msgstr "இதுவரை எந்த தடமும் விளையாடவில்லை"
 
 #: ../plugins/osd/__init__.py:396
 msgid "Move or resize OSD"
-msgstr ""
+msgstr "OSD ஐ நகர்த்தவும் அல்லது மறுஅளவிடவும்"
 
-#: ../plugins/osd/osd_preferences.py:24 ../plugins/osd/PLUGININFO:3
+#: ../plugins/osd/osd_preferences.py:23 ../plugins/osd/PLUGININFO:3
 msgid "On Screen Display"
-msgstr ""
+msgstr "திரை காட்சியில்"
 
-#: ../plugins/osd/osd_preferences.py:72
+#: ../plugins/osd/osd_preferences.py:71
 msgid ""
 "<span font_desc=\"Sans 11\" foreground=\"#fff\">$title</span>\n"
 "by $artist\n"
 "from $album"
 msgstr ""
+"<span font_desc=\"Sans 11\" foreground=\"#fff\">$title</span>\n"
+"வழங்கியவர் $artist\n"
+"$album இலிருந்து"
 
-#: ../plugins/playlistanalyzer/__init__.py:55
-#, fuzzy
+#: ../plugins/playlistanalyzer/__init__.py:54
 msgid "Analyze playlists"
-msgstr "இசைப்பட்டியலை மறுபெயரிடு"
+msgstr "பிளேலிச்ட்களை பகுப்பாய்வு செய்யுங்கள்"
 
-#: ../plugins/playlistanalyzer/__init__.py:63
+#: ../plugins/playlistanalyzer/__init__.py:62
 #: ../plugins/playlistanalyzer/analyzer.ui:55
-#, fuzzy
 msgid "Analyze playlist"
-msgstr "இசைப்பட்டியலை மறுபெயரிடு"
+msgstr "பிளேலிச்ட்டை பகுப்பாய்வு செய்யுங்கள்"
 
-#: ../plugins/playlistanalyzer/analyzer_dialog.py:200
+#: ../plugins/playlistanalyzer/analyzer_dialog.py:193
 msgid "Modulus this number"
-msgstr ""
+msgstr "மாடுலச் இந்த எண்"
 
-#: ../plugins/playlistanalyzer/analyzer_dialog.py:220
+#: ../plugins/playlistanalyzer/analyzer_dialog.py:211
 #, python-format
 msgid "Tag %s"
-msgstr ""
+msgstr "குறிச்சொல் %s"
 
-#: ../plugins/playlistanalyzer/analyzer_dialog.py:348
+#: ../plugins/playlistanalyzer/analyzer_dialog.py:337
 msgid "Save analysis"
-msgstr ""
+msgstr "பகுப்பாய்வைச் சேமிக்கவும்"
 
 #: ../plugins/podcasts/__init__.py:54 ../plugins/podcasts/PLUGININFO:3
 msgid "Podcasts"
-msgstr ""
+msgstr "பாட்காச்ட்கள்"
 
 #: ../plugins/podcasts/__init__.py:71
 msgid "Podcast"
-msgstr ""
+msgstr "போட்காச்ட்"
 
 #: ../plugins/podcasts/__init__.py:80
 msgid "Refresh Podcast"
-msgstr ""
+msgstr "போட்காச்டைப் புதுப்பிக்கவும்"
 
 #: ../plugins/podcasts/__init__.py:81
 msgid "Delete"
-msgstr ""
+msgstr "நீக்கு"
 
 #: ../plugins/podcasts/__init__.py:121
 msgid "Enter the URL of the podcast to add"
-msgstr ""
+msgstr "சேர்க்க போட்காச்டின் முகவரி ஐ உள்ளிடவும்"
 
 #: ../plugins/podcasts/__init__.py:121
 msgid "Open Podcast"
-msgstr ""
+msgstr "திறந்த போட்காச்ட்"
 
 #: ../plugins/podcasts/__init__.py:157
 #, python-format
 msgid "Loading %s..."
-msgstr ""
+msgstr "%s ஏற்றுகிறது ..."
 
 #: ../plugins/podcasts/__init__.py:187
 msgid "Error loading podcast."
-msgstr ""
+msgstr "போட்காச்டை ஏற்றுவதில் பிழை."
 
 #: ../plugins/podcasts/__init__.py:203
 msgid "Loading Podcasts..."
-msgstr ""
+msgstr "பாட்காச்ட்களை ஏற்றுகிறது ..."
 
 #: ../plugins/podcasts/__init__.py:205
 msgid "No configuration present yet"
-msgstr ""
+msgstr "இன்னும் உள்ளமைவு இல்லை"
 
 #: ../plugins/podcasts/__init__.py:238
 msgid "Could not save podcast file"
-msgstr ""
+msgstr "போட்காச்ட் கோப்பை சேமிக்க முடியவில்லை"
 
-#: ../plugins/previewdevice/__init__.py:146
+#: ../plugins/previewdevice/__init__.py:147
 msgid "Preview Player"
-msgstr ""
+msgstr "முன்னோட்டம் வீரர்"
 
-#: ../plugins/previewdevice/__init__.py:156
+#: ../plugins/previewdevice/__init__.py:157
 msgid "Preview"
-msgstr ""
+msgstr "முன்னோட்டம்"
 
-#: ../plugins/previewdevice/__init__.py:341
+#: ../plugins/previewdevice/__init__.py:334
 msgid "Pause Playback (double click to stop)"
-msgstr ""
+msgstr "இடைநிறுத்தப்பட்ட பின்னணி (நிறுத்த இரட்டை சொடுக்கு செய்யவும்)"
 
 #: ../plugins/previewdevice/previewprefs.py:32
+#: ../plugins/quickbuttons/__init__.py:101
 #: ../plugins/previewdevice/PLUGININFO:3
 msgid "Preview Device"
-msgstr ""
+msgstr "முன்னோட்ட சாதனம்"
+
+#: ../plugins/quickbuttons/__init__.py:37
+msgid "Enqueue"
+msgstr "கணக்கெடுப்பு"
+
+#: ../plugins/quickbuttons/__init__.py:46
+msgid "Keep playing"
+msgstr "தொடர்ந்து விளையாடுங்கள்"
+
+#: ../plugins/quickbuttons/__init__.py:55
+msgid "Auto-Remove"
+msgstr "தானாக அகற்றுதல்"
+
+#: ../plugins/quickbuttons/__init__.py:64
+msgid "Auto-Advance"
+msgstr "ஆட்டோ-அட்வான்ச்"
+
+#: ../plugins/quickbuttons/__init__.py:73
+#: ../plugins/quickbuttons/__init__.py:74
+msgid "Delay between tracks (in seconds):"
+msgstr "தடங்களுக்கு இடையில் நேரந்தவறுகை (நொடிகளில்):"
+
+#: ../plugins/quickbuttons/__init__.py:82
+msgid "EQ"
+msgstr "Eq"
+
+#: ../plugins/quickbuttons/__init__.py:83 ../plugins/equalizer/equalizer.ui:109
+#: ../plugins/equalizer/PLUGININFO:3
+msgid "Equalizer"
+msgstr "சமநிலைப்படுத்தி"
+
+#: ../plugins/quickbuttons/__init__.py:92
+msgid "Main Device"
+msgstr "முதன்மை சாதனம்"
+
+#: ../plugins/quickbuttons/__init__.py:93
+#: ../plugins/quickbuttons/qb_prefs.ui:101
+msgid "Select main audio device"
+msgstr "முதன்மையான ஆடியோ சாதனத்தைத் தேர்ந்தெடுக்கவும்"
+
+#: ../plugins/quickbuttons/__init__.py:102
+msgid "Select preview audio device"
+msgstr "முன்னோட்டம் ஆடியோ சாதனத்தைத் தேர்ந்தெடுக்கவும்"
+
+#: ../plugins/quickbuttons/qb_prefs.py:5
+msgid "Quickbuttons"
+msgstr "QuickButtons"
 
 #: ../plugins/replaygain/replaygainprefs.py:31
 #: ../plugins/replaygain/PLUGININFO:3
 msgid "ReplayGain"
-msgstr ""
+msgstr "மறுதொடக்கம்"
 
 #: ../plugins/screensaverpause/prefs.py:5
 #: ../plugins/screensaverpause/PLUGININFO:3
 msgid "Pause on Screensaver"
-msgstr ""
+msgstr "ச்கிரீன்சேவரில் இடைநிறுத்தம்"
 
-#: ../plugins/shutdown/__init__.py:42 ../plugins/shutdown/PLUGININFO:3
+#: ../plugins/shutdown/__init__.py:47
+msgid "Close Exaile after Playback"
+msgstr "பிளேபேக்கிற்குப் பிறகு எக்சைல் மூடு"
+
+#: ../plugins/shutdown/__init__.py:60 ../plugins/shutdown/PLUGININFO:3
 msgid "Shutdown after Playback"
-msgstr ""
+msgstr "பிளேபேக்கிற்குப் பிறகு பணிநிறுத்தம்"
 
-#: ../plugins/shutdown/__init__.py:67
+#: ../plugins/shutdown/__init__.py:81
+msgid "Close scheduled"
+msgstr "திட்டமிடப்பட்ட மூடு"
+
+#: ../plugins/shutdown/__init__.py:82
+msgid "Exaile will be closed at the end of playback."
+msgstr "பிளேபேக்கின் முடிவில் எக்செயில் மூடப்படும்."
+
+#: ../plugins/shutdown/__init__.py:88
 msgid "Shutdown scheduled"
-msgstr ""
+msgstr "பணிநிறுத்தம் திட்டமிடப்பட்டுள்ளது"
 
-#: ../plugins/shutdown/__init__.py:68
+#: ../plugins/shutdown/__init__.py:89
 msgid "Computer will be shutdown at the end of playback."
-msgstr ""
+msgstr "பிளேபேக்கின் முடிவில் கணினி பணிநிறுத்தம் செய்யப்படும்."
 
-#: ../plugins/shutdown/__init__.py:95
+#: ../plugins/shutdown/__init__.py:121
+msgid "Imminent Closing"
+msgstr "உடனடி நிறைவு"
+
+#: ../plugins/shutdown/__init__.py:123
 msgid "Imminent Shutdown"
-msgstr ""
+msgstr "உடனடி பணிநிறுத்தம்"
 
-#: ../plugins/shutdown/__init__.py:119
+#: ../plugins/shutdown/__init__.py:145
+#, python-format
+msgid "Exaile will be closed in %d seconds."
+msgstr "எக்செயில் %d வினாடிகளில் மூடப்படும்."
+
+#: ../plugins/shutdown/__init__.py:147
 #, python-format
 msgid "The computer will be shut down in %d seconds."
-msgstr ""
+msgstr "கணினி %d வினாடிகளில் மூடப்படும்."
 
-#: ../plugins/shutdown/__init__.py:150
+#: ../plugins/shutdown/__init__.py:192
 msgid "Shutdown failed"
-msgstr ""
+msgstr "பணிநிறுத்தம் தோல்வியடைந்தது"
 
-#: ../plugins/shutdown/__init__.py:151
+#: ../plugins/shutdown/__init__.py:193
 msgid "Computer could not be shutdown using D-Bus."
-msgstr ""
+msgstr "டி-பசைப் பயன்படுத்தி கணினியை பணிநிறுத்தம் செய்ய முடியவில்லை."
 
-#: ../plugins/somafm/__init__.py:82 ../plugins/somafm/__init__.py:178
+#: ../plugins/shutdown/shutdown_preferences.py:5
+msgid "Shutdown"
+msgstr "பணிநிறுத்தம்"
+
+#: ../plugins/somafm/__init__.py:81 ../plugins/somafm/__init__.py:176
 msgid "Contacting SomaFM server..."
-msgstr ""
+msgstr "SOMAFM சேவையகத்தைத் தொடர்புகொள்வது ..."
 
-#: ../plugins/somafm/__init__.py:94 ../plugins/somafm/__init__.py:97
+#: ../plugins/somafm/__init__.py:93 ../plugins/somafm/__init__.py:96
 msgid "Error connecting to SomaFM server."
-msgstr ""
+msgstr "SOMAFM சேவையகத்துடன் இணைப்பதில் பிழை."
 
-#: ../plugins/somafm/__init__.py:182
+#: ../plugins/somafm/__init__.py:180
 msgid "Error importing playlist"
-msgstr ""
+msgstr "பிளேலிச்ட்டை இறக்குமதி செய்வதில் பிழை"
 
-#: ../plugins/streamripper/__init__.py:73
+#: ../plugins/streamripper/__init__.py:79
 msgid "Error executing streamripper"
-msgstr ""
+msgstr "ச்ட்ரீம்ரிப்பரை இயக்குவதில் பிழை"
 
 #: ../plugins/streamripper/srprefs.py:21 ../plugins/streamripper/PLUGININFO:3
 msgid "Streamripper"
-msgstr ""
+msgstr "ச்ட்ரீம்ரிப்பர்"
 
 #: ../plugins/wikipedia/__init__.py:150 ../plugins/wikipedia/preferences.py:21
 #: ../plugins/wikipedia/PLUGININFO:3
 msgid "Wikipedia"
-msgstr ""
+msgstr "விக்கிபீடியா"
 
 #: ../plugins/alarmclock/acprefs_pane.ui:52
 msgid "<b>Alarm Time</b>"
-msgstr ""
+msgstr "<b>விழிப்பு நேரம்</b>"
 
 #: ../plugins/alarmclock/acprefs_pane.ui:121
 msgid "<b>Alarm Days</b>"
-msgstr ""
+msgstr "<b>விழிப்பு நாட்கள்</b>"
 
 #: ../plugins/alarmclock/acprefs_pane.ui:132
 msgid "Monday"
@@ -3658,39 +3962,37 @@ msgstr "ஞாயிறு"
 
 #: ../plugins/alarmclock/acprefs_pane.ui:237
 msgid "Use Fading"
-msgstr ""
+msgstr "மறைதல் பயன்படுத்தவும்"
 
 #: ../plugins/alarmclock/acprefs_pane.ui:255
-#, fuzzy
-#| msgid "Preferences"
 msgid "<b>Audio Preferences</b>"
-msgstr "விருப்பங்கள்"
+msgstr "<b>ஒலி விருப்பத்தேர்வுகள்</b>"
 
 #: ../plugins/alarmclock/acprefs_pane.ui:269
 msgid "Minimum volume:"
-msgstr ""
+msgstr "குறைந்தபட்ச தொகுதி:"
 
 #: ../plugins/alarmclock/acprefs_pane.ui:294
 msgid "Maximum volume:"
-msgstr ""
+msgstr "அதிகபட்ச தொகுதி:"
 
 #: ../plugins/alarmclock/acprefs_pane.ui:319
 msgid "Increment:"
-msgstr ""
+msgstr "அதிகரிப்பு:"
 
 #: ../plugins/alarmclock/acprefs_pane.ui:344
 msgid "Time step:"
-msgstr ""
+msgstr "நேர படி:"
 
 #: ../plugins/amazoncovers/amazonprefs_pane.ui:15
 #: ../plugins/lastfmlove/lastfmlove_preferences.ui:20
 msgid "API key:"
-msgstr ""
+msgstr "பநிஇ விசை:"
 
 #: ../plugins/amazoncovers/amazonprefs_pane.ui:39
 #: ../plugins/lastfmlove/lastfmlove_preferences.ui:43
 msgid "Secret:"
-msgstr ""
+msgstr "ரகசியம்:"
 
 #: ../plugins/amazoncovers/amazonprefs_pane.ui:62
 msgid ""
@@ -3700,22 +4002,28 @@ msgid ""
 "You may also need to <a href=\"https://affiliate-program.amazon.com/gp/flex/"
 "advertising/api/sign-in.html\">activate the Product Advertising API</a></i>."
 msgstr ""
+"<i> அமேசான் AWS கணக்கில் பதிவுபெறவும், இந்த தகவலைப் பெறவும்\n"
+" <a href = \"https://aws.amazon.com/\"> https://aws.amazon.com/ </a> ஐப் "
+"பார்வையிடவும்.\n"
+"\n"
+" நீங்கள் <a href = \"https://affiliate-program.amazon.com/gp/flex/advertising/"
+"api/sign-in.html\"> தயாரிப்பு விளம்பர பநிஇ ஐ செயல்படுத்த வேண்டும் </a> </i> ."
 
 #: ../plugins/audioscrobbler/asprefs_pane.ui:17
 msgid "Submit tracks using Audioscrobbler"
-msgstr ""
+msgstr "ஆடியோச்கிரோப்ளரைப் பயன்படுத்தி தடங்களை சமர்ப்பிக்கவும்"
 
 #: ../plugins/audioscrobbler/asprefs_pane.ui:34
 msgid "Show menuitem to toggle submission"
-msgstr ""
+msgstr "சமர்ப்பிப்பதை மாற்ற மெனூட்டெமைக் காட்டு"
 
 #: ../plugins/audioscrobbler/asprefs_pane.ui:51
 msgid "Submit streamed tracks (e.g. DAAP, Shoutcast radio etc.)"
-msgstr ""
+msgstr "ச்ட்ரீம் செய்யப்பட்ட தடங்களை சமர்ப்பிக்கவும் (எ.கா. DAAP, கத்தி ரேடியோ போன்றவை)"
 
 #: ../plugins/audioscrobbler/asprefs_pane.ui:70
 msgid "Username:"
-msgstr ""
+msgstr "பயனர்பெயர்:"
 
 #: ../plugins/audioscrobbler/asprefs_pane.ui:94
 msgid "Password:"
@@ -3723,366 +4031,350 @@ msgstr "கடவுச்சொல்:"
 
 #: ../plugins/audioscrobbler/asprefs_pane.ui:143
 msgid "_Verify Login Data"
-msgstr ""
+msgstr "_ உள்நுழைவு தரவை மதிப்பிடுங்கள்"
 
-#: ../plugins/bpm/bpm.ui:41
+#: ../plugins/bpm/bpm.ui:42
 msgid "Apply BPM"
-msgstr ""
+msgstr "பிபிஎம் பயன்படுத்துங்கள்"
+
+#: ../plugins/bpm/bpm_prefs.ui:12
+msgid "Enable confirmation dialog after manually setting bpm"
+msgstr "பிபிஎம் கைமுறையாக அமைத்த பிறகு உறுதிப்படுத்தல் உரையாடலை இயக்கவும்"
 
 #: ../plugins/bpm/msg.ui:7
 msgid "Set BPM?"
-msgstr ""
+msgstr "பிபிஎம் அமைக்கவா?"
 
 #: ../plugins/bpm/msg.ui:63
-#, python-format
 msgid "Set autodetected BPM on %s?"
-msgstr ""
+msgstr "%s இல் தன்னியக்க பிபிஎம் அமைக்கவா?"
 
 #: ../plugins/bpm/msg.ui:78 ../plugins/bpm/msg.ui:94 ../plugins/bpm/msg.ui:110
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: ../plugins/cd/cdprefs_pane.ui:12
 msgid "Ogg Vorbis"
-msgstr ""
+msgstr "ஓக் வோர்பிச்"
 
 #: ../plugins/cd/cdprefs_pane.ui:15
 msgid "FLAC"
-msgstr ""
+msgstr "Flac"
 
 #: ../plugins/cd/cdprefs_pane.ui:18
 msgid "AAC"
-msgstr ""
+msgstr "AAC"
 
 #: ../plugins/cd/cdprefs_pane.ui:21
 msgid "MP3 (VBR)"
-msgstr ""
+msgstr "எம்பி 3 (வி.பி.ஆர்)"
 
 #: ../plugins/cd/cdprefs_pane.ui:24
 msgid "MP3 (CBR)"
-msgstr ""
+msgstr "எம்பி 3 (சிபிஆர்)"
 
 #: ../plugins/cd/cdprefs_pane.ui:27
 msgid "WavPack"
-msgstr ""
+msgstr "WAVPACK"
 
-#: ../plugins/cd/cdprefs_pane.ui:49
-msgid "Import format: "
-msgstr ""
+#: ../plugins/cd/cdprefs_pane.ui:56
+msgid "Fetch metadata from internet servers"
+msgstr "இணைய சேவையகங்களிலிருந்து மெட்டாடேட்டாவைப் பெறுங்கள்"
 
-#: ../plugins/cd/cdprefs_pane.ui:79
-msgid "Import quality: "
-msgstr ""
+#: ../plugins/cd/cdprefs_pane.ui:69
+msgid "Disc metadata"
+msgstr "வட்டு மேனிலை தரவு"
 
-#: ../plugins/cd/cdprefs_pane.ui:108
-msgid "Import path: "
-msgstr ""
+#: ../plugins/cd/cdprefs_pane.ui:101
+msgid "Format: "
+msgstr "வடிவம்: "
 
-#: ../plugins/cd/cdprefs_pane.ui:149
+#: ../plugins/cd/cdprefs_pane.ui:131
+msgid "Quality: "
+msgstr "தரம்: "
+
+#: ../plugins/cd/cdprefs_pane.ui:160
+msgid "Path: "
+msgstr "பாதை: "
+
+#: ../plugins/cd/cdprefs_pane.ui:201
 #: ../plugins/minimode/minimode_preferences.ui:131
-#, python-brace-format
 msgid ""
 "Every tag can be used with <b>$tag</b> or <b>${tag}</b>. Internal tags like "
 "<b>$__length</b> need to be specified with two leading underscores."
 msgstr ""
+"ஒவ்வொரு குறிச்சொல்லையும் <b> $ குறிச்சொல் </b> அல்லது <b> $ {tag} </b> உடன் "
+"பயன்படுத்தலாம். <b> $ __ நீளம் </b> போன்ற உள் குறிச்சொற்கள் இரண்டு முன்னணி அடிக்கோடிட்டுக் "
+"கொண்டு குறிப்பிடப்பட வேண்டும்."
+
+#: ../plugins/cd/cdprefs_pane.ui:218
+msgid "Import tracks to disk"
+msgstr "தடங்களை வட்டுக்கு இறக்குமதி செய்யுங்கள்"
 
 #. Window title
 #: ../plugins/console/console_window.ui:8
 msgid "Simple Console"
-msgstr ""
+msgstr "எளிய கன்சோல்"
+
+#: ../plugins/customcollectionorders/cco_pane.ui:51
+msgid "Custom orders"
+msgstr "தனிப்பயன் ஆர்டர்கள்"
+
+#: ../plugins/customcollectionorders/cco_pane.ui:77
+msgid "Add _Order"
+msgstr "_ ஆர்டர் சேர்க்கவும்"
 
 #: ../plugins/daapclient/daapclient_prefs.ui:12
 msgid "Show IPv6 servers"
-msgstr ""
+msgstr "IPv6 சேவையகங்களைக் காட்டு"
 
 #: ../plugins/daapclient/daapclient_prefs.ui:27
 msgid "Remember recent DAAP servers"
-msgstr ""
+msgstr "அண்மைக் கால DAAP சேவையகங்களை நினைவில் கொள்க"
 
 #: ../plugins/daapserver/daapserver_prefs.ui:21
 msgid "Server name:"
-msgstr ""
+msgstr "சேவையக பெயர்:"
 
 #: ../plugins/daapserver/daapserver_prefs.ui:45
 msgid "Server host:"
-msgstr ""
+msgstr "சேவையக ஓச்ட்:"
 
 #: ../plugins/daapserver/daapserver_prefs.ui:68
 msgid "Port:"
-msgstr ""
+msgstr "போர்ட்:"
 
 #: ../plugins/daapserver/daapserver_prefs.ui:90
 msgid "Server enabled"
-msgstr ""
+msgstr "சேவையகம் இயக்கப்பட்டது"
 
 #: ../plugins/desktopcover/desktopcover_preferences.ui:35
 msgid "Top left"
-msgstr ""
+msgstr "மேல் இடது"
 
 #: ../plugins/desktopcover/desktopcover_preferences.ui:39
 msgid "Top right"
-msgstr ""
+msgstr "மேல் வலது"
 
 #: ../plugins/desktopcover/desktopcover_preferences.ui:43
 msgid "Bottom left"
-msgstr ""
+msgstr "கீழே இடது"
 
 #: ../plugins/desktopcover/desktopcover_preferences.ui:47
 msgid "Bottom right"
-msgstr ""
+msgstr "கீழே வலது"
 
 #: ../plugins/desktopcover/desktopcover_preferences.ui:61
+msgid "Note: Desktop Cover positioning is not supported on Wayland."
+msgstr "குறிப்பு: டெச்க்டாப் கவர் பொருத்துதல் வேலண்டில் ஆதரிக்கப்படவில்லை."
+
+#: ../plugins/desktopcover/desktopcover_preferences.ui:74
 msgid "Anchor:"
-msgstr ""
+msgstr "நங்கூரம்:"
 
-#: ../plugins/desktopcover/desktopcover_preferences.ui:93
+#: ../plugins/desktopcover/desktopcover_preferences.ui:106
 msgid "X offset:"
-msgstr ""
+msgstr "ஃச் ஆஃப்செட்:"
 
-#: ../plugins/desktopcover/desktopcover_preferences.ui:122
-#: ../plugins/desktopcover/desktopcover_preferences.ui:162
-#: ../plugins/desktopcover/desktopcover_preferences.ui:217
-msgid "pixels"
-msgstr ""
-
-#: ../plugins/desktopcover/desktopcover_preferences.ui:135
-msgid "Y offset:"
-msgstr ""
-
-#: ../plugins/desktopcover/desktopcover_preferences.ui:172
-msgid "Override cover size"
-msgstr ""
-
-#: ../plugins/desktopcover/desktopcover_preferences.ui:190
-msgid "Size:"
-msgstr ""
-
+#: ../plugins/desktopcover/desktopcover_preferences.ui:134
+#: ../plugins/desktopcover/desktopcover_preferences.ui:173
 #: ../plugins/desktopcover/desktopcover_preferences.ui:227
+msgid "pixels"
+msgstr "படப்புள்ளிகள்"
+
+#: ../plugins/desktopcover/desktopcover_preferences.ui:147
+msgid "Y offset:"
+msgstr "ஒய் ஆஃப்செட்:"
+
+#: ../plugins/desktopcover/desktopcover_preferences.ui:183
+msgid "Override cover size"
+msgstr "கவர் அளவை மீறவும்"
+
+#: ../plugins/desktopcover/desktopcover_preferences.ui:201
+msgid "Size:"
+msgstr "அளவு:"
+
+#: ../plugins/desktopcover/desktopcover_preferences.ui:237
 msgid "Use fading"
-msgstr ""
+msgstr "மறைதல் பயன்படுத்தவும்"
 
-#: ../plugins/desktopcover/desktopcover_preferences.ui:245
+#: ../plugins/desktopcover/desktopcover_preferences.ui:255
 msgid "Fading duration:"
-msgstr ""
+msgstr "மறைந்துவிடும் காலம்:"
 
-#: ../plugins/desktopcover/desktopcover_preferences.ui:271
+#: ../plugins/desktopcover/desktopcover_preferences.ui:280
 msgid "ms"
-msgstr ""
+msgstr "எம்.எச்"
 
 #: ../plugins/developer/developer_window.ui:21
 msgid "Exaile Developer Tools"
-msgstr ""
+msgstr "எக்செயில் உருவாக்குபவர் கருவிகள்"
 
 #: ../plugins/developer/developer_window.ui:75
 msgid "Count"
-msgstr ""
+msgstr "எண்ணுங்கள்"
 
 #: ../plugins/developer/developer_window.ui:106
 msgid "Filter event types"
-msgstr ""
+msgstr "நிகழ்வு வகைகளை வடிகட்டவும்"
 
 #: ../plugins/developer/developer_window.ui:156
 msgid "Events"
-msgstr ""
+msgstr "நிகழ்வுகள்"
 
-#: ../plugins/equalizer/equalizer.ui:109 ../plugins/equalizer/PLUGININFO:3
-msgid "Equalizer"
-msgstr ""
+#: ../plugins/equalizer/equalizer.ui:123
+#: ../plugins/multialarmclock/malrmclk.ui:94
+msgid "_Add"
+msgstr "_ADD"
+
+#: ../plugins/equalizer/equalizer.ui:139
+#: ../plugins/multialarmclock/malrmclk.ui:110
+msgid "_Remove"
+msgstr "_ அகற்று"
 
 #: ../plugins/equalizer/equalizer.ui:206
 msgid "pre"
-msgstr ""
+msgstr "முன்"
 
 #: ../plugins/equalizer/equalizer.ui:356
 msgid "29"
-msgstr ""
+msgstr "29"
 
 #: ../plugins/equalizer/equalizer.ui:383
 msgid "59"
-msgstr ""
+msgstr "59"
 
 #: ../plugins/equalizer/equalizer.ui:410
 msgid "119"
-msgstr ""
+msgstr "119"
 
 #: ../plugins/equalizer/equalizer.ui:437
 msgid "237"
-msgstr ""
+msgstr "237"
 
 #: ../plugins/equalizer/equalizer.ui:464
 msgid "474"
-msgstr ""
+msgstr "474"
 
 #: ../plugins/equalizer/equalizer.ui:491
 msgid "947"
-msgstr ""
+msgstr "947"
 
 #: ../plugins/equalizer/equalizer.ui:518
 msgid "1.9K"
-msgstr ""
+msgstr "1."
 
 #: ../plugins/equalizer/equalizer.ui:545
 msgid "3.8K"
-msgstr ""
+msgstr "3.8 கே"
 
 #: ../plugins/equalizer/equalizer.ui:572
 msgid "7.5K"
-msgstr ""
+msgstr "7.5 கே"
 
 #: ../plugins/equalizer/equalizer.ui:599
 msgid "15K"
-msgstr ""
+msgstr "15 கே"
 
 #: ../plugins/grouptagger/gt_import.ui:19
 msgid "Import Tags"
-msgstr ""
+msgstr "குறிச்சொற்களை இறக்குமதி செய்யுங்கள்"
 
 #: ../plugins/grouptagger/gt_import.ui:55
 msgid "Import"
-msgstr ""
+msgstr "இறக்குமதி"
 
 #: ../plugins/grouptagger/gt_import.ui:81
 msgid "Current Groups"
-msgstr ""
+msgstr "தற்போதைய குழுக்கள்"
 
 #: ../plugins/grouptagger/gt_import.ui:93
 msgid "New Groups"
-msgstr ""
+msgstr "புதிய குழுக்கள்"
 
 #: ../plugins/grouptagger/gt_import.ui:119
 msgid "Import Type:"
-msgstr ""
+msgstr "இறக்குமதி வகை:"
 
 #: ../plugins/grouptagger/gt_import.ui:129
 msgid "Merge"
-msgstr ""
+msgstr "ஒன்றிணைக்கவும்"
 
 #: ../plugins/grouptagger/gt_import.ui:144
 msgid "Replace"
-msgstr ""
+msgstr "மாற்றவும்"
 
 #: ../plugins/grouptagger/gt_mass.ui:35
 msgid "Mass Rename/Delete Tags"
-msgstr ""
+msgstr "வெகுசன மறுபெயரிட/குறிச்சொற்களை நீக்கு"
 
 #: ../plugins/grouptagger/gt_mass.ui:99
 msgid "If empty, matches all tracks"
-msgstr ""
+msgstr "காலியாக இருந்தால், எல்லா தடங்களுக்கும் பொருந்துகிறது"
 
 #: ../plugins/grouptagger/gt_mass.ui:101
-#, fuzzy
 msgid "Search Tag"
-msgstr "தேடு: "
+msgstr "தேடல் குறிச்சொல்"
 
 #: ../plugins/grouptagger/gt_mass.ui:112
 msgid "Use the empty string to delete the tag"
-msgstr ""
+msgstr "குறிச்சொல்லை நீக்க வெற்று சரம் பயன்படுத்தவும்"
 
 #: ../plugins/grouptagger/gt_mass.ui:114
 msgid "Replace Tag"
-msgstr ""
+msgstr "குறிச்சொல்லை மாற்றவும்"
 
 #: ../plugins/grouptagger/gt_mass.ui:219
 msgid "0 tracks found"
-msgstr ""
+msgstr "0 தடங்கள் காணப்பட்டன"
 
 #: ../plugins/grouptagger/gt_prefs.ui:41
 msgid "Group/categories font:"
-msgstr ""
+msgstr "குழு/வகை எழுத்துரு:"
 
 #: ../plugins/grouptagger/gt_prefs.ui:86
 msgid "Categorization tag name"
-msgstr ""
+msgstr "வகைப்படுத்தல் குறிச்சொல் பெயர்"
 
 #: ../plugins/grouptagger/gt_prefs.ui:97
 msgid ""
 "'grouping' and 'comment' are probably the best supported choices. Other "
 "choices may only work with certain file formats."
 msgstr ""
+"'குழுமம்' மற்றும் 'கருத்து' என்பது சிறந்த உதவி தேர்வுகள். பிற தேர்வுகள் சில கோப்பு "
+"வடிவங்களுடன் மட்டுமே செயல்படக்கூடும்."
 
 #: ../plugins/history/history_preferences.ui:18
 msgid "Persist history after player exits"
-msgstr ""
+msgstr "வீரர் வெளியேறிய பிறகு வரலாறு தொடர்ந்து"
 
 #: ../plugins/history/history_preferences.ui:36
 msgid "History length:"
-msgstr ""
+msgstr "வரலாற்று நீளம்:"
 
 #: ../plugins/ipconsole/ipconsole_prefs.ui:23
 msgid "Terminal opacity:"
-msgstr ""
+msgstr "முனைய ஒளிபுகாநிலை:"
 
 #: ../plugins/ipconsole/ipconsole_prefs.ui:49
 msgid "Font:"
-msgstr ""
+msgstr "எழுத்துரு:"
 
 #: ../plugins/ipconsole/ipconsole_prefs.ui:74
 msgid "Text Color:"
-msgstr ""
+msgstr "உரை நிறம்:"
 
 #: ../plugins/ipconsole/ipconsole_prefs.ui:99
 msgid "Background Color:"
-msgstr ""
+msgstr "பின்னணி நிறம்:"
 
 #: ../plugins/ipconsole/ipconsole_prefs.ui:121
 msgid "Launch IPython console when Exaile starts"
-msgstr ""
-
-#: ../plugins/jamendo/ui/jamendo_panel.ui:40
-msgid "Release date"
-msgstr ""
-
-#: ../plugins/jamendo/ui/jamendo_panel.ui:48
-msgid "Rating this week"
-msgstr ""
-
-#: ../plugins/jamendo/ui/jamendo_panel.ui:52
-msgid "Rating this month"
-msgstr ""
-
-#: ../plugins/jamendo/ui/jamendo_panel.ui:56
-msgid "Number of playlist additions"
-msgstr ""
-
-#: ../plugins/jamendo/ui/jamendo_panel.ui:60
-msgid "Number of downloads"
-msgstr ""
-
-#: ../plugins/jamendo/ui/jamendo_panel.ui:64
-msgid "Number of listens"
-msgstr ""
-
-#: ../plugins/jamendo/ui/jamendo_panel.ui:68
-msgid "Starred"
-msgstr ""
-
-#: ../plugins/jamendo/ui/jamendo_panel.ui:72
-msgid "Date of starring"
-msgstr ""
-
-#: ../plugins/jamendo/ui/jamendo_panel.ui:94
-msgid "Genre/Tags"
-msgstr ""
-
-#: ../plugins/jamendo/ui/jamendo_panel.ui:176
-msgid "Order by:"
-msgstr ""
-
-#: ../plugins/jamendo/ui/jamendo_panel.ui:206
-msgid "Order direction:"
-msgstr ""
-
-#: ../plugins/jamendo/ui/jamendo_panel.ui:237
-msgid "Results:"
-msgstr ""
-
-#: ../plugins/jamendo/ui/jamendo_panel.ui:264
-msgid "Advanced"
-msgstr ""
+msgstr "எக்செயல் தொடங்கும் போது ஐபிதான் கன்சோலைத் தொடங்கவும்"
 
 #: ../plugins/lastfmlove/lastfmlove_preferences.ui:63
 msgid "_Request Access Permission"
-msgstr ""
+msgstr "அணுகல் இசைவு"
 
 #. TRANSLATORS: Get the link title from the Last.fm page title
 #: ../plugins/lastfmlove/lastfmlove_preferences.ui:95
@@ -4092,308 +4384,330 @@ msgid ""
 "you have entered these, <b>request access permission</b> and confirm to "
 "complete the setup."
 msgstr ""
+"<b> <a href = \"http://www.last.fm/api/account\"> உங்கள் பநிஇ கணக்கு </a> </b> "
+"பக்கத்திற்கு ஒரு <b> பநிஇ விசையை </b> ஐப் பெறவும் <b> மறைபொருள் </b> அவற்றை இங்கே "
+"உள்ளிடவும். இவற்றை நீங்கள் உள்ளிட்ட பிறகு, <b> அணுகல் இசைவு கோரவும் </b> மற்றும் அமைப்பை "
+"முடிக்க உறுதிப்படுத்தவும்."
 
 #. TRANSLATORS: Minimode window decoration option
 #: ../plugins/minimode/minimode_preferences.ui:15
 msgid "Full"
-msgstr ""
+msgstr "முழு"
 
 #. TRANSLATORS: Minimode window decoration option
 #: ../plugins/minimode/minimode_preferences.ui:19
 msgid "Simple"
-msgstr ""
+msgstr "எளிய"
 
 #: ../plugins/minimode/minimode_preferences.ui:70
 msgid ""
 "The order of controls can be changed by simply dragging them up or down. (Or "
 "press Alt+Up/Down.)"
 msgstr ""
+"கட்டுப்பாடுகளின் வரிசையை வெறுமனே மேலே அல்லது கீழ் இழுப்பதன் மூலம் மாற்றலாம். (அல்லது "
+"Alt+UP/DOWN ஐ அழுத்தவும்.)"
 
 #: ../plugins/minimode/minimode_preferences.ui:84
 msgid "Controls"
-msgstr ""
+msgstr "கட்டுப்பாடுகள்"
 
 #: ../plugins/minimode/minimode_preferences.ui:149
 msgid "Track Title Format"
-msgstr ""
+msgstr "தலைப்பு வடிவத்தைக் கண்காணி"
 
 #: ../plugins/minimode/minimode_preferences.ui:165
 msgid "Always on top"
-msgstr ""
+msgstr "எப்போதும் மேலே"
 
 #: ../plugins/minimode/minimode_preferences.ui:179
 msgid "Show in tasklist"
-msgstr ""
+msgstr "பணிப்பட்டியலில் காண்பி"
 
 #: ../plugins/minimode/minimode_preferences.ui:193
 msgid "Show on all desktops"
-msgstr ""
+msgstr "எல்லா டெச்க்டாப்புகளிலும் காட்டு"
 
 #: ../plugins/minimode/minimode_preferences.ui:207
 msgid "Display window decorations:"
-msgstr ""
+msgstr "சாளர அலங்காரங்களைக் காண்பி:"
 
 #: ../plugins/minimode/minimode_preferences.ui:263
 msgid "Show button in main window"
-msgstr ""
+msgstr "முதன்மையான சாளரத்தில் பொத்தானைக் காட்டு"
 
 #: ../plugins/minimode/minimode_preferences.ui:284
 msgid "Options"
 msgstr "விருப்பத்தேர்வுகள்"
 
 #: ../plugins/moodbar/prefs.ui:11
-msgid "Waveform view (experimental)"
-msgstr ""
+msgid "Waveform view"
+msgstr "அலைவடிவ பார்வை"
 
 #: ../plugins/moodbar/prefs.ui:25
-msgid "Color tint (experimental)"
-msgstr ""
+msgid "Color tint"
+msgstr "வண்ண நிறம்"
 
 #: ../plugins/multialarmclock/malrmclk.ui:59
 msgid "<b>Alarms</b>"
-msgstr ""
-
-#: ../plugins/multialarmclock/malrmclk.ui:94
-msgid "_Add"
-msgstr ""
-
-#: ../plugins/multialarmclock/malrmclk.ui:110
-#, fuzzy
-#| msgid "Remove"
-msgid "_Remove"
-msgstr "நீக்கு"
+msgstr "<b> அலாரங்கள் </b>"
 
 #: ../plugins/multialarmclock/malrmclk.ui:136
 msgid "<b>Playback</b>"
-msgstr ""
+msgstr "<b> பின்னணி </b>"
 
 #: ../plugins/multialarmclock/malrmclk.ui:147
 msgid "Restart playlist"
-msgstr ""
+msgstr "பிளேலிச்ட்டை மறுதொடக்கம் செய்யுங்கள்"
 
 #: ../plugins/multialarmclock/malrmclk.ui:161
 msgid "Enable volume fade-in"
-msgstr ""
+msgstr "தொகுதி மங்கலை இயக்கவும்"
 
 #. Audio settings for alarm
 #: ../plugins/multialarmclock/malrmclk.ui:178
 msgid "<b>Audio</b>"
-msgstr ""
+msgstr "<b> ஆடியோ </b>"
 
 #: ../plugins/multialarmclock/malrmclk.ui:192
 msgid "Fade start volume:"
-msgstr ""
+msgstr "மங்கலான தொடக்க தொகுதி:"
 
 #: ../plugins/multialarmclock/malrmclk.ui:233
 msgid "Fade stop volume:"
-msgstr ""
+msgstr "மங்கலான நிறுத்த தொகுதி:"
 
 #: ../plugins/multialarmclock/malrmclk.ui:272
 msgid "Fade Increment:"
-msgstr ""
+msgstr "மங்கலான அதிகரிப்பு:"
 
 #: ../plugins/multialarmclock/malrmclk.ui:297
 msgid "Fade Time:"
-msgstr ""
+msgstr "மங்கல் நேரம்:"
 
 #: ../plugins/notify/notifyprefs_pane.ui:12
 msgid "Resize displayed covers"
-msgstr ""
+msgstr "காட்சிப்படுத்தப்பட்ட கவர்கள்"
 
 #: ../plugins/notify/notifyprefs_pane.ui:33
-#, fuzzy
-#| msgid "Times played"
 msgid "Display"
-msgstr "இயக்கப்பட்ட தடவைகள்"
+msgstr "காட்சி"
 
 #: ../plugins/notify/notifyprefs_pane.ui:61
 msgid "Icons"
-msgstr ""
+msgstr "சின்னங்கள்"
 
 #: ../plugins/notify/notifyprefs_pane.ui:74
 msgid "Use album covers as icons"
-msgstr ""
+msgstr "ஆல்பம் அட்டைகளை ஐகான்களாகப் பயன்படுத்தவும்"
 
 #: ../plugins/notify/notifyprefs_pane.ui:89
 msgid "Use media icons for pause, stop and resume"
-msgstr ""
+msgstr "இடைநிறுத்தம், நிறுத்த மற்றும் மீண்டும் தொடங்க மீடியா ஐகான்களைப் பயன்படுத்தவும்"
 
 #: ../plugins/notify/notifyprefs_pane.ui:104
 msgid "On playback pause, resume and stop"
-msgstr ""
+msgstr "பிளேபேக் இடைநிறுத்தம், மீண்டும் தொடங்கி நிறுத்துங்கள்"
 
 #: ../plugins/notify/notifyprefs_pane.ui:119
 msgid "On tray icon hover"
-msgstr ""
+msgstr "தட்டு படவுரு ஓவரில்"
 
 #: ../plugins/notify/notifyprefs_pane.ui:134
 msgid "When main window is focused"
-msgstr ""
+msgstr "முதன்மையான சாளரம் கவனம் செலுத்தும்போது"
 
 #: ../plugins/osd/osd_preferences.ui:69
-#, python-brace-format
 msgid ""
 "Every tag can be used with <b>$tag</b> or <b>${tag}</b>. Internal tags like "
 "<b>$__length</b> need to be specified with two leading underscores.\n"
-"<a href=\"https://developer.gnome.org/pango/stable/PangoMarkupFormat.html"
-"\">Pango Text Attribute Markup</a> is supported."
+"<a href=\"https://developer.gnome.org/pango/stable/"
+"PangoMarkupFormat.html\">Pango Text Attribute Markup</a> is supported."
 msgstr ""
+"ஒவ்வொரு குறிச்சொல்லையும் <b> $ குறிச்சொல் </b> அல்லது <b> $ {tag} </b> உடன் "
+"பயன்படுத்தலாம். <b> $ __ நீளம் </b> போன்ற உள் குறிச்சொற்கள் இரண்டு முன்னணி அடிக்கோடிட்டுக் "
+"கொண்டு குறிப்பிடப்பட வேண்டும்.\n"
+" <a href = \"https://developer.gnome.org/pango/stable/"
+"pangomarkupformat.html\"> பாங்கோ உரை பண்புக்கூறு மார்க்அப் </a> ஆதரிக்கப்படுகிறது."
 
 #: ../plugins/osd/osd_preferences.ui:87
 msgid "Display Format"
-msgstr ""
+msgstr "காட்சி வடிவம்"
 
 #: ../plugins/osd/osd_preferences.ui:106
 msgid "Display duration:"
-msgstr ""
+msgstr "காட்சி காலம்:"
 
 #: ../plugins/osd/osd_preferences.ui:142
 msgid "Background:"
-msgstr ""
+msgstr "பின்னணி:"
 
 #: ../plugins/osd/osd_preferences.ui:166
 msgid "Border radius:"
-msgstr ""
+msgstr "எல்லை ஆரம்:"
 
 #: ../plugins/osd/osd_preferences.ui:188
 msgid "Show progress bar"
-msgstr ""
+msgstr "முன்னேற்றப் பட்டியைக் காட்டு"
 
 #: ../plugins/osd/osd_preferences.ui:271
 msgid ""
 "As long as this preferences page is open, you can move and resize the OSD."
 msgstr ""
+"இந்த விருப்பத்தேர்வுகள் பக்கம் திறந்திருக்கும் வரை, நீங்கள் OSD ஐ நகர்த்தலாம் மற்றும் "
+"மறுஅளவாக்கலாம்."
 
 #: ../plugins/playlistanalyzer/analyzer.ui:73
 msgid "Presets"
-msgstr ""
+msgstr "முன்னமைவுகள்"
 
 #: ../plugins/playlistanalyzer/analyzer.ui:199
 msgid "<none selected>"
-msgstr ""
+msgstr "<எதுவும் தேர்ந்தெடுக்கப்படவில்லை>"
 
 #: ../plugins/playlistanalyzer/analyzer.ui:420
 msgid "Select analysis"
-msgstr ""
+msgstr "பகுப்பாய்வைத் தேர்ந்தெடுக்கவும்"
 
 #: ../plugins/playlistanalyzer/analyzer.ui:438
 msgid "Playlist(s) to analyze"
-msgstr ""
+msgstr "பகுப்பாய்வு செய்ய பிளேலிச்ட் (கள்)"
 
 #: ../plugins/playlistanalyzer/analyzer.ui:490
 msgid "Output Title"
-msgstr ""
+msgstr "வெளியீட்டு தலைப்பு"
 
 #: ../plugins/playlistanalyzer/analyzer.ui:501
 msgid "Defaults to the playlist name"
-msgstr ""
+msgstr "பிளேலிச்ட் பெயருக்கு இயல்புநிலை"
 
 #: ../plugins/playlistanalyzer/analyzer.ui:522
 msgid "_Generate!"
-msgstr ""
+msgstr "_ உருவகப்படுத்துங்கள்!"
 
 #: ../plugins/playlistanalyzer/analyzer.ui:555
 msgid "Generate"
-msgstr ""
+msgstr "உருவாக்கு"
 
 #: ../plugins/podcasts/podcasts.ui:18
 msgid "_Add Podcast"
-msgstr ""
+msgstr "_ADD போட்காச்ட்"
 
 #: ../plugins/previewdevice/previewprefs.ui:103
 msgid "Fade duration:"
-msgstr ""
+msgstr "மங்கலான காலம்:"
 
 #: ../plugins/previewdevice/previewprefs.ui:143
 msgid "Crossfade duration:"
-msgstr ""
+msgstr "கிராச்ஃபேட் காலம்:"
 
 #: ../plugins/previewdevice/previewprefs.ui:223
 msgid "Audio Device:"
+msgstr "ஆடியோ சாதனம்:"
+
+#: ../plugins/quickbuttons/qb_prefs.ui:72
+msgid "Delay between tracks (in seconds)"
+msgstr "தடங்களுக்கு இடையில் நேரந்தவறுகை (நொடிகளில்)"
+
+#: ../plugins/quickbuttons/qb_prefs.ui:87
+msgid "Equalizer (depends on Equalizer Plugin)"
+msgstr "சமநிலைப்படுத்தி (சமநிலை சொருகி சார்ந்துள்ளது)"
+
+#: ../plugins/quickbuttons/qb_prefs.ui:115
+msgid "Select preview audio device (depends on previewdevice plugin)"
 msgstr ""
+"முன்னோட்டம் ஆடியோ சாதனத்தைத் தேர்ந்தெடுக்கவும் (முன்னோட்ட டெவிச் சொருகி சார்ந்துள்ளது)"
 
 #. Prefer to use ReplayGain's album correction instead of track correction if possible. If unchecked, track correction will be preferred instead.
 #: ../plugins/replaygain/replaygainprefs_pane.ui:24
 msgid "Prefer per-album correction"
-msgstr ""
+msgstr "ஒரு ஆல்பம் திருத்தத்தை விரும்புங்கள்"
 
 #: ../plugins/replaygain/replaygainprefs_pane.ui:28
 msgid "Prefer ReplayGain's per-album correction over per-track correction."
 msgstr ""
+"ஒரு பாதையில் திருத்தம் செய்வதை விட ரீப்ளேசெயினின் ஒவ்வொரு ஆல்பம் திருத்தத்தை விரும்புங்கள்."
 
 #. Prevents clipping of audio due to amplification.
 #: ../plugins/replaygain/replaygainprefs_pane.ui:39
 msgid "Use clipping protection"
-msgstr ""
+msgstr "கிளிப்பிங் பாதுகாப்பைப் பயன்படுத்துங்கள்"
 
 #: ../plugins/replaygain/replaygainprefs_pane.ui:43
 msgid "Protect against noise caused by over-amplification"
-msgstr ""
+msgstr "அதிகப்படியான பெருக்கத்தால் ஏற்படும் சத்தத்திலிருந்து பாதுகாக்கவும்"
 
 #. This is an additional amplification applied to all files prior to correction.
 #: ../plugins/replaygain/replaygainprefs_pane.ui:56
 msgid "Additional amplification:"
-msgstr ""
+msgstr "கூடுதல் பெருக்கம்:"
 
 #. This is the fallback correction for files that don't contain ReplayGain information.
 #: ../plugins/replaygain/replaygainprefs_pane.ui:90
 msgid "Fallback correction level:"
-msgstr ""
+msgstr "குறைவு திருத்தம் நிலை:"
 
 #: ../plugins/screensaverpause/prefs.ui:12
 msgid "Unpause when screensaver ends"
-msgstr ""
+msgstr "ச்கிரீன்சேவர் முடிவடையும் போது இடமாற்றம் செய்யுங்கள்"
+
+#: ../plugins/shutdown/shutdown_preferences.ui:20
+msgid "Timeout (in s):"
+msgstr "நேரம் முடிந்தது (கள்):"
+
+#: ../plugins/shutdown/shutdown_preferences.ui:48
+msgid "Activate \"Close Exaile after Playback\" automatically"
+msgstr "\"பிளேபேக்கிற்குப் பிறகு நெருங்கிய எக்செயலை\" தானாக செயல்படுத்தவும்"
 
 #: ../plugins/streamripper/streamripper.ui:15
 msgid "Save location:"
-msgstr ""
+msgstr "இருப்பிடத்தைச் சேமிக்கவும்:"
 
 #: ../plugins/streamripper/streamripper.ui:39
 msgid "Relay port:"
-msgstr ""
+msgstr "ரிலே போர்ட்:"
 
 #: ../plugins/streamripper/streamripper.ui:60
 msgid "Rip to single file"
-msgstr ""
+msgstr "ஒற்றை கோப்பிற்கு RIP"
 
 #: ../plugins/streamripper/streamripper.ui:74
 msgid "Delete incomplete files"
-msgstr ""
+msgstr "முழுமையற்ற கோப்புகளை நீக்கு"
 
 #: ../plugins/wikipedia/data/preferences.ui:15
 msgid "Language:"
-msgstr ""
+msgstr "மொழி:"
 
 #: ../plugins/wikipedia/data/preferences.ui:30
 msgid "Shortcode of the Wikipedia language version (en, de, fr, ...)"
-msgstr ""
+msgstr "விக்கிபீடியா மொழி பதிப்பின் குறுக்குவழி (en, de, fr, ...)"
 
 #: ../plugins/wikipedia/data/wikipanel.ui:24
 #: ../plugins/wikipedia/data/wikipanel.ui:25
 msgid "Home"
-msgstr ""
+msgstr "வீடு"
 
 #: ../plugins/wikipedia/data/wikipanel.ui:49
 msgid "Back"
-msgstr ""
+msgstr "பின்"
 
 #: ../plugins/wikipedia/data/wikipanel.ui:101
 msgid "Forward"
-msgstr ""
+msgstr "முன்னோக்கி"
 
 #: ../plugins/abrepeat/PLUGININFO:3
 msgid "A-B Repeat"
-msgstr ""
+msgstr "A-b மீண்டும்"
 
 #: ../plugins/abrepeat/PLUGININFO:4
 msgid "Continuously repeats a segment of a track."
-msgstr ""
+msgstr "ஒரு பாதையின் ஒரு பகுதியைத் தொடர்ந்து மறுநிகழ்வு செய்கிறது."
 
 #: ../plugins/abrepeat/PLUGININFO:5 ../plugins/equalizer/PLUGININFO:5
 #: ../plugins/karaoke/PLUGININFO:5 ../plugins/mono/PLUGININFO:5
 #: ../plugins/replaygain/PLUGININFO:5
 msgid "Effect"
-msgstr ""
+msgstr "விளைவு"
 
 #: ../plugins/alarmclock/PLUGININFO:4
 msgid ""
@@ -4402,14 +4716,18 @@ msgid ""
 "Note that when the specified time arrives, Exaile will play the songs in the "
 "queue."
 msgstr ""
+"ஒரு குறிப்பிட்ட நேரத்தில் இசையை வாசிக்கிறது.\n"
+"\n"
+" குறிப்பிட்ட நேரம் வரும்போது, எக்செயில் பாடல்களை வரிசையில் வாசிப்பார் என்பதை நினைவில் "
+"கொள்க."
 
 #: ../plugins/alarmclock/PLUGININFO:5 ../plugins/bookmarks/PLUGININFO:5
 #: ../plugins/bpm/PLUGININFO:5 ../plugins/history/PLUGININFO:5
 #: ../plugins/inhibitsuspend/PLUGININFO:5
-#: ../plugins/multialarmclock/PLUGININFO:5
+#: ../plugins/multialarmclock/PLUGININFO:5 ../plugins/quickbuttons/PLUGININFO:5
 #: ../plugins/screensaverpause/PLUGININFO:5 ../plugins/shutdown/PLUGININFO:5
 msgid "Utility"
-msgstr ""
+msgstr "பயன்பாடு"
 
 #: ../plugins/amazoncovers/PLUGININFO:4
 msgid ""
@@ -4417,35 +4735,42 @@ msgid ""
 "\n"
 "To be able to use this plugin, an AWS API key and secret key are required."
 msgstr ""
+"அட்டைகளுக்காக அமேசானைத் தேடுகிறது\n"
+"\n"
+" இந்த சொருகி பயன்படுத்த, AWS பநிஇ விசை மற்றும் ரகசிய விசை தேவை."
 
 #: ../plugins/audioscrobbler/PLUGININFO:4
 msgid ""
 "Submits listening information to Last.fm and similar services supporting "
 "AudioScrobbler"
 msgstr ""
+"கேட்கும் தகவல்களை last.fm மற்றும் ஆடியோச்கிராப் பிளரை ஆதரிக்கும் ஒத்த சேவைகளுக்கு "
+"சமர்ப்பிக்கிறது"
 
 #: ../plugins/audioscrobbler/PLUGININFO:5 ../plugins/currentsong/PLUGININFO:5
 #: ../plugins/notify/PLUGININFO:5 ../plugins/osd/PLUGININFO:5
 msgid "Notifications"
-msgstr ""
+msgstr "அறிவிப்புகள்"
 
 #: ../plugins/bookmarks/PLUGININFO:3
 msgid "Bookmarks"
-msgstr ""
+msgstr "புக்மார்க்குகள்"
 
 #: ../plugins/bookmarks/PLUGININFO:4
 msgid "Allows saving/resuming bookmark positions in audio files."
-msgstr ""
+msgstr "ஆடியோ கோப்புகளில் புக்மார்க்கு நிலைகளைச் சேமிக்க/மீண்டும் தொடங்க அனுமதிக்கிறது."
 
 #: ../plugins/bpm/PLUGININFO:4
 msgid ""
 "Provides a manual BPM counter, and BPM autodetection when the bpmdetect "
 "plugin from gst-plugins-bad is installed"
 msgstr ""
+"சிஎச்டி-பிளகின்ச்-பேட் இருந்து பிபிஎம்டெடெக்ட் சொருகி நிறுவப்பட்டால் ஒரு கையேடு பிபிஎம் "
+"கவுண்டர் மற்றும் பிபிஎம் தன்னியக்கத்தை வழங்குகிறது"
 
 #: ../plugins/cd/PLUGININFO:3
 msgid "CD Playback"
-msgstr ""
+msgstr "சிடி பிளேபேக்"
 
 #: ../plugins/cd/PLUGININFO:4
 #, python-format
@@ -4453,35 +4778,57 @@ msgid ""
 "Adds support for playing audio CDs.\n"
 "\n"
 "Requires UDisks2 to autodetect CDs\n"
-"Requires cddb-py (%s) to look up tags."
+"Requires python-libdiscid (%s) and python-musicbrainzngs (%s) to look up "
+"tags."
 msgstr ""
+"ஆடியோ குறுந்தகடுகளை விளையாடுவதற்கான ஆதரவை சேர்க்கிறது.\n"
+"\n"
+" குறுந்தகடுகளை தன்னியக்கமாக்குவதற்கு UDISKS2 தேவை\n"
+" குறிச்சொற்களைத் தேடுவதற்கு பைதான்-லிப்டிசிட் (%s) மற்றும் பைதான்-மியூசிக்பிரேன்ங்ச் (%s) "
+"தேவை."
 
 #: ../plugins/cd/PLUGININFO:5 ../plugins/massstorage/PLUGININFO:5
 msgid "Devices"
-msgstr ""
+msgstr "சாதனங்கள்"
 
 #: ../plugins/console/PLUGININFO:3
 msgid "Simple console"
-msgstr ""
+msgstr "எளிய கன்சோல்"
 
 #: ../plugins/console/PLUGININFO:4
 msgid "Simple console to interact with the Exaile API"
-msgstr ""
+msgstr "எக்செயல் பநிஇ உடன் தொடர்பு கொள்ள எளிய கன்சோல்"
 
 #: ../plugins/console/PLUGININFO:5 ../plugins/developer/PLUGININFO:5
 #: ../plugins/helloworld/PLUGININFO:5 ../plugins/ipconsole/PLUGININFO:5
 msgid "Development"
-msgstr ""
+msgstr "வளர்ச்சி"
 
 #: ../plugins/currentsong/PLUGININFO:3
 msgid "Current Song in Pidgin"
-msgstr ""
+msgstr "பிட்சினில் தற்போதைய பாடல்"
 
 #: ../plugins/currentsong/PLUGININFO:4
 msgid ""
 "Sets the currently playing status in Pidgin. Check the Pidgin FAQ to find "
-"out the suppported services."
+"out the supported services."
 msgstr ""
+"பிட்சினில் தற்போது விளையாடும் நிலையை அமைக்கிறது. உதவி சேவைகளைக் கண்டறிய பிட்சின் "
+"கேள்விகளைச் சரிபார்க்கவும்."
+
+#: ../plugins/customcollectionorders/PLUGININFO:3
+msgid "Custom Collection Orders"
+msgstr "தனிப்பயன் சேகரிப்பு ஆர்டர்கள்"
+
+#: ../plugins/customcollectionorders/PLUGININFO:4
+msgid "Users can add custom order to the collection panel"
+msgstr "பயனர்கள் தனிப்பயன் ஆர்டரை சேகரிப்பு குழுவில் சேர்க்கலாம்"
+
+#: ../plugins/customcollectionorders/PLUGININFO:5
+#: ../plugins/desktopcover/PLUGININFO:5 ../plugins/mainmenubutton/PLUGININFO:5
+#: ../plugins/minimode/PLUGININFO:5 ../plugins/moodbar/PLUGININFO:5
+msgid "GUI"
+msgstr "குய்"
 
 #: ../plugins/daapclient/PLUGININFO:4
 msgid ""
@@ -4490,13 +4837,16 @@ msgid ""
 "Requires: spydaap\n"
 "Optional: python-zeroconf"
 msgstr ""
+"ச்பைடாப் நூலகம் வழியாக DAAP இசை பங்குகளை அணுக உதவுகிறது. பகிர்வு ஆட்டோ கண்டுபிடிப்பு "
+"விருப்பமாக பைதான்-செரோகான்ஃப் வழியாக கிடைக்கிறது.\n"
+" தேவை: ச்பைடாப்\n"
+" விரும்பினால்: பைதான்-செரோகான்ஃப்"
 
 #: ../plugins/daapclient/PLUGININFO:5 ../plugins/daapserver/PLUGININFO:5
-#: ../plugins/icecast/PLUGININFO:5 ../plugins/jamendo/PLUGININFO:5
-#: ../plugins/librivox/PLUGININFO:5 ../plugins/podcasts/PLUGININFO:5
-#: ../plugins/somafm/PLUGININFO:5
+#: ../plugins/icecast/PLUGININFO:5 ../plugins/librivox/PLUGININFO:5
+#: ../plugins/podcasts/PLUGININFO:5 ../plugins/somafm/PLUGININFO:5
 msgid "Media Sources"
-msgstr ""
+msgstr "ஊடக ஆதாரங்கள்"
 
 #: ../plugins/daapserver/PLUGININFO:4
 #, python-format
@@ -4504,41 +4854,40 @@ msgid ""
 "This plugin integrates Spydaap (%s) into Exaile, so that a collection can be "
 "shared over DAAP."
 msgstr ""
+"இந்த சொருகி ச்பைடாப் (%s) ஐ எக்செயிலுடன் ஒருங்கிணைக்கிறது, இதனால் ஒரு சேகரிப்பை DAAP "
+"க்கு மேல் பகிர முடியும்."
 
 #: ../plugins/desktopcover/PLUGININFO:4
 msgid "Displays the current album cover on the desktop"
 msgstr "தற்போதைய ஆல்பம் கவரை டெஸ்க்டாப்பில்  காட்டுகிறது"
 
-#: ../plugins/desktopcover/PLUGININFO:5 ../plugins/mainmenubutton/PLUGININFO:5
-#: ../plugins/minimode/PLUGININFO:5 ../plugins/moodbar/PLUGININFO:5
-msgid "GUI"
-msgstr ""
-
 #: ../plugins/developer/PLUGININFO:3
 msgid "Developer"
-msgstr ""
+msgstr "உருவாக்குநர்"
 
 #: ../plugins/developer/PLUGININFO:4
 msgid "Provides diagnostic information for Exaile developers"
-msgstr ""
+msgstr "எக்செயல் டெவலப்பர்களுக்கான கண்டறியும் தகவல்களை வழங்குகிறது"
 
 #: ../plugins/equalizer/PLUGININFO:4
 msgid "A 10-band equalizer"
-msgstr ""
+msgstr "ஒரு 10-பேண்ட் சமநிலை"
 
 #: ../plugins/grouptagger/PLUGININFO:3
 msgid "Group Tagger"
-msgstr ""
+msgstr "குழு குறிச்சொற்கள்"
 
 #: ../plugins/grouptagger/PLUGININFO:4
 msgid ""
 "Facilitates categorizing your music by managing the grouping/category tag in "
 "audio files"
 msgstr ""
+"ஆடியோ கோப்புகளில் குழு/வகை குறிச்சொல்லை நிர்வகிப்பதன் மூலம் உங்கள் இசையை வகைப்படுத்த "
+"உதவுகிறது"
 
 #: ../plugins/grouptagger/PLUGININFO:5 ../plugins/lastfmlove/PLUGININFO:5
 msgid "Tagging"
-msgstr ""
+msgstr "குறிச்சொல்"
 
 #: ../plugins/helloworld/PLUGININFO:3
 msgid "Hello World"
@@ -4546,31 +4895,23 @@ msgstr "வணக்கம் உலகே"
 
 #: ../plugins/helloworld/PLUGININFO:4
 msgid "A simple plugin for testing the basic plugin system"
-msgstr ""
+msgstr "அடிப்படை சொருகி அமைப்பை சோதிக்க எளிய சொருகி"
 
 #: ../plugins/inhibitsuspend/PLUGININFO:3
 msgid "Inhibit Suspend"
-msgstr ""
+msgstr "இடைநீக்கத்தைத் தடுக்கவும்"
 
 #: ../plugins/inhibitsuspend/PLUGININFO:4
 msgid "Prevents User Session from suspending while music is playing"
-msgstr ""
+msgstr "இசை விளையாடும்போது பயனர் அமர்வை இடைநிறுத்துவதைத் தடுக்கிறது"
 
 #: ../plugins/ipconsole/PLUGININFO:4
 msgid "Provides an IPython console that can be used to manipulate Exaile."
-msgstr ""
-
-#: ../plugins/jamendo/PLUGININFO:3
-msgid "Jamendo"
-msgstr ""
-
-#: ../plugins/jamendo/PLUGININFO:4
-msgid "Enables access to the Jamendo music catalogue."
-msgstr ""
+msgstr "எக்செயிலைக் கையாள பயன்படுத்தக்கூடிய ஒரு ஐபிதான் கன்சோலை வழங்குகிறது."
 
 #: ../plugins/karaoke/PLUGININFO:3
 msgid "Karaoke"
-msgstr ""
+msgstr "கரோக்கி"
 
 #: ../plugins/karaoke/PLUGININFO:4
 msgid "Removes voice from audio"
@@ -4578,7 +4919,7 @@ msgstr "ஒலியில் இருந்து குரலை நீக்
 
 #: ../plugins/keybinder/PLUGININFO:2
 msgid "Keybinder-based multimedia keys"
-msgstr ""
+msgstr "கீபிண்டர் அடிப்படையிலான மல்டிமீடியா விசைகள்"
 
 #: ../plugins/keybinder/PLUGININFO:4
 msgid ""
@@ -4586,31 +4927,34 @@ msgid ""
 "\n"
 "Requires: libkeybinder3 and its typelib file"
 msgstr ""
+"லிப்கீபிண்டர் 3 ஐப் பயன்படுத்தி மல்டிமீடியா விசைகளுக்கான ஆதரவைச் சேர்க்கிறது.\n"
+"\n"
+" தேவைப்படுகிறது: லிப்கே பிண்டர் 3 மற்றும் அதன் தட்டச்சு கோப்பு"
 
 #: ../plugins/keybinder/PLUGININFO:5 ../plugins/mpris2/PLUGININFO:5
 #: ../plugins/winmmkeys/PLUGININFO:5
 msgid "External Control"
-msgstr ""
+msgstr "வெளிப்புற கட்டுப்பாடு"
 
 #: ../plugins/lastfmcovers/PLUGININFO:3
 msgid "Last.fm Covers"
-msgstr ""
+msgstr "Last.fm கவர்கள்"
 
 #: ../plugins/lastfmcovers/PLUGININFO:4
 msgid "Searches Last.fm for covers"
-msgstr ""
+msgstr "அட்டைகளுக்கான LAST.fm தேடல்கள்"
 
 #: ../plugins/lastfmdynamic/PLUGININFO:3
 msgid "Last.fm Dynamic Playlists"
-msgstr ""
+msgstr "Last.fm மாறும் பிளேலிச்ட்கள்"
 
 #: ../plugins/lastfmdynamic/PLUGININFO:4
 msgid "The Last.fm backend for dynamic playlists"
-msgstr ""
+msgstr "மாறும் பிளேலிச்ட்களுக்கான லாச்ட். எஃப்எம் பின்தளத்தில்"
 
 #: ../plugins/lastfmdynamic/PLUGININFO:5
 msgid "Dynamic Playlists"
-msgstr ""
+msgstr "மாறும் பிளேலிச்ட்கள்"
 
 #: ../plugins/lastfmlove/PLUGININFO:4
 msgid ""
@@ -4620,60 +4964,60 @@ msgid ""
 "\n"
 "Depends on the plugin \"AudioScrobbler\" for username and password."
 msgstr ""
+"எந்த தடங்கள் நேசிக்கப்படுகின்றன மற்றும் அன்பான தடங்களை அனுமதிக்கின்றன.\n"
+"\n"
+" சொருகி விருப்பங்களில் செல்லுபடியாகும் பநிஇ விசை மற்றும் ரகசியத்தை உள்ளிடுவதை "
+"உறுதிசெய்க.\n"
+"\n"
+" பயனர்பெயர் மற்றும் கடவுச்சொல்லுக்கான \"ஆடியோச்கிராப் பிளர்\" சொருகி சார்ந்துள்ளது."
 
 #: ../plugins/librivox/PLUGININFO:3
 msgid "Librivox"
-msgstr ""
+msgstr "லிப்ரிவாக்ச்"
 
 #: ../plugins/librivox/PLUGININFO:4
 msgid "Browse and listen to audiobooks from Librivox.org."
-msgstr ""
+msgstr "Librivox.org இலிருந்து ஆடியோபுக்குகளை உலாவவும் கேளுங்கள்."
 
 #: ../plugins/lyricsmania/PLUGININFO:4
 msgid ""
 "Plugin to fetch lyrics from lyricsmania.com\n"
 "Requires: lxml"
 msgstr ""
-
-#: ../plugins/lyricwiki/PLUGININFO:3
-msgid "Lyrics Wiki"
-msgstr "பாடல் வரிகள் Wiki"
-
-#: ../plugins/lyricwiki/PLUGININFO:4
-msgid ""
-"Plugin to fetch lyrics from lyrics.wikia.com\n"
-"Requires: BeautifulSoup4, lxml"
-msgstr ""
+"Lysicamania.com இலிருந்து பாடல்களைப் பெற சொருகி\n"
+" தேவை: எல்எக்ச்எம்எல்"
 
 #: ../plugins/mainmenubutton/PLUGININFO:3
 msgid "Main Menu Button"
-msgstr ""
+msgstr "முதன்மை பட்டியல் பொத்தான்"
 
 #: ../plugins/mainmenubutton/PLUGININFO:4
 msgid "Moves the main menu into a button on top of the panels."
-msgstr ""
+msgstr "முதன்மையான மெனுவை பேனல்களின் மேல் ஒரு பொத்தானாக நகர்த்துகிறது."
 
 #: ../plugins/massstorage/PLUGININFO:3
 msgid "USB Mass Storage Media Player Support"
-msgstr ""
+msgstr "யூ.எச்.பி மாச் ச்டோரேச் மீடியா பிளேயர் உதவி"
 
 #: ../plugins/massstorage/PLUGININFO:4
 msgid ""
 "Support for accessing portable media players using the USB Mass Storage "
 "protocol"
 msgstr ""
+"யூ.எச்.பி வெகுசன சேமிப்பக நெறிமுறையைப் பயன்படுத்தி சிறிய மீடியா பிளேயர்களை "
+"அணுகுவதற்கான உதவி"
 
 #: ../plugins/minimode/PLUGININFO:4
 msgid "Compact mode for Exaile with a configurable interface"
-msgstr ""
+msgstr "கட்டமைக்கக்கூடிய இடைமுகத்துடன் EXAILE க்கான சிறிய முறை"
 
 #: ../plugins/mono/PLUGININFO:3
 msgid "Mono"
-msgstr ""
+msgstr "மோனோ"
 
 #: ../plugins/mono/PLUGININFO:4
 msgid "Downmixes audio to one channel."
-msgstr ""
+msgstr "ஒரு சேனலுக்கு ஆடியோவை குறைக்கிறது."
 
 #: ../plugins/moodbar/PLUGININFO:4
 msgid ""
@@ -4681,10 +5025,13 @@ msgid ""
 "\n"
 "Requires: moodbar"
 msgstr ""
+"இசை காலவரிசையின் காட்சி பிரதிநிதித்துவத்தைக் காட்டு.\n"
+"\n"
+" தேவை: மூட்பார்"
 
 #: ../plugins/mpris2/PLUGININFO:3
 msgid "MPRIS 2"
-msgstr ""
+msgstr "BRY 2"
 
 #: ../plugins/mpris2/PLUGININFO:4
 msgid ""
@@ -4692,6 +5039,9 @@ msgid ""
 "2.2, allowing you to control Exaile from supporting clients, for example "
 "GNOME Shell"
 msgstr ""
+"MPRIS க்கான பகுதி உதவி (மீடியா பிளேயர் ரிமோட் இன்டர்ஃபேசிங் விவரக்குறிப்பு) 2.2, "
+"வாடிக்கையாளர்களை ஆதரிக்கும் எக்செயலை கட்டுப்படுத்த உங்களை அனுமதிக்கிறது, எடுத்துக்காட்டாக "
+"சினோம் செல்"
 
 #: ../plugins/multialarmclock/PLUGININFO:4
 msgid ""
@@ -4701,10 +5051,15 @@ msgid ""
 "pressed the play button, so be sure you have the music you want to hear in "
 "your playlist"
 msgstr ""
+"குறிப்பிட்ட நேரங்களிலும் நாட்களில் இசையை இயக்குகிறது.\n"
+"\n"
+" குறிப்பிட்ட நேரம் வரும்போது, நீங்கள் ப்ளே பொத்தானை அழுத்தியது போல் எக்செயல் செயல்படும் "
+"என்பதை நினைவில் கொள்க, எனவே உங்கள் பிளேலிச்ட்டில் நீங்கள் கேட்க விரும்பும் இசை உங்களிடம் "
+"உள்ளது என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள்"
 
 #: ../plugins/musicbrainzcovers/PLUGININFO:3
 msgid "MusicBrainz Covers"
-msgstr ""
+msgstr "மியூசிக் பிரேன்ச் கவர்கள்"
 
 #: ../plugins/musicbrainzcovers/PLUGININFO:4
 msgid ""
@@ -4712,51 +5067,72 @@ msgid ""
 "\n"
 "Requires: musicbrainzngs"
 msgstr ""
+"கவர் தேடலுக்காக மியூசிக் பிரைன்ச் ஒருங்கிணைக்கிறது.\n"
+"\n"
+" தேவை: மியூசிக் ப்ரெய்ன்ங்ச்"
 
 #: ../plugins/notify/PLUGININFO:4
 msgid ""
 "Pops up a notification when playback of a track starts or (optionally) if it "
 "is paused/resumed/stopped. Requires libnotify and its typelib file"
 msgstr ""
+"ஒரு பாதையின் பின்னணி தொடங்கும் போது அல்லது (விருப்பமாக) இடைநிறுத்தப்பட்டால்/மீண்டும் "
+"தொடங்கினால்/நிறுத்தப்பட்டால் அறிவிப்பைத் தூண்டுகிறது. Libnotify மற்றும் அதன் தட்டச்சு "
+"கோப்பு தேவை"
 
 #: ../plugins/osd/PLUGININFO:4
 msgid ""
 "A popup window showing information of the currently playing track.\n"
 "This plugin is not available on Wayland."
 msgstr ""
+"தற்போது விளையாடும் பாதையின் தகவல்களைக் காட்டும் பாப்அப் சாளரம்.\n"
+" இந்த சொருகி வேலண்டில் கிடைக்கவில்லை."
 
 #: ../plugins/playlistanalyzer/PLUGININFO:3
-#, fuzzy
 msgid "Playlist Analyzer"
-msgstr "இசைப்பட்டியல் %d"
+msgstr "பிளேலிச்ட் அனலைசர்"
 
 #: ../plugins/playlistanalyzer/PLUGININFO:4
 msgid ""
 "Tool to help generate HTML5 visualizations of your playlists using d3.js. "
 "Optimized for Chrome."
 msgstr ""
+"D3.JS ஐப் பயன்படுத்தி உங்கள் பிளேலிச்ட்களின் HTML5 காட்சிப்படுத்தல்களை உருவாக்க உதவும் "
+"கருவி. Chrome க்கு உகந்ததாக."
 
 #: ../plugins/playlistanalyzer/PLUGININFO:5 ../plugins/wikipedia/PLUGININFO:5
 msgid "Information"
-msgstr ""
+msgstr "தகவல்"
 
 #: ../plugins/podcasts/PLUGININFO:4
 msgid "Adds Simple Podcast Support"
-msgstr ""
+msgstr "எளிய போட்காச்ட் ஆதரவை சேர்க்கிறது"
 
 #: ../plugins/previewdevice/PLUGININFO:4
 msgid ""
 "Allows playing audio over a secondary device (right click on playlist and "
 "select 'preview'). Useful for DJs."
 msgstr ""
+"இரண்டாம் நிலை சாதனத்தில் ஆடியோவை இயக்க அனுமதிக்கிறது (பிளேலிச்ட்டில் வலது சொடுக்கு "
+"செய்து 'முன்னோட்டம்' என்பதைத் தேர்ந்தெடுக்கவும்). டி.சேக்களுக்கு பயனுள்ளதாக இருக்கும்."
 
 #: ../plugins/previewdevice/PLUGININFO:5 ../plugins/streamripper/PLUGININFO:5
 msgid "Output"
+msgstr "வெளியீடு"
+
+#: ../plugins/quickbuttons/PLUGININFO:3
+msgid "Quick Settings Buttons"
+msgstr "விரைவான அமைப்புகள் பொத்தான்கள்"
+
+#: ../plugins/quickbuttons/PLUGININFO:4
+msgid ""
+"Provides buttons on bottom of the playlist to quickly change some settings"
 msgstr ""
+"சில அமைப்புகளை விரைவாக மாற்ற பிளேலிச்ட்டின் அடிப்பகுதியில் உள்ள பொத்தான்களை வழங்குகிறது"
 
 #: ../plugins/replaygain/PLUGININFO:4
 msgid "Enables ReplayGain support"
-msgstr ""
+msgstr "ரீப்ளேசெய்ன் ஆதரவை செயல்படுத்துகிறது"
 
 #: ../plugins/screensaverpause/PLUGININFO:4
 msgid ""
@@ -4765,44 +5141,143 @@ msgid ""
 "Requires: GNOME, MATE, Cinnamon, XFCE, or KDE Screensaver (does not support "
 "XScreenSaver nor XLockMore)"
 msgstr ""
+"ச்கிரீன்சேவர் நிலையின் அடிப்படையில் இடைநிறுத்தங்கள் (மற்றும் விருப்பமாக மீண்டும் "
+"தொடங்குகின்றன) பின்னணி.\n"
+"\n"
+" தேவை: க்னோம், மேட், இலவங்கப்பட்டை, எக்ச்எஃப்சிஇ அல்லது கே.டி.இ ச்கிரீன்சேவர் "
+"(எக்ச்ச்கிரீன்சேவர் அல்லது எக்ச்லாக்மோர் ஆதரிக்கவில்லை)"
 
 #: ../plugins/shutdown/PLUGININFO:4
 msgid "Allows for shutdown of the computer at the end of playback."
-msgstr ""
+msgstr "பிளேபேக்கின் முடிவில் கணினியை நிறுத்த அனுமதிக்கிறது."
 
 #: ../plugins/somafm/PLUGININFO:3
 msgid "SomaFM Radio"
-msgstr ""
+msgstr "சோமாஃப் ரேடியோ"
 
 #: ../plugins/somafm/PLUGININFO:4
 #, python-format
 msgid "SomaFM Radio list%s%s"
-msgstr ""
+msgstr "SOMAFM ரேடியோ பட்டியல்%s%s"
 
 #: ../plugins/streamripper/PLUGININFO:4
 msgid ""
 "Allows you to record streams with streamripper.\n"
 "Depends: streamripper"
 msgstr ""
+"ச்ட்ரீம்ரிப்பருடன் ச்ட்ரீம்களை பதிவு செய்ய உங்களை அனுமதிக்கிறது.\n"
+" சார்ந்துள்ளது: ச்ட்ரீம்ரிப்பர்"
 
 #: ../plugins/wikipedia/PLUGININFO:4
 msgid ""
 "Provides Wikipedia information about the current artist.\n"
+"\n"
 "Requires: webkit2gtk and its typelib file"
 msgstr ""
+"தற்போதைய கலைஞரைப் பற்றிய விக்கிபீடியா தகவல்களை வழங்குகிறது.\n"
+"\n"
+" தேவை: WebKIT2GTK மற்றும் அதன் தட்டச்சு கோப்பு"
 
 #: ../plugins/winmmkeys/PLUGININFO:2
 msgid "Multimedia keys for Windows"
-msgstr ""
+msgstr "விண்டோசிற்கான மல்டிமீடியா விசைகள்"
 
 #: ../plugins/winmmkeys/PLUGININFO:4
 #, python-format
 msgid ""
-"Adds support for multimedia keys (present on most new keyboards) when "
-"running Exaile in Microsoft Windows.\n"
+"Adds support for keyboard multimedia keys on Windows.\n"
 "\n"
-"Requires: pyHook (%s) or keyboard (%s)"
+"Requires: pynput (%s) (included in the Exaile installer)\n"
+"\n"
+"Warning: When this plugin is enabled, Exaile will process every key event in "
+"the Windows session, which may cause some security software to detect Exaile "
+"as a keylogger."
 msgstr ""
+"சாளரங்களில் விசைப்பலகை மல்டிமீடியா விசைகளுக்கான ஆதரவை சேர்க்கிறது.\n"
+"\n"
+" தேவைப்படுகிறது: pynput (%s) (எக்செயல் நிறுவியில் சேர்க்கப்பட்டுள்ளது)\n"
+"\n"
+" எச்சரிக்கை: இந்த சொருகி இயக்கப்பட்டால், சாளரங்கள் அமர்வில் உள்ள ஒவ்வொரு முக்கிய நிகழ்வையும் "
+"எக்செயல் செயலாக்கும், இது சில பாதுகாப்பு மென்பொருள்களை எக்லோசராகக் கண்டறியக்கூடும்."
+
+#: ../data/exaile.desktop.in:4 ../data/exaile.appdata.xml.in:6
+msgid "Exaile"
+msgstr "Exaile"
+
+#: ../data/exaile.desktop.in:5
+msgid "Music Player"
+msgstr "மியூசிக் பிளேயர்"
+
+#: ../data/exaile.desktop.in:7 ../data/exaile.appdata.xml.in:7
+msgid "Listen to, explore, or manage your audio collection"
+msgstr "உங்கள் ஆடியோ சேகரிப்பைக் கேளுங்கள், ஆராயுங்கள் அல்லது நிர்வகிக்கவும்"
+
+#: ../data/exaile.desktop.in:13
+msgid "Music;Player;Library;Collection;MP3;OGG;FLAC;MP4"
+msgstr "இசை; பிளேயர்; நூலகம்; சேகரிப்பு; எம்பி 3; ஓக்; பிளாக்; எம்பி 4"
+
+#: ../data/exaile.appdata.xml.in:9
+msgid ""
+"Exaile is a music player with a simple interface and powerful music "
+"management capabilities. Features include automatic fetching of album art, "
+"lyrics fetching, streaming internet radio, tabbed playlists, smart playlists "
+"with extensive filtering/search capabilities, and much more."
+msgstr ""
+"எக்செயில் ஒரு எளிய இடைமுகம் மற்றும் சக்திவாய்ந்த இசை மேலாண்மை திறன்களைக் கொண்ட ஒரு இசை "
+"வீரர். ஆல்பம் கலையின் தானியங்கி பெறுதல், பாடல் வரிகள் பெறுதல், இணைய வானொலி, "
+"தாவலாக்கப்பட்ட பிளேலிச்ட்கள், விரிவான வடிகட்டுதல்/தேடல் திறன்களைக் கொண்ட அறிவுள்ள "
+"பிளேலிச்ட்கள் மற்றும் பல நற்பொருத்தங்கள்."
+
+#: ../data/exaile.appdata.xml.in:15
+msgid ""
+"Exaile is written using python and GTK+ and is easily extensible via "
+"plugins. There are over 50 plugins distributed with Exaile that include "
+"advanced track tagging, last.fm scrobbling, support for portable media "
+"players, podcasts, internet radio such as icecast and Soma.FM, ReplayGain, "
+"output via a secondary output device (great for DJs!), and much more."
+msgstr ""
+"பைதான் மற்றும் சி.டி.கே+ ஐப் பயன்படுத்தி எக்செயில் எழுதப்பட்டுள்ளது மற்றும் செருகுநிரல்கள் "
+"வழியாக எளிதாக நீட்டிக்கப்படுகிறது. மேம்பட்ட ட்ராக் டேக்கிங், லாச்ட். எஃப்எம் ச்க்ரோபிளிங், "
+"போர்ட்டபிள் மீடியா பிளேயர்களுக்கான உதவி, பாட்காச்ட்கள், ஐச்காச்ட் மற்றும் சோமா எஃப்எம், "
+"ரீப்ளேசெய்ன், இரண்டாம் நிலை வெளியீட்டு சாதனம் வழியாக வெளியீடு (டி.சேக்களுக்கு "
+"சிறந்தது! ), மேலும் பல."
+
+#: ../data/exaile.appdata.xml.in:26
+msgid "Logo"
+msgstr "சின்னம்"
+
+#: ../data/exaile.appdata.xml.in:38
+msgid "The Exaile Team"
+msgstr "எக்செயில் குழு"
+
+#~ msgid ""
+#~ "Exaile is not yet finished loading. Perhaps you should listen for the "
+#~ "exaile_loaded signal?"
+#~ msgstr ""
+#~ "எக்செயில் இன்னும் ஏற்றவில்லை. ஒருவேளை நீங்கள் exaile_laodded சமிக்ஞையை கேட்க வேண்டுமா?"
+
+#~ msgid "Remove after playback"
+#~ msgstr "பிளேபேக்கிற்குப் பிறகு அகற்றவும்"
+
+#~ msgid "really delete?"
+#~ msgstr "உண்மையில் நீக்கவா?"
+
+#~ msgid ""
+#~ "Comma separated list of the nodes in the tree view. Right now it's not "
+#~ "possible to use more than one tag per level.\n"
+#~ "Every tag can be used."
+#~ msgstr ""
+#~ "மரக் காட்சியில் உள்ள முனைகளின் பட்டியல் கமா பிரிக்கப்பட்டுள்ளது. இப்போது ஒரு நிலைக்கு "
+#~ "ஒன்றுக்கு மேற்பட்ட குறிச்சொல்லைப் பயன்படுத்த முடியாது.\n"
+#~ " ஒவ்வொரு குறிச்சொல்லையும் பயன்படுத்தலாம்."
+
+#~ msgid "Lyrics Wiki"
+#~ msgstr "பாடல் வரிகள் Wiki"
+
+#, fuzzy
+#~| msgid "Close tab"
+#~ msgid "C_lose"
+#~ msgstr "தத்தலை மூடு"
 
 #, fuzzy
 #~| msgid "Track"

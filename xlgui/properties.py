@@ -46,6 +46,7 @@ from xl import common, settings, trax, xdg
 
 from xlgui.widgets import dialogs
 from xlgui.guiutil import GtkTemplate
+from xlgui import guiutil
 from xl.metadata.tags import tag_data, get_default_tagdata
 
 import logging
@@ -53,7 +54,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class TrackPropertiesDialog(GObject.GObject):
+class TrackPropertiesDialog(GObject.Object):
     def __init__(
         self,
         parent: Gtk.Window,
@@ -66,10 +67,11 @@ class TrackPropertiesDialog(GObject.GObject):
         :param current_position: the position of the currently
             selected track in the list
         """
-        GObject.GObject.__init__(self)
+        GObject.Object.__init__(self)
 
-        self.builder = Gtk.Builder()
-        self.builder.add_from_file(xdg.get_data_path('ui', 'trackproperties_dialog.ui'))
+        self.builder = guiutil.get_builder(
+            xdg.get_data_path('ui', 'trackproperties_dialog.ui')
+        )
         self.builder.connect_signals(self)
         self.dialog = self.builder.get_object('TrackPropertiesDialog')
         self.dialog.set_transient_for(parent)
@@ -287,9 +289,7 @@ class TrackPropertiesDialog(GObject.GObject):
             ab = True
 
         for tag, tag_info in self.def_tags.items():
-
             for i, entry in enumerate(trackdata.get(tag, [''])):
-
                 field = self._get_field_widget(tag_info, ab)
 
                 row = TagRow(self, self.tags_grid, field, tag, entry, i)
@@ -362,14 +362,14 @@ class TrackPropertiesDialog(GObject.GObject):
                 grid.remove_row(i)
 
     def _save_position(self):
-        (width, height) = self.dialog.get_size()
+        width, height = self.dialog.get_size()
         if [width, height] != [
             settings.get_option('gui/trackprop_' + key, -1)
             for key in ['width', 'height']
         ]:
             settings.set_option('gui/trackprop_height', height, save=False)
             settings.set_option('gui/trackprop_width', width, save=False)
-        (x, y) = self.dialog.get_position()
+        x, y = self.dialog.get_position()
         if [x, y] != [
             settings.get_option('gui/trackprop_' + key, -1) for key in ['x', 'y']
         ]:
@@ -524,7 +524,6 @@ class TrackPropertiesDialog(GObject.GObject):
             self.apply_button.set_sensitive(False)
 
     def update_tag(self, widget, tag, multi_id, val):
-
         trackdata = self.trackdata[self.current_position]
         original_trackdata = self.trackdata_original[self.current_position]
         trackdata[tag][multi_id] = val()
@@ -931,7 +930,6 @@ class TagDblNumField(Gtk.Box):
 
 @GtkTemplate('ui', 'trackproperties_dialog_cover_row.ui')
 class TagImageField(Gtk.Box):
-
     __gtype_name__ = 'TagImageField'
 
     (
@@ -1009,7 +1007,7 @@ class TagImageField(Gtk.Box):
                 try:
                     loader.write(val.data)
                     loader.close()
-                except GLib.GError:
+                except GLib.Error:
                     pass
                 else:
                     self.batch_update = True
@@ -1279,7 +1277,6 @@ class AllButton(Gtk.ToggleButton):
         self.set_active(False)
 
     def set_all_mode(self, w=None, do_apply=True):
-
         if self.get_active and do_apply and self.field.parent_row:
             tag = self.field.parent_row.tag
             multi_id = self.field.parent_row.multi_id

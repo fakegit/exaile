@@ -25,7 +25,7 @@
 # from your version.
 
 """
-    Collection of useful stock MenuItems for use with xlgui.widgets.menu
+Collection of useful stock MenuItems for use with xlgui.widgets.menu
 """
 
 # TODO: how should we document standardization of context's
@@ -226,12 +226,11 @@ def _on_trash_tracks(
     trash_tracks_func,
     delete_tracks_func,
 ):
-
     tracks = get_tracks_func(parent, context)
 
     try:
         trash_tracks_func(parent, context, tracks)
-    except GLib.GError:
+    except GLib.Error:
         dialog = Gtk.MessageDialog(
             parent=parent.parent,
             message_type=Gtk.MessageType.WARNING,

@@ -64,7 +64,7 @@ def save_pixbuf(pixbuf, path, type_):
     pixbuf.savev(path, type_, [None], [])
 
 
-class CoverManager(GObject.GObject):
+class CoverManager(GObject.Object):
     """
     Cover manager window
     """
@@ -87,7 +87,7 @@ class CoverManager(GObject.GObject):
         """
         Initializes the window
         """
-        GObject.GObject.__init__(self)
+        GObject.Object.__init__(self)
 
         # List of identifiers of albums without covers
         self.outstanding = []
@@ -101,8 +101,8 @@ class CoverManager(GObject.GObject):
             COVER_MANAGER.get_default_cover(), self.cover_size
         )
 
-        builder = Gtk.Builder()
-        builder.add_from_file(xdg.get_data_path('ui', 'covermanager.ui'))
+        builder = guiutil.get_builder(xdg.get_data_path('ui', 'covermanager.ui'))
+
         builder.connect_signals(self)
 
         self.window = builder.get_object('window')
@@ -131,6 +131,7 @@ class CoverManager(GObject.GObject):
 
         self.window.show_all()
 
+        self.emit('prefetch-started')
         self.stopper = threading.Event()
         thread = threading.Thread(
             target=self.prefetch, name='CoverPrefetch', args=(collection,)
@@ -173,8 +174,6 @@ class CoverManager(GObject.GObject):
         get_cover = COVER_MANAGER.get_cover
         default_cover_pixbuf = self.default_cover_pixbuf
         cover_size = self.cover_size
-
-        self.emit('prefetch-started')
 
         for i, album in enumerate(albums):
             if self.stopper.is_set():
@@ -284,7 +283,6 @@ class CoverManager(GObject.GObject):
             COVER_MANAGER.remove_cover(track)
             self.model[path][1] = self.default_cover_pixbuf
 
-    @common.idle_add()
     def do_prefetch_started(self):
         """
         Sets the widget states to prefetching
@@ -529,7 +527,7 @@ class CoverWidget(Gtk.EventBox):
         :param image: the image to wrap
         :type image: :class:`Gtk.Image`
         """
-        GObject.GObject.__init__(self)
+        GObject.Object.__init__(self)
 
         self.image = image
         self.cover_data = None
@@ -574,7 +572,6 @@ class CoverWidget(Gtk.EventBox):
 
         @common.threaded
         def __get_cover():
-
             fetch = not settings.get_option('covers/automatic_fetching', True)
             cover_data = COVER_MANAGER.get_cover(track, set_only=fetch)
 
@@ -680,9 +677,9 @@ class CoverWidget(Gtk.EventBox):
         context = self.props.window.cairo_create()
         background = self.style.bg[Gtk.StateType.NORMAL]
         context.set_source_rgba(
-            float(background.red) / 256 ** 2,
-            float(background.green) / 256 ** 2,
-            float(background.blue) / 256 ** 2,
+            float(background.red) / 256**2,
+            float(background.green) / 256**2,
+            float(background.blue) / 256**2,
             opacity,
         )
         context.set_operator(cairo.OPERATOR_SOURCE)
@@ -763,7 +760,7 @@ class CoverWidget(Gtk.EventBox):
             if not cover_data:
                 return
 
-            GLib.idle_add(self.on_cover_chosen, None, cover_data)
+            GLib.idle_add(self.on_cover_chosen, None, track, cover_data)
 
     def on_quit_application(self, type, exaile, nothing):
         """
@@ -789,8 +786,7 @@ class CoverWindow:
         :param savedir: Initial directory for the Save As functionality
         :type savedir: basestring
         """
-        self.builder = Gtk.Builder()
-        self.builder.add_from_file(xdg.get_data_path('ui', 'coverwindow.ui'))
+        self.builder = guiutil.get_builder(xdg.get_data_path('ui', 'coverwindow.ui'))
         self.builder.connect_signals(self)
 
         self.cover_window = self.builder.get_object('CoverWindow')
@@ -1003,7 +999,7 @@ class CoverWindow:
             self.cover_window_height = allocation.height
 
 
-class CoverChooser(GObject.GObject):
+class CoverChooser(GObject.Object):
     """
     Fetches all album covers for a string, and allows the user to choose
     one out of the list
@@ -1018,10 +1014,10 @@ class CoverChooser(GObject.GObject):
         """
         Expects the parent control, a track, an an optional search string
         """
-        GObject.GObject.__init__(self)
+        GObject.Object.__init__(self)
         self.parent = parent
-        self.builder = Gtk.Builder()
-        self.builder.add_from_file(xdg.get_data_path('ui', 'coverchooser.ui'))
+
+        self.builder = guiutil.get_builder(xdg.get_data_path('ui', 'coverchooser.ui'))
         self.builder.connect_signals(self)
         self.window = self.builder.get_object('CoverChooser')
 

@@ -65,10 +65,12 @@ class GTShowTracksMenuItem(menu.MenuItem):
         menu.MenuItem.__init__(self, name, None, after)
 
     def factory(self, menu, parent, context):
-
         groups = context['groups']
+        categories = context['category-groups']
 
-        if len(groups) == 0:
+        if len(categories) == 1 and not groups:
+            display_name = _('Show tracks tagged in "%s"') % categories[0][0]
+        elif len(groups) == 0:
             display_name = _('Show tracks with selected')
         elif len(groups) == 1:
             display_name = _('Show tracks tagged with "%s"') % groups[0]
@@ -78,8 +80,31 @@ class GTShowTracksMenuItem(menu.MenuItem):
         menuitem = Gtk.MenuItem.new_with_mnemonic(display_name)
         menuitem.connect(
             'activate',
-            lambda *e: gt_common.create_all_search_playlist(
-                context['groups'], parent.exaile
+            lambda *e: gt_common.create_category_search_playlist(
+                context['groups'], context['category-groups'], parent.exaile
+            ),
+        )
+        return menuitem
+
+
+class GTRemoveTracksMenuItem(menu.MenuItem):
+    def __init__(self, name, after):
+        menu.MenuItem.__init__(self, name, None, after)
+
+    def factory(self, menu, parent, context):
+        if not context['groups'] and not context['category-groups']:
+            return None
+
+        playlist = gt_common.get_active_playlist()
+        if playlist is None:
+            return None
+
+        display_name = _('Remove matching tracks from "%s"') % playlist.name
+        menuitem = Gtk.MenuItem.new_with_label(display_name)
+        menuitem.connect(
+            'activate',
+            lambda *e: gt_common.remove_category_matches_from_playlist(
+                playlist, context['groups'], context['category-groups']
             ),
         )
         return menuitem
@@ -120,7 +145,6 @@ class GroupTaggerView(Gtk.TreeView):
     }
 
     def __init__(self, exaile, model=None, editable=False):
-
         super(GroupTaggerView, self).__init__()
 
         self.exaile = exaile
@@ -167,7 +191,6 @@ class GroupTaggerView(Gtk.TreeView):
         self.connect('button-press-event', self.on_button_press)
 
         if editable:
-
             item = smi('addgrp', [], _('Add new tag'), callback=self.on_menu_add_group)
             self.menu.add_item(item)
 
@@ -195,9 +218,9 @@ class GroupTaggerView(Gtk.TreeView):
                 ['addcat'],
                 _('Remove category'),
                 callback=self.on_menu_del_category,
-                condition_fn=lambda n, p, c: False
-                if len(c['categories']) == 0
-                else True,
+                condition_fn=lambda n, p, c: (
+                    False if len(c['categories']) == 0 else True
+                ),
             )
             self.menu.add_item(item)
 
@@ -215,6 +238,10 @@ class GroupTaggerView(Gtk.TreeView):
             condition_fn=lambda n, p, c: True if len(c['groups']) > 1 else False,
         )
         self.menu.add_item(item)
+
+        self.menu.add_item(sep('sep3', ['selcust']))
+
+        self.menu.add_item(GTRemoveTracksMenuItem('remove-matches', ['sep3']))
 
         # TODO:
         # - Create smart playlist from selected
@@ -235,14 +262,19 @@ class GroupTaggerView(Gtk.TreeView):
     def get_context(self):
         '''Returns context parameter required by menus'''
         context = common.LazyDict(self)
-        context[
-            'selected-rows'
-        ] = lambda name, parent: parent.get_selection().get_selected_rows()
+        context['selected-rows'] = (
+            lambda name, parent: parent.get_selection().get_selected_rows()
+        )
         context['groups'] = lambda name, parent: parent.get_selected_groups(
             context['selected-rows']
         )
         context['categories'] = lambda name, parent: parent.get_selected_categories(
             context['selected-rows']
+        )
+        context['category-groups'] = (
+            lambda name, parent: parent.get_selected_category_groups(
+                context['selected-rows']
+            )
         )
         return context
 
@@ -350,7 +382,6 @@ class GroupTaggerView(Gtk.TreeView):
                     self.emit('category-changed', category_change.added, category)
 
     def on_menu_del_category(self, widget, name, parent, context):
-
         model, paths = context['selected-rows']
         categories = model.delete_selected_categories(paths)
 
@@ -366,6 +397,10 @@ class GroupTaggerView(Gtk.TreeView):
     def get_selected_categories(self, selected_rows):
         model, rows = selected_rows
         return model.get_selected_categories(rows)
+
+    def get_selected_category_groups(self, selected_rows):
+        model, rows = selected_rows
+        return model.get_selected_category_groups(rows)
 
     def on_button_press(self, widget, event):
         widget.do_button_press_event(widget, event)
@@ -440,7 +475,6 @@ class GroupTaggerTreeStore(Gtk.TreeStore, Gtk.TreeDragSource, Gtk.TreeDragDest):
         return old
 
     def delete_selected_categories(self, paths):
-
         categories = {}
         iters = [self.get_iter(path) for path in paths if self[path].parent is None]
 
@@ -484,6 +518,14 @@ class GroupTaggerTreeStore(Gtk.TreeStore, Gtk.TreeDragSource, Gtk.TreeDragDest):
     def get_selected_categories(self, paths):
         '''rows is obtained from get_selection().get_rows()'''
         return [self[path][1] for path in paths if self[path].parent is None]
+
+    def get_selected_category_groups(self, paths):
+        '''Return selected category names together with their groups.'''
+        return [
+            (self[path][1], self.get_category_groups(self[path][1]))
+            for path in paths
+            if self[path].parent is None
+        ]
 
     def is_category(self, path):
         return len(path) == 1
@@ -615,7 +657,6 @@ class GroupTaggerWidget(Gtk.Box):
             self.set_artist(track.get_tag_display('artist'))
 
     def add_groups(self, groups):
-
         added = False
 
         self.view.freeze_child_notify()
@@ -676,7 +717,6 @@ class GroupTaggerPanel(notebook.NotebookPage):
     menu_provider_name = 'panel-tab-context'
 
     def __init__(self, exaile):
-
         notebook.NotebookPage.__init__(self)
 
         # add the tagger widget
@@ -744,7 +784,6 @@ class AllTagsListStore(Gtk.ListStore):
 
 class AllTagsDialog(Gtk.Window):
     def __init__(self, exaile, callback):
-
         Gtk.Window.__init__(self)
         self.set_title(_('Get all tags from collection'))
         self.set_resizable(True)
@@ -792,7 +831,6 @@ class GroupTaggerQueryDialog(Gtk.Dialog):
     """
 
     def __init__(self, groups):
-
         Gtk.Dialog.__init__(self, title=_('Show tracks with groups'))
 
         # setup combo box selections
@@ -825,7 +863,6 @@ class GroupTaggerQueryDialog(Gtk.Dialog):
         # TODO: Add/remove groups to/from table
 
         for i, group in enumerate(sorted(groups)):
-
             # label
             gcombo = self._init_combo(self.group_model)
             gcombo.set_active(self._get_group_index(group))
@@ -871,7 +908,6 @@ class GroupTaggerQueryDialog(Gtk.Dialog):
 
         # gather the data
         for gcombo, combo in self.combos:
-
             active_group = self.group_model[gcombo.get_active()][0]
             wsel = self.combo_model[combo.get_active()][0]
 
@@ -938,7 +974,6 @@ class GroupTaggerQueryDialog(Gtk.Dialog):
 
 class GroupTaggerAddRemoveDialog(Gtk.Dialog):
     def __init__(self, add, tracks, exaile):
-
         self.add = add
         self.tracks = tracks
 

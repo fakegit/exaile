@@ -188,7 +188,7 @@ for i, a in enumerate(
     setattr(Anchor, a, Anchor(i))
 
 
-class Marker(GObject.GObject):
+class Marker(GObject.Object):
     """
     A marker pointing to a playback position
     """
@@ -235,8 +235,8 @@ class Marker(GObject.GObject):
     }
     __gsignals__ = {'reached': (GObject.SignalFlags.RUN_LAST, None, ())}
 
-    def __init__(self, position=0):
-        GObject.GObject.__init__(self)
+    def __init__(self, position: float = 0):
+        GObject.Object.__init__(self)
 
         self.__values = {
             'anchor': Anchor.SOUTH,
@@ -278,16 +278,15 @@ class Marker(GObject.GObject):
         try:
             return self.__values[gproperty.name]
         except KeyError:
-            raise AttributeError('unknown property %s' % property.name)
+            raise AttributeError('unknown property %s' % gproperty.name)
 
     def do_set_property(self, gproperty, value):
         """
         Sets a GObject property
         """
-        try:
-            self.__values[gproperty.name] = value
-        except KeyError:
-            raise AttributeError('unknown property %s' % property.name)
+        if gproperty.name not in self.__values:
+            raise AttributeError('unknown property %s' % gproperty.name)
+        self.__values[gproperty.name] = value
 
 
 class MarkerManager(providers.ProviderHandler):
@@ -319,14 +318,12 @@ class MarkerManager(providers.ProviderHandler):
         for e in self.__events:
             event.remove_callback(getattr(self, 'on_%s' % e), e)
 
-    def add_marker(self, position):
+    def add_marker(self, position: float) -> Marker:
         """
         Creates a new marker for a playback position
 
         :param position: the playback position [0..1]
-        :type position: float
         :returns: the new marker
-        :rtype: :class:`Marker`
         """
         marker = Marker(position)
         # Provider compatibility
@@ -335,12 +332,11 @@ class MarkerManager(providers.ProviderHandler):
 
         return marker
 
-    def remove_marker(self, marker):
+    def remove_marker(self, marker: Marker) -> None:
         """
         Removes a playback marker
 
         :param marker: the marker
-        :type marker: :class:`Marker`
         """
         providers.unregister('playback-markers', marker)
 
@@ -436,7 +432,7 @@ class _SeekInternalProgressBar(PlaybackProgressBar):
         context.set_line_width(self._marker_scale / 0.9)
         style = self.get_style_context()
 
-        POW_256_2 = 256 ** 2
+        POW_256_2 = 256**2
 
         for marker, points in self._points.items():
             for i, (x, y) in enumerate(points):
@@ -447,7 +443,7 @@ class _SeekInternalProgressBar(PlaybackProgressBar):
             context.close_path()
 
             if marker.props.state in (Gtk.StateType.PRELIGHT, Gtk.StateType.ACTIVE):
-                c = style.get_color(Gtk.StateType.NORMAL)
+                c = style.get_color(Gtk.StateFlags.NORMAL)
                 context.set_source_rgba(c.red, c.green, c.blue, c.alpha)
             else:
                 if marker.props.color is not None:
@@ -464,7 +460,7 @@ class _SeekInternalProgressBar(PlaybackProgressBar):
             context.fill_preserve()
 
             if marker.props.state in (Gtk.StateType.PRELIGHT, Gtk.StateType.ACTIVE):
-                c = style.get_color(Gtk.StateType.NORMAL)
+                c = style.get_color(Gtk.StateFlags.NORMAL)
                 context.set_source_rgba(c.red, c.green, c.blue, c.alpha)
             else:
                 foreground = style.get_color(marker.props.state)
@@ -493,15 +489,13 @@ class SeekProgressBar(Gtk.EventBox, providers.ProviderHandler):
     """
 
     CSS = Gtk.CssProvider()
-    CSS.load_from_data(
-        b'''
+    CSS.load_from_data(b'''
         /* Make the text easier to read on Adwaita */
         progressbar {
             color: unset;
             font-size: unset;
         }
-        '''
-    )
+        ''')
 
     __gproperties__ = {
         'marker-scale': (
@@ -1416,7 +1410,7 @@ class VolumeControl(Gtk.Box):
 
     __gtype_name__ = 'VolumeControl'
 
-    (button, slider, button_image, slider_adjustment) = GtkTemplate.Child.widgets(4)
+    button, slider, button_image, slider_adjustment = GtkTemplate.Child.widgets(4)
 
     def __init__(self, player):
         Gtk.Box.__init__(self)

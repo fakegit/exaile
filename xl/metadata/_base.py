@@ -33,7 +33,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-from xl import version
+from xl import version, settings
 import mutagen
 
 version.register('Mutagen', mutagen.version_string)
@@ -190,7 +190,7 @@ class BaseFormat:
             # __ is used to denote exaile's internal tags, so we skip
             # loading them to avoid conflicts. usually this shouldn't be
             # an issue.
-            if t.startswith("__"):
+            if self._remove_internal_tag(t):
                 continue
             tags.append(t)
         alltags = self.read_tags(tags)
@@ -274,7 +274,7 @@ class BaseFormat:
             # tags starting with __ are internal and should not be written
             # -> this covers INFO_TAGS, which also shouldn't be written
             for tag in list(tagdict.keys()):
-                if tag.startswith("__"):
+                if self._remove_internal_tag(tag):
                     del tagdict[tag]
 
             # Only modify the tags we were told to modify
@@ -321,8 +321,51 @@ class BaseFormat:
             except (KeyError, TypeError):
                 return None
 
+    def _stars_to_rating(self, data: int) -> int:
+        # exactly the same
+        return int(data)
 
-class CaseInsensitveBaseFormat(BaseFormat):
+    def _rating_to_stars(self, data: int) -> int:
+        # mapping according to kid3
+        # 0: 0
+        # 1: 1 - 29
+        # 2: 30 - 49
+        # 3: 50 - 69
+        # 4: 70 - 89
+        # 5: 90 -
+        if data <= 0:
+            # 0
+            rating = 0
+        elif data <= 29:
+            # 1
+            rating = 20
+        elif data <= 49:
+            # 2
+            rating = 40
+        elif data <= 69:
+            # 3
+            rating = 60
+        elif data <= 89:
+            # 4
+            rating = 80
+        else:
+            # 5
+            rating = 100
+        return rating
+
+    def _remove_internal_tag(self, tag):
+        if tag.startswith("__") and (
+            tag != '__rating'
+            or not settings.get_option(
+                'collection/write_rating_to_audio_file_metadata', False
+            )
+        ):
+            return True
+
+        return False
+
+
+class CaseInsensitiveBaseFormat(BaseFormat):
     case_sensitive = False
 
     def get_keys_disk(self):

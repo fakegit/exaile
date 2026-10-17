@@ -48,8 +48,9 @@ logger = logging.getLogger(__name__)
 
 _K = TypeVar('_K')
 _V = TypeVar('_V')
+_V1 = TypeVar('_V1')
 
-# map chars to appropriate subsitutes for sorting
+# map chars to appropriate substitutes for sorting
 _sortcharmap = {
     'ß': 'ss',  # U+00DF
     'æ': 'ae',  # U+00E6
@@ -80,23 +81,23 @@ _unset = object()
 class _MetadataCacher(Generic[_K, _V]):
     """Time- and size-limited LRU cache"""
 
-    class Entry:
-        value: _V
+    class Entry(Generic[_V1]):
+        value: _V1
         time: float
 
-        def __init__(self, value: _V, time: float):
+        def __init__(self, value: _V1, time: float):
             self.value = value
             self.time = time
 
-        def __lt__(self, other: 'Entry'):
+        def __lt__(self, other: '_MetadataCacher.Entry'):
             return self.time < other.time
 
-    _cache: Dict['Track', '_MetadataCacher.Entry']
-    timeout: float
+    _cache: Dict[_K, Entry[_V]]
+    timeout: int
     maxentries: int
     _cleanup_id: Optional[int]
 
-    def __init__(self, timeout: float = 10, maxentries: int = 20):
+    def __init__(self, timeout: int = 10, maxentries: int = 20):
         """
         :param timeout: time (in s) until the cached obj gets removed.
         :param maxentries: maximum number of objects to cache
@@ -106,7 +107,7 @@ class _MetadataCacher(Generic[_K, _V]):
         self.maxentries = maxentries
         self._cleanup_id = None
 
-    def __cleanup(self):
+    def __cleanup(self) -> bool:
         if self._cleanup_id is not None:
             GLib.source_remove(self._cleanup_id)
             self._cleanup_id = None
@@ -117,6 +118,7 @@ class _MetadataCacher(Generic[_K, _V]):
             next_expiry = min(self._cache.values()).time
             timeout = int((next_expiry + self.timeout) - current)
             self._cleanup_id = GLib.timeout_add_seconds(timeout, self.__cleanup)
+        return False
 
     def add(self, key: _K, value: _V) -> None:
         if key in self._cache:
@@ -153,7 +155,14 @@ class Track:
     """
 
     # save a little memory this way
-    __slots__ = ["__tags", "_scan_valid", "_dirty", "__weakref__", "_init"]
+    __slots__ = [
+        "__tags",
+        "_scan_valid",
+        "_dirty",
+        "__weakref__",
+        "_init",
+        "_is_supported",
+    ]
     # this is used to enforce the one-track-per-uri rule
     __tracksdict = weakref.WeakValueDictionary()
     # store a copy of the settings values here - much faster (0.25 cpu
@@ -231,7 +240,7 @@ class Track:
             tr._init = True
             return tr
 
-    def __init__(self, uri=None, scan=True, _unpickles=None):
+    def __init__(self, uri: Optional[str] = None, scan: bool = True, _unpickles=None):
         """
         :param uri: the location, as either a uri or a file path.
         :param scan: Whether to try to read tags from the given uri.
@@ -247,6 +256,7 @@ class Track:
 
         self.__tags = {}
         self._scan_valid = None  # whether our last tag read attempt worked
+        self._is_supported = None
 
         # This is not used by write_tags, this is used by the collection to
         # indicate that the tags haven't been written to the collection
@@ -280,7 +290,7 @@ class Track:
         except KeyError:
             pass
 
-    def set_loc(self, loc, notify_changed=True):
+    def set_loc(self, loc: str, notify_changed: bool = True) -> None:
         """
         Sets the location.
 
@@ -300,7 +310,7 @@ class Track:
         """
         return Gio.File.new_for_uri(self.get_loc_for_io()).query_exists(None)
 
-    def get_loc_for_io(self):
+    def get_loc_for_io(self) -> str:
         """
         Gets the location as a full uri.
 
@@ -386,27 +396,21 @@ class Track:
         Returns False if unsuccessful, and a Format object from
         `xl.metadata` otherwise.
         """
+
+        if not self.is_supported():
+            self._scan_valid = False
+            return False
+
         loc = self.get_loc_for_io()
         try:
-            f = metadata.get_format(loc)
-            if f is None:
-                self._scan_valid = False
-                return False  # not a supported type
-
             # Retrieve file specific metadata
             gloc = Gio.File.new_for_uri(loc)
-            if hasattr(Gio.FileInfo, 'get_modification_date_time'):  # GLib >=2.62
-                mtime = (
-                    gloc.query_info("time::modified", Gio.FileQueryInfoFlags.NONE, None)
-                    .get_modification_date_time()
-                    .to_unix()
-                )
-            else:  # Deprecated due to the Year 2038 problem
-                mtime = gloc.query_info(
-                    "time::modified", Gio.FileQueryInfoFlags.NONE, None
-                ).get_modification_time()
-                mtime = mtime.tv_sec + (mtime.tv_usec / 100000.0)
-
+            mtime = (
+                gloc.query_info("time::modified", Gio.FileQueryInfoFlags.NONE, None)
+                .get_modification_date_time()
+                .to_unix()
+            )
+            f = metadata.get_format(loc)
             if not force and self.__tags.get('__modified', 0) >= mtime:
                 return f
 
@@ -416,6 +420,11 @@ class Track:
 
             # TODO: this probably breaks on non-local files
             ntags['__basedir'] = gloc.get_parent().get_path()
+
+            if '__rating' in ntags and settings.get_option(
+                'collection/write_rating_to_audio_file_metadata', False
+            ):
+                ntags['__rating'] = int(ntags['__rating'][0])
 
             # remove tags that could be in the file, but are in fact not
             # in the file. Retain tags in the DB that aren't supported by
@@ -452,6 +461,20 @@ class Track:
         if self.get_local_path():
             return True
         return False
+
+    def is_supported(self):
+        """
+        Determines if a file has a supported media format
+        """
+        if self._is_supported is None:
+            loc = self.get_loc_for_io()
+            f = metadata.get_format(loc)
+            if f is None:
+                self._is_supported = False
+            else:
+                self._is_supported = True
+
+        return self._is_supported
 
     def get_size(self):
         """
@@ -499,6 +522,13 @@ class Track:
         if not isinstance(values, list):
             if not tag.startswith("__"):  # internal tags dont have to be lists
                 values = [values]
+
+        if (
+            tag == '__rating'
+            and not isinstance(values, list)
+            and self._write_rating_to_disk()
+        ):
+            values = [values]
 
         # For lists, filter out empty values
         if isinstance(values, list):
@@ -596,6 +626,11 @@ class Track:
             # TODO: This is only necessary because some places that deal with
             # __startoffset don't check for None. Those need to be fixed.
             value = self.__tags.get(tag, 0)
+        elif tag == '__rating':
+            try:
+                value = self.__tags.get(tag)[0]
+            except TypeError as e:
+                value = self.__tags.get(tag)
         else:
             value = self.__tags.get(tag)
 
@@ -915,6 +950,9 @@ class Track:
         rating = max(0, rating)
         rating = 100 * rating / maximum
         self.set_tags(__rating=rating)
+
+        if self._write_rating_to_disk():
+            self.set_tag_disk('__rating', rating)
         return rating
 
     ### Special functions for wrangling tag values ###
@@ -1024,7 +1062,7 @@ class Track:
         turns characters like æ into values suitable for sorting,
         like 'ae'. see _sortcharmap for the mapping.
 
-        value must be a unicode object or this wont replace anything.
+        value must be a unicode object or this won't replace anything.
 
         value must be in lower-case
         """
@@ -1074,6 +1112,22 @@ class Track:
     def _get_track_count(cls):
         '''Internal API, returns number of track objects we have'''
         return len(cls._Track__tracksdict)
+
+    def _write_rating_to_disk(self):
+        if not settings.get_option(
+            'collection/write_rating_to_audio_file_metadata', False
+        ):
+            return False
+
+        f = self._get_format_obj()
+        if f is None:
+            return False
+
+        keys = f.tag_mapping
+        if not '__rating' in keys:
+            return False
+
+        return True
 
 
 event.add_callback(Track._the_cuts_cb, 'collection_option_set')

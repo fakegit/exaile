@@ -25,7 +25,7 @@
 # from your version.
 
 """
-    Central storage of application and user settings
+Central storage of application and user settings
 """
 
 import ast
@@ -120,7 +120,7 @@ class SettingsManager(RawConfigParser):
         :type settings: :class:`xl.settings.SettingsManager`
         """
         for section in self.sections():
-            for (key, value) in self.items(section):
+            for key, value in self.items(section):
                 settings._set_direct('%s/%s' % (section, key), value)
 
     def clone(self):
@@ -345,5 +345,6 @@ MANAGER = SettingsManager(
 
 get_option = MANAGER.get_option
 set_option = MANAGER.set_option
+remove_option = MANAGER.remove_option
 
 # vim: et sts=4 sw=4

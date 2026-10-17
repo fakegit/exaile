@@ -85,21 +85,20 @@ class CustomAudioSinkPreference(widgets.Preference, widgets.Conditional):
         self.hide_widget()
 
 
-class SelectDeviceForSinkPreference(widgets.ComboPreference, widgets.Conditional):
+class SelectDeviceForSinkPreference(widgets.ComboPreference, widgets.MultiConditional):
     default = 'auto'
     name = "player/audiosink_device"
-    condition_preference_name = 'player/audiosink'
+    condition_preference_names = ['player/audiosink', 'player/show_hidden_devices']
 
     def __init__(self, preferences, widget):
         self.is_enabled = False
         widgets.ComboPreference.__init__(self, preferences, widget)
-        widgets.Conditional.__init__(self)
+        widgets.MultiConditional.__init__(self)
 
     def on_check_condition(self):
-        return self.get_condition_value() == 'auto'
+        return self.get_condition_value('player/audiosink') == 'auto'
 
     def on_condition_met(self):
-
         # disable because the clear() causes a settings write
         self.is_enabled = False
 
@@ -119,7 +118,7 @@ class SelectDeviceForSinkPreference(widgets.ComboPreference, widgets.Conditional
         self.set_widget_sensitive(True)
 
     def on_condition_failed(self):
-        if self.get_condition_value() == 'custom':
+        if self.get_condition_value('player/audiosink') == 'custom':
             self.hide_widget()
         else:
             self.show_widget()
@@ -138,14 +137,38 @@ class SelectDeviceForSinkPreference(widgets.ComboPreference, widgets.Conditional
         return ''
 
 
+class ShowHiddenDevicesPreference(widgets.CheckPreference, widgets.Conditional):
+    default = False
+    name = 'player/show_hidden_devices'
+    condition_preference_name = 'player/audiosink'
+
+    def __init__(self, preferences, widget):
+        widgets.CheckPreference.__init__(self, preferences, widget)
+        widgets.Conditional.__init__(self)
+
+    def on_check_condition(self):
+        return self.get_condition_value() == 'auto'
+
+    def on_condition_met(self):
+        self.show_widget()
+
+    def on_condition_failed(self):
+        self.hide_widget()
+
+
 class ResumePreference(widgets.CheckPreference):
     default = True
     name = 'player/resume_playback'
 
 
-class PausedPreference(widgets.CheckPreference):
+class PausedPreference(widgets.CheckPreference, widgets.CheckConditional):
     default = False
     name = 'player/resume_paused'
+    condition_preference_name = 'player/resume_playback'
+
+    def __init__(self, preferences, widget):
+        widgets.CheckPreference.__init__(self, preferences, widget)
+        widgets.CheckConditional.__init__(self)
 
 
 class EnqueueBeginsPlayback(widgets.CheckPreference):
@@ -156,6 +179,16 @@ class EnqueueBeginsPlayback(widgets.CheckPreference):
 class RemoveQueuedItemWhenPlayed(widgets.CheckPreference):
     default = True
     name = 'queue/remove_item_when_played'
+
+
+class RemoveQueuedItemAfterPlayed(widgets.CheckPreference, widgets.CheckConditional):
+    default = False
+    name = 'queue/remove_item_after_played'
+    condition_preference_name = 'queue/remove_item_when_played'
+
+    def __init__(self, preferences, widget):
+        widgets.CheckPreference.__init__(self, preferences, widget)
+        widgets.CheckConditional.__init__(self)
 
 
 class DisableNewTrackWhenPlaying(widgets.CheckPreference):

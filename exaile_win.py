@@ -2,19 +2,26 @@
 
 """Launcher for Exaile on Windows"""
 
-
-# Make file handles not inheritable, that way we can restart on the fly
-# -> From http://www.virtualroadside.com/blog/index.php/2013/02/06/problems-with-file-descriptors-being-inherited-by-default-in-python/
 import builtins
 import msvcrt
 import sys
+import os
 from ctypes import windll
+
+# Provide dummy sys.stdout and sys.stderr, which are None in noconsole/windowed
+# mode (launched using pythonw.exe, or PyInstaller build).
+if sys.stdout is None:
+    sys.stdout = open(os.devnull, "w")
+if sys.stderr is None:
+    sys.stderr = open(os.devnull, "w")
 
 
 __builtin__open = __builtins__.open
 
 
 def __open_inheritance_hack(*args, **kwargs):
+    """Make file handles not inheritable, that way we can restart on the fly"""
+    # From http://www.virtualroadside.com/blog/index.php/2013/02/06/problems-with-file-descriptors-being-inherited-by-default-in-python/
     result = __builtin__open(*args, **kwargs)
     handle = msvcrt.get_osfhandle(result.fileno())
     windll.kernel32.SetHandleInformation(handle, 1, 0)
@@ -25,7 +32,6 @@ builtins.open = __open_inheritance_hack
 
 
 def error(message1, message2=None, die=True):
-
     import logging
 
     """Show error message and exit.
@@ -49,7 +55,6 @@ def error(message1, message2=None, die=True):
 
 
 def main():
-
     import logging
 
     logging.basicConfig(

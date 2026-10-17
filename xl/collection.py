@@ -247,7 +247,6 @@ class Collection(trax.TrackDB):
         scan_interval = 20
 
         for library in self.libraries.values():
-
             if (
                 not force_update
                 and startup_only
@@ -261,7 +260,7 @@ class Collection(trax.TrackDB):
             self._running_total_count += self._running_count
             if self._scan_stopped:
                 break
-        else:  # didnt break
+        else:  # didn't break
             try:
                 if self.location is not None:
                     self.save_to_location()
@@ -356,7 +355,7 @@ class Collection(trax.TrackDB):
                 lib.delete(tr.get_loc_for_io())
 
 
-class LibraryMonitor(GObject.GObject):
+class LibraryMonitor(GObject.Object):
     """
     Monitors library locations for changes
     """
@@ -380,7 +379,7 @@ class LibraryMonitor(GObject.GObject):
         :param library: the library to monitor
         :type library: :class:`Library`
         """
-        GObject.GObject.__init__(self)
+        GObject.Object.__init__(self)
 
         self.__library = library
         self.__root = Gio.File.new_for_uri(library.location)
@@ -481,7 +480,6 @@ class LibraryMonitor(GObject.GObject):
                 fileinfo.get_file_type() == Gio.FileType.DIRECTORY
                 and gfile not in self.__monitors
             ):
-
                 for directory in common.walk_directories(gfile):
                     monitor = directory.monitor_directory(
                         Gio.FileMonitorFlags.NONE, None
@@ -734,17 +732,24 @@ class Library:
                 self.collection.add(tr)
 
             # Track already existed. This fixes trax.get_tracks_from_uri
-            # on windows, unknown why fix isnt needed on linux.
+            # on windows, unknown why fix isn't needed on linux.
             elif not tr._init:
                 self.collection.add(tr)
+
+        if not tr.is_supported():
+            return None
+
         return tr
 
     def rescan(
         self, notify_interval: Optional[int] = None, force_update: bool = False
-    ):  # TODO: What return type?
+    ) -> bool:
         """
         Rescan the associated folder and add the contained files
         to the Collection
+
+        :returns: Whether the caller should reschedule this call, due to the
+            collection not being ready
         """
         # TODO: use gio's cancellable support
 
@@ -752,7 +757,7 @@ class Library:
             return True
 
         if self.scanning:
-            return
+            return False
 
         logger.info("Scanning library: %s", self.location)
         self.scanning = True
@@ -771,7 +776,7 @@ class Library:
                 if dirtracks:
                     for tr in dirtracks:
                         self._check_compilation(ccheck, compilations, tr)
-                    for (basedir, album) in compilations:
+                    for basedir, album in compilations:
                         base = basedir.replace('"', '\\"')
                         alb = album.replace('"', '\\"')
                         items = [
@@ -798,7 +803,7 @@ class Library:
                     # for compilation detection. Most albums have far fewer
                     # than 110 tracks anyway, so it is unlikely that this
                     # restriction will affect the heuristic's accuracy.
-                    # 110 was chosen to accomodate "top 100"-style
+                    # 110 was chosen to accommodate "top 100"-style
                     # compilations.
                     if len(dirtracks) > 110:
                         logger.debug(
@@ -811,7 +816,7 @@ class Library:
             if self.collection and self.collection._scan_stopped:
                 self.scanning = False
                 logger.info("Scan canceled")
-                return
+                return False
 
             # progress update
             if notify_interval is not None and count % notify_interval == 0:
@@ -835,7 +840,7 @@ class Library:
                 logger.exception("Error decoding file location")
                 continue
 
-            if not gloc.query_exists(None):
+            if not (gloc.query_exists(None) or tr.is_supported()):
                 removals.append(tr)
 
         for tr in removals:
@@ -844,6 +849,7 @@ class Library:
 
         logger.info("Scan completed: %s", self.location)
         self.scanning = False
+        return False
 
     def add(self, loc: str, move: bool = False) -> None:
         """
@@ -905,7 +911,7 @@ class TransferQueue:
 
     def transfer(self) -> None:
         """
-        Tranfer the queued tracks to the library.
+        Transfer the queued tracks to the library.
 
         This is NOT asynchronous
         """

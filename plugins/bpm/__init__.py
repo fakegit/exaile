@@ -38,7 +38,7 @@ from xlgui.guiutil import GtkTemplate
 import xlgui.main
 from xlgui.widgets import menu, dialogs
 
-from . import bpmdetect
+from . import bpmdetect, bpm_prefs
 
 autodetect_enabled = bpmdetect.autodetect_supported()
 
@@ -71,6 +71,9 @@ class BPMCounterPlugin:
 
             for p in menu_providers:
                 providers.register(p, self.menuitem)
+
+    def get_preferences_pane(self):
+        return bpm_prefs
 
     def disable(self, exaile):
         """
@@ -124,16 +127,22 @@ class BPMCounterPlugin:
             # Turn it into a rounded int.
             bpm = int(round(float(bpm)))
 
-            msg = Gtk.MessageDialog(
-                buttons=Gtk.ButtonsType.YES_NO,
-                message_type=Gtk.MessageType.QUESTION,
-                modal=True,
-                text=_('Set BPM of %d on %s?') % (bpm, track.get_tag_display('title')),
-                transient_for=parent_window,
-            )
-            msg.set_default_response(Gtk.ResponseType.NO)
-            result = msg.run()
-            msg.destroy()
+            if settings.get_option(
+                'plugin/bpm/show_confirmation_on_manual_setting', True
+            ):
+                msg = Gtk.MessageDialog(
+                    buttons=Gtk.ButtonsType.YES_NO,
+                    message_type=Gtk.MessageType.QUESTION,
+                    modal=True,
+                    text=_('Set BPM of %d on %s?')
+                    % (bpm, track.get_tag_display('title')),
+                    transient_for=parent_window,
+                )
+                msg.set_default_response(Gtk.ResponseType.NO)
+                result = msg.run()
+                msg.destroy()
+            else:
+                result = Gtk.ResponseType.YES
             self._set_bpm(result, bpm, track)
 
     def _set_bpm(self, result, bpm, track):
@@ -152,7 +161,6 @@ plugin_class = BPMCounterPlugin
 
 @GtkTemplate('msg.ui', relto=__file__)
 class BPMAutodetectResponse(Gtk.Dialog):
-
     __gtype_name__ = 'BPMAutodetectResponse'
 
     q_label, r1, r2, r3 = GtkTemplate.Child.widgets(4)
@@ -175,7 +183,6 @@ class BPMAutodetectResponse(Gtk.Dialog):
 
 @GtkTemplate('bpm.ui', relto=__file__)
 class BPMWidget(Gtk.Frame):
-
     __gtype_name__ = 'BPMWidget'
 
     eventbox, bpm_label, apply_button = GtkTemplate.Child.widgets(3)
@@ -251,7 +258,6 @@ class BPMWidget(Gtk.Frame):
 
     @GtkTemplate.Callback
     def on_eventbox_key_press_event(self, widget, event):
-
         if event.keyval == Gdk.KEY_Return:
             self.set_bpm()
             return False

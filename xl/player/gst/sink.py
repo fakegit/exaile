@@ -25,6 +25,7 @@
 # do so. If you do not wish to do so, delete this exception statement
 # from your version.
 
+from gi.repository import GObject
 from gi.repository import Gst
 
 from xl import settings
@@ -80,10 +81,22 @@ SINK_PRESETS = {
 
 
 def __filter_presets():
+    """Remove items in SINK_PRESETS that cannot be created."""
     for name, preset in list(SINK_PRESETS.items()):
         pipe = preset.get('pipe')
-        if pipe and not Gst.ElementFactory.make(pipe):
-            del SINK_PRESETS[name]
+        if not pipe:
+            continue  # No 'pipe' means this is auto or custom
+        # In GStreamer < 1.28, Gst.ElementFactory.make always returns None when
+        # the element can't be created.
+        # In GStreamer >= 1.28, it can either return None or raise a custom
+        # exception depending on whether the Gst Python override is installed.
+        # See <https://gitlab.freedesktop.org/gstreamer/gstreamer/-/issues/4914>.
+        try:
+            if Gst.ElementFactory.make(pipe):
+                continue
+        except Exception:
+            pass
+        del SINK_PRESETS[name]
 
 
 __filter_presets()
@@ -105,6 +118,10 @@ def _gst_device_autodetect():
 
     dm = Gst.DeviceMonitor.new()
     dm.add_filter('Audio/Sink', Gst.Caps.new_empty_simple('audio/x-raw'))
+
+    show_all = settings.get_option("player/show_hidden_devices", False)
+    dm.set_show_all_devices(show_all)
+
     dm.start()
 
     try:
@@ -128,6 +145,10 @@ def _gst_device_autodetect():
                     # TODO: remove this when wasapi is stable
                     if api == 'wasapi':
                         continue
+
+            if show_all:
+                device_cls = GObject.type_name_from_instance(device.g_type_instance)
+                display_name = '%s (%s)' % (display_name, device_cls)
 
             yield (display_name, device_id, device.create_element)
     finally:
@@ -170,7 +191,6 @@ def create_device(player_name, return_errorsink=True):
     errmsg = None
 
     if sink_type == 'auto':
-
         specified_device = settings.get_option(
             '%s/audiosink_device' % player_name, 'auto'
         )
@@ -185,7 +205,6 @@ def create_device(player_name, return_errorsink=True):
             errmsg = errmsg % (specified_device, sink_type)
 
     elif sink_type == 'custom':
-
         pipeline = settings.get_option("%s/custom_sink_pipe" % player_name, "")
         if not pipeline:
             errmsg = _("No custom pipeline specified!")
@@ -214,7 +233,6 @@ def create_device(player_name, return_errorsink=True):
 
 
 def _get_error_audiosink(msg):
-
     sink = Gst.ElementFactory.make('fakesink', None)
 
     def handoff(s, b, p):

@@ -1,4 +1,4 @@
-# Copyright (C) 2008-2010 Adam Olsen
+# Copyright (C) 2023 luzip665
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,16 +23,14 @@
 # exception to your version of the code, but you are not obligated to
 # do so. If you do not wish to do so, delete this exception statement
 # from your version.
+import logging
+
+logger = logging.getLogger(__name__)
+
+from xl.metadata._id3 import ID3Format
+from mutagen import id3
 
 
-import time
-
-
-def timeit(n, func, *args):
-    runs = []
-    for n in range(0, n):
-        start = time.clock()
-        func.__call__(*args)
-        runs.append(time.clock() - start)
-    avg = sum(runs) / len(runs)
-    print("%1.8f seconds" % avg)
+class AACFormat(ID3Format):
+    MutagenType = id3.ID3FileType
+    pass

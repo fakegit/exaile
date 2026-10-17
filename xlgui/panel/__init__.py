@@ -31,13 +31,13 @@ from gi.repository import GObject
 
 from xl import xdg
 from xlgui.widgets.notebook import NotebookPage
+from xlgui import guiutil
 import logging
-
 
 LOGGER = logging.getLogger(__name__)
 
 
-class Panel(GObject.GObject):
+class Panel(GObject.Object):
     """
     The base panel class.
 
@@ -49,14 +49,14 @@ class Panel(GObject.GObject):
 
     def __init__(self, parent, name, label=None):
         """
-        Intializes the panel
+        Initializes the panel
 
         @param parent: the main window
         @type parent: Gtk.Window
         @param name: the name of the panel. should be unique.
         @param label: text of the label displayed to the user
         """
-        GObject.GObject.__init__(self)
+        GObject.Object.__init__(self)
         self.name = name  # panel id
         self.label = label  # label to be displayed
         self.parent = parent
@@ -67,8 +67,7 @@ class Panel(GObject.GObject):
         if not os.path.isabs(ui_file):
             ui_file = xdg.get_data_path('ui', 'panel', ui_file)
 
-        self.builder = Gtk.Builder()
-        self.builder.add_from_file(ui_file)
+        self.builder = guiutil.get_builder(ui_file)
         self._child = None
 
     def focus(self):

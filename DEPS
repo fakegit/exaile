@@ -11,19 +11,19 @@ Core dependencies
 
 Essential:
 
-* python3 >= 3.6
-* python3-bsddb3
-* gtk+ >= 3.22
-* gstreamer (>= 1.14)
-* gstreamer-plugins-base (>= 1.14)
-* gstreamer-plugins-good (>= 1.14)
-* python3-mutagen (>= 1.38)
+* python3 >= 3.8
+* python3-bsddb3 (required to migrate data from Exaile 4.1.4 and earlier)
+* gtk+ >= 3.24
+* gstreamer (>= 1.16)
+* gstreamer-plugins-base (>= 1.16)
+* gstreamer-plugins-good (>= 1.16)
+* python3-mutagen (>= 1.44)
 * python3-dbus
 * GI typelib files for GTK+, GStreamer (including gstreamer-plugins-base) and cairo and their python bindings
 
   * Packages on Debian and Ubuntu:
 
-    * python3-gi >= 3.22
+    * python3-gi >= 3.36
     * python3-gi-cairo
     * gir1.2-gtk-3.0
     * gir1.2-gstreamer-1.0
@@ -32,7 +32,7 @@ Essential:
   * Packages on Fedora:
 
     * python3-cairo
-    * python3-gobject >= 3.22
+    * python3-gobject >= 3.24
     * python3-gstreamer1
 
 Optional dependencies
@@ -41,6 +41,8 @@ Optional dependencies
 Translation:
 
 * gettext
+
+(To build and install without translations, use the `all_no_locale` and `install_no_locale` Make targets.)
 
 Documentation:
 
@@ -52,9 +54,10 @@ Device detection:
 
 * udisks2
 
-CD info: (TODO: This is currently broken on python3, see #608 and #652)
+CD info:
 
-* cddb (python2), from http://cddb-py.sourceforge.net/
+* python-libdiscid or python-discid (optional on linux, required to use musicbrainz)
+* python-musicbrainzngs (optional)
 
 DAAP plugins (daapserver and daapclient):
 
@@ -67,11 +70,6 @@ Last.FM integration:
 
 Lyrics from lyricsmania.com (lyricsmania):
 
-* lxml (python3)
-
-Lyrics from lyrics.wikia.com (lyricwiki):
-
-* Beautifulsoup4 (python3)
 * lxml (python3)
 
 Musicbrainz covers:
@@ -112,6 +110,5 @@ BPM Counter plugin:
 
 Test dependencies:
 
-* mox3 (python3)
 * pytest (python3)
 

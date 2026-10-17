@@ -138,7 +138,7 @@ class ExaileScrobbler:
 
         providers.register(
             'menubar-tools-menu',
-            menu.simple_separator('plugin-sep', ['track-properties']),
+            menu.simple_separator('plugin-sep', ['slow-scan-collection']),
         )
 
         def factory(menu_, parent, context):
@@ -185,7 +185,6 @@ class ExaileScrobbler:
             logger.info("Attempting to connect to AudioScrobbler (%s)", server)
             scrobbler.login(username, password, hashpw=False, post_url=server)
         except Exception:
-
             try:
                 scrobbler.login(username, password, hashpw=True, post_url=server)
             except Exception:

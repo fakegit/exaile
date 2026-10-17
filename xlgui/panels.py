@@ -32,12 +32,10 @@ from xl import providers, settings
 from xlgui.widgets import menu, notebook
 from xlgui.panel import lyrics
 
-
 logger = logging.getLogger(__name__)
 
 
 class PanelData:
-
     __slots__ = ['tab', 'menuitem', 'panel', 'position', 'shown']
 
     def __init__(self, tab, panel, position, menuitem):
@@ -108,7 +106,6 @@ class PanelNotebook(notebook.SmartNotebook, providers.ProviderHandler):
             self.on_gui_loaded()
 
     def focus_panel(self, tab_name):
-
         data = self.panels[tab_name]
         if data.shown:
             panel_nr = self.page_num(data.tab.page)
@@ -120,7 +117,6 @@ class PanelNotebook(notebook.SmartNotebook, providers.ProviderHandler):
         return None
 
     def toggle_panel(self, tab_name):
-
         data = self.panels[tab_name]
 
         if data.shown:
@@ -132,7 +128,6 @@ class PanelNotebook(notebook.SmartNotebook, providers.ProviderHandler):
             self.save_panel_settings()
 
     def on_provider_added(self, provider):
-
         if provider.name is None:
             logger.warning(
                 "Ignoring improperly initialized panel provider: %s", provider
@@ -163,7 +158,6 @@ class PanelNotebook(notebook.SmartNotebook, providers.ProviderHandler):
         self.save_panel_settings()
 
     def on_provider_removed(self, provider):
-
         data = self.panels[provider.name]
 
         for n in range(self.get_n_pages()):
@@ -175,7 +169,6 @@ class PanelNotebook(notebook.SmartNotebook, providers.ProviderHandler):
         del self.panels[provider.name]
 
     def on_panel_removed(self, notebook, page, pagenum):
-
         if self.loading_panels:
             return
 
@@ -187,7 +180,6 @@ class PanelNotebook(notebook.SmartNotebook, providers.ProviderHandler):
         self.save_panel_settings()
 
     def on_panel_reordered(self, notebook, page, pagenum):
-
         if self.loading_panels:
             return
 
@@ -211,7 +203,6 @@ class PanelNotebook(notebook.SmartNotebook, providers.ProviderHandler):
                 return
 
     def save_panel_settings(self):
-
         if self.loading_panels:
             return
 
@@ -219,7 +210,6 @@ class PanelNotebook(notebook.SmartNotebook, providers.ProviderHandler):
         settings.set_option('gui/panels', param)
 
     def on_gui_loaded(self):
-
         last_selected_panel = settings.get_option(
             'gui/last_selected_panel', 'collection'
         )
@@ -237,7 +227,6 @@ class PanelNotebook(notebook.SmartNotebook, providers.ProviderHandler):
         selected_panel = None
 
         for name, (shown, pos) in order.items():
-
             panel_data = self.panels.get(name, None)
             if panel_data is None:
                 continue
@@ -264,7 +253,6 @@ class PanelNotebook(notebook.SmartNotebook, providers.ProviderHandler):
 
 
 def _register_builtin_panels(exaile, window):
-
     from xlgui.panel import collection, radio, playlists, files
 
     logger.info("Loading panels...")

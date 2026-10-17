@@ -83,6 +83,9 @@ class TrackFader:
         stop_offset = track.get_tag_raw('__stopoffset') or 0
         tracklen = track.get_tag_raw('__length') or 0
 
+        if tracklen == 0:
+            return (None,) * 4
+
         if stop_offset < 1:
             stop_offset = tracklen
 
@@ -137,7 +140,6 @@ class TrackFader:
             return user_vol, is_same
 
     def fade_out_on_play(self):
-
         if self.fade_out_start is None:
             self.logger.debug("foop: no fade out defined, stopping")
             self.stream.stop()
@@ -195,7 +197,6 @@ class TrackFader:
         has_fade = fade_in is not None or fade_out is not None
 
         if is_update and has_fade:
-
             if self.state == FadeState.FadingOut:
                 # Don't cancel the current fade out
                 return
@@ -266,7 +267,6 @@ class TrackFader:
         self._cancel()
 
     def _next(self, now=None):
-
         self._cancel()
 
         if self.state == FadeState.NoFade:
@@ -313,7 +313,6 @@ class TrackFader:
             self.timer_id = None
 
     def _on_fade_start(self, now=None):
-
         if now is None:
             now = self.stream.get_position() / self.SECOND
 

@@ -36,7 +36,6 @@ import os
 import tarfile
 from optparse import OptionParser
 
-
 p = OptionParser()
 p.add_option(
     "-c",
@@ -70,7 +69,6 @@ _ = lambda x: x
 
 
 for dir in args:
-
     if not os.path.exists(dir):
         print("No such folder %s" % dir)
         break

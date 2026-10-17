@@ -1,16 +1,15 @@
 '''
-    Simple program that uses the 'bpmdetect' GStreamer plugin to detect
-    the BPM of a song, and outputs that to console.
+Simple program that uses the 'bpmdetect' GStreamer plugin to detect
+the BPM of a song, and outputs that to console.
 
-    Requires GStreamer 1.x, PyGObject 1.x, and gst-plugins-bad
+Requires GStreamer 1.x, PyGObject 1.x, and gst-plugins-bad
 
-    Copyright (C) 2015 Dustin Spicuzza
+Copyright (C) 2015 Dustin Spicuzza
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License version 2 as
-    published by the Free Software Foundation.
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 2 as
+published by the Free Software Foundation.
 '''
-
 
 import inspect
 import sys
@@ -34,7 +33,6 @@ def detect_bpm(uri, on_complete):
     bpm = [None]
 
     def _on_message(bus, msg):
-
         if msg.type == Gst.MessageType.TAG:
             tags = msg.parse_tag()
 
@@ -52,7 +50,6 @@ def detect_bpm(uri, on_complete):
                 bpm[0] = v
 
         elif msg.type == Gst.MessageType.ERROR:
-
             playbin.set_state(Gst.State.NULL)
 
             gerror, debug_info = msg.parse_error()
@@ -103,7 +100,6 @@ def detect_bpm(uri, on_complete):
 
 
 if __name__ == '__main__':
-
     Gst.init(None)
 
     if len(sys.argv) != 2:

@@ -30,9 +30,11 @@ from . import preferences
 
 import gi
 
-gi.require_version('WebKit2', '4.0')
+try:
+    gi.require_version('WebKit2', '4.1')
+except:
+    gi.require_version('WebKit2', '4.0')
 from gi.repository import WebKit2
-
 
 log = logging.getLogger(__name__)
 
@@ -55,7 +57,6 @@ LANGUAGES = ["ab", "aa", "af", "ak", "sq", "am", "ar", "an", "hy", "as", "av",
 
 
 class WikipediaPlugin:
-
     __exaile = None
     __wiki_panel = None
 
@@ -126,18 +127,17 @@ class BrowserPage(WebKit2.WebView):
 
         try:
             html = common.get_url_contents(url, self.__user_agent)
+            if not isinstance(html, str):
+                html = html.decode("utf-8")
         except urllib.error.URLError as e:
             log.error(e)
             log.error(
                 "Error occurred when trying to retrieve Wikipedia page "
                 "for %s." % artist
             )
-            html = (
-                """
+            html = """
                 <p style="color: red">No Wikipedia page found for <strong>%s</strong></p>
-                """
-                % artist
-            )
+                """ % artist
 
         GLib.idle_add(self.load_html, html, url)
 

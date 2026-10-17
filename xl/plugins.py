@@ -43,18 +43,16 @@ class InvalidPluginError(Exception):
         return str(self.args[0])
 
 
+class PluginExistsError(Exception):
+    def __str__(self):
+        return str(self.args[0])
+
+
 class PluginsManager:
     def __init__(self, exaile, load=True):
-        self.plugindirs = [os.path.join(p, 'plugins') for p in xdg.get_data_dirs()]
-        if xdg.local_hack:
-            self.plugindirs.insert(1, os.path.join(xdg.exaile_dir, 'plugins'))
+        self.user_installed_plugindir = xdg.get_user_plugin_dir()
+        """Dir for user installed plugins"""
 
-        try:
-            os.makedirs(self.plugindirs[0])
-        except Exception:
-            pass
-
-        self.plugindirs = [x for x in self.plugindirs if os.path.exists(x)]
         self.loaded_plugins = {}
 
         self.exaile = exaile
@@ -63,7 +61,7 @@ class PluginsManager:
         self.load = load
 
     def __findplugin(self, pluginname):
-        for plugin_dir in self.plugindirs:
+        for plugin_dir in xdg.get_plugin_dirs():
             path = os.path.join(plugin_dir, pluginname)
             if os.path.exists(path):
                 return path
@@ -82,7 +80,7 @@ class PluginsManager:
         )
         plugin = importlib.util.module_from_spec(spec)
         # We need to temporarily add the plugin to sys.modules because otherwise the loader will fail to exec_module() if the plugin uses relative imports.
-        if pluginname in sys.modules:
+        if pluginname in sys.modules and sys.modules[pluginname] != None:
             raise InvalidPluginError(
                 _('Plugin is already loaded or has a conflicting name.')
             )
@@ -95,25 +93,29 @@ class PluginsManager:
         self.loaded_plugins[pluginname] = plugin
         return plugin
 
-    def install_plugin(self, path):
+    def install_plugin(self, path, overwrite_existing: bool = False) -> str:
         try:
             tar = tarfile.open(path, "r:*")  # transparently supports gz, bz2
         except (tarfile.ReadError, OSError):
             raise InvalidPluginError(_('Plugin archive is not in the correct format.'))
 
-        # ensure the paths in the archive are sane
         mems = tar.getmembers()
         base = os.path.basename(path).split('.')[0]
-        if os.path.isdir(os.path.join(self.plugindirs[0], base)):
-            raise InvalidPluginError(
+
+        installed_plugins = self.list_installed_plugins()
+        if not overwrite_existing and base in installed_plugins:
+            raise PluginExistsError(
                 _('A plugin with the name "%s" is already installed.') % base
             )
 
+        # ensure the paths in the archive are sane
         for m in mems:
             if not m.name.startswith(base):
                 raise InvalidPluginError(_('Plugin archive contains an unsafe path.'))
 
-        tar.extractall(self.plugindirs[0])
+        tar.extractall(self.user_installed_plugindir)
+
+        return base
 
     def __on_new_plugin_loaded(self, eventname, exaile, maybe_name, fn):
         event.remove_callback(self.__on_new_plugin_loaded, eventname)
@@ -144,21 +146,26 @@ class PluginsManager:
             else:
                 plugin.on_exaile_loaded()
 
-    def uninstall_plugin(self, pluginname):
-        self.disable_plugin(pluginname)
-        for plugin_dir in self.plugindirs:
-            try:
-                shutil.rmtree(self.__findplugin(pluginname))
-                return True
-            except Exception:
-                pass
-        return False
+    def uninstall_plugin(self, pluginname: str) -> None:
+        if not self.is_user_installed(pluginname):
+            raise Exception("Cannot remove built-in plugins")
+        if pluginname in self.enabled_plugins:
+            self.disable_plugin(pluginname)
+        plugin_path = os.path.join(self.user_installed_plugindir, pluginname)
+        try:
+            shutil.rmtree(plugin_path)
+        except Exception as e:
+            raise e
 
-    def enable_plugin(self, pluginname):
+    def enable_plugin(self, pluginname, installation: bool = False):
         try:
             plugin = self.load_plugin(pluginname)
             if not plugin:
                 raise Exception("Error loading plugin")
+
+            if installation and hasattr(plugin, 'on_plugin_installed'):
+                plugin.on_plugin_installed()
+
             plugin.enable(self.exaile)
             if not inspect.ismodule(plugin):
                 self.__enable_new_plugin(plugin)
@@ -190,7 +197,7 @@ class PluginsManager:
 
     def list_installed_plugins(self):
         pluginlist = []
-        for directory in self.plugindirs:
+        for directory in xdg.get_plugin_dirs():
             if not os.path.exists(directory):
                 continue
             for name in os.listdir(directory):
@@ -209,6 +216,11 @@ class PluginsManager:
     def list_updateable_plugins(self):
         pass
 
+    def is_user_installed(self, pluginname: str) -> bool:
+        if os.path.isdir(os.path.join(self.user_installed_plugindir, pluginname)):
+            return True
+        return False
+
     def get_plugin_info(self, pluginname):
         path = os.path.join(self.__findplugin(pluginname), 'PLUGININFO')
         infodict = {}
@@ -216,7 +228,7 @@ class PluginsManager:
             for line in f:
                 try:
                     key, val = line.split("=", 1)
-                    # restricted eval - no bult-in funcs. marginally more secure.
+                    # restricted eval - no built-in funcs. marginally more secure.
                     infodict[key] = eval(val, {'__builtins__': None, '_': _}, {})
                 except ValueError:
                     pass  # this happens on blank lines
@@ -246,10 +258,24 @@ class PluginsManager:
 
         :param info: The data returned from get_plugin_info()
         """
-        import pkgutil
+        import gi
+
+        # https://github.com/exaile/exaile/issues/962
+        try:
+            gi.require_version('GIRepository', '3.0')
+            new_api = True
+        except ValueError:
+            gi.require_version('GIRepository', '2.0')
+            new_api = False
         from gi.repository import GIRepository
 
-        gir = GIRepository.Repository.get_default()
+        # The old API had `get_default` method to obtain global singleton
+        # object; it was removed in the new API, which requires creation
+        # of separate GIRepository instances.
+        if new_api:
+            gir = GIRepository.Repository()
+        else:
+            gir = GIRepository.Repository.get_default()
 
         modules = info.get('RequiredModules', [])
 
@@ -261,7 +287,7 @@ class PluginsManager:
                     if not gir.enumerate_versions(module):
                         return True
             else:
-                if not pkgutil.find_loader(module):
+                if not importlib.util.find_spec(module):
                     return True
 
         return False

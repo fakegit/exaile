@@ -24,15 +24,20 @@
 # do so. If you do not wish to do so, delete this exception statement
 # from your version.
 
-from gi.repository import Gdk
-from gi.repository import GdkPixbuf
-from gi.repository import Gio
-from gi.repository import GLib
-from gi.repository import GObject
-from gi.repository import Gtk
 import logging
-from gi.repository import Pango
 import os.path
+from threading import Thread
+from typing import Iterable, Optional, Union
+
+from gi.repository import (
+    Gdk,
+    GdkPixbuf,
+    Gio,
+    GLib,
+    GObject,
+    Gtk,
+    Pango,
+)
 
 from xl import metadata, providers, settings, xdg
 from xl.common import clamp
@@ -44,9 +49,8 @@ from xl.playlist import (
     PlaylistExportOptions,
 )
 from xl.nls import gettext as _
-
+from xlgui import guiutil
 from xlgui.guiutil import GtkTemplate
-from threading import Thread
 
 logger = logging.getLogger(__name__)
 
@@ -199,11 +203,13 @@ class MultiTextEntryDialog(Gtk.Dialog):
 
         self.fields = []
 
-    def add_field(self, label):
+    def add_field(self, label: str, value: str = None, tooltip: str = None):
         """
         Adds a field and corresponding label
 
         :param label: the label to display
+        :param value: the text in entry field
+        :param tooltip: a tooltip to show
         :returns: the newly created entry
         :rtype: :class:`Gtk.Entry`
         """
@@ -217,6 +223,16 @@ class MultiTextEntryDialog(Gtk.Dialog):
         entry.set_width_chars(30)
         entry.set_icon_activatable(Gtk.EntryIconPosition.SECONDARY, False)
         entry.connect('activate', lambda *e: self.response(Gtk.ResponseType.OK))
+
+        if value is not None:
+            entry.set_text(value)
+
+        if tooltip is not None:
+            entry.set_icon_from_icon_name(
+                Gtk.EntryIconPosition.SECONDARY, 'dialog-information'
+            )
+            entry.set_icon_tooltip_text(Gtk.EntryIconPosition.SECONDARY, tooltip)
+
         self.__entry_area.attach(entry, 1, line_number, 1, 1)
         label.show()
         entry.show()
@@ -487,7 +503,7 @@ class ListDialog(Gtk.Dialog):
         check = self.selection.get_selected_rows()
         if not check:
             return None
-        (model, paths) = check
+        model, paths = check
 
         for path in paths:
             iter = self.model.get_iter(path)
@@ -587,7 +603,7 @@ class ListBox:
         Returns the selection
         """
         selection = self.list.get_selection()
-        (model, iter) = selection.get_selected()
+        model, iter = selection.get_selected()
         if not iter:
             return None
         return model.get_value(iter, 0)
@@ -596,17 +612,17 @@ class ListBox:
 class FileOperationDialog(Gtk.FileChooserDialog):
     """
     An extension of the Gtk.FileChooserDialog that
-    adds a collapsable panel to the bottom listing
+    adds a collapsible panel to the bottom listing
     valid file extensions that the file can be
     saved in. (similar to the one in GIMP)
     """
 
     def __init__(
         self,
-        title=None,
-        parent=None,
-        action=Gtk.FileChooserAction.OPEN,
-        buttons=None,
+        title: str = None,
+        parent: Optional[Gtk.Window] = None,
+        action: Gtk.FileChooserAction = Gtk.FileChooserAction.OPEN,
+        buttons: Optional[Iterable[Union[str, int]]] = None,
         backend=None,
     ):
         """
@@ -624,7 +640,7 @@ class FileOperationDialog(Gtk.FileChooserDialog):
 
         # Create the list that will hold the file type/extensions pair
         self.liststore = Gtk.ListStore(str, str)
-        self.list = Gtk.TreeView(self.liststore)
+        self.list = Gtk.TreeView(model=self.liststore)
         self.list.set_headers_visible(False)
 
         # Create the columns
@@ -798,20 +814,19 @@ class DirectoryOpenDialog(Gtk.FileChooserDialog):
     _last_location = None
 
     def __init__(
-        self, parent=None, title=_('Choose Directory to Open'), select_multiple=True
+        self,
+        parent: Optional[Gtk.Window] = None,
+        title: str = _('Choose Directory to Open'),
+        select_multiple: bool = True,
     ):
-        Gtk.FileChooserDialog.__init__(
-            self,
-            title,
-            parent=parent,
-            buttons=(
-                Gtk.STOCK_CANCEL,
-                Gtk.ResponseType.CANCEL,
-                Gtk.STOCK_OPEN,
-                Gtk.ResponseType.OK,
-            ),
-        )
+        Gtk.FileChooserDialog.__init__(self, title=title, transient_for=parent)
 
+        self.add_buttons(
+            Gtk.STOCK_CANCEL,
+            Gtk.ResponseType.CANCEL,
+            Gtk.STOCK_OPEN,
+            Gtk.ResponseType.OK,
+        )
         self.set_position(Gtk.WindowPosition.CENTER_ON_PARENT)
         self.set_action(Gtk.FileChooserAction.SELECT_FOLDER)
         self.set_local_only(False)
@@ -1067,13 +1082,13 @@ class PlaylistExportDialog(FileOperationDialog):
             except InvalidPlaylistTypeError as e:
                 self.emit('message', Gtk.MessageType.ERROR, str(e))
             else:
+                gio = Gio.File.new_for_uri(path)
+                path = gio.get_path()
                 self.emit(
                     'message',
                     Gtk.MessageType.INFO,
                     _('Playlist saved as <b>%s</b>.') % path,
                 )
-
-        # self.destroy()
 
 
 class ConfirmCloseDialog(Gtk.MessageDialog):
@@ -1475,7 +1490,6 @@ class XMessageDialog(Gtk.Dialog):
         show_no_all=True,
         show_cancel=True,
     ):
-
         Gtk.Dialog.__init__(self, title=title, transient_for=parent)
 
         #
@@ -1550,7 +1564,6 @@ class FileCopyDialog(Gtk.Dialog):
         text=_("Saved %(count)s of %(total)s."),
         parent=None,
     ):
-
         self.file_uris = file_uris
         self.destination_uri = destination_uri
         self.is_copying = False
@@ -1609,7 +1622,6 @@ class FileCopyDialog(Gtk.Dialog):
         self._label.set_markup(self.text % {'count': self.count, 'total': self.total})
 
     def _start_next_copy(self, overwrite=False):
-
         if self.count == len(self.file_uris):
             self.response(Gtk.ResponseType.OK)
             return
@@ -1631,7 +1643,6 @@ class FileCopyDialog(Gtk.Dialog):
                     self.overwrite_response == XRESPONSE_NO_ALL
                     or self.overwrite_response == XRESPONSE_NO
                 ):
-
                     # only deny the overwrite once..
                     if self.overwrite_response == XRESPONSE_NO:
                         self.overwrite_response = None
@@ -1678,7 +1689,6 @@ class FileCopyDialog(Gtk.Dialog):
             self._start_next_copy()
 
     def _finish_single_copy_async(self, source, async_result):
-
         try:
             if source.copy_finish(async_result):
                 self._step()
@@ -1693,7 +1703,6 @@ class FileCopyDialog(Gtk.Dialog):
             )
 
     def _query_overwrite(self):
-
         self.hide()
 
         text = _('File exists, overwrite %s ?') % GLib.markup_escape_text(
@@ -1721,7 +1730,6 @@ class FileCopyDialog(Gtk.Dialog):
             self._start_next_copy(overwrite)
 
     def _on_error(self, message):
-
         self.hide()
 
         dialog = Gtk.MessageDialog(
@@ -1752,7 +1760,6 @@ def ask_for_playlist_name(parent, playlist_manager, name=None):
     """
 
     while True:
-
         dialog = TextEntryDialog(
             _('Playlist name:'),
             _('Add new playlist...'),
@@ -1857,3 +1864,27 @@ def export_playlist_files(playlist, parent=None):
     dialog.connect('uris-selected', lambda widget, uris: _on_uri(uris[0]))
     dialog.run()
     dialog.destroy()
+
+
+class UpdateInfoDialog:
+    def __init__(self, parent=None):
+        self.builder = guiutil.get_builder(
+            xdg.get_data_path('ui', 'widgets', 'info_dialog.ui')
+        )
+        self.builder.connect_signals(self)
+
+        self.window = self.builder.get_object('info_dialog')
+        self.window.set_transient_for(parent)
+        self.window.set_position(Gtk.WindowPosition.CENTER_ON_PARENT)
+        self.window.show_all()
+
+        self.dont_show_again = self.builder.get_object('dont_show_again')
+
+    def on_close_button_clicked(self, widget):
+        self.window.destroy()
+
+    def on_window_destroy(self, widget):
+        if self.dont_show_again.get_active():
+            settings.set_option('general/hide_413_dialog', True)
+        else:
+            settings.set_option('general/hide_413_dialog', False)

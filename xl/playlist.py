@@ -39,6 +39,7 @@ import os
 import pickle
 import random
 import re
+import sys
 import time
 from typing import NamedTuple
 import urllib.parse
@@ -88,14 +89,13 @@ def encode_filename(filename: str) -> str:
     return filename
 
 
-def is_valid_playlist(path):
+def is_valid_playlist(path: str) -> bool:
     """
     Returns whether the file at a given path is a valid
     playlist. Checks for content type and falls back to
     file extension if unknown.
 
     :param path: the source path
-    :type path: string
     """
     content_type = Gio.content_type_guess(path)[0]
 
@@ -113,15 +113,13 @@ def is_valid_playlist(path):
     return False
 
 
-def import_playlist(path):
+def import_playlist(path: str) -> 'Playlist':
     """
     Determines the type of playlist and creates
     a playlist from it
 
     :param path: the source path
-    :type path: string
     :returns: the playlist
-    :rtype: :class:`Playlist`
     """
     # First try the cheap Gio way
     content_type = Gio.content_type_guess(path)[0]
@@ -153,7 +151,7 @@ def import_playlist(path):
     raise InvalidPlaylistTypeError(_('Invalid playlist type.'))
 
 
-def export_playlist(playlist, path, options=None):
+def export_playlist(playlist, path: str, options=None) -> None:
     """
     Exact same as @see import_playlist except
     it exports
@@ -256,7 +254,6 @@ class FormatConverter:
         if track_uri.startswith('file:///') and not Gio.File.new_for_uri(
             track_uri
         ).query_exists(None):
-
             if not playlist_uri.startswith('file:///'):
                 logging.debug('Track does not seem to exist, using original path')
             else:
@@ -290,44 +287,64 @@ class FormatConverter:
         return track_uri
 
     def get_track_export_path(
-        self, playlist_path: str, track_path: str, options: PlaylistExportOptions
+        self, playlist_uri: str, track_uri: str, options: PlaylistExportOptions
     ):
         """
         Retrieves the export path of a track,
         possibly influenced by options
 
-        :param playlist_path: the export path of the playlist
-        :param track_path: the path of the track
+        :param playlist_uri: the export path of the playlist
+        :param track_uri: the path of the track
         :param options: options
         """
-        if options is not None and options.relative:
-            playlist_file = Gio.File.new_for_uri(playlist_path)
-            # Strip playlist filename from export path
-            export_path = playlist_file.get_parent().get_uri()
 
+        track_uri_components = urllib.parse.urlparse(track_uri)
+        export_uri_components = urllib.parse.urlparse(playlist_uri)
+
+        if (
+            export_uri_components.scheme != track_uri_components.scheme
+            or export_uri_components.netloc != track_uri_components.netloc
+        ):
+            # save files to playlist on different location
+            # return track path as is
+            if track_uri_components.scheme == 'file':
+                # as path if local file
+                return Gio.File.new_for_uri(track_uri).get_path()
+            return track_uri
+
+        if options is None or not options.relative:
+            # return absolute uri
+            if track_uri_components.scheme == 'file':
+                # as path if local file
+                return Gio.File.new_for_uri(track_uri).get_path()
+            return track_uri
+
+        # calculate relative path
+        track_uri = Gio.File.new_for_uri(track_uri)
+        playlist_file_folder = Gio.File.new_for_uri(playlist_uri).get_parent()
+
+        if track_uri_components.scheme == 'file':
+            # return path
+            # on Windows relpath raises a ValueError if track and playlist are not on same drive
             try:
-                export_path_components = urllib.parse.urlparse(export_path)
-                track_path_components = urllib.parse.urlparse(track_path)
-            except (AttributeError, ValueError):  # None, empty path
-                pass
-            else:
-                # Only try to retrieve relative paths for tracks with
-                # the same URI scheme and location as the playlist
-                if (
-                    export_path_components.scheme == track_path_components.scheme
-                    and export_path_components.netloc == track_path_components.netloc
-                ):
-                    # Gio.File.get_relative_path does not generate relative paths
-                    # for tracks located above the playlist in the path hierarchy,
-                    # thus process both paths as done here
-                    track_path = os.path.relpath(
-                        track_path_components.path, export_path_components.path
-                    )
+                track_uri = os.path.relpath(
+                    track_uri.get_path(), playlist_file_folder.get_path()
+                )
+                # Ensure '\' is always used as separator on Windows.
+                if sys.platform == 'win32' and os.sep == '/':
+                    track_uri = track_uri.replace(os.sep, '\\')
+            except ValueError:
+                return track_uri.get_path()
+            return track_uri
 
-        # if the file is local, other players like VLC will not
-        # accept the playlist if they have %20 in them, so we must convert
-        # it to something else
-        return urllib.request.url2pathname(track_path)
+        try:
+            track_uri = os.path.relpath(
+                track_uri.get_uri(), playlist_file_folder.get_uri()
+            )
+        except ValueError:
+            return track_uri.get_uri()
+
+        return track_uri
 
 
 class M3UConverter(FormatConverter):
@@ -408,7 +425,7 @@ class M3UConverter(FormatConverter):
                     parts = extinf_line.split(',', 1)
                     length = 0
 
-                    if len(parts) > 1 and int(parts[0]) > 0:
+                    if len(parts) > 1 and float(parts[0]) > 0:
                         length = int(float(parts[0]))
 
                     extinf['__length'] = length
@@ -516,14 +533,13 @@ class PLSConverter(FormatConverter):
 
         try:
             with GioFileInputStream(gfile) as stream:
-                pls_playlist.readfp(stream)
+                pls_playlist.read_file(stream)
         except MissingSectionHeaderError:
             # Most likely version 1, thus only a list of URIs
             playlist = Playlist(self.name_from_path(path))
 
             with GioFileInputStream(gfile) as stream:
                 for line in stream:
-
                     line = line.strip()
 
                     if not line:
@@ -949,17 +965,26 @@ class Playlist:
         self.__dynamic_mode = self.dynamic_modes[0]
 
         # dirty: any change that would alter the on-disk
-        #   representation should set this
+        #   Representation should set this.
         # needs_save: changes to list content should set this.
         #   Determines when the 'unsaved' indicator is shown to the user.
+        # next_data: cached info to determine next track.
+        #   None or a tuple of (spat, index, next):
+        #     spat: <bool> (is SPAT activated on the current track?)
+        #     index: <int> index in self.__tracks or None
+        #     next: <xl.trax.Track> or None
+        # current_position: <int> index in self.__tracks or -1 if no track
+        # spat_position: <int> index in self.__tracks or -1 if no SPAT set
+        # shuffle_history_counter: <int> count of tracks queued in shuffle mode
+        #   Start positive so we can just do an if directly on the value.
         self.__dirty = False
         self.__needs_save = False
         self.__name = name
         self.__next_data = None
         self.__current_position = -1
         self.__spat_position = -1
-        self.__shuffle_history_counter = 1  # start positive so we can
-        # just do an if directly on the value
+        self.__shuffle_history_counter = 1
+
         event.add_callback(self.on_playback_track_start, "playback_track_start")
 
     ### playlist-specific API ###
@@ -1155,24 +1180,23 @@ class Playlist:
                 return -1, None
 
     def __get_next(self, current_position):
-
         # don't recalculate
         if self.__next_data is not None:
             return self.__next_data[2]
 
         repeat_mode = self.repeat_mode
         shuffle_mode = self.shuffle_mode
-        if current_position == self.spat_position and current_position != -1:
-            self.__next_data = (-1, None, None)
-            return None
+        next_index = -1
+        spat = (
+            True
+            if current_position == self.spat_position and current_position != -1
+            else False
+        )
 
         if repeat_mode == 'track':
-            self.__next_data = (None, None, self.current)
-            return self.current
-
-        next_index = -1
-
-        if shuffle_mode != 'disabled':
+            next_index = None
+            next = self.current
+        elif shuffle_mode != 'disabled':
             if current_position != -1:
                 self.__tracks.set_meta_key(
                     current_position,
@@ -1181,9 +1205,7 @@ class Playlist:
                 )
                 self.__shuffle_history_counter += 1
             next_index, next = self.__next_random_track(current_position, shuffle_mode)
-            if next is not None:
-                self.__next_data = (None, next_index)
-            else:
+            if next is None:
                 self.clear_shuffle_history()
         else:
             try:
@@ -1200,7 +1222,7 @@ class Playlist:
                 if len(self) > 1:
                     return self.__get_next(-1)
 
-        self.__next_data = (None, next_index, next)
+        self.__next_data = (spat, next_index, next)
         return next
 
     def get_next(self):
@@ -1231,16 +1253,16 @@ class Playlist:
 
         spat, index, next = self.__next_data
 
-        if spat is not None:
-            self.spat_position = -1
-            return None
-        elif index is not None:
+        if index is not None:
             try:
                 self.current_position = index
             except IndexError:
                 self.current_position = -1
         else:
             self.__next_data = None
+        if spat:
+            self.spat_position = -1
+            return None
 
         return self.current
 
@@ -1525,7 +1547,7 @@ class Playlist:
             track = None
             track = trax.Track(uri=loc)
 
-            # readd meta
+            # re-add meta
             if not track:
                 continue
             if not track.is_local() and meta is not None:
@@ -1566,7 +1588,7 @@ class Playlist:
         """
         Get (start, end, step) tuple from slice object.
         """
-        (start, end, step) = i.indices(len(self))
+        start, end, step = i.indices(len(self))
         if i.step is None:
             step = 1
         return (start, end, step)
@@ -1595,7 +1617,7 @@ class Playlist:
                 if not isinstance(x, trax.Track):
                     raise ValueError("Need trax.Track object, got %r" % type(x))
 
-            (start, end, step) = self.__tuple_from_slice(i)
+            start, end, step = self.__tuple_from_slice(i)
 
             if isinstance(value, MetadataList):
                 metadata = value.metadata
@@ -1632,7 +1654,7 @@ class Playlist:
 
     def __delitem__(self, i):
         if isinstance(i, slice):
-            (start, end, step) = self.__tuple_from_slice(i)
+            start, end, step = self.__tuple_from_slice(i)
         oldtracks = self.__getitem__(i)
         oldpos = self.current_position
         self.__tracks.__delitem__(i)
@@ -1704,7 +1726,6 @@ class Playlist:
         return item
 
     def on_playback_track_start(self, event_type, player, track):
-
         if player.queue is not None and player.queue.current_playlist == self:
             if self.dynamic_mode != 'disabled':
                 self.__fetch_dynamic_tracks()
@@ -1872,7 +1893,7 @@ class SmartPlaylist:
 
     def remove_param(self, index):
         """
-        Removes a parameter at the speficied index
+        Removes a parameter at the specified index
 
         index:  the index of the parameter to remove
         """
@@ -1889,7 +1910,7 @@ class SmartPlaylist:
         pl = Playlist(name=self.name)
         if not collection:
             collection = self.collection
-        if not collection:  # if there wasnt one set we might not have one
+        if not collection:  # if there wasn't one set we might not have one
             return pl
 
         search_string, matchers = self._create_search_data(collection)
@@ -1939,7 +1960,7 @@ class SmartPlaylist:
             if isinstance(param, str):
                 params += [param]
                 continue
-            (field, op, value) = param
+            field, op, value = param
             fieldtype = tag_data.get(field)
             if fieldtype is not None:
                 fieldtype = fieldtype.type
@@ -2144,7 +2165,7 @@ class PlaylistManager:
         # collect the names of all playlists in playlist_dir
         existing = []
         for f in os.listdir(self.playlist_dir):
-            # everything except the order file shold be a playlist, but
+            # everything except the order file should be a playlist, but
             # check against hidden files since some editors put
             # temporary stuff in the same dir.
             if f != os.path.basename(self.order_file) and not f.startswith("."):

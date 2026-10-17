@@ -25,7 +25,7 @@
 # from your version.
 
 
-import os
+import os, logging
 from typing import Optional
 import urllib.parse
 
@@ -34,9 +34,11 @@ from gi.repository import Gio
 from xl.metadata._base import BaseFormat, CoverImage, NotWritable, NotReadable
 
 from xl.metadata import (
+    aac,
     aiff,
     ape,
     asf,
+    au,
     flac,
     mka,
     mod,
@@ -51,11 +53,13 @@ from xl.metadata import (
     wv,
 )
 
+logger = logging.getLogger(__name__)
+
 #: dictionary mapping extensions to Format classes.
 formats = {
     # fmt: off
     '669'   : mod.ModFormat,
-    'aac'   : mp4.MP4Format,
+    'aac'   : [mp4.MP4Format, aac.AACFormat],
     'ac3'   : None,
     'aif'   : aiff.AIFFFormat,
     'aifc'  : aiff.AIFFFormat,
@@ -63,7 +67,7 @@ formats = {
     'ape'   : ape.MonkeysFormat,
     'amf'   : mod.ModFormat,
     'asf'   : asf.AsfFormat,
-    'au'    : wav.WavFormat,
+    'au'    : au.AuFormat,
     'dsm'   : mod.ModFormat,
     'far'   : mod.ModFormat,
     'flac'  : flac.FlacFormat,
@@ -96,6 +100,7 @@ formats = {
     'tta'   : tta.TTAFormat,
     'ult'   : mod.ModFormat,
     'wav'   : wav.WavFormat,
+    'webm'  : None,
     'wma'   : asf.AsfFormat,
     'wv'    : wv.WavpackFormat,
     'xm'    : mod.ModFormat,
@@ -134,9 +139,20 @@ def get_format(loc: str) -> Optional[BaseFormat]:
     if formatclass is None:
         formatclass = DummyFormat
 
+    # Some file types can be more than one format
+    # So check each possible format
+    if type(formatclass) is list:
+        for klass in formatclass:
+            try:
+                return klass(loc)
+            except:
+                continue
+        return None
+
     try:
         return formatclass(loc)
     except NotReadable:
+        logger.info("Unable to read file: %r", loc)
         return None
 
 

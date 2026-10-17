@@ -59,7 +59,6 @@ from gi.repository import Pango
 
 import IPython
 
-
 IPYTHON_VERSION = int(IPython.__version__.split('.', 1)[0])
 
 
@@ -221,7 +220,7 @@ class IterableIPShell:
         else:
             if self.no_input_splitter:
                 self.lines.append(line)
-                (status, self.indent_spaces) = self.IP.check_complete(
+                status, self.indent_spaces = self.IP.check_complete(
                     '\n'.join(self.lines)
                 )
                 self.iter_more = status == 'incomplete'
@@ -290,7 +289,7 @@ class IterableIPShell:
 
     def _getHistory(self):
         """
-        Get's the command string of the current history level.
+        Gets the command string of the current history level.
 
         @return: Historic command string.
         @rtype: string
@@ -652,7 +651,7 @@ class IPythonView(ConsoleView, IterableIPShell):
 
     def raw_input(self, prompt=''):
         """
-        Custom raw_input() replacement. Get's current line from console buffer.
+        Custom raw_input() replacement. Gets current line from console buffer.
 
         @param prompt: Prompt to print. Here for compatibility as replacement.
         @type prompt: string

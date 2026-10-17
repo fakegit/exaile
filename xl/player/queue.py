@@ -58,6 +58,7 @@ class PlayQueue(playlist.Playlist):
 
         self.__queue_has_tracks_val = False
         self.__current_playlist = self  # this should never be None
+        self.last_playlist = None
         self.player = player
 
         # hack for making docs work
@@ -70,17 +71,42 @@ class PlayQueue(playlist.Playlist):
         event.add_callback(self._on_option_set, '%s_option_set' % name)
 
         self.__opt_remove_item_when_played = '%s/remove_item_when_played' % name
+        self.__opt_remove_item_after_played = '%s/remove_item_after_played' % name
         self.__opt_disable_new_track_when_playing = (
             '%s/disable_new_track_when_playing' % name
         )
         self.__opt_enqueue_begins_playback = '%s/enqueue_begins_playback' % name
 
         self._on_option_set(None, settings, self.__opt_remove_item_when_played)
+        self._on_option_set(None, settings, self.__opt_remove_item_after_played)
         self._on_option_set(None, settings, self.__opt_disable_new_track_when_playing)
 
     def _on_option_set(self, evtype, settings, option):
-        if option == self.__opt_remove_item_when_played:
-            self.__remove_item_on_playback = settings.get_option(option, True)
+        if option in (
+            self.__opt_remove_item_when_played,
+            self.__opt_remove_item_after_played,
+        ):
+            # The remove_item_when_played and remove_item_after_played options are
+            # related to each other, but we're going to store them here as
+            # __remove_item_before_playback and __remove_item_after_playback so
+            # that you don't have to check both options
+
+            when_played = settings.get_option(self.__opt_remove_item_when_played, True)
+            after_played = settings.get_option(
+                self.__opt_remove_item_after_played, False
+            )
+
+            before_played = False
+            if when_played:
+                if not after_played:
+                    before_played = True
+            else:
+                after_played = False
+
+            self.__remove_item_before_playback = before_played
+            self.__remove_item_after_playback = after_played
+            self.__queue_removes_items = before_played or after_played
+
             if len(self):
                 self.__queue_has_tracks = True
         elif option == self.__opt_disable_new_track_when_playing:
@@ -125,13 +151,33 @@ class PlayQueue(playlist.Playlist):
         :returns: the next track to be played
         :rtype: :class:`xl.trax.Track` or None
         """
-        if self.__queue_has_tracks and len(self):
-            if self.__remove_item_on_playback:
-                return self[0]
+
+        if self.__queue_has_tracks:
+            if self.__remove_item_before_playback:
+                # item was previously removed, so always point at the head
+                if len(self):
+                    return self[0]
+            elif self.__remove_item_after_playback:
+                # special case: this function isn't supposed to adjust the position but
+                # if this is the last track then we won't be called again, so just
+                # remove it now instead of removing it in next()
+                if len(self) == 1:
+                    self.pop(0)
+                elif len(self) > 1:
+                    # if item is the head, return next, otherwise return the head
+                    if self.current_position == 0:
+                        return self[1]
+                    else:
+                        return self[0]
             else:
-                return playlist.Playlist.get_next(self)
-        elif self.current_playlist is not self:
+                # if queue isn't removing items, it's just a normal playlist
+                next = playlist.Playlist.get_next(self)
+                if next is not None:
+                    return next
+        if self.current_playlist is not self:
             return self.current_playlist.get_next()
+        elif self.last_playlist is not None:
+            return self.last_playlist.get_next()
         else:
             return None
 
@@ -151,17 +197,35 @@ class PlayQueue(playlist.Playlist):
         """
         if track is None:
             if self.__queue_has_tracks:
-                if not self.__remove_item_on_playback:
-                    track = super().next()
-                else:
+                if self.__remove_item_before_playback:
+                    # next track is always the head
                     try:
                         track = self.pop(0)
+                        self.current_position = 0
                     except IndexError:
                         pass
+                elif self.__remove_item_after_playback:
+                    # next track is always the head
+                    current_position = self.current_position
+                    if current_position != -1:
+                        self.pop(current_position)
+                        self.current_position = -1
+                    if len(self):
+                        track = self[0]
+                        self.current_position = 0
+                else:
+                    # next track is always normal playlist behavior
+                    track = super().next()
 
-                # reached the end of the internal queue, don't repeat
+                # reached the end of the internal queue, don't repeat and switch back to last playlist
                 if track is None:
                     self.__queue_has_tracks = False
+                    self.current_playlist = self.last_playlist
+                else:
+                    # otherwise set current playlist to queue and store last playlist
+                    if self.current_playlist is not self:
+                        self.last_playlist = self.current_playlist
+                    self.current_playlist = self
 
             if track is None and self.current_playlist is not self:
                 track = self.current_playlist.next()
@@ -180,7 +244,7 @@ class PlayQueue(playlist.Playlist):
         track = None
         if self.player.current:
             if self.player.get_time() < 5:
-                if self.__queue_has_tracks and not self.__remove_item_on_playback:
+                if self.__queue_has_tracks and not self.__queue_removes_items:
                     position = self.current_position - 1
                     if position < 0:
                         position = 0 if len(self) else -1
@@ -212,16 +276,6 @@ class PlayQueue(playlist.Playlist):
                 current = self.current_playlist.get_current()
         return current
 
-    def get_current_position(self):
-        if self.__remove_item_on_playback:
-            return 0
-        else:
-            return playlist.Playlist.get_current_position(self)
-
-    def set_current_position(self, position):
-        if not self.__remove_item_on_playback:
-            return playlist.Playlist.set_current_position(self, position)
-
     def is_play_enabled(self):
         ''':returns: True when calling play() will have no effect'''
         return not (self.player.is_playing() and self.__disable_new_track_when_playing)
@@ -241,7 +295,7 @@ class PlayQueue(playlist.Playlist):
             track = self.current
         if track:
             self.player.play(track)
-            if self.__remove_item_on_playback:
+            if self.__remove_item_before_playback:
                 try:
                     del self[self.index(track)]
                 except ValueError:
@@ -254,7 +308,7 @@ class PlayQueue(playlist.Playlist):
         Returns the number of tracks left to play in the queue's
         internal playlist.
         """
-        if self.__remove_item_on_playback:
+        if self.__remove_item_before_playback:
             return len(self)
         else:
             if not self.__queue_has_tracks:
@@ -330,9 +384,7 @@ class PlayQueue(playlist.Playlist):
 
     @common.idle_add()
     def _do_restore_player_state(self, state):
-
         if state['state'] in ['playing', 'paused']:
-
             start_at = None
             if state['position'] is not None:
                 start_at = state['position']
@@ -341,4 +393,6 @@ class PlayQueue(playlist.Playlist):
                 "%s/resume_paused" % self.player._name, False
             )
 
-            self.player.play(self.get_current(), start_at=start_at, paused=paused)
+            self.player.play(
+                self.current_playlist.get_current(), start_at=start_at, paused=paused
+            )

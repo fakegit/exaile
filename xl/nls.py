@@ -26,8 +26,8 @@
 # from your version.
 
 """
-    This is the Native Language Support module.  It basically allows us to
-    code in a gettext fashion without a hard depend on gettext itself.
+This is the Native Language Support module.  It basically allows us to
+code in a gettext fashion without a hard depend on gettext itself.
 """
 
 import locale
@@ -50,6 +50,12 @@ def _get_locale_path() -> Optional[str]:
     locale_path = os.path.join(exaile_path, 'build', 'locale')
     if os.path.exists(locale_path):  # Equivalent to xl.xdg.local_hack
         return locale_path
+
+    # Check if running windows installation
+    if sys.platform == 'win32':
+        locale_path = os.path.join(exaile_path, 'share', 'locale')
+        if os.path.exists(locale_path):  # Equivalent to xl.xdg.local_hack
+            return locale_path
 
     # Check if installed
     lib_suffix = os.path.join('lib', 'exaile')

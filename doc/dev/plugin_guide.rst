@@ -1,7 +1,7 @@
 Plugin Development Guide
 ========================
 
-.. note:: these instructions always track current Exaile trunk, and may not
+.. note:: These instructions always track current Exaile trunk, and may not
           be fully compatible with stable releases.  It is recommended that
           you develop plugins against trunk, so that you can submit patches
           to trunk if need be during the creation of your plugin, and so
@@ -11,7 +11,7 @@ Style
 -----
 
 If you plan to submit your plugin for inclusion in Exaile, please read and
-follow the guidelines in the :ref:`code_guidelines`
+follow the guidelines in the :ref:`code_guidelines`.
 
 Basic plugin structure
 ----------------------
@@ -401,7 +401,7 @@ of trying to explain it:
     settings.set_option('plugin/pluginname/settingname', setting_value)
     
     #to get a setting
-    default_value = 'If the setting doesnt exist, I am the default value.'
+    default_value = 'If the setting doesn't exist, I am the default value.'
     retrieved_setting = settings.get_option('plugin/pluginname/settingname', default_value)
 
 That's all there is to it. There is a few restrictions as to the
@@ -410,7 +410,7 @@ datatypes you can save as settings, see ``xl/settings.py`` for more details.
 Searching the collection
 -------------------------
 
-The following method returns an list of similiar tracks to the current
+The following method returns an list of similar tracks to the current
 playing track:
 
 .. code-block:: python

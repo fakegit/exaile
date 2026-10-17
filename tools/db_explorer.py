@@ -35,14 +35,18 @@ import bsddb3 as bsddb
 import click
 
 
-class Utf8Unpickler(pickle.Unpickler):
+class Unpickler(pickle.Unpickler):
     def __init__(self, *args, **kwargs):
+        # For compatibility with Python 2 shelves
         kwargs['encoding'] = 'utf-8'
         super().__init__(*args, **kwargs)
 
+    # https://docs.python.org/3/library/pickle.html#restricting-globals
+    def find_class(self, module: str, name: str):
+        raise pickle.UnpicklingError(f"Tried to import {module}.{name}")
 
-# For compatibility with Python 2 shelves
-shelve.Unpickler = Utf8Unpickler
+
+shelve.Unpickler = Unpickler
 
 exaile_db = os.path.join(os.path.expanduser('~'), '.local', 'share', 'exaile',
                          'music.db')
@@ -57,7 +61,7 @@ def tracks(data):
 
 
 @click.group()
-@click.option('--db', default=exaile_db)
+@click.option('--db', default=exaile_db, help=f"Custom database path.")
 @click.pass_context
 def cli(ctx, db):
     '''
@@ -102,9 +106,6 @@ def cvtdb(ctx, data, dbtype):
     elif dbtype == 'dbm':
         import dbm.ndbm
         new_d = dbm.ndbm.open(newdb, 'n')
-    elif dbtype == 'dbhash':
-        import dbm.bsd
-        new_d = dbm.bsd.open(newdb, 'n')
     elif dbtype == 'bsddb':
         new_d = bsddb.hashopen(newdb, 'n')
     elif dbtype == 'dumbdbm':
@@ -145,11 +146,18 @@ def info(ctx, data):
     '''
         Display summary information about the DB
     '''
-    print('DB Type:', whichdb(ctx.parent.params['db']))
-    print('Version:', data.get('_dbversion'))
-    print('Name   :', data.get('name'))
-    print('Key    :', data.get('_key'))
-    print("Count  :", len(data))
+    meta = sorted(k for k in data if not k.startswith('tracks-'))
+    info_kv = [
+        ('DB Type', whichdb(ctx.parent.params['db'])),
+        ('Meta', meta),
+        ('Version', data.get('_dbversion')),
+        ('Name', data.get('name')),
+        ('Tracks', len(data) - len(meta)),
+        ('Next Key', data.get('_key')),
+    ]
+    k_len = max(len(k) for k, _ in info_kv)
+    for k, v in info_kv:
+        print(f'{k:{k_len}}: {v!r}')
     print()
     print('Location(s):')
     pprint.pprint(data.get('_serial_libraries'))
@@ -157,7 +165,7 @@ def info(ctx, data):
 
 @cli.command()
 @click.argument('search')
-@click.option('-t', '--tag', default='title')
+@click.option('-t', '--tag', default='title', help="Tag to search (default: title).")
 @click.pass_obj
 def search(data, tag, search):
     '''
@@ -201,7 +209,7 @@ def _print_tr(tr, raw):
 
 @cli.command('track-by-idx')
 @click.argument('idx')
-@click.option('--raw/--no-raw', default=False)
+@click.option('--raw/--no-raw', default=False, help="Show raw Unix timestamps.")
 @click.pass_obj
 def track_by_idx(data, idx, raw):
     '''

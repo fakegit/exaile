@@ -54,7 +54,6 @@ from xlgui.widgets import menu, menuitems
 
 
 def __create_track_panel_menus():
-
     items = []
 
     items.append(menuitems.EnqueueMenuItem('enqueue', after=['top-sep']))
@@ -86,12 +85,12 @@ class TrackPanelMenu(menu.ProviderMenu):
 
     def get_context(self):
         context = common.LazyDict(self._parent)
-        context[
-            'selected-tracks'
-        ] = lambda name, parent: parent.tree.get_selected_tracks()
-        context[
-            'selection-empty'
-        ] = lambda name, parent: parent.tree.get_selection_empty()
+        context['selected-tracks'] = (
+            lambda name, parent: parent.tree.get_selected_tracks()
+        )
+        context['selection-empty'] = (
+            lambda name, parent: parent.tree.get_selection_empty()
+        )
         return context
 
 
@@ -136,12 +135,12 @@ class CollectionContextMenu(menu.MultiProviderMenu):
 
     def get_context(self):
         context = common.LazyDict(self._parent)
-        context[
-            'selected-tracks'
-        ] = lambda name, parent: parent.tree.get_selected_tracks()
-        context[
-            'selection-empty'
-        ] = lambda name, parent: parent.tree.get_selection_empty()
+        context['selected-tracks'] = (
+            lambda name, parent: parent.tree.get_selected_tracks()
+        )
+        context['selection-empty'] = (
+            lambda name, parent: parent.tree.get_selection_empty()
+        )
         return context
 
 
@@ -185,15 +184,15 @@ class FilesContextMenu(menu.MultiProviderMenu):
 
     def get_context(self):
         context = common.LazyDict(self._parent)
-        context[
-            'needs-computing'
-        ] = lambda name, parent: parent.tree.get_selection_is_computed()
-        context[
-            'selected-tracks'
-        ] = lambda name, parent: parent.tree.get_selected_tracks()
-        context[
-            'selection-empty'
-        ] = lambda name, parent: parent.tree.get_selection_empty()
+        context['needs-computing'] = (
+            lambda name, parent: parent.tree.get_selection_is_computed()
+        )
+        context['selected-tracks'] = (
+            lambda name, parent: parent.tree.get_selected_tracks()
+        )
+        context['selection-empty'] = (
+            lambda name, parent: parent.tree.get_selection_empty()
+        )
 
         return context
 
@@ -202,7 +201,6 @@ class FilesContextMenu(menu.MultiProviderMenu):
 
 
 def __create_playlist_panel_menus():
-
     # w, n, o, c: window, name, parent, context
 
     menu.simple_menu_item(
@@ -250,7 +248,6 @@ class PlaylistPanelMenu(menu.ProviderMenu):
 
 
 def __create_playlist_panel_playlist_menus():
-
     items = []
 
     items.append(menu.simple_separator('pp-top-sep', ['properties']))
@@ -297,18 +294,18 @@ class PlaylistsPanelPlaylistMenu(menu.MultiProviderMenu):
 
     def get_context(self):
         context = common.LazyDict(self._parent)
-        context[
-            'needs-computing'
-        ] = lambda name, parent: parent.tree.get_selection_is_computed()
-        context[
-            'selected-playlist'
-        ] = lambda name, parent: parent.tree.get_selected_page(raw=True)
-        context[
-            'selected-tracks'
-        ] = lambda name, parent: parent.tree.get_selected_tracks()
-        context[
-            'selection-empty'
-        ] = lambda name, parent: parent.tree.get_selection_empty()
+        context['needs-computing'] = (
+            lambda name, parent: parent.tree.get_selection_is_computed()
+        )
+        context['selected-playlist'] = (
+            lambda name, parent: parent.tree.get_selected_page(raw=True)
+        )
+        context['selected-tracks'] = (
+            lambda name, parent: parent.tree.get_selected_tracks()
+        )
+        context['selection-empty'] = (
+            lambda name, parent: parent.tree.get_selection_empty()
+        )
         return context
 
 
@@ -316,7 +313,6 @@ class PlaylistsPanelPlaylistMenu(menu.MultiProviderMenu):
 
 
 def __create_radio_panel_menus():
-
     # w, n, o, c: window, name, parent, context
 
     menu.simple_menu_item(
@@ -345,13 +341,13 @@ class RadioPanelPlaylistMenu(menu.MultiProviderMenu):
 
     def get_context(self):
         context = common.LazyDict(self._parent)
-        context[
-            'selected-playlist'
-        ] = lambda name, parent: parent.tree.get_selected_page(raw=True)
-        context[
-            'selected-tracks'
-        ] = lambda name, parent: parent.tree.get_selected_tracks()
-        context[
-            'selection-empty'
-        ] = lambda name, parent: parent.tree.get_selection_empty()
+        context['selected-playlist'] = (
+            lambda name, parent: parent.tree.get_selected_page(raw=True)
+        )
+        context['selected-tracks'] = (
+            lambda name, parent: parent.tree.get_selected_tracks()
+        )
+        context['selection-empty'] = (
+            lambda name, parent: parent.tree.get_selection_empty()
+        )
         return context

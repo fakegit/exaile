@@ -21,11 +21,11 @@ jobs:
     strategy:
       matrix:
         imgtag:
-          - debian-10
+          - debian-11
           - debian-stable
-          - fedora-33
+          - fedora-37
           - fedora-latest
-          - ubuntu-18.04
+          - ubuntu-20.04
           - ubuntu-rolling
     timeout-minutes: 4
     runs-on: ubuntu-latest
@@ -73,27 +73,3 @@ jobs:
             --draft \
             --title "Exaile ${version}" \
             --notes "${notes}"
-
-  # TODO: Waiting for https://github.com/Shizmob/pydle/issues/151
-  # notify:
-  #   if: always() && github.repository_owner == 'exaile'
-  #   needs: [lint, test, deploy]
-  #   timeout-minutes: 1
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Install dependencies
-  #       run: pip3 install pydle
-  #     - name: Send IRC notification
-  #       run: |
-  #         printf '%s | lint %s | test %s | deploy %s | %s' \
-  #           "${GITHUB_REF#refs/*/}" \
-  #           '${{ needs.lint.result }}' \
-  #           '${{ needs.test.result }}' \
-  #           '${{ needs.deploy.result }}' \
-  #           'http://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}' \
-  #         | python3 -m pydle.utils.irccat \
-  #           --port 6697 \
-  #           --tls --verify-tls \
-  #           --nickname 'exaile-ci' \
-  #           --channel '#exaile' \
-  #           chat.freenode.net

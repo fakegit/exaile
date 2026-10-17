@@ -25,7 +25,6 @@ gi.require_version('Keybinder', '3.0')
 
 from gi.repository import Keybinder
 
-
 LOGGER = logging.getLogger(__name__)
 
 KEYS = [
@@ -44,15 +43,7 @@ class KeybinderPlugin:
         self.__exaile = None
 
     def enable(self, exaile):
-        broken = False
-        if hasattr(Keybinder, 'supported'):
-            # introduced in Keybinder-3.0 0.3.2, see
-            # https://github.com/kupferlauncher/keybinder/blob/master/NEWS
-            if not Keybinder.supported():
-                broken = True
-        elif not guiutil.platform_is_x11():
-            broken = True
-        if broken:
+        if not Keybinder.supported():
             raise Exception(
                 _(
                     'Keybinder is not supported on this platform! '

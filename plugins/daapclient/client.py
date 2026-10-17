@@ -4,7 +4,6 @@ from io import BytesIO
 
 from spydaap.daap import DAAPError, DAAPObject, DAAPParseCodeTypes
 
-
 log = logging.getLogger('daapclient')
 
 
@@ -12,8 +11,6 @@ class DAAPClient:
     def __init__(self):
         self.socket = None
         self.request_id = 0
-
-    #        self._old_itunes = 0
 
     def connect(self, hostname, port=3689, password=None, user_agent=None):
         if self.socket is not None:
@@ -61,10 +58,7 @@ class DAAPClient:
         if self.request_id > 0:
             headers['Client-DAAP-Request-ID'] = self.request_id
 
-        #        if (self._old_itunes):
-        #            headers[ 'Client-DAAP-Validation' ] = hash_v2(r, 2)
-        #        else:
-        #            headers[ 'Client-DAAP-Validation' ] = hash_v3(r, 2, self.request_id)
+        # headers[ 'Client-DAAP-Validation' ] = hash_v3(r, 2, self.request_id)
 
         # there are servers that don't allow >1 download from a single HTTP
         # session, or something. Reset the connection each time. Thanks to
@@ -131,15 +125,6 @@ class DAAPClient:
 
     def getInfo(self):
         self.request('/server-info')
-
-        # detect the 'old' iTunes 4.2 servers, and set a flag, so we use
-        # the real MD5 hash algo to verify requests.
-
-    #        version = response.getAtom("apro") or response.getAtom("ppro")
-    #        if int(version) == 2:
-    #            self._old_itunes = 1
-
-    # response.printTree()
 
     def login(self):
         response = self.request("/login")
@@ -228,7 +213,6 @@ class DAAPPlaylist:
 
 
 class DAAPTrack:
-
     attrmap = {
         'name': 'minm',
         'artist': 'asar',
@@ -252,7 +236,7 @@ class DAAPTrack:
 
     def request(self):
         """returns a 'response' object for the track's mp3 data.
-        presumably you can strem from this or something"""
+        presumably you can stream from this or something"""
 
         # gotta bump this every track download
         self.database.session.connection.request_id += 1
